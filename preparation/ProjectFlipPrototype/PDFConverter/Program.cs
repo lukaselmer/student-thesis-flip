@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace PdfConverter
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             if (!CheckForValidArgs(args))
             {
@@ -26,6 +26,5 @@ namespace PdfConverter
             Console.WriteLine("Converts a PDF to a XPS file.\n\n" +
                               "PDFConverter source destination [AcroRd32_path]");
         }
-
     }
 }

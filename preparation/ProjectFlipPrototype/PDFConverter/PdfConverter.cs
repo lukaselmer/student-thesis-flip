@@ -1,21 +1,23 @@
 ﻿using System;
+using System.Diagnostics;
+using System.IO;
 
 namespace PdfConverter
 {
     internal class PdfConverter
     {
-        public static string AcrobatLocation { get; set; }
-
         public PdfConverter()
         {
             AcrobatLocation = @"C:\Program Files (x86)\Adobe\Reader 10.0\Reader\AcroRd32.exe";
         }
 
+        public static string AcrobatLocation { get; set; }
+
         public void Convert(string from, string to)
         {
             if (!RequirementsOk(from, to)) return;
 
-            var args = "/N /T " + from + " \"Microsoft XPS Document Writer\" /t " + to;
+            string args = "/N /T " + from + " \"Microsoft XPS Document Writer\" /t " + to;
             Console.WriteLine(ExecCommand(AcrobatLocation, args)
                                   ? "XPS generated successful"
                                   : "XPS could not be generated: Timeout!");
@@ -43,16 +45,16 @@ namespace PdfConverter
 
         private static bool ExecCommand(string exe, string args)
         {
-            var proc = new System.Diagnostics.Process { StartInfo = { FileName = exe, Arguments = args }, EnableRaisingEvents = false };
+            var proc = new Process {StartInfo = {FileName = exe, Arguments = args}, EnableRaisingEvents = false};
             proc.Start();
-            var res = proc.WaitForExit(10000);
+            bool res = proc.WaitForExit(10000);
             if (!res) proc.Kill();
             return res;
         }
 
         private static bool FileExists(string possibleAcrobatLocation)
         {
-            return System.IO.File.Exists(possibleAcrobatLocation);
+            return File.Exists(possibleAcrobatLocation);
         }
     }
 }
