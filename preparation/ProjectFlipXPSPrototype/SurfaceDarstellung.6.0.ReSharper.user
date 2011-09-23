@@ -1,0 +1,106 @@
+<Configuration>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="F288AC0E-6BFC-4D14-BE67-274750258406/f:SurfaceWindow1.xaml.cs" caret="422" fromTop="9" />
+      <File id="F288AC0E-6BFC-4D14-BE67-274750258406/f:SurfaceWindow1.xaml" caret="349" fromTop="4" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="F288AC0E-6BFC-4D14-BE67-274750258406/f:SurfaceWindow1.xaml.cs" caret="0" fromTop="0" />
+      <File id="F288AC0E-6BFC-4D14-BE67-274750258406/f:SurfaceWindow1.xaml" caret="388" fromTop="8" />
+      <File id="F288AC0E-6BFC-4D14-BE67-274750258406/f:SurfaceWindow1.xaml.cs" caret="642" fromTop="19" />
+      <File id="F288AC0E-6BFC-4D14-BE67-274750258406/f:SurfaceWindow1.xaml.cs" caret="438" fromTop="14" />
+      <File id="F288AC0E-6BFC-4D14-BE67-274750258406/f:SurfaceWindow1.xaml.cs" caret="1915" fromTop="25" />
+      <File id="F288AC0E-6BFC-4D14-BE67-274750258406/f:SurfaceWindow1.xaml" caret="388" fromTop="8" />
+      <File id="F288AC0E-6BFC-4D14-BE67-274750258406/f:SurfaceWindow1.xaml" caret="1855" fromTop="23" />
+      <File id="F288AC0E-6BFC-4D14-BE67-274750258406/f:SurfaceWindow1.xaml.cs" caret="4599" fromTop="23" />
+      <File id="F288AC0E-6BFC-4D14-BE67-274750258406/f:SurfaceWindow1.xaml.cs" caret="1915" fromTop="8" />
+      <File id="F288AC0E-6BFC-4D14-BE67-274750258406/f:SurfaceWindow1.xaml.cs" caret="2060" fromTop="15" />
+      <File id="F288AC0E-6BFC-4D14-BE67-274750258406/f:SurfaceWindow1.xaml.cs" caret="1819" fromTop="14" />
+      <File id="F288AC0E-6BFC-4D14-BE67-274750258406/f:SurfaceWindow1.xaml.cs" caret="1551" fromTop="12" />
+      <File id="F288AC0E-6BFC-4D14-BE67-274750258406/f:SurfaceWindow1.xaml.cs" caret="1183" fromTop="4" />
+      <File id="F288AC0E-6BFC-4D14-BE67-274750258406/f:SurfaceWindow1.xaml" caret="429" fromTop="5" />
+      <File id="F288AC0E-6BFC-4D14-BE67-274750258406/f:SurfaceWindow1.xaml" caret="2156" fromTop="3" />
+      <File id="F288AC0E-6BFC-4D14-BE67-274750258406/f:SurfaceWindow1.xaml.cs" caret="2119" fromTop="15" />
+      <File id="F288AC0E-6BFC-4D14-BE67-274750258406/f:SurfaceWindow1.xaml.cs" caret="1915" fromTop="5" />
+      <File id="F288AC0E-6BFC-4D14-BE67-274750258406/f:SurfaceWindow1.xaml.cs" caret="2429" fromTop="14" />
+    </RecentEdits>
+  </RecentFiles>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="XamlCodeCompletionContext">
+      <Item value="Disabled" priority="5" />
+      <Item value="Gray" priority="5" />
+    </ItemStatistics>
+    <ItemStatistics item="CSharpCodeCompletionContext">
+      <Item value="using" priority="92" />
+      <Item value="System" priority="123" />
+      <Item value="IO" priority="53" />
+      <Item value="Windows" priority="53" />
+      <Item value="Xps" priority="26" />
+      <Item value="Packaging" priority="26" />
+      <Item value="XpsDocument`0" priority="31" />
+      <Item value="XpsDocument" priority="28" />
+      <Item value="FileAccess`0" priority="26" />
+      <Item value="docViewer" priority="63" />
+      <Item value="doc" priority="63" />
+      <Item value="docContainer" priority="58" />
+      <Item value="d" priority="31" />
+      <Item value="return" priority="31" />
+      <Item value="WindowStartupLocation" priority="31" />
+      <Item value="Console`0" priority="26" />
+      <Item value="dv" priority="63" />
+      <Item value="Button`0" priority="26" />
+      <Item value="new" priority="63" />
+      <Item value="Button" priority="28" />
+      <Item value="SurfaceButton`0" priority="85" />
+      <Item value="SurfaceButton" priority="28" />
+      <Item value="sb" priority="58" />
+      <Item value="Resources" priority="31" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.FileAccess">
+      <Item value="Read" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.DocumentViewer">
+      <Item value="Document" priority="53" />
+      <Item value="FitToWidth`0" priority="26" />
+      <Item value="Style" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Xps.Packaging.XpsDocument">
+      <Item value="GetFixedDocumentSequence`0" priority="26" />
+      <Item value="Close`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Surface.Presentation.Controls.ScatterView">
+      <Item value="Items" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.ItemCollection">
+      <Item value="Add`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Threading.Tasks.Parallel">
+      <Item value="For`0" priority="45" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Console">
+      <Item value="WriteLine`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Surface.Presentation.Controls.SurfaceButton">
+      <Item value="TextInput" priority="26" />
+      <Item value="Content" priority="26" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+</Configuration>
