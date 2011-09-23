@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+<Relationship Target="/Documents/1/Metadata/Page1_PT.xml" Id="R0" Type="http://schemas.microsoft.com/xps/2005/06/printticket"/>
+<Relationship Target="/Documents/1/Resources/Images/1.JPG" Id="R1" Type="http://schemas.microsoft.com/xps/2005/06/required-resource"/>
+<Relationship Target="/Documents/1/Resources/Images/2.JPG" Id="R2" Type="http://schemas.microsoft.com/xps/2005/06/required-resource"/>
+<Relationship Target="/Documents/1/Resources/Images/3.JPG" Id="R3" Type="http://schemas.microsoft.com/xps/2005/06/required-resource"/>
+<Relationship Target="/Resources/_D1.dict" Id="R4" Type="http://schemas.microsoft.com/xps/2005/06/required-resource"/>
+</Relationships>

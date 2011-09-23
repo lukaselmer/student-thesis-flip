@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -31,23 +32,40 @@ namespace SurfaceDarstellung
         /// </summary>
         public SurfaceWindow1()
         {
+            //Language = XmlLanguage.GetLanguage(System.Globalization.CultureInfo.CurrentCulture.IetfLanguageTag);  
             InitializeComponent();
             // Add handlers for window availability events
             AddWindowAvailabilityHandlers();
-
+            Console.WriteLine(Language);
             //add buttons
             for (int i = 0; i < 5; i++)
             {
                 SurfaceButton sb = new SurfaceButton();
                 sb.Content = "test" + i +".xps";
                 docContainer.Items.Add(sb);
-                DocumentViewer dv = new DocumentViewer();
+                sb.AddHandler(SurfaceButton.ClickEvent, new RoutedEventHandler(OnButtonClick));
             }
-            
-            //XpsDocument doc = new XpsDocument(@"C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\SurfaceDarstellung\SurfaceDarstellung\xpss\test.xps", FileAccess.Read);
-            //docViewer.Document = doc.GetFixedDocumentSequence();
-            //docViewer.FitToWidth();
-            //doc.Close();
+        }
+
+        private void OnButtonClick(object sender, RoutedEventArgs e)
+        {
+            SurfaceButton b = sender as SurfaceButton;
+            DocumentViewer docViewer = new DocumentViewer();
+            docViewer.Margin = new Thickness(20);
+            docViewer.Language = Language;
+            XpsDocument doc = new XpsDocument(@"D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\xpss\" + b.Content.ToString(), FileAccess.ReadWrite);
+            docViewer.Document = doc.GetFixedDocumentSequence();
+            docViewer.FitToWidth();
+            //docViewer.AddHandler();
+            doc.Close();
+            docContainer.Items.Add(docViewer);
+            docContainer.Items.Remove(b);
+        }
+
+        private void DocumentViewerSizeChanged(object sender, RoutedEventArgs e)
+        {
+            DocumentViewer docViewer = sender as DocumentViewer;
+            docViewer.FitToWidth();
         }
 
         /// <summary>
