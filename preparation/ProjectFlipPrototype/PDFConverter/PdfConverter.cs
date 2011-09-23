@@ -45,7 +45,7 @@ namespace PdfConverter
 
         private static bool ExecCommand(string exe, string args)
         {
-            var proc = new Process {StartInfo = {FileName = exe, Arguments = args}, EnableRaisingEvents = false};
+            var proc = new Process { StartInfo = { FileName = exe, Arguments = args }, EnableRaisingEvents = false };
             proc.Start();
             bool res = proc.WaitForExit(10000);
             if (!res) proc.Kill();
