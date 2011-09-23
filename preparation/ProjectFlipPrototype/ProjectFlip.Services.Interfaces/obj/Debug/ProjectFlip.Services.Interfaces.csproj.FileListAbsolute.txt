@@ -1,0 +1,5 @@
+C:\Users\moc\Projects\Project Flip\ProjectFlipPrototype\ProjectFlip.Services.Interfaces\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\moc\Projects\Project Flip\ProjectFlipPrototype\ProjectFlip.Services.Interfaces\bin\Debug\ProjectFlip.Services.Interfaces.dll
+C:\Users\moc\Projects\Project Flip\ProjectFlipPrototype\ProjectFlip.Services.Interfaces\bin\Debug\ProjectFlip.Services.Interfaces.pdb
+C:\Users\moc\Projects\Project Flip\ProjectFlipPrototype\ProjectFlip.Services.Interfaces\obj\Debug\ProjectFlip.Services.Interfaces.dll
+C:\Users\moc\Projects\Project Flip\ProjectFlipPrototype\ProjectFlip.Services.Interfaces\obj\Debug\ProjectFlip.Services.Interfaces.pdb
