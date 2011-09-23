@@ -1,6 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Linq;
 
 namespace PdfConverter
 {
@@ -23,7 +21,7 @@ namespace PdfConverter
                                   : "XPS could not be generated: Timeout!");
         }
 
-        private bool RequirementsOk(string from, string to)
+        private static bool RequirementsOk(string from, string to)
         {
             if (!FileExists(AcrobatLocation))
             {
