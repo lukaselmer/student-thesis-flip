@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace PdfConverter
 {
@@ -9,18 +7,22 @@ namespace PdfConverter
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(args[0]);
             if (!CheckForValidArgs(args))
             {
                 PrintUsage();
                 return;
             }
+            if (!PdfConverter.HasValidAcrobatLocation())
+            {
+                Console.WriteLine("PDF Reader (AcroRd32.exe) not found.");
+                return;
+            }
             new PdfConverter().Convert(args[0], args[1]);
         }
 
-        private static bool CheckForValidArgs(string[] args)
+        private static bool CheckForValidArgs(ICollection<string> args)
         {
-            return args.Length == 2;
+            return args.Count == 2;
         }
 
         private static void PrintUsage()
