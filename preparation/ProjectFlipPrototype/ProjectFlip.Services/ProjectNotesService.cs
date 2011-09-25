@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using ProjectFlip.Services;
 using ProjectFlip.Services.Interfaces;
 
-namespace HSR.ProjectFlip.Services
+namespace ProjectFlip.Services
 {
     public class ProjectNotesService : IProjectNotesService
     {

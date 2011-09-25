@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 
-namespace PdfConverter
+namespace ProjectFlip.PdfConverter
 {
     internal class PdfConverter
     {

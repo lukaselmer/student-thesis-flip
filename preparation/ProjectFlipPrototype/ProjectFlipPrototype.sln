@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.Services.Interf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.UserInterface", "ProjectFlip.UserInterface\ProjectFlip.UserInterface.csproj", "{0CB7F549-5404-4705-B38A-1C70829BC9B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDFConverter", "PDFConverter\PDFConverter.csproj", "{2C982C06-FFDC-4B54-A05E-26FC606FF552}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.PDFConverter", "PDFConverter\ProjectFlip.PDFConverter.csproj", "{2C982C06-FFDC-4B54-A05E-26FC606FF552}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

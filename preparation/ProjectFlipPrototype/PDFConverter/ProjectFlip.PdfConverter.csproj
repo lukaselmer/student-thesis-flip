@@ -8,8 +8,8 @@
     <ProjectGuid>{2C982C06-FFDC-4B54-A05E-26FC606FF552}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PdfConverter</RootNamespace>
-    <AssemblyName>PDFConverter</AssemblyName>
+    <RootNamespace>ProjectFlip.PdfConverter</RootNamespace>
+    <AssemblyName>ProjectFlip.PdfConverter</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>

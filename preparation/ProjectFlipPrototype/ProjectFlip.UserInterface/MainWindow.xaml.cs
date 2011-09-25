@@ -1,7 +1,6 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 
-namespace HSR.ProjectFlip
+namespace ProjectFlip.UserInterface
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

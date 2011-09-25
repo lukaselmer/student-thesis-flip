@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ProjectFlip.Services.Interfaces
+﻿namespace ProjectFlip.Services.Interfaces
 {
     public interface ILogService
     {

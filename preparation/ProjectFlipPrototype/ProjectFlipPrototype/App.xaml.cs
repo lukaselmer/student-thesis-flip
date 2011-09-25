@@ -1,10 +1,10 @@
 ﻿using System.Windows;
-using HSR.ProjectFlip.Services;
 using Microsoft.Practices.Unity;
 using ProjectFlip.Services;
 using ProjectFlip.Services.Interfaces;
+using ProjectFlip.UserInterface;
 
-namespace HSR.ProjectFlip
+namespace ProjectFlip
 {
     /// <summary>
     /// Interaction logic for App.xaml

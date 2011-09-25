@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PdfConverter
+namespace ProjectFlip.PdfConverter
 {
     internal class Program
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Input;
 
-namespace HSR.ProjectFlip
+namespace ProjectFlip.UserInterface
 {
     public class Command : ICommand
     {

@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using System.Windows.Data;
-using System.Windows.Input;
 using ProjectFlip.Services.Interfaces;
 
-namespace HSR.ProjectFlip
+namespace ProjectFlip.UserInterface
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
