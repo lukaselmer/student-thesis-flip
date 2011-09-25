@@ -12,8 +12,8 @@ namespace ProjectFlip.PdfConverter
                 PrintUsage();
                 return;
             }
-            if (args.Length == 3) PdfConverter.AcrobatLocation = args[2];
-            new PdfConverter().Convert(args[0], args[1]);
+            var p = args.Length == 3 ? new PdfConverter(args[2]) : new PdfConverter();
+            p.Convert(args[0], args[1]);
         }
 
         private static bool CheckForValidArgs(ICollection<string> args)

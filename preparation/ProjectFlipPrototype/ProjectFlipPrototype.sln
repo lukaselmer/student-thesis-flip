@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.Services.Interf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.UserInterface", "ProjectFlip.UserInterface\ProjectFlip.UserInterface.csproj", "{0CB7F549-5404-4705-B38A-1C70829BC9B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.PDFConverter", "PDFConverter\ProjectFlip.PDFConverter.csproj", "{2C982C06-FFDC-4B54-A05E-26FC606FF552}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.PdfConverter", "PDFConverter\ProjectFlip.PdfConverter.csproj", "{2C982C06-FFDC-4B54-A05E-26FC606FF552}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.PdfConverter.Interfaces", "ProjectFlip.PdfConverter.Interfaces\ProjectFlip.PdfConverter.Interfaces.csproj", "{C7ED502D-A83D-49A9-B0A5-1532EE193887}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,16 @@ Global
 		{2C982C06-FFDC-4B54-A05E-26FC606FF552}.Release|Mixed Platforms.Build.0 = Release|x86
 		{2C982C06-FFDC-4B54-A05E-26FC606FF552}.Release|x86.ActiveCfg = Release|x86
 		{2C982C06-FFDC-4B54-A05E-26FC606FF552}.Release|x86.Build.0 = Release|x86
+		{C7ED502D-A83D-49A9-B0A5-1532EE193887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7ED502D-A83D-49A9-B0A5-1532EE193887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7ED502D-A83D-49A9-B0A5-1532EE193887}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C7ED502D-A83D-49A9-B0A5-1532EE193887}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C7ED502D-A83D-49A9-B0A5-1532EE193887}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C7ED502D-A83D-49A9-B0A5-1532EE193887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7ED502D-A83D-49A9-B0A5-1532EE193887}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7ED502D-A83D-49A9-B0A5-1532EE193887}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C7ED502D-A83D-49A9-B0A5-1532EE193887}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C7ED502D-A83D-49A9-B0A5-1532EE193887}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

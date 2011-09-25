@@ -1,29 +1,35 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using ProjectFlip.PdfConverter.Interfaces;
 
 namespace ProjectFlip.PdfConverter
 {
-    internal class PdfConverter
+    internal class PdfConverter : IPdfConverter
     {
         public PdfConverter()
+            : this(@"C:\Program Files (x86)\Adobe\Reader 10.0\Reader\AcroRd32.exe")
         {
-            AcrobatLocation = @"C:\Program Files (x86)\Adobe\Reader 10.0\Reader\AcroRd32.exe";
+        }
+        public PdfConverter(string acrobatLocation)
+        {
+            AcrobatLocation = acrobatLocation;
         }
 
-        public static string AcrobatLocation { get; set; }
+        public string AcrobatLocation { get; set; }
 
-        public void Convert(string from, string to)
+        public bool Convert(string from, string to)
         {
-            if (!RequirementsOk(from, to)) return;
+            if (!RequirementsOk(from, to)) return false;
 
             string args = "/N /T " + from + " \"Microsoft XPS Document Writer\" /t " + to;
             Console.WriteLine(ExecCommand(AcrobatLocation, args)
                                   ? "XPS generated successful"
                                   : "XPS could not be generated: Timeout!");
+            return true;
         }
 
-        private static bool RequirementsOk(string from, string to)
+        private bool RequirementsOk(string from, string to)
         {
             if (!FileExists(AcrobatLocation))
             {
@@ -43,7 +49,7 @@ namespace ProjectFlip.PdfConverter
             return true;
         }
 
-        private static bool ExecCommand(string exe, string args)
+        private bool ExecCommand(string exe, string args)
         {
             var proc = new Process { StartInfo = { FileName = exe, Arguments = args }, EnableRaisingEvents = false };
             proc.Start();
@@ -52,7 +58,7 @@ namespace ProjectFlip.PdfConverter
             return res;
         }
 
-        private static bool FileExists(string possibleAcrobatLocation)
+        private bool FileExists(string possibleAcrobatLocation)
         {
             return File.Exists(possibleAcrobatLocation);
         }
