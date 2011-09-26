@@ -1,6 +1,4 @@
-using System.Windows.Media.Imaging;
-using System.Windows.Xps.Packaging;
-
+using System.Windows.Documents;
 
 namespace ProjectFlip.Services.Interfaces
 {
@@ -14,7 +12,6 @@ namespace ProjectFlip.Services.Interfaces
         /// <summary>
         /// Gets or sets the image.
         /// </summary>
-        XpsDocument Document { get; set; }
-
-        }
+        IDocumentPaginatorSource Document { get; }
+    }
 }
