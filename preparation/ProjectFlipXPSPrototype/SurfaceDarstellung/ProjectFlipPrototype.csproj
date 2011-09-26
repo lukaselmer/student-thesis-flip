@@ -38,6 +38,7 @@
   <ItemGroup>
     <Reference Include="PresentationUI" />
     <Reference Include="ReachFramework" />
+    <Reference Include="sysglobl" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />

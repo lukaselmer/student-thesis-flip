@@ -17,12 +17,12 @@ namespace ProjectFlip.Services
             //        Directory.GetFiles(@"C:\Users\Public\Pictures\Sample Pictures", "*.jpg"))
             //    .Select(f => new ProjectNote(f)));
 
-            var files = Directory.GetFiles(@"C:\Users\Public\Pictures\Sample Pictures", "*.jpg");
-            foreach (var file in files)
-            {
-                _projectNotes.Add(new ProjectNote(file));
-            }
-            _logService.Log("Project notes loaded...");
+            //var files = Directory.GetFiles(@"C:\Users\Public\Pictures\Sample Pictures", "*.jpg");
+            //foreach (var file in files)
+            //{
+            //    _projectNotes.Add(new ProjectNote(file));
+            //}
+            //_logService.Log("Project notes loaded...");
         }
 
         public List<IProjectNote> ProjectNotes

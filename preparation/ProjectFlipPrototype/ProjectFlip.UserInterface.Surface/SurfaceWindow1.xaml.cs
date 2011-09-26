@@ -26,12 +26,13 @@ namespace ProjectFlip.UserInterface.Surface
         /// <summary>
         /// Default constructor.
         /// </summary>
-        public SurfaceWindow1()
+        public SurfaceWindow1(SurfaceWindowViewModel surfaceWindowViewModel)
         {
             InitializeComponent();
-
+            DataContext = surfaceWindowViewModel;
             // Add handlers for window availability events
             AddWindowAvailabilityHandlers();
+            
         }
 
         /// <summary>

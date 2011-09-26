@@ -1,0 +1,17 @@
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\bin\Debug\Resources\icon.png
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\bin\Debug\ProjectFlipXPSPrototype.xml
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\bin\Debug\SurfaceDarstellung.exe
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\bin\Debug\SurfaceDarstellung.pdb
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\ResolveAssemblyReference.cache
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceWindow1.baml
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\App.baml
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceWindow1.g.cs
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\App.g.cs
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceDarstellung_Content.g.cs
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceDarstellung_MarkupCompile.cache
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceDarstellung.g.resources
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceDarstellung.Properties.Resources.resources
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\GenerateResource.read.1.tlog
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\GenerateResource.write.1.tlog
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceDarstellung.exe
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceDarstellung.pdb

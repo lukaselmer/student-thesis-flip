@@ -5,7 +5,7 @@
     Title="ProjectFlip.UserInterface.Surface"
     >
   <Grid>
-        <s:ScatterView Background="Gray" x:Name="scatterView">
+        <s:ScatterView Background="Gray" x:Name="scatterView" ItemsSource="Binding Buttons">
         </s:ScatterView>
     </Grid>
 </s:SurfaceWindow>

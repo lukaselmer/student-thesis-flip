@@ -102,6 +102,10 @@
       <Project>{EBEFD9BE-F2F4-402F-9C36-A8433CEFE327}</Project>
       <Name>ProjectFlip.Services.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProjectFlip.UserInterface\ProjectFlip.UserInterface.csproj">
+      <Project>{0CB7F549-5404-4705-B38A-1C70829BC9B8}</Project>
+      <Name>ProjectFlip.UserInterface</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

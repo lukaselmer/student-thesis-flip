@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,7 +33,13 @@ namespace SurfaceDarstellung
         /// </summary>
         public SurfaceWindow1()
         {
-            //Language = XmlLanguage.GetLanguage(System.Globalization.CultureInfo.CurrentCulture.IetfLanguageTag);  
+            //CultureAndRegionInfoBuilder cib = new CultureAndRegionInfoBuilder("und", CultureAndRegionModifiers.None);
+            //CultureInfo ci = new CultureInfo("en-US");
+            //cib.LoadDataFromCultureInfo(ci);
+            //RegionInfo ri = new RegionInfo("US");
+            //cib.LoadDataFromRegionInfo(ri);
+            //cib.Register();
+            
             InitializeComponent();
             // Add handlers for window availability events
             AddWindowAvailabilityHandlers();
@@ -45,6 +52,7 @@ namespace SurfaceDarstellung
                 docContainer.Items.Add(sb);
                 sb.AddHandler(SurfaceButton.ClickEvent, new RoutedEventHandler(OnButtonClick));
             }
+
         }
 
         private void OnButtonClick(object sender, RoutedEventArgs e)
@@ -53,10 +61,9 @@ namespace SurfaceDarstellung
             DocumentViewer docViewer = new DocumentViewer();
             docViewer.Margin = new Thickness(20);
             docViewer.Language = Language;
-            XpsDocument doc = new XpsDocument(@"D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\xpss\" + b.Content.ToString(), FileAccess.ReadWrite);
+            XpsDocument doc = new XpsDocument(@"D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\xpss\" + b.Content, FileAccess.Read);
             docViewer.Document = doc.GetFixedDocumentSequence();
             docViewer.FitToWidth();
-            //docViewer.AddHandler();
             doc.Close();
             docContainer.Items.Add(docViewer);
             docContainer.Items.Remove(b);
