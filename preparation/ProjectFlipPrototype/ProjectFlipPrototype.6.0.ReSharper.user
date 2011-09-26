@@ -1,11 +1,33 @@
 <Configuration>
   <RecentFiles>
     <RecentFiles>
-      <File id="0CB7F549-5404-4705-B38A-1C70829BC9B8/f:MainWindowViewModel.cs" caret="501" fromTop="17" />
-      <File id="C7ED502D-A83D-49A9-B0A5-1532EE193887/f:IPdfConverter.cs" caret="0" fromTop="0" />
+      <File id="902C8F58-4CA9-4D16-AA01-C897FF205111/f:ConsoleLogService.cs" caret="0" fromTop="0" />
+      <File id="0CB7F549-5404-4705-B38A-1C70829BC9B8/f:MainWindow.xaml" caret="0" fromTop="0" />
+      <File id="EBEFD9BE-F2F4-402F-9C36-A8433CEFE327/f:IProjectNotesService.cs" caret="0" fromTop="0" />
+      <File id="5DE0AEBD-753D-4F52-A062-75BC6DE1FB23/f:SurfaceWindow1.xaml.cs" caret="702" fromTop="23" />
+      <File id="0CB7F549-5404-4705-B38A-1C70829BC9B8/f:Command.cs" caret="0" fromTop="0" />
+      <File id="0CB7F549-5404-4705-B38A-1C70829BC9B8/f:MainWindow.xaml.cs" caret="345" fromTop="12" />
+      <File id="EBEFD9BE-F2F4-402F-9C36-A8433CEFE327/f:IProjectNote.cs" caret="412" fromTop="16" />
+      <File id="3CC55C3F-3524-43F6-B7DD-5F3B3D591459/f:App.xaml.cs" caret="592" fromTop="20" />
+      <File id="5DE0AEBD-753D-4F52-A062-75BC6DE1FB23/f:SurfaceWindow1.xaml" caret="417" fromTop="8" />
+      <File id="902C8F58-4CA9-4D16-AA01-C897FF205111/f:ProjectNote.cs" caret="0" fromTop="0" />
+      <File id="902C8F58-4CA9-4D16-AA01-C897FF205111/f:ProjectNotesService.cs" caret="0" fromTop="0" />
+      <File id="0CB7F549-5404-4705-B38A-1C70829BC9B8/f:MainWindowViewModel.cs" caret="1255" fromTop="12" />
+      <File id="5DE0AEBD-753D-4F52-A062-75BC6DE1FB23/f:SurfaceWindowViewModel.cs" caret="661" fromTop="23" />
     </RecentFiles>
     <RecentEdits>
       <File id="0CB7F549-5404-4705-B38A-1C70829BC9B8/f:MainWindowViewModel.cs" caret="501" fromTop="17" />
+      <File id="3CC55C3F-3524-43F6-B7DD-5F3B3D591459/f:App.xaml.cs" caret="587" fromTop="21" />
+      <File id="3CC55C3F-3524-43F6-B7DD-5F3B3D591459/f:App.xaml.cs" caret="158" fromTop="4" />
+      <File id="EBEFD9BE-F2F4-402F-9C36-A8433CEFE327/f:IProjectNote.cs" caret="74" fromTop="1" />
+      <File id="EBEFD9BE-F2F4-402F-9C36-A8433CEFE327/f:IProjectNote.cs" caret="380" fromTop="16" />
+      <File id="EBEFD9BE-F2F4-402F-9C36-A8433CEFE327/f:IProjectNote.cs" caret="421" fromTop="16" />
+      <File id="5DE0AEBD-753D-4F52-A062-75BC6DE1FB23/f:SurfaceWindow1.xaml" caret="317" fromTop="6" />
+      <File id="5DE0AEBD-753D-4F52-A062-75BC6DE1FB23/f:SurfaceWindow1.xaml" caret="430" fromTop="21" />
+      <File id="5DE0AEBD-753D-4F52-A062-75BC6DE1FB23/f:SurfaceWindow1.xaml" caret="389" fromTop="4" />
+      <File id="5DE0AEBD-753D-4F52-A062-75BC6DE1FB23/f:SurfaceWindowViewModel.cs" caret="284" fromTop="11" />
+      <File id="5DE0AEBD-753D-4F52-A062-75BC6DE1FB23/f:SurfaceWindowViewModel.cs" caret="461" fromTop="17" />
+      <File id="5DE0AEBD-753D-4F52-A062-75BC6DE1FB23/f:SurfaceWindowViewModel.cs" caret="732" fromTop="24" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
@@ -26,4 +48,25 @@
       <setting name="SolutionAnalysisEnabled">False</setting>
     </boolean>
   </SettingsComponent>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="CSharpCodeCompletionContext">
+      <Item value="using" priority="30" />
+      <Item value="ProjectFlip" priority="30" />
+      <Item value="UserInterface" priority="26" />
+      <Item value="private" priority="31" />
+      <Item value="readonly" priority="31" />
+      <Item value="List" priority="63" />
+      <Item value="_project" priority="32" />
+      <Item value="public" priority="95" />
+      <Item value="SurfaceWindowViewModel`0" priority="31" />
+      <Item value="IProjectNotesService`0" priority="63" />
+      <Item value="projectNotesService" priority="64" />
+      <Item value="_projectNotes" priority="31" />
+      <Item value="IProjectNote`0" priority="31" />
+      <Item value="ProjectNotes" priority="31" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ProjectFlip.Services.Interfaces.IProjectNotesService">
+      <Item value="ProjectNotes" priority="26" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
 </Configuration>

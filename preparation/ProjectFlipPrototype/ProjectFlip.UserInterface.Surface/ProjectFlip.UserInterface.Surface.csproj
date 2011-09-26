@@ -55,6 +55,7 @@
     <Reference Include="Microsoft.Surface.Presentation.Generic" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SurfaceWindowViewModel.cs" />
     <Page Include="SurfaceWindow1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -95,6 +96,12 @@
     <Content Include="ProjectFlip.UserInterface.Surface.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectFlip.Services.Interfaces\ProjectFlip.Services.Interfaces.csproj">
+      <Project>{EBEFD9BE-F2F4-402F-9C36-A8433CEFE327}</Project>
+      <Name>ProjectFlip.Services.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

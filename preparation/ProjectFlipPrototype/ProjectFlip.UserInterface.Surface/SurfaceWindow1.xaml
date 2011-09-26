@@ -5,6 +5,7 @@
     Title="ProjectFlip.UserInterface.Surface"
     >
   <Grid>
-
-  </Grid>
+        <s:ScatterView Background="Gray" x:Name="scatterView">
+        </s:ScatterView>
+    </Grid>
 </s:SurfaceWindow>
