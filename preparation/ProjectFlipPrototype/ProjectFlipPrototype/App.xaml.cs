@@ -3,6 +3,7 @@ using Microsoft.Practices.Unity;
 using ProjectFlip.Services;
 using ProjectFlip.Services.Interfaces;
 using ProjectFlip.UserInterface;
+using ProjectFlip.UserInterface.Surface;
 
 namespace ProjectFlip
 {
@@ -17,7 +18,7 @@ namespace ProjectFlip
             
             ConfigueContainer(container);
 
-            var window = container.Resolve<MainWindow>();
+            var window = container.Resolve<SurfaceWindow1>();
             window.Show();
         }
 

@@ -1,4 +1,6 @@
 using System.Windows.Media.Imaging;
+using System.Windows.Xps.Packaging;
+
 
 namespace ProjectFlip.Services.Interfaces
 {
@@ -12,11 +14,7 @@ namespace ProjectFlip.Services.Interfaces
         /// <summary>
         /// Gets or sets the image.
         /// </summary>
-        BitmapImage Image { get; set; }
+        XpsDocument Document { get; set; }
 
-        /// <summary>
-        /// Gets or sets the view count.
-        /// </summary>
-        int ViewCount { get; set; }
-    }
+        }
 }

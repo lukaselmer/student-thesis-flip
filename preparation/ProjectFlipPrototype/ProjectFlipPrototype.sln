@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.PdfConverter", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.PdfConverter.Interfaces", "ProjectFlip.PdfConverter.Interfaces\ProjectFlip.PdfConverter.Interfaces.csproj", "{C7ED502D-A83D-49A9-B0A5-1532EE193887}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.UserInterface.Surface", "ProjectFlip.UserInterface.Surface\ProjectFlip.UserInterface.Surface.csproj", "{5DE0AEBD-753D-4F52-A062-75BC6DE1FB23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,16 @@ Global
 		{C7ED502D-A83D-49A9-B0A5-1532EE193887}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{C7ED502D-A83D-49A9-B0A5-1532EE193887}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{C7ED502D-A83D-49A9-B0A5-1532EE193887}.Release|x86.ActiveCfg = Release|Any CPU
+		{5DE0AEBD-753D-4F52-A062-75BC6DE1FB23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DE0AEBD-753D-4F52-A062-75BC6DE1FB23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DE0AEBD-753D-4F52-A062-75BC6DE1FB23}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5DE0AEBD-753D-4F52-A062-75BC6DE1FB23}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5DE0AEBD-753D-4F52-A062-75BC6DE1FB23}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5DE0AEBD-753D-4F52-A062-75BC6DE1FB23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DE0AEBD-753D-4F52-A062-75BC6DE1FB23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DE0AEBD-753D-4F52-A062-75BC6DE1FB23}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{5DE0AEBD-753D-4F52-A062-75BC6DE1FB23}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{5DE0AEBD-753D-4F52-A062-75BC6DE1FB23}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
