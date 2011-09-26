@@ -1,5 +1,7 @@
 ﻿using System.IO;
+using System.Windows.Documents;
 using System.Windows.Media.Imaging;
+using System.Windows.Xps.Packaging;
 using ProjectFlip.Services.Interfaces;
 
 namespace ProjectFlip.Services
@@ -24,7 +26,16 @@ namespace ProjectFlip.Services
         /// Gets or sets the name.
         /// </summary>
         public string Name { get; set; }
-       
+
+        public IDocumentPaginatorSource Document
+        {
+            get
+            {
+                var doc = new XpsDocument(@"Resources\Xps\test.xps", FileAccess.Read);
+                return doc.GetFixedDocumentSequence();
+            }
+        }
+
         /// <summary>
         /// Gets or sets the image.
         /// </summary>
