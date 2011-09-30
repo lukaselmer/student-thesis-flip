@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Windows.Documents;
 using System.Windows.Media.Imaging;
 using System.Windows.Xps.Packaging;
@@ -34,7 +35,14 @@ namespace ProjectFlip.Services
         /// <summary>
         /// Gets or sets the image.
         /// </summary>
-        public BitmapImage Image { get; set; }
+        public BitmapImage Image
+        {
+            get
+            {
+                var img = new BitmapImage(new Uri(@"D:\Flip Project 2.0\preparation\ProjectFlipPrototype\Resources\Xps\test.jpg"));
+                return img;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the view count.

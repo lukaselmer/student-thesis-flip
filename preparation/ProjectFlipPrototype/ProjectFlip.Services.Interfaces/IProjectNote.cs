@@ -1,4 +1,5 @@
 using System.Windows.Documents;
+using System.Windows.Media.Imaging;
 
 namespace ProjectFlip.Services.Interfaces
 {
@@ -7,11 +8,12 @@ namespace ProjectFlip.Services.Interfaces
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
-        string Name { get; set; }
+        string Name { get;}
 
+        BitmapImage Image { get;}
         /// <summary>
-        /// Gets or sets the image.
+        /// Gets or sets the document.
         /// </summary>
-        IDocumentPaginatorSource Document { get; }
+        IDocumentPaginatorSource Document { get;}
     }
 }

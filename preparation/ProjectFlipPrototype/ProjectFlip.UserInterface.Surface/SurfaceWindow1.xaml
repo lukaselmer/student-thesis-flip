@@ -10,11 +10,20 @@
                <DocumentViewer Document="{Binding Document}">
                 </DocumentViewer>
         </DataTemplate>
-        
+
+        <DataTemplate x:Key="ProjectNoteButtonTemplate">
+            <s:SurfaceButton Name="Button">
+                <StackPanel>
+                    <Image Width="100" Height="100" Source="{Binding Image}" />
+                    <TextBlock Text="{Binding Name}" TextTrimming="CharacterEllipsis" />
+                </StackPanel>
+            </s:SurfaceButton>
+        </DataTemplate>
+
     </s:SurfaceWindow.Resources>
         
   <Grid>
-        <s:ScatterView Background="Gray" x:Name="scatterView" ItemsSource="{Binding ProjectNotes}" ItemTemplate="{StaticResource ProjectNoteTemplate }">
+        <s:ScatterView Background="Gray" x:Name="scatterView" ItemsSource="{Binding ProjectNotes}" ItemTemplate="{StaticResource ProjectNoteButtonTemplate }">
             
         </s:ScatterView>
     </Grid>
