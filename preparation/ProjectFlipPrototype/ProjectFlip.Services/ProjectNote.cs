@@ -39,8 +39,11 @@ namespace ProjectFlip.Services
         {
             get
             {
-                var img = new BitmapImage(new Uri(@"D:\Flip Project 2.0\preparation\ProjectFlipPrototype\Resources\Xps\test.jpg"));
-                return img;
+                var image = new BitmapImage();
+                image.BeginInit();
+                image.StreamSource = File.OpenRead(@"..\..\..\Resources\Xps\test.jpg");
+                image.EndInit();
+                return image;
             }
         }
 
