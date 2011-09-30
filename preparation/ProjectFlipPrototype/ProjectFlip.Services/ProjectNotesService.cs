@@ -12,10 +12,11 @@ namespace ProjectFlip.Services
         public ProjectNotesService(ILogService logService)
         {
             _logService = logService;
-            _projectNotes.Add(new ProjectNote(@"D:\Flip Project 2.0\preparation\ProjectFlipPrototype\Resources\Xps\test.xps"));
-            _projectNotes.Add(new ProjectNote(@"D:\Flip Project 2.0\preparation\ProjectFlipPrototype\Resources\Xps\test.xps"));
-            _projectNotes.Add(new ProjectNote(@"D:\Flip Project 2.0\preparation\ProjectFlipPrototype\Resources\Xps\test.xps"));
-            //_projectNotes.AddRange(
+            for (int i = 0; i < 20; i++)
+            {
+                _projectNotes.Add(new ProjectNote(@"D:\Flip Project 2.0\preparation\ProjectFlipPrototype\Resources\Xps\test.xps"));    
+            }
+           //_projectNotes.AddRange(
             //    new List<string>(
             //        Directory.GetFiles(@"C:\Users\Public\Pictures\Sample Pictures", "*.jpg"))
             //    .Select(f => new ProjectNote(f)));
