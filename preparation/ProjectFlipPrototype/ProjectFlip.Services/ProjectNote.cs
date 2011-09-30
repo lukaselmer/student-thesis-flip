@@ -26,7 +26,7 @@ namespace ProjectFlip.Services
         {
             get
             {
-                var doc = new XpsDocument(@"D:\Flip Project 2.0\preparation\ProjectFlipPrototype\Resources\Xps\test.xps", FileAccess.Read);
+                var doc = new XpsDocument(@"..\..\..\Resources\Xps\test.xps", FileAccess.Read);
                 return doc.GetFixedDocumentSequence();
             }
         }
