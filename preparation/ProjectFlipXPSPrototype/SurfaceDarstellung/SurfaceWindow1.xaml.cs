@@ -33,12 +33,15 @@ namespace SurfaceDarstellung
         /// </summary>
         public SurfaceWindow1()
         {
-            //CultureAndRegionInfoBuilder cib = new CultureAndRegionInfoBuilder("und", CultureAndRegionModifiers.None);
-            //CultureInfo ci = new CultureInfo("en-US");
-            //cib.LoadDataFromCultureInfo(ci);
-            //RegionInfo ri = new RegionInfo("US");
-            //cib.LoadDataFromRegionInfo(ri);
-            //cib.Register();
+            if (false)
+            {
+                CultureAndRegionInfoBuilder cib = new CultureAndRegionInfoBuilder("und", CultureAndRegionModifiers.None);
+                CultureInfo ci = new CultureInfo("en-US");
+                cib.LoadDataFromCultureInfo(ci);
+                RegionInfo ri = new RegionInfo("US");
+                cib.LoadDataFromRegionInfo(ri);
+                cib.Register();
+            }
             
             InitializeComponent();
             // Add handlers for window availability events
