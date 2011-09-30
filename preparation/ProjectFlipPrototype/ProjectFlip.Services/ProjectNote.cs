@@ -15,12 +15,7 @@ namespace ProjectFlip.Services
             {
                 Name = fileNameWithoutExtension.Replace("_", " ");
             }
-
-            Image = new BitmapImage();
-            Image.BeginInit();
-            Image.StreamSource = File.OpenRead(file);
-            Image.EndInit();
-        }
+          }
 
         /// <summary>
         /// Gets or sets the name.
@@ -31,7 +26,7 @@ namespace ProjectFlip.Services
         {
             get
             {
-                var doc = new XpsDocument(@"Resources\Xps\test.xps", FileAccess.Read);
+                var doc = new XpsDocument(@"D:\Flip Project 2.0\preparation\ProjectFlipPrototype\Resources\Xps\test.xps", FileAccess.Read);
                 return doc.GetFixedDocumentSequence();
             }
         }

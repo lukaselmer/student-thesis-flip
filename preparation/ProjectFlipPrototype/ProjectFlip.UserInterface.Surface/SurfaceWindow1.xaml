@@ -4,8 +4,18 @@
     xmlns:s="http://schemas.microsoft.com/surface/2008"
     Title="ProjectFlip.UserInterface.Surface"
     >
+    <s:SurfaceWindow.Resources>
+
+      <DataTemplate x:Key="ProjectNoteTemplate">
+               <DocumentViewer Document="{Binding Document}">
+                </DocumentViewer>
+        </DataTemplate>
+        
+    </s:SurfaceWindow.Resources>
+        
   <Grid>
-        <s:ScatterView Background="Gray" x:Name="scatterView" ItemsSource="Binding Buttons">
+        <s:ScatterView Background="Gray" x:Name="scatterView" ItemsSource="{Binding ProjectNotes}" ItemTemplate="{StaticResource ProjectNoteTemplate }">
+            
         </s:ScatterView>
     </Grid>
 </s:SurfaceWindow>

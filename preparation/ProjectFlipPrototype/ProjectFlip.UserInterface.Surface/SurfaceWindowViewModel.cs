@@ -13,13 +13,6 @@ namespace ProjectFlip.UserInterface.Surface
         public SurfaceWindowViewModel(IProjectNotesService projectNotesService)
         {
             ProjectNotes = projectNotesService.ProjectNotes;
-            Buttons = new List<SurfaceButton>();
-            for (int i = 0; i < 10; i++)
-            {
-                SurfaceButton b = new SurfaceButton();
-                b.Content = "text";
-                Buttons.Add(b);
-            }
         }
 
         private void Notify(string propertyName)
@@ -28,7 +21,6 @@ namespace ProjectFlip.UserInterface.Surface
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public List<SurfaceButton> Buttons { get; set; }
         public List<IProjectNote> ProjectNotes { get; private set; } 
         public event PropertyChangedEventHandler PropertyChanged;
     }
