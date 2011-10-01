@@ -12,7 +12,7 @@ namespace ProjectFlip.Services
         public ProjectNotesService(ILogService logService)
         {
             _logService = logService;
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 3; i++)
             {
                 _projectNotes.Add(new ProjectNote(@"D:\Flip Project 2.0\preparation\ProjectFlipPrototype\Resources\Xps\test.xps"));    
             }

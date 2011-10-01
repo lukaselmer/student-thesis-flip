@@ -35,11 +35,11 @@ namespace ProjectFlip.UserInterface.Surface
             
         }
 
-        //private void ButtonProjectNoteClick(object sender, RoutedEventArgs e)
-        //{
-        //    DataTemplate dataTemplate = this.FindResource("ProjectNoteTemplate") as DataTemplate;
-        //    scatterView.ItemTemplate = dataTemplate;
-        //}
+        private void ButtonProjectNoteClick(object sender, RoutedEventArgs e)
+        {
+            DataTemplate dataTemplate = this.FindResource("ProjectNoteTemplate") as DataTemplate;
+            scatterView.ItemTemplate = dataTemplate;
+        }
 
         /// <summary>
         /// Occurs when the window is about to close. 
@@ -105,6 +105,11 @@ namespace ProjectFlip.UserInterface.Surface
         private void OnWindowUnavailable(object sender, EventArgs e)
         {
             //TODO: disable audio, animations here
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
