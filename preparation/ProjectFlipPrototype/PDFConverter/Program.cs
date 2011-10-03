@@ -10,10 +10,12 @@ namespace ProjectFlip.Converter.Pdf
             if (!CheckForValidArgs(args))
             {
                 PrintUsage();
+                Console.ReadLine();
                 return;
             }
             var p = args.Length == 3 ? new Converter.Pdf.PdfConverter(args[2]) : new Converter.Pdf.PdfConverter();
             p.Convert(args[0], args[1]);
+            Console.ReadLine();
         }
 
         private static bool CheckForValidArgs(ICollection<string> args)

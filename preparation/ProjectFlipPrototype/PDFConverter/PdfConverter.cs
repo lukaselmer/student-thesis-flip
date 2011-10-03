@@ -5,7 +5,7 @@ using ProjectFlip.Converter.Interfaces;
 
 namespace ProjectFlip.Converter.Pdf
 {
-    internal class PdfConverter : IConverter
+    public class PdfConverter : IConverter
     {
         public PdfConverter()
             : this(@"C:\Program Files (x86)\Adobe\Reader 10.0\Reader\AcroRd32.exe")

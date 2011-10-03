@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using Microsoft.Practices.Unity;
 using ProjectFlip.Services.Interfaces;
+using ProjectFlip.Services.Loader;
 
 namespace ProjectFlip.Services
 {
@@ -14,9 +16,22 @@ namespace ProjectFlip.Services
             _logService = logService;
             for (int i = 0; i < 3; i++)
             {
-                _projectNotes.Add(new ProjectNote(@"D:\Flip Project 2.0\preparation\ProjectFlipPrototype\Resources\Xps\test.xps"));    
+                _projectNotes.Add(new ProjectNote(@"D:\Flip Project 2.0\preparation\ProjectFlipPrototype\Resources\Xps\test.xps"));
             }
-           //_projectNotes.AddRange(
+
+            if (false)
+            {
+                var container = new UnityContainer();
+                container.RegisterType<IProjectNotesLoader, ProjectNotesLoader>();
+                var loader = container.Resolve<IProjectNotesLoader>();
+                var list = loader.Import();
+                foreach (var line in list)
+                {
+                    //    _projectNotes.Add(new ProjectNote());
+                }
+            }
+
+            //_projectNotes.AddRange(
             //    new List<string>(
             //        Directory.GetFiles(@"C:\Users\Public\Pictures\Sample Pictures", "*.jpg"))
             //    .Select(f => new ProjectNote(f)));
