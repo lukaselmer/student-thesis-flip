@@ -545,6 +545,16 @@
     <Name Id="Type" Label="Type" ValueType="System.Object" />
   </QualifiedNames>
   <Styles>
+    <Style TargetType="Node" GroupLabel="Strongly Connected" ToolTip="Node is part of a strongly coupled component" ValueLabel="Nodes">
+      <Condition Expression="IsStronglyConnected" />
+      <Setter Property="Stroke" Value="#D02030" />
+      <Setter Property="StrokeThickness" Value="2" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Strongly Connected" ToolTip="Node is part of a strongly coupled component" ValueLabel="Links">
+      <Condition Expression="IsCircularLink" />
+      <Setter Property="Stroke" Value="#D02030" />
+      <Setter Property="StrokeThickness" Value="2" />
+    </Style>
     <Style TargetType="Node" GroupLabel="Assembly" ValueLabel="Has category">
       <Condition Expression="HasCategory('CodeSchema_Assembly')" />
       <Setter Property="Background" Value="#1C3068" />

@@ -16,7 +16,7 @@ namespace ProjectFlip.Services
             _logService = logService;
             for (int i = 0; i < 3; i++)
             {
-                _projectNotes.Add(new ProjectNote(@"D:\Flip Project 2.0\preparation\ProjectFlipPrototype\Resources\Xps\test.xps"));
+                _projectNotes.Add(new ProjectNote(@"..\..\..\Resources\Xps\test.xps"));
             }
 
             if (false)

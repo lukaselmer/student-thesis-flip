@@ -11,6 +11,7 @@ namespace ProjectFlip.Services
     {
         public ProjectNote(string file)
         {
+            Filename = file;
             var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(file);
             if (fileNameWithoutExtension != null)
             {
@@ -23,11 +24,16 @@ namespace ProjectFlip.Services
         /// </summary>
         public string Name { get; set; }
 
+        public string Filename { get; set; }
+
         public IDocumentPaginatorSource Document
         {
             get
             {
-                var doc = new XpsDocument(@"..\..\..\Resources\Xps\test.xps", FileAccess.Read);
+                var doc = new XpsDocument(Filename, FileAccess.Read);
+                
+                //var doc = new XpsDocument(@"..\..\..\Resources\Xps\test.xps", FileAccess.Read);
+                //var doc = new XpsDocument(@"C:\Users\Lukas Elmer\Desktop\tmp.xps", FileAccess.Read);
                 return doc.GetFixedDocumentSequence();
             }
         }
