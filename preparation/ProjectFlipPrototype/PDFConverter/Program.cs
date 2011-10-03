@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ProjectFlip.PdfConverter
+namespace ProjectFlip.Converter.Pdf
 {
     internal class Program
     {
@@ -12,7 +12,7 @@ namespace ProjectFlip.PdfConverter
                 PrintUsage();
                 return;
             }
-            var p = args.Length == 3 ? new PdfConverter(args[2]) : new PdfConverter();
+            var p = args.Length == 3 ? new Converter.Pdf.PdfConverter(args[2]) : new Converter.Pdf.PdfConverter();
             p.Convert(args[0], args[1]);
         }
 

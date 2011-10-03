@@ -1,9 +1,9 @@
-﻿using System.Globalization;
+﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Windows;
 using Microsoft.Practices.Unity;
 using ProjectFlip.Services;
 using ProjectFlip.Services.Interfaces;
-using ProjectFlip.UserInterface;
 using ProjectFlip.UserInterface.Surface;
 
 namespace ProjectFlip
@@ -11,33 +11,38 @@ namespace ProjectFlip
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            InitLanguage();
+            RegisterLanguage();
+
             var container = new UnityContainer();
-            
-            ConfigueContainer(container);
+            ConfigureContainer(container);
 
             var window = container.Resolve<SurfaceWindow1>();
             window.Show();
         }
 
-        private void InitLanguage()
+        private void RegisterLanguage()
         {
-            if (false)
-            {
-                CultureAndRegionInfoBuilder cib = new CultureAndRegionInfoBuilder("und", CultureAndRegionModifiers.None);
-                CultureInfo ci = new CultureInfo("en-US");
-                cib.LoadDataFromCultureInfo(ci);
-                RegionInfo ri = new RegionInfo("US");
-                cib.LoadDataFromRegionInfo(ri);
-                cib.Register();
-            }
+            var cultures = new List<CultureInfo>(CultureInfo.GetCultures(CultureTypes.AllCultures));
+            if (cultures.Exists(c => c.Name == "und")) return;
+
+            DoRegistration();
         }
 
-        private static void ConfigueContainer(UnityContainer container)
+        private void DoRegistration()
+        {
+            var cib = new CultureAndRegionInfoBuilder("und", CultureAndRegionModifiers.None);
+            var ci = new CultureInfo("en-US");
+            cib.LoadDataFromCultureInfo(ci);
+            var ri = new RegionInfo("US");
+            cib.LoadDataFromRegionInfo(ri);
+            cib.Register();
+        }
+
+        private static void ConfigureContainer(UnityContainer container)
         {
             container.RegisterType<ILogService, ConsoleLogService>();
             container.RegisterType<IProjectNotesService, ProjectNotesService>();

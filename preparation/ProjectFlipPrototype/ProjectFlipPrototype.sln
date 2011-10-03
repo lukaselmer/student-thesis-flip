@@ -9,11 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.Services.Interf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.UserInterface", "ProjectFlip.UserInterface\ProjectFlip.UserInterface.csproj", "{0CB7F549-5404-4705-B38A-1C70829BC9B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.PdfConverter", "PDFConverter\ProjectFlip.PdfConverter.csproj", "{2C982C06-FFDC-4B54-A05E-26FC606FF552}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.Converter.Pdf", "PDFConverter\ProjectFlip.Converter.Pdf.csproj", "{2C982C06-FFDC-4B54-A05E-26FC606FF552}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.PdfConverter.Interfaces", "ProjectFlip.PdfConverter.Interfaces\ProjectFlip.PdfConverter.Interfaces.csproj", "{C7ED502D-A83D-49A9-B0A5-1532EE193887}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.Converter.Interfaces", "ProjectFlip.PdfConverter.Interfaces\ProjectFlip.Converter.Interfaces.csproj", "{C7ED502D-A83D-49A9-B0A5-1532EE193887}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.UserInterface.Surface", "ProjectFlip.UserInterface.Surface\ProjectFlip.UserInterface.Surface.csproj", "{5DE0AEBD-753D-4F52-A062-75BC6DE1FB23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.Services.Loader", "ProjectFlip.Importer\ProjectFlip.Services.Loader.csproj", "{761B0F94-E5E6-43EF-8F1B-475AFBDE6BE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,6 +97,16 @@ Global
 		{5DE0AEBD-753D-4F52-A062-75BC6DE1FB23}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{5DE0AEBD-753D-4F52-A062-75BC6DE1FB23}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{5DE0AEBD-753D-4F52-A062-75BC6DE1FB23}.Release|x86.ActiveCfg = Release|Any CPU
+		{761B0F94-E5E6-43EF-8F1B-475AFBDE6BE0}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{761B0F94-E5E6-43EF-8F1B-475AFBDE6BE0}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{761B0F94-E5E6-43EF-8F1B-475AFBDE6BE0}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{761B0F94-E5E6-43EF-8F1B-475AFBDE6BE0}.Debug|x86.ActiveCfg = Debug|x86
+		{761B0F94-E5E6-43EF-8F1B-475AFBDE6BE0}.Debug|x86.Build.0 = Debug|x86
+		{761B0F94-E5E6-43EF-8F1B-475AFBDE6BE0}.Release|Any CPU.ActiveCfg = Release|x86
+		{761B0F94-E5E6-43EF-8F1B-475AFBDE6BE0}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{761B0F94-E5E6-43EF-8F1B-475AFBDE6BE0}.Release|Mixed Platforms.Build.0 = Release|x86
+		{761B0F94-E5E6-43EF-8F1B-475AFBDE6BE0}.Release|x86.ActiveCfg = Release|x86
+		{761B0F94-E5E6-43EF-8F1B-475AFBDE6BE0}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
