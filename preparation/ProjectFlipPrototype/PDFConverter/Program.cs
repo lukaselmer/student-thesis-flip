@@ -13,7 +13,8 @@ namespace ProjectFlip.Converter.Pdf
                 Console.ReadLine();
                 return;
             }
-            var p = args.Length == 3 ? new Converter.Pdf.PdfConverter(args[2]) : new Converter.Pdf.PdfConverter();
+            var p = new Converter.Pdf.PdfConverter();
+            if(args.Length == 3) p.AcrobatLocation = args[2];
             p.Convert(args[0], args[1]);
             Console.ReadLine();
         }

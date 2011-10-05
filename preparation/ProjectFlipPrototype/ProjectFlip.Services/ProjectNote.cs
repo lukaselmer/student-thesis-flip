@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows.Documents;
 using System.Windows.Media.Imaging;
 using System.Windows.Xps.Packaging;
@@ -12,12 +13,11 @@ namespace ProjectFlip.Services
     public class ProjectNote : IProjectNote
     {
 
-        public ProjectNote(IList<string> line)
+        public ProjectNote()
         {
-            InitByLine(line);
         }
 
-        public void InitByLine(IList<string> line)
+        public IProjectNote InitByLine(IList<string> line)
         {
             Debug.Assert(line.Count == 19);
             Id = Convert.ToInt32(line[0]);
@@ -33,7 +33,8 @@ namespace ProjectFlip.Services
             Published = Convert.ToDateTime(line[10]);
             Filename = line[13];
             FilepathPdf = @"..\..\..\Resources\Pdf\" + Filename;
-            FilepathXps = @"..\..\..\Resources\Xps\" + Filename.Replace(".pdf", ".xps");
+            FilepathXps = @"..\..\..\Resources\Xps\" + new Regex(@"\.pdf$").Replace(Filename, ".xps");
+            return this;
             //Filename = @"..\..\..\Resources\Xps\test.xps";
         }
 

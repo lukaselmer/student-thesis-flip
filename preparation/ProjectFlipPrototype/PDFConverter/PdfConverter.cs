@@ -8,13 +8,14 @@ namespace ProjectFlip.Converter.Pdf
     public class PdfConverter : IConverter
     {
         public PdfConverter()
-            : this(@"C:\Program Files (x86)\Adobe\Reader 10.0\Reader\AcroRd32.exe")
+           // : this(@"C:\Program Files (x86)\Adobe\Reader 10.0\Reader\AcroRd32.exe")
         {
+            AcrobatLocation = @"C:\Program Files (x86)\Adobe\Reader 10.0\Reader\AcroRd32.exe";
         }
-        public PdfConverter(string acrobatLocation)
+        /*public PdfConverter(string acrobatLocation)
         {
             AcrobatLocation = acrobatLocation;
-        }
+        }*/
 
         public string AcrobatLocation { get; set; }
 
@@ -22,7 +23,7 @@ namespace ProjectFlip.Converter.Pdf
         {
             if (!RequirementsOk(from, to)) return false;
 
-            string args = "/N /T " + from + " \"Microsoft XPS Document Writer\" /t " + to;
+            string args = "/S /H /N /T " + from + " \"Microsoft XPS Document Writer\" /t \"" + to + "\"";
             Console.WriteLine(ExecCommand(AcrobatLocation, args)
                                   ? "XPS generated successful"
                                   : "XPS could not be generated: Timeout!");
@@ -51,6 +52,7 @@ namespace ProjectFlip.Converter.Pdf
 
         private bool ExecCommand(string exe, string args)
         {
+            Console.WriteLine("Executing '" + exe + " " + args);
             var proc = new Process { StartInfo = { FileName = exe, Arguments = args }, EnableRaisingEvents = false };
             proc.Start();
             bool res = proc.WaitForExit(10000);

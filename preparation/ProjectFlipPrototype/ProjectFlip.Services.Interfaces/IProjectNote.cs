@@ -30,6 +30,6 @@ namespace ProjectFlip.Services.Interfaces
         /// </summary>
         IDocumentPaginatorSource Document { get; }
 
-        void InitByLine(IList<string> line);
+        IProjectNote InitByLine(IList<string> line);
     }
 }

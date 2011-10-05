@@ -16,7 +16,9 @@ namespace ProjectFlip.Services
         {
             _logService = logService;
             _projectNotesLoader = projectNotesLoader;
-            _projectNotes = new List<IProjectNote>(_projectNotesLoader.Import().ConvertAll(line => new ProjectNote(line)));
+            _projectNotes = new List<IProjectNote>(_projectNotesLoader.Import().ConvertAll(line => new ProjectNote().InitByLine(line)));
+            _projectNotes.RemoveAll(pn => !File.Exists(pn.FilepathXps));
+
             //for (int i = 0; i < 3; i++)
             //{
             //    _projectNotes.Add(new ProjectNote(@"..\..\..\Resources\Xps\test.xps"));

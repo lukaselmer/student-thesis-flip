@@ -70,6 +70,10 @@
       <Project>{C478FCE9-01DE-49E0-915D-68A1B6B556F2}</Project>
       <Name>ProjectFlip.Services.Loader.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProjectFlip.Services\ProjectFlip.Services.csproj">
+      <Project>{902C8F58-4CA9-4D16-AA01-C897FF205111}</Project>
+      <Name>ProjectFlip.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
