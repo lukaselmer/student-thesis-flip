@@ -4,6 +4,7 @@ using System.Windows;
 using Microsoft.Practices.Unity;
 using ProjectFlip.Services;
 using ProjectFlip.Services.Interfaces;
+using ProjectFlip.Services.Loader;
 using ProjectFlip.UserInterface.Surface;
 
 namespace ProjectFlip
@@ -46,6 +47,7 @@ namespace ProjectFlip
         {
             container.RegisterType<ILogService, ConsoleLogService>();
             container.RegisterType<IProjectNotesService, ProjectNotesService>();
+            container.RegisterType<IProjectNotesLoader, ProjectNotesLoader>();
         }
     }
 }

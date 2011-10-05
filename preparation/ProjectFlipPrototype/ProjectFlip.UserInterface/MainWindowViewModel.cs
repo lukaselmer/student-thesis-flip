@@ -55,7 +55,7 @@ namespace ProjectFlip.UserInterface
             }
 
             var projectNote = (IProjectNote) obj;
-            return projectNote.Name.ToLower().Contains(Filter.ToLower());
+            return projectNote.Title.ToLower().Contains(Filter.ToLower());
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

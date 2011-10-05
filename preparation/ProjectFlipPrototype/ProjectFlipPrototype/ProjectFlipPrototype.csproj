@@ -103,9 +103,17 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ProjectFlip.Importer\ProjectFlip.Services.Loader.csproj">
+      <Project>{761B0F94-E5E6-43EF-8F1B-475AFBDE6BE0}</Project>
+      <Name>ProjectFlip.Services.Loader</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProjectFlip.Services.Interfaces\ProjectFlip.Services.Interfaces.csproj">
       <Project>{EBEFD9BE-F2F4-402F-9C36-A8433CEFE327}</Project>
       <Name>ProjectFlip.Services.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjectFlip.Services.Loader.Interfaces\ProjectFlip.Services.Loader.Interfaces.csproj">
+      <Project>{C478FCE9-01DE-49E0-915D-68A1B6B556F2}</Project>
+      <Name>ProjectFlip.Services.Loader.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\ProjectFlip.Services\ProjectFlip.Services.csproj">
       <Project>{902C8F58-4CA9-4D16-AA01-C897FF205111}</Project>
