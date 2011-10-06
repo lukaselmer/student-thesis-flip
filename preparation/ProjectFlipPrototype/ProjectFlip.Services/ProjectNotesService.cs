@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Windows.Xps.Packaging;
 using Microsoft.Practices.Unity;
 using ProjectFlip.Services.Interfaces;
 using ProjectFlip.Services.Loader;
@@ -18,6 +20,20 @@ namespace ProjectFlip.Services
             _projectNotesLoader = projectNotesLoader;
             _projectNotes = new List<IProjectNote>(_projectNotesLoader.Import().ConvertAll(line => new ProjectNote().InitByLine(line)));
             _projectNotes.RemoveAll(pn => !File.Exists(pn.FilepathXps));
+
+            /*{
+                var pn = _projectNotes[0];
+                var doc = new XpsDocument(pn.FilepathXps, FileAccess.Read);
+                var list = new List<IXpsFixedDocumentReader>(doc.FixedDocumentSequenceReader.FixedDocuments);
+                foreach (var xpsFixedDocumentReader in list)
+                {
+                    foreach (var image in xpsFixedDocumentReader.FixedPages[0].Images)
+                    {
+                        Console.WriteLine(image);
+                    }
+                }
+                Console.ReadLine();
+            }*/
 
             //for (int i = 0; i < 3; i++)
             //{

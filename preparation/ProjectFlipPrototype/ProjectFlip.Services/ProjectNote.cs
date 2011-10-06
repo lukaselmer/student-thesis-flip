@@ -26,10 +26,10 @@ namespace ProjectFlip.Services
             Sector = line[3];
             Customer = line[4];
             Focus = line[5];
-            Services = ToList(line[6]);
-            Technologies = ToList(line[7]);
-            Applications = ToList(line[8]);
-            Tools = ToList(line[9]);
+            Services = ConvertToList(line[6]);
+            Technologies = ConvertToList(line[7]);
+            Applications = ConvertToList(line[8]);
+            Tools = ConvertToList(line[9]);
             Published = Convert.ToDateTime(line[10]);
             Filename = line[13];
             FilepathPdf = @"..\..\..\Resources\Pdf\" + Filename;
@@ -38,9 +38,9 @@ namespace ProjectFlip.Services
             //Filename = @"..\..\..\Resources\Xps\test.xps";
         }
 
-        private static IList<string> ToList(string s)
+        private static IList<string> ConvertToList(string line)
         {
-            return new List<string> { s };
+            return new List<string> { line };
         }
 
         public int Id { get; private set; }
@@ -67,7 +67,7 @@ namespace ProjectFlip.Services
         {
             get
             {
-                var doc = new XpsDocument(Filename, FileAccess.Read);
+                var doc = new XpsDocument(FilepathXps, FileAccess.Read);
 
                 //var doc = new XpsDocument(@"..\..\..\Resources\Xps\test.xps", FileAccess.Read);
                 //var doc = new XpsDocument(@"C:\Users\Lukas Elmer\Desktop\tmp.xps", FileAccess.Read);
@@ -82,11 +82,8 @@ namespace ProjectFlip.Services
         {
             get
             {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.StreamSource = File.OpenRead(@"..\..\..\Resources\Xps\test.jpg");
-                image.EndInit();
-                return image;
+                var helper = new XpsDocumentHelper(FilepathXps);
+                return helper.Logo();
             }
         }
 
