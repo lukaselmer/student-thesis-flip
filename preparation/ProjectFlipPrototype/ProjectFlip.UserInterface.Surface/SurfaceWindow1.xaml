@@ -12,7 +12,7 @@
         </DataTemplate>
 
         <DataTemplate x:Key="ProjectNoteButtonTemplate">
-            <s:SurfaceButton Name="Button" Click="ButtonProjectNoteClick">
+            <s:SurfaceButton Name="Button">
                 <StackPanel>
                     <Image Width="100" Height="100" Source="{Binding Image}" />
                     <TextBlock Text="{Binding Name}" TextTrimming="CharacterEllipsis" />

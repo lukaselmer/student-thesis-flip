@@ -35,12 +35,6 @@ namespace ProjectFlip.UserInterface.Surface
             
         }
 
-        private void ButtonProjectNoteClick(object sender, RoutedEventArgs e)
-        {
-            DataTemplate dataTemplate = this.FindResource("ProjectNoteTemplate") as DataTemplate;
-            scatterView.ItemTemplate = dataTemplate;
-        }
-
         /// <summary>
         /// Occurs when the window is about to close. 
         /// </summary>
