@@ -44,15 +44,15 @@ namespace ProjectFlip.Services
         }
 
         public int Id { get; private set; }
-        public string Title { get; private set; }
-        public string Text { get; private set; }
-        public string Sector { get; private set; }
-        public string Customer { get; private set; }
-        public string Focus { get; private set; }
-        public IList<string> Services { get; private set; }
-        public IList<string> Technologies { get; private set; }
-        public IList<string> Applications { get; private set; }
-        public IList<string> Tools { get; private set; }
+        public string Title { get; private set; } // Audit einer IT-Infrastruktur und Organisation
+        public string Text { get; private set; } // In einem externen Audit untersucht Zühlke die IT und die Organisationsstruktur in Bezug auf Zukunftssicherheit, Betriebssicherheit, Ausfallssicherheit und strategische Ausrichtung sowie auf organisatorische Versäumnisse.
+        public string Sector { get; private set; } // Banking & Financial Services
+        public string Customer { get; private set; } // HYPO Capital Management AG
+        public string Focus { get; private set; } // Software Solutions
+        public IList<string> Services { get; private set; } //"_ Technology Consulting;#__ Technology Consultation;#__ Technology Expertise;#_ Methodology;#__ ZAAF"
+        public IList<string> Technologies { get; private set; } // Java EE
+        public IList<string> Applications { get; private set; } //Information Systems
+        public IList<string> Tools { get; private set; } // Eclipse;#Java Enterprise Edition;#Oracle;#SOAP;#XSL
         public DateTime Published { get; private set; }
         public string Filename { get; private set; }
         public string FilepathPdf { get; private set; }
