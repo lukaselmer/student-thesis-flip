@@ -5,6 +5,7 @@ using Microsoft.Practices.Unity;
 using ProjectFlip.Services;
 using ProjectFlip.Services.Interfaces;
 using ProjectFlip.Services.Loader;
+using ProjectFlip.UserInterface;
 using ProjectFlip.UserInterface.Surface;
 
 namespace ProjectFlip
@@ -21,7 +22,8 @@ namespace ProjectFlip
             var container = new UnityContainer();
             ConfigureContainer(container);
 
-            var window = container.Resolve<SurfaceWindow1>();
+            //var window = container.Resolve<SurfaceWindow1>();
+            var window = container.Resolve<MainWindow>();
             window.Show();
         }
 

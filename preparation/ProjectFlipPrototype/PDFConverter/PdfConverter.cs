@@ -23,7 +23,7 @@ namespace ProjectFlip.Converter.Pdf
         {
             if (!RequirementsOk(from, to)) return false;
 
-            string args = "/S /H /N /T " + from + " \"Microsoft XPS Document Writer\" /t \"" + to + "\"";
+            string args = "/N /T " + from + " \"Microsoft XPS Document Writer\" /t \"" + to + "\"";
             Console.WriteLine(ExecCommand(AcrobatLocation, args)
                                   ? "XPS generated successful"
                                   : "XPS could not be generated: Timeout!");

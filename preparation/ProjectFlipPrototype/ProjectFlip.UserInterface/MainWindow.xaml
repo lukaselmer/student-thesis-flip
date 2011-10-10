@@ -5,9 +5,9 @@
     <Window.Resources>
 
         <DataTemplate x:Key="ProjectNoteDataTemplate">
-            <StackPanel Orientation="Vertical" Width="50" Height="50">
-                <Image Width="32" Height="32" Source="{Binding Image}" />
-                <TextBlock Text="{Binding Name}" TextTrimming="CharacterEllipsis" />
+            <StackPanel Orientation="Vertical" Width="200">
+                <!--<Image Width="32" Height="32" Source="{Binding Image}" />-->
+                <TextBlock Text="{Binding Title}" TextTrimming="None" TextWrapping="WrapWithOverflow" />
             </StackPanel>
         </DataTemplate>
 
@@ -52,13 +52,18 @@
             <Button Command="{Binding ClearFilterCommand}" DockPanel.Dock="Right" Margin="8,0,0,0" Content="Clear Filer" />
             <TextBox Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" />
         </DockPanel>
-
+        
         <ListBox Grid.Row="1" x:Name="listBox" ItemsSource="{Binding ProjectNotes}" Margin="8"  
 				 HorizontalContentAlignment="Stretch"
 				 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                  ItemTemplate="{StaticResource ProjectNoteDataTemplate}" ItemsPanel="{DynamicResource ItemsPanelTemplate1}"/>
 
-        <Image Grid.Row="1" Grid.Column="1" Margin="8" Source="{Binding SelectedItem.Image, ElementName=listBox}" />
+        <Grid Grid.Row="1" Grid.Column="1" Margin="8">
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding SelectedItem.Title, ElementName=listBox, Mode=OneWay}" />
+            <Image Grid.Row="2" Grid.Column="1" Margin="8" Source="{Binding SelectedItem.Image, ElementName=listBox}" />
+        </Grid>
+        
+        <!--<Image Grid.Row="1" Grid.Column="1" Margin="8" Source="{Binding SelectedItem.Image, ElementName=listBox}" />-->
 
     </Grid>
 </Window>
