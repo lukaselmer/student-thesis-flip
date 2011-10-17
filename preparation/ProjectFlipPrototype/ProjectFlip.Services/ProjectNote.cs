@@ -12,11 +12,6 @@ namespace ProjectFlip.Services
 {
     public class ProjectNote : IProjectNote
     {
-
-        public ProjectNote()
-        {
-        }
-
         public IProjectNote InitByLine(IList<string> line)
         {
             Debug.Assert(line.Count == 19);
@@ -25,7 +20,7 @@ namespace ProjectFlip.Services
             Text = line[2];
             Sector = line[3];
             Customer = line[4];
-            Focus = line[5];
+            Focus = ConvertToList(line[5]);
             Services = ConvertToList(line[6]);
             Technologies = ConvertToList(line[7]);
             Applications = ConvertToList(line[8]);
@@ -48,7 +43,7 @@ namespace ProjectFlip.Services
         public string Text { get; private set; } // In einem externen Audit untersucht Zühlke die IT und die Organisationsstruktur in Bezug auf Zukunftssicherheit, Betriebssicherheit, Ausfallssicherheit und strategische Ausrichtung sowie auf organisatorische Versäumnisse.
         public string Sector { get; private set; } // Banking & Financial Services
         public string Customer { get; private set; } // HYPO Capital Management AG
-        public string Focus { get; private set; } // Software Solutions
+        public IList<string> Focus { get; private set; } // Software Solutions
         public IList<string> Services { get; private set; } //"_ Technology Consulting;#__ Technology Consultation;#__ Technology Expertise;#_ Methodology;#__ ZAAF"
         public IList<string> Technologies { get; private set; } // Java EE
         public IList<string> Applications { get; private set; } //Information Systems
