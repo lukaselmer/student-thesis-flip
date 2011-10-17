@@ -12,7 +12,7 @@ namespace ProjectFlip.Services.Interfaces
         string Text { get; }
         string Sector { get; }
         string Customer { get; }
-        string Focus { get; }
+        IList<string> Focus { get; }
         IList<string> Services { get; }
         IList<string> Technologies { get; }
         IList<string> Applications { get; }
