@@ -1,0 +1,36 @@
+Section 3.0: Design Principles
+
+Section 3.1: Interaction Design Guidelines
+
+"1. Create experiences for several people to use at the same time
+Microsoft Surface recognizes and responds to over 50 different touches at the same time. It sees fingers and objects touching the screen. This enables several people to gather around Surface and share applications, elevating solitary activities to social experiences."
+
+Die Applikation ist primär nur auf einen Nutzer ausgerichtet. Dadurch fallen die meisten unter 1. aufgelisteten Kriterien weg. Der Bildschirm wird nicht von mehrereren Nutzern geteilt oder genutzt.
+
+"1.a. Use 360° degree application design for horizontal deployments
+Surface recognizes touch orientation – it sees which direction fingers and special objects are pointed as they contact the screen. This enables developers to generally determine which side of the screen a particular person is on. People will use Surface from all sides so it’s important that horizontal Surface deployments be designed for 360° usage."
+
+"2. Use direct touch interactions
+a. Direct touch interactions are physical movements of virtual content within the application by a finger or physical object. Indirect touch interactions usually rely on application interface chrome or abstract gestures. Examples of indirect touch interactions can include buttons, sliders, menus, and gesturing with symbol drawing. Direct touch interactions are the preferred type of interaction for use in Surface because they help to create more intuitive, content oriented experiences."
+
+"d. Respond to multitouch
+* Microsoft Surface recognizes and responds to over 50 different touches at the same time.
+* Your application must respond to multitouch hardware capabilities.
+* People expect to use multitouch interactions throughout the experience, not only in self-contained portions of an application."
+
+"3. Use physical objects to enhance the experience"
+
+"4. Always respond to touch
+People might try something that does not work, and the resulting visual feedback should help them learn, resolve problems or encourage them in a positive direction."
+
+"5. Create experiences that are built on content
+5.a. Make content the interface
+Do not replace direct touch interactions with UI controls such as buttons, menus and sliders"
+
+"6. A note on transitions
+a. Transitions must be fluid and smooth"
+
+Section 3.2: VISUAL & MOTION DESIGN GUIDELINES
+
+"1. Orientation & Layout
+b. Grid-free layouts"
