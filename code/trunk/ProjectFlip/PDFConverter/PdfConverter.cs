@@ -7,6 +7,8 @@ namespace ProjectFlip.Converter.Pdf
 {
     public class PdfConverter : IConverter
     {
+        private const int SecondsToWait = 30;
+
         public PdfConverter()
            // : this(@"C:\Program Files (x86)\Adobe\Reader 10.0\Reader\AcroRd32.exe")
         {
@@ -55,8 +57,8 @@ namespace ProjectFlip.Converter.Pdf
             Console.WriteLine("Executing '" + exe + " " + args);
             var proc = new Process { StartInfo = { FileName = exe, Arguments = args }, EnableRaisingEvents = false };
             proc.Start();
-            bool res = proc.WaitForExit(10000);
-            if (!res) proc.Kill();
+            bool res = proc.WaitForExit(SecondsToWait * 1000);
+            if (!res && !proc.HasExited) proc.Kill();
             return res;
         }
 

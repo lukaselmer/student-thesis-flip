@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -18,45 +20,26 @@ namespace ProjectFlip.Preparer
             var container = new UnityContainer();
             ConfigureContainer(container);
 
-            var converter = container.Resolve<IConverter>();
-            var loader = container.Resolve<IProjectNotesLoader>();
-            var webClient = new WebClient();
+            var processors = new List<IProcessor> { 
+                //new DownloadProcessor(),
+                //new ConverterProcessor(container.Resolve<IConverter>()),
+                new ImageExtractorProcessor() };
 
-            foreach (var line in loader.Import())
+            var actions = new List<Action>();
+            //int i = 0;
+            foreach (var line in container.Resolve<IProjectNotesLoader>().Import())
             {
                 var projectNote = container.Resolve<IProjectNote>().InitByLine(line);
-                var parallelOptions = new ParallelOptions {MaxDegreeOfParallelism = 20};
-                Parallel.Invoke(parallelOptions, () => DownloadAndConvert(webClient, converter, projectNote));
+                actions.Add(() => Process(processors, projectNote));
+                //if(i++ > 3) break; // XXXXXXXXXXXXXXXXXXXXX DELETE ME XXXXXXXXXXXXXXXXXXXXXXXXX
             }
+            var parallelOptions = new ParallelOptions { MaxDegreeOfParallelism = 300 };
+            Parallel.Invoke(parallelOptions, actions.ToArray());
         }
 
-        private static void DownloadAndConvert(WebClient webClient, IConverter converter, IProjectNote projectNote)
+        private static void Process(List<IProcessor> processors, IProjectNote projectNote)
         {
-            if (!File.Exists(projectNote.FilepathPdf)) Download(webClient, projectNote);
-            if (!File.Exists(projectNote.FilepathXps)) Convert(converter, projectNote);
-        }
-
-        private static void Convert(IConverter converter, IProjectNote projectNote)
-        {
-            if (!File.Exists(projectNote.FilepathPdf)) return;
-            converter.Convert(projectNote.FilepathPdf, projectNote.FilepathXps);
-        }
-
-        private static bool Download(WebClient webClient, IProjectNote projectNote, int i = 0)
-        {
-            try
-            {
-                var regex = new Regex(@"\.pdf$");
-                var downloadUrl = regex.Replace(projectNote.Url, (i == 0 ? "" : ("_0" + i)) + ".pdf");
-                webClient.DownloadFile(downloadUrl, projectNote.FilepathPdf);
-                return true;
-            }
-            catch (WebException e)
-            {
-                if (e.Status != WebExceptionStatus.ProtocolError) throw;
-                if (i >= 9) return false;
-                return Download(webClient, projectNote, i + 1);
-            }
+            processors.ForEach(proc => proc.Process(projectNote));
         }
 
         private static void ConfigureContainer(UnityContainer container)

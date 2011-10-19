@@ -26,9 +26,12 @@ namespace ProjectFlip.Services
             Applications = ConvertToList(line[8]);
             Tools = ConvertToList(line[9]);
             Published = Convert.ToDateTime(line[10]);
+
             Filename = line[13];
+            var pdfRegex = new Regex(@"\.pdf$");
             FilepathPdf = @"..\..\..\Resources\Pdf\" + Filename;
-            FilepathXps = @"..\..\..\Resources\Xps\" + new Regex(@"\.pdf$").Replace(Filename, ".xps");
+            FilepathXps = @"..\..\..\Resources\Xps\" + pdfRegex.Replace(Filename, ".xps");
+            FilepathImage = @"..\..\..\Resources\Images\" + pdfRegex.Replace(Filename, ".bmp");
             return this;
             //Filename = @"..\..\..\Resources\Xps\test.xps";
         }
@@ -52,6 +55,7 @@ namespace ProjectFlip.Services
         public string Filename { get; private set; }
         public string FilepathPdf { get; private set; }
         public string FilepathXps { get; private set; }
+        public string FilepathImage { get; private set; }
 
         public string Url
         {

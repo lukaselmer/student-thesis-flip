@@ -21,6 +21,7 @@ namespace ProjectFlip.Services.Interfaces
         string Filename { get; }
         string FilepathPdf { get; }
         string FilepathXps { get; }
+        string FilepathImage { get; }
         string Url { get; }
 
         BitmapImage Image { get; }
