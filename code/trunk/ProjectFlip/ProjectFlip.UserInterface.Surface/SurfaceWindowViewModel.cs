@@ -64,7 +64,7 @@ namespace ProjectFlip.UserInterface.Surface
             image.SetValue(FrameworkElement.WidthProperty, 100.0);
             image.SetValue(FrameworkElement.HeightProperty, 100.0);
             var textBlock = new FrameworkElementFactory(typeof (TextBlock));
-            textBlock.SetBinding(TextBlock.TextProperty, new Binding("Name"));
+            textBlock.SetBinding(TextBlock.TextProperty, new Binding("Title"));
 
             stackPanel.AppendChild(image);
             stackPanel.AppendChild(textBlock);

@@ -15,7 +15,7 @@
             <s:SurfaceButton Name="Button">
                 <StackPanel>
                     <Image Width="100" Height="100" Source="{Binding Image}" />
-                    <TextBlock Text="{Binding Name}" TextTrimming="CharacterEllipsis" />
+                    <TextBlock Text="{Binding Title}" TextTrimming="CharacterEllipsis" />
                 </StackPanel>
             </s:SurfaceButton>
         </DataTemplate>
@@ -23,6 +23,14 @@
     </s:SurfaceWindow.Resources>
         
   <Grid>
-        <s:ScatterView Background="Gray" x:Name="scatterView" ItemsSource="{Binding ProjectNotes}" ItemTemplate="{Binding ProjectNoteTemplate}" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+
+        <s:SurfaceListBox Grid.Row="2" ItemsSource="{Binding ProjectNotes}" ItemTemplate="{Binding ProjectNoteTemplate}">
+
+        </s:SurfaceListBox>
+            <!--<s:ScatterView Background="Gray" x:Name="scatterView" ItemsSource="{Binding ProjectNotes}" ItemTemplate="{Binding ProjectNoteTemplate}" />-->
   </Grid>
 </s:SurfaceWindow>
