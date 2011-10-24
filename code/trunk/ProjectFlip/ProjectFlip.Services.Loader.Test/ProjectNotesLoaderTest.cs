@@ -1,8 +1,6 @@
 ﻿using System.IO;
 using System.Linq;
-using ProjectFlip.Services.Loader;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Collections.Generic;
 
 namespace ProjectFlip.Services.Loader.Test
@@ -11,7 +9,7 @@ namespace ProjectFlip.Services.Loader.Test
     ///This is a test class for ProjectNotesLoaderTest and is intended
     ///to contain all ProjectNotesLoaderTest Unit Tests
     ///</summary>
-    [TestClass()]
+    [TestClass]
     public class ProjectNotesLoaderTest
     {
         /// <summary>
@@ -54,7 +52,7 @@ namespace ProjectFlip.Services.Loader.Test
         /// <summary>
         ///A test for Import
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void ImportTest()
         {
             const string filename = @"..\..\..\ProjectFlip.Services.Loader.Test\testdata.txt";

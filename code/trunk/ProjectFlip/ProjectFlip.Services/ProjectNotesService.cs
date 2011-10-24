@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Windows.Xps.Packaging;
-using Microsoft.Practices.Unity;
 using ProjectFlip.Services.Interfaces;
-using ProjectFlip.Services.Loader;
 using ProjectFlip.Services.Loader.Interfaces;
 
 namespace ProjectFlip.Services
@@ -14,7 +10,7 @@ namespace ProjectFlip.Services
         private readonly IProjectNotesLoader _projectNotesLoader;
         private readonly List<IProjectNote> _projectNotes;
 
-        public ProjectNotesService(ILogService logService, IProjectNotesLoader projectNotesLoader)
+        public ProjectNotesService(IProjectNotesLoader projectNotesLoader)
         {
             _projectNotesLoader = projectNotesLoader;
             _projectNotes = new List<IProjectNote>(_projectNotesLoader.Import().ConvertAll(line => new ProjectNote().InitByLine(line)));

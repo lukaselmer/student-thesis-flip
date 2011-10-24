@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
-using System.Reflection;
 using System.Windows;
 using Microsoft.Practices.Unity;
 using ProjectFlip.Services;
 using ProjectFlip.Services.Interfaces;
 using ProjectFlip.Services.Loader;
 using ProjectFlip.Services.Loader.Interfaces;
-using ProjectFlip.UserInterface;
 using ProjectFlip.UserInterface.Surface;
 
 namespace ProjectFlip

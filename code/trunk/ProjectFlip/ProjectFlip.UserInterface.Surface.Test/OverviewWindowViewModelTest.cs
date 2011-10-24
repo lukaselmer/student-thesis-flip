@@ -1,9 +1,5 @@
-﻿using System.ComponentModel;
-using ProjectFlip.UserInterface.Surface;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProjectFlip.Services.Interfaces;
-using System.Collections.Generic;
 
 namespace ProjectFlip.UserInterface.Surface.Test
 {
@@ -13,7 +9,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
     ///This is a test class for OverviewWindowViewModelTest and is intended
     ///to contain all OverviewWindowViewModelTest Unit Tests
     ///</summary>
-    [TestClass()]
+    [TestClass]
     public class OverviewWindowViewModelTest
     {
         /// <summary>
@@ -56,7 +52,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         /// <summary>
         ///A test for OverviewWindowViewModel Constructor & ProjectNotes Property
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void OverviewWindowViewModelProjectNotesTest()
         {
             var projectNotesService = new ProjectNotesServiceMock(5);
@@ -67,7 +63,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         /// <summary>
         ///A test for Notify
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
         public void NotifyTest()
         {
