@@ -6,19 +6,17 @@
     >
     <s:SurfaceWindow.Resources>
 
-      <DataTemplate x:Key="ProjectNoteTemplate">
-               <DocumentViewer Document="{Binding Document}">
-                </DocumentViewer>
-        </DataTemplate>
-
         <DataTemplate x:Key="ProjectNoteButtonTemplate">
-            <s:SurfaceButton Name="Button">
-                <StackPanel>
-                    <Image Width="100" Height="100" Source="{Binding Image}" />
-                    <TextBlock Text="{Binding Title}" TextTrimming="CharacterEllipsis" />
+                <StackPanel Width="320" Height="320" Orientation="Vertical"  HorizontalAlignment="Right">
+                    <Image Width="250" Height="250" Source="{Binding Image}" HorizontalAlignment="Center"/>
+                    <TextBlock Text="{Binding Title}" TextTrimming="None" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"/>
                 </StackPanel>
-            </s:SurfaceButton>
         </DataTemplate>
+        
+        <ItemsPanelTemplate x:Key="ItemPanelTemplate">
+            <WrapPanel>
+            </WrapPanel>
+        </ItemsPanelTemplate>
 
     </s:SurfaceWindow.Resources>
         
@@ -28,7 +26,7 @@
             <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
 
-        <s:SurfaceListBox Grid.Row="2" ItemsSource="{Binding ProjectNotes}" ItemTemplate="{Binding ProjectNoteTemplate}">
+        <s:SurfaceListBox Grid.Row="2" ItemsSource="{Binding ProjectNotes}" ItemTemplate="{StaticResource ProjectNoteButtonTemplate}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsPanel="{DynamicResource ItemPanelTemplate}">
 
         </s:SurfaceListBox>
             <!--<s:ScatterView Background="Gray" x:Name="scatterView" ItemsSource="{Binding ProjectNotes}" ItemTemplate="{Binding ProjectNoteTemplate}" />-->

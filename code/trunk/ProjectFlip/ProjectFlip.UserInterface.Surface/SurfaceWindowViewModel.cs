@@ -61,16 +61,19 @@ namespace ProjectFlip.UserInterface.Surface
 
             var image = new FrameworkElementFactory(typeof(Image));
             image.SetBinding(Image.SourceProperty, new Binding("Image"));
-            image.SetValue(FrameworkElement.WidthProperty, 100.0);
-            image.SetValue(FrameworkElement.HeightProperty, 100.0);
+            image.SetValue(FrameworkElement.WidthProperty, 250.0);
+            image.SetValue(FrameworkElement.HeightProperty, 250.0);
             var textBlock = new FrameworkElementFactory(typeof (TextBlock));
             textBlock.SetBinding(TextBlock.TextProperty, new Binding("Title"));
+            textBlock.SetValue(TextBlock.TextTrimmingProperty, TextTrimming.CharacterEllipsis);
 
             stackPanel.AppendChild(image);
             stackPanel.AppendChild(textBlock);
 
             surfacebutton.AppendChild(stackPanel);
             surfacebutton.SetValue(ButtonBase.CommandProperty, new Command(ChangeTemplate));
+            surfacebutton.SetValue(FrameworkElement.WidthProperty, 320.00);
+            surfacebutton.SetValue(FrameworkElement.HeightProperty, 320.00);
             return surfacebutton;
         }
 
