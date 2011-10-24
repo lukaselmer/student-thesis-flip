@@ -22,7 +22,7 @@ namespace ProjectFlip
             var container = new UnityContainer();
             ConfigureContainer(container);
 
-            var window = container.Resolve<SurfaceWindow1>();
+            var window = container.Resolve<OverviewWindow>();
             //var window = container.Resolve<MainWindow>();
             window.Show();
         }
