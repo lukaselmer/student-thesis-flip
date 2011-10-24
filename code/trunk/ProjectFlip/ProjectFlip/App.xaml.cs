@@ -51,7 +51,7 @@ namespace ProjectFlip
         {
             container.RegisterType<ILogService, ConsoleLogService>();
             container.RegisterType<IProjectNotesService, ProjectNotesService>();
-            container.RegisterType<IProjectNotesLoader, ProjectNotesLoader>(new InjectionConstructor(""));
+            container.RegisterType<IProjectNotesLoader, ProjectNotesLoader>(new InjectionConstructor());
         }
     }
 }

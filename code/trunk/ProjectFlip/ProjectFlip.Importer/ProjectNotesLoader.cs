@@ -9,9 +9,13 @@ namespace ProjectFlip.Services.Loader
     {
         private List<List<string>> _lines;
 
-        public ProjectNotesLoader(string filename = null)
+        public ProjectNotesLoader()
         {
-            if (!File.Exists(filename)) filename = @"..\..\..\Resources\metadata.txt";
+            Filename = @"..\..\..\Resources\metadata.txt";
+        }
+
+        public ProjectNotesLoader(string filename)
+        {
             Filename = filename;
         }
 
