@@ -7,8 +7,8 @@
     <s:SurfaceWindow.Resources>
 
         <DataTemplate x:Key="ProjectNoteButtonTemplate">
-                <StackPanel Width="320" Height="320" Orientation="Vertical"  HorizontalAlignment="Right">
-                    <Image Width="250" Height="250" Source="{Binding Image}" HorizontalAlignment="Center"/>
+                <StackPanel Width="240" Height="240" Orientation="Vertical"  HorizontalAlignment="Right">
+                    <Image Width="190" Height="190" Source="{Binding Image}" HorizontalAlignment="Center"/>
                     <TextBlock Text="{Binding Title}" TextTrimming="None" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"/>
                 </StackPanel>
         </DataTemplate>
@@ -20,15 +20,8 @@
 
     </s:SurfaceWindow.Resources>
         
-  <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="4*"/>
-        </Grid.RowDefinitions>
-
-        <s:SurfaceListBox Grid.Row="2" ItemsSource="{Binding ProjectNotes}" ItemTemplate="{StaticResource ProjectNoteButtonTemplate}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsPanel="{DynamicResource ItemPanelTemplate}">
-
+  <Grid Background="Gray">
+        <s:SurfaceListBox ItemsSource="{Binding ProjectNotes}" ItemTemplate="{StaticResource ProjectNoteButtonTemplate}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsPanel="{DynamicResource ItemPanelTemplate}">
         </s:SurfaceListBox>
-            <!--<s:ScatterView Background="Gray" x:Name="scatterView" ItemsSource="{Binding ProjectNotes}" ItemTemplate="{Binding ProjectNoteTemplate}" />-->
   </Grid>
 </s:SurfaceWindow>

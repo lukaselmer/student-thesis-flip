@@ -12,20 +12,10 @@ namespace ProjectFlip.UserInterface.Surface
     public class SurfaceWindowViewModel : INotifyPropertyChanged
     {
 
-        private readonly FrameworkElementFactory _projectNoteButtonTemplate;
-        private readonly FrameworkElementFactory _projectNoteTemplate ;
-        private DataTemplate _dataTemplate;
-
         public SurfaceWindowViewModel(IProjectNotesService projectNotesService)
         {
             ProjectNotes = projectNotesService.ProjectNotes;
-            _projectNoteButtonTemplate = CreateProjectNoteButtonTemplate();
-            _projectNoteTemplate = CreateProjectNoteTemplate();
-            ProjectNoteTemplate = new DataTemplate();
-            ProjectNoteTemplate.VisualTree = _projectNoteButtonTemplate;
         }
-
-        public Command OpenProjectNoteCommand { get; private set; }
 
         private void Notify(string propertyName)
         {
@@ -35,56 +25,7 @@ namespace ProjectFlip.UserInterface.Surface
 
         public List<IProjectNote> ProjectNotes { get; private set; }
 
-        public DataTemplate ProjectNoteTemplate
-        {
-            get { return _dataTemplate; }
-            set
-            {
-                _dataTemplate = value;
-                Notify("ProjectNoteTemplate");
-            }
-        }
-
-
-        private void ChangeTemplate(object parameter)
-        {
-            var temp = new DataTemplate();
-            temp.VisualTree = _projectNoteTemplate;
-            ProjectNoteTemplate = temp;
-        }
-
-        private FrameworkElementFactory CreateProjectNoteButtonTemplate()
-        {
-            var surfacebutton = new FrameworkElementFactory(typeof (SurfaceButton));
-
-            var stackPanel = new FrameworkElementFactory(typeof (StackPanel));
-
-            var image = new FrameworkElementFactory(typeof(Image));
-            image.SetBinding(Image.SourceProperty, new Binding("Image"));
-            image.SetValue(FrameworkElement.WidthProperty, 250.0);
-            image.SetValue(FrameworkElement.HeightProperty, 250.0);
-            var textBlock = new FrameworkElementFactory(typeof (TextBlock));
-            textBlock.SetBinding(TextBlock.TextProperty, new Binding("Title"));
-            textBlock.SetValue(TextBlock.TextTrimmingProperty, TextTrimming.CharacterEllipsis);
-
-            stackPanel.AppendChild(image);
-            stackPanel.AppendChild(textBlock);
-
-            surfacebutton.AppendChild(stackPanel);
-            surfacebutton.SetValue(ButtonBase.CommandProperty, new Command(ChangeTemplate));
-            surfacebutton.SetValue(FrameworkElement.WidthProperty, 320.00);
-            surfacebutton.SetValue(FrameworkElement.HeightProperty, 320.00);
-            return surfacebutton;
-        }
-
-        private FrameworkElementFactory CreateProjectNoteTemplate()
-        {
-            var documentViewer = new FrameworkElementFactory(typeof (DocumentViewer));
-            documentViewer.SetBinding(DocumentViewerBase.DocumentProperty, new Binding("Document"));
-            return documentViewer;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
+       public event PropertyChangedEventHandler PropertyChanged;
 
     }
 }
