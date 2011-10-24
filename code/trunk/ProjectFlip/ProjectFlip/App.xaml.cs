@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Reflection;
 using System.Windows;
 using Microsoft.Practices.Unity;
 using ProjectFlip.Services;
@@ -45,11 +47,11 @@ namespace ProjectFlip
             cib.Register();
         }
 
-        private static void ConfigureContainer(UnityContainer container)
+        private static void ConfigureContainer(IUnityContainer container)
         {
             container.RegisterType<ILogService, ConsoleLogService>();
             container.RegisterType<IProjectNotesService, ProjectNotesService>();
-            container.RegisterType<IProjectNotesLoader, ProjectNotesLoader>();
+            container.RegisterType<IProjectNotesLoader, ProjectNotesLoader>(new InjectionConstructor(""));
         }
     }
 }

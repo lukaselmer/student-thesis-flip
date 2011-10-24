@@ -9,9 +9,10 @@ namespace ProjectFlip.Services.Loader
     {
         private List<List<string>> _lines;
 
-        public ProjectNotesLoader()
+        public ProjectNotesLoader(string filename = null)
         {
-            Filename = @"..\..\..\Resources\metadata.txt";
+            if (!File.Exists(filename)) filename = @"..\..\..\Resources\metadata.txt";
+            Filename = filename;
         }
 
         public string Filename { get; set; }
@@ -26,6 +27,7 @@ namespace ProjectFlip.Services.Loader
 
         private void CleanFields()
         {
+            _lines.RemoveAll(line => line.Count != 19);
             _lines = _lines.ConvertAll(line => line.ConvertAll(f => f.Trim()));
         }
 
@@ -36,10 +38,7 @@ namespace ProjectFlip.Services.Loader
 
         private void CheckText()
         {
-            foreach (var ss in _lines)
-            {
-                Debug.Assert(ss.Count == 19, "Wrong text file: Expected each Line to contain 19 elements (18 tabs).");
-            }
+            _lines.ForEach(line => Debug.Assert(line.Count == 19, "Wrong text file: Expected each Line to contain 19 elements (18 tabs)."));
         }
 
         private void LoadText()
