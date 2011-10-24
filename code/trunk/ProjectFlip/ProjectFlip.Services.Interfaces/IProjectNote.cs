@@ -24,13 +24,13 @@ namespace ProjectFlip.Services.Interfaces
         string FilepathImage { get; }
         string Url { get; }
 
+        IList<string> Line { set; }
+
         BitmapImage Image { get; }
 
         /// <summary>
         /// Gets or sets the document.
         /// </summary>
         IDocumentPaginatorSource Document { get; }
-
-        IProjectNote InitByLine(IList<string> line);
     }
 }

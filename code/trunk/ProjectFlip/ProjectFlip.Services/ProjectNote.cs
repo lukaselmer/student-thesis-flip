@@ -12,34 +12,11 @@ namespace ProjectFlip.Services
 {
     public class ProjectNote : IProjectNote
     {
-        public IProjectNote InitByLine(IList<string> line)
-        {
-            Debug.Assert(line.Count == 19);
-            Id = Convert.ToInt32(line[0]);
-            Title = line[1];
-            Text = line[2];
-            Sector = line[3];
-            Customer = line[4];
-            Focus = ConvertToList(line[5]);
-            Services = ConvertToList(line[6]);
-            Technologies = ConvertToList(line[7]);
-            Applications = ConvertToList(line[8]);
-            Tools = ConvertToList(line[9]);
-            Published = Convert.ToDateTime(line[10]);
-
-            Filename = line[13];
-            var pdfRegex = new Regex(@"\.pdf$");
-            FilepathPdf = @"..\..\..\Resources\Pdf\" + Filename;
-            FilepathXps = @"..\..\..\Resources\Xps\" + pdfRegex.Replace(Filename, ".xps");
-            FilepathImage = @"..\..\..\Resources\Images\" + pdfRegex.Replace(Filename, ".bmp");
-            return this;
-            //Filename = @"..\..\..\Resources\Xps\test.xps";
-        }
-
         private static IList<string> ConvertToList(string line)
         {
             return new List<string> { line };
         }
+        public static string FilepathFolder = @"..\..\..\Resources";
 
         public int Id { get; private set; }
         public string Title { get; private set; } // Audit einer IT-Infrastruktur und Organisation
@@ -61,6 +38,33 @@ namespace ProjectFlip.Services
         {
             get { return "http://www.zuehlke.com/uploads/tx_zepublications/" + Filename; }
         }
+
+        public IList<string> Line
+        {
+            set
+            {
+                Debug.Assert(value.Count == 19);
+                Id = Convert.ToInt32(value[0]);
+                Title = value[1];
+                Text = value[2];
+                Sector = value[3];
+                Customer = value[4];
+                Focus = ConvertToList(value[5]);
+                Services = ConvertToList(value[6]);
+                Technologies = ConvertToList(value[7]);
+                Applications = ConvertToList(value[8]);
+                Tools = ConvertToList(value[9]);
+                Published = Convert.ToDateTime(value[10]);
+
+                Filename = value[13];
+                var pdfRegex = new Regex(@"\.pdf$");
+                FilepathPdf = FilepathFolder + @"\Pdf\" + Filename;
+                FilepathXps = FilepathFolder + @"\Xps\" + pdfRegex.Replace(Filename, ".xps");
+                FilepathImage = FilepathFolder + @"\Images\" + pdfRegex.Replace(Filename, ".bmp");
+                //Filename = @"..\..\..\Resources\Xps\test.xps";
+            }
+        }
+
 
         public IDocumentPaginatorSource Document
         {

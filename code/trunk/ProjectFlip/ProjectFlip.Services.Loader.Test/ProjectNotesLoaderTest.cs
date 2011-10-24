@@ -57,7 +57,7 @@ namespace ProjectFlip.Services.Loader.Test
         {
             const string filename = @"..\..\..\ProjectFlip.Services.Loader.Test\testdata.txt";
             Assert.IsTrue(File.Exists(filename), "Testfile " + filename + " does not exist!");
-            var target = new ProjectNotesLoader(filename);
+            var target = new ProjectNotesLoader { Filename = filename };
             var listFromAtoS = Enumerable.Range('a', 19).Select(c => "" + (char)c).ToList();
             var expected = new List<List<string>> {listFromAtoS};
             var actual = target.Import();

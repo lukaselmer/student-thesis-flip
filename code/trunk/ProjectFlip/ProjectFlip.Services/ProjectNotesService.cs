@@ -13,7 +13,7 @@ namespace ProjectFlip.Services
         public ProjectNotesService(IProjectNotesLoader projectNotesLoader)
         {
             _projectNotesLoader = projectNotesLoader;
-            _projectNotes = new List<IProjectNote>(_projectNotesLoader.Import().ConvertAll(line => new ProjectNote().InitByLine(line)));
+            _projectNotes = new List<IProjectNote>(_projectNotesLoader.Import().ConvertAll(line => new ProjectNote { Line = line }));
             _projectNotes.RemoveAll(pn => !File.Exists(pn.FilepathXps));
         }
 

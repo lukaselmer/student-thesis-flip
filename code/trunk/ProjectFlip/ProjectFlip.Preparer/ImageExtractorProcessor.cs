@@ -27,66 +27,70 @@ namespace ProjectFlip.Preparer
             return false;
         }
 
+        // TODO: Refactor this method!
         private static void ExtractImage(string xpsPath, string imagePath)
         {
             if (!File.Exists(xpsPath)) return;
 
             //xpsPath = @"D:\hsr\Semesterarbeit\svn\code\trunk\ProjectFlip\Resources\Xps\pn_063_d_sensor_linearantrieb_web.xps";
 
-
-            var xpsDoc = new XpsDocument(xpsPath, FileAccess.Read);
             try
             {
-                xpsDoc.GetFixedDocumentSequence();
+                var xpsDoc = new XpsDocument(xpsPath, FileAccess.Read);
+                try
+                {
+                    xpsDoc.GetFixedDocumentSequence();
 
-                var docSeq = xpsDoc.GetFixedDocumentSequence();
-                xpsDoc.Close();
-                if (docSeq == null) { xpsDoc.Close(); return; }
+                    var docSeq = xpsDoc.GetFixedDocumentSequence();
+                    xpsDoc.Close();
+                    if (docSeq == null) { xpsDoc.Close(); return; }
 
-                var docPage = docSeq.DocumentPaginator.GetPage(0);
+                    var docPage = docSeq.DocumentPaginator.GetPage(0);
 
-                var renderTarget = new RenderTargetBitmap(
-                    (int)docPage.Size.Width,
-                    (int)docPage.Size.Height,
-                    96, 96, // WPF (Avalon) units are 96dpi based
-                    PixelFormats.Default);
-                // crop image from 340x309 - 583x552
-                renderTarget.Render(docPage.Visual);
+                    var renderTarget = new RenderTargetBitmap(
+                        (int)docPage.Size.Width,
+                        (int)docPage.Size.Height,
+                        96, 96, // WPF (Avalon) units are 96dpi based
+                        PixelFormats.Default);
+                    // crop image from 340x309 - 583x552
+                    renderTarget.Render(docPage.Visual);
 
-                var encoder = new BmpBitmapEncoder();  // Choose type here ie: JpegBitmapEncoder, etc
-                encoder.Frames.Add(BitmapFrame.Create(renderTarget));
+                    var encoder = new BmpBitmapEncoder();  // Choose type here ie: JpegBitmapEncoder, etc
+                    encoder.Frames.Add(BitmapFrame.Create(renderTarget));
 
-                var pageOutStream = new FileStream(imagePath + ".tmp", FileMode.Create, FileAccess.Write);
-                encoder.Save(pageOutStream);
-                pageOutStream.Close();
+                    var pageOutStream = new FileStream(imagePath + ".tmp", FileMode.Create, FileAccess.Write);
+                    encoder.Save(pageOutStream);
+                    pageOutStream.Close();
 
-                var v = Image.FromFile(imagePath + ".tmp");
-                var bmpImage = new Bitmap(v);
-                var bmpCrop = bmpImage.Clone(new Rectangle(340, 309, 243, 243), bmpImage.PixelFormat);
-                bmpCrop.Save(imagePath);
-                v.Dispose();
+                    var v = Image.FromFile(imagePath + ".tmp");
+                    var bmpImage = new Bitmap(v);
+                    var bmpCrop = bmpImage.Clone(new Rectangle(340, 309, 243, 243), bmpImage.PixelFormat);
+                    bmpCrop.Save(imagePath);
+                    v.Dispose();
 
-                File.Delete(imagePath + ".tmp");
-                bmpImage.Dispose();
-                bmpCrop.Dispose();
+                    File.Delete(imagePath + ".tmp");
+                    bmpImage.Dispose();
+                    bmpCrop.Dispose();
+                }
+                finally
+                {
+                    // Memory Leak .NET FrameworkBug!? See http://stackoverflow.com/questions/218681/opening-xps-document-in-net-causes-a-memory-leak
+                    // Workaround:
+                    // Executes: ContextLayoutManager.From(Dispatcher.CurrentDispatcher).UpdateLayout();
+
+                    xpsDoc.Close();
+
+                    var presentationCoreAssembly = Assembly.GetAssembly(typeof(UIElement));
+                    var contextLayoutManagerType = presentationCoreAssembly.GetType("System.Windows.ContextLayoutManager");
+                    var contextLayoutManager = contextLayoutManagerType.InvokeMember("From",
+                    BindingFlags.InvokeMethod | BindingFlags.Static | BindingFlags.NonPublic, null, null, new[] { Dispatcher.CurrentDispatcher });
+                    contextLayoutManagerType.InvokeMember("UpdateLayout", BindingFlags.InvokeMethod | BindingFlags.NonPublic | BindingFlags.Instance, null, contextLayoutManager, null);
+
+                    GC.Collect();
+                    // End of workaround
+                }
             }
-            finally
-            {
-                // Memory Leak .NET FrameworkBug!? See http://stackoverflow.com/questions/218681/opening-xps-document-in-net-causes-a-memory-leak
-                // Workaround:
-                // Executes: ContextLayoutManager.From(Dispatcher.CurrentDispatcher).UpdateLayout();
-
-                xpsDoc.Close();
-
-                var presentationCoreAssembly = Assembly.GetAssembly(typeof(UIElement));
-                var contextLayoutManagerType = presentationCoreAssembly.GetType("System.Windows.ContextLayoutManager");
-                var contextLayoutManager = contextLayoutManagerType.InvokeMember("From",
-                BindingFlags.InvokeMethod | BindingFlags.Static | BindingFlags.NonPublic, null, null, new[] { Dispatcher.CurrentDispatcher });
-                contextLayoutManagerType.InvokeMember("UpdateLayout", BindingFlags.InvokeMethod | BindingFlags.NonPublic | BindingFlags.Instance, null, contextLayoutManager, null);
-
-                GC.Collect();
-                // End of workaround
-            }
+            catch (Exception) { return; }
 
 
 

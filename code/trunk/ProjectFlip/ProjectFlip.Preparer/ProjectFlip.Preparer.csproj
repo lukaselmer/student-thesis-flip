@@ -52,6 +52,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CleanupProcessor.cs" />
     <Compile Include="ConverterProcessor.cs" />
     <Compile Include="DownloadProcessor.cs" />
     <Compile Include="ImageExtractorProcessor.cs" />

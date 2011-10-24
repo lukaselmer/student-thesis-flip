@@ -15,11 +15,6 @@ namespace ProjectFlip.Services.Loader
             Filename = @"..\..\..\Resources\metadata.txt";
         }
 
-        public ProjectNotesLoader(string filename)
-        {
-            Filename = filename;
-        }
-
         public string Filename { get; set; }
 
         public List<List<String>> Import()

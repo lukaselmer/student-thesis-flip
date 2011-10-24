@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Security.AccessControl;
 using System.Threading.Tasks;
 using Microsoft.Practices.Unity;
+using Microsoft.Practices.Unity.ObjectBuilder;
 using ProjectFlip.Converter.Interfaces;
 using ProjectFlip.Converter.Pdf;
 using ProjectFlip.Services;
@@ -21,12 +24,14 @@ namespace ProjectFlip.Preparer
             var processors = new List<IProcessor> { 
                 new DownloadProcessor(),
                 new ConverterProcessor(container.Resolve<IConverter>()),
-                new ImageExtractorProcessor() };
+                new ImageExtractorProcessor(),
+                new CleanupProcessor()};
 
             var actions = new List<Action>();
             foreach (var line in container.Resolve<IProjectNotesLoader>().Import())
             {
-                var projectNote = container.Resolve<IProjectNote>().InitByLine(line);
+                var projectNote = container.Resolve<IProjectNote>();
+                projectNote.Line = line;
                 actions.Add(() => Process(processors, projectNote));
             }
             var parallelOptions = new ParallelOptions { MaxDegreeOfParallelism = 300 };
@@ -41,8 +46,8 @@ namespace ProjectFlip.Preparer
         private static void ConfigureContainer(UnityContainer container)
         {
             container.RegisterType<IConverter, PdfConverter>();
-            container.RegisterType<IProjectNotesLoader, ProjectNotesLoader>();
             container.RegisterType<IProjectNote, ProjectNote>();
+            container.RegisterType<IProjectNotesLoader, ProjectNotesLoader>();
         }
     }
 }
