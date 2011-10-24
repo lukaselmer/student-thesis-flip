@@ -7,6 +7,7 @@ using ProjectFlip.Converter.Pdf;
 using ProjectFlip.Services;
 using ProjectFlip.Services.Interfaces;
 using ProjectFlip.Services.Loader;
+using ProjectFlip.Services.Loader.Interfaces;
 
 namespace ProjectFlip.Preparer
 {

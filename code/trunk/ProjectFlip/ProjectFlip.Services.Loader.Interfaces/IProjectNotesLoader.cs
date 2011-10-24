@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ProjectFlip.Services.Loader
+namespace ProjectFlip.Services.Loader.Interfaces
 {
     public interface IProjectNotesLoader
     {
