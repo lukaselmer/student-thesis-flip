@@ -11,7 +11,6 @@ namespace ProjectFlip.UserInterface.Surface
 {
     public class OverviewWindowViewModel : ViewModelBase
     {
-
         public OverviewWindowViewModel(IProjectNotesService projectNotesService)
         {
             ProjectNotes = projectNotesService.ProjectNotes;

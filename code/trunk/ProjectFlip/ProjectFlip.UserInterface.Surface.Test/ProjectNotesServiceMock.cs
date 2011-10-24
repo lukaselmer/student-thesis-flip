@@ -10,7 +10,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
     class ProjectNotesServiceMock : IProjectNotesService
     {
 
-        private List<IProjectNote> _projectNotes;
+        private readonly List<IProjectNote> _projectNotes;
 
         public ProjectNotesServiceMock(int count)
         {

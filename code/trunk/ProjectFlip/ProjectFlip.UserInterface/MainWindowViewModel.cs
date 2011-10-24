@@ -13,8 +13,7 @@ namespace ProjectFlip.UserInterface
         public MainWindowViewModel(IProjectNotesService projectNotesService)
         {
             _projectNotes = projectNotesService.ProjectNotes;
-            ProjectNotes = new ListCollectionView(_projectNotes);
-            ProjectNotes.Filter = FilterCallback;
+            ProjectNotes = new ListCollectionView(_projectNotes) {Filter = FilterCallback};
 
             ClearFilterCommand = new Command(ClearFilter, p => !string.IsNullOrEmpty(Filter));
         }

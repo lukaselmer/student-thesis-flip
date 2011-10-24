@@ -10,6 +10,6 @@ namespace ProjectFlip.UserInterface.Surface
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public virtual event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }
