@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Documents;
@@ -67,7 +68,6 @@ namespace ProjectFlip.Services
             get
             {
                 var doc = new XpsDocument(FilepathXps, FileAccess.Read);
-
                 //var doc = new XpsDocument(@"..\..\..\Resources\Xps\test.xps", FileAccess.Read);
                 //var doc = new XpsDocument(@"C:\Users\Lukas Elmer\Desktop\tmp.xps", FileAccess.Read);
                 return doc.GetFixedDocumentSequence();
@@ -81,8 +81,21 @@ namespace ProjectFlip.Services
         {
             get
             {
-                var helper = new XpsDocumentHelper(FilepathXps);
-                return helper.Logo();
+                if (!File.Exists(FilepathImage)) return null;
+                var image = new BitmapImage();
+                image.BeginInit();
+                image.StreamSource = File.OpenRead(FilepathImage);
+                image.EndInit();
+                return image;
+                // return new BitmapImage(new Uri(FilepathImage, UriKind.Relative));
+                /*var image = new BitmapImage();
+                image.BeginInit();
+                image.StreamSource = new List<XpsImage>(images)[new Random().Next(images.Count)].GetStream();
+                image.EndInit();
+                return image;*/
+                //var helper = new XpsDocumentHelper(FilepathXps);
+                //return helper.Logo();
+                //return Bitmap.FromFile(FilepathImage);
             }
         }
 

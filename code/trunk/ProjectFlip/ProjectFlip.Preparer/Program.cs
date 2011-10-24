@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Net;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.Practices.Unity;
 using ProjectFlip.Converter.Interfaces;
@@ -21,17 +18,15 @@ namespace ProjectFlip.Preparer
             ConfigureContainer(container);
 
             var processors = new List<IProcessor> { 
-                //new DownloadProcessor(),
-                //new ConverterProcessor(container.Resolve<IConverter>()),
+                new DownloadProcessor(),
+                new ConverterProcessor(container.Resolve<IConverter>()),
                 new ImageExtractorProcessor() };
 
             var actions = new List<Action>();
-            //int i = 0;
             foreach (var line in container.Resolve<IProjectNotesLoader>().Import())
             {
                 var projectNote = container.Resolve<IProjectNote>().InitByLine(line);
                 actions.Add(() => Process(processors, projectNote));
-                //if(i++ > 3) break; // XXXXXXXXXXXXXXXXXXXXX DELETE ME XXXXXXXXXXXXXXXXXXXXXXXXX
             }
             var parallelOptions = new ParallelOptions { MaxDegreeOfParallelism = 300 };
             Parallel.Invoke(parallelOptions, actions.ToArray());
