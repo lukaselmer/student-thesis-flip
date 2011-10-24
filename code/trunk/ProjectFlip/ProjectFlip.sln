@@ -21,7 +21,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.Preparer", "Pro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.Services.Loader.Interfaces", "ProjectFlip.Services.Loader.Interfaces\ProjectFlip.Services.Loader.Interfaces.csproj", "{C478FCE9-01DE-49E0-915D-68A1B6B556F2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{44241FFB-D931-4281-86D1-668351A9D921}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		ProjectFlip.vsmdi = ProjectFlip.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.UserInterface.Surface.Test", "ProjectFlip.UserInterface.Surface.Test\ProjectFlip.UserInterface.Surface.Test.csproj", "{52E69CE2-F2D9-4BA0-A5CD-0EC7EBC940E1}"
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = ProjectFlip.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -131,6 +143,16 @@ Global
 		{C478FCE9-01DE-49E0-915D-68A1B6B556F2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{C478FCE9-01DE-49E0-915D-68A1B6B556F2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{C478FCE9-01DE-49E0-915D-68A1B6B556F2}.Release|x86.ActiveCfg = Release|Any CPU
+		{52E69CE2-F2D9-4BA0-A5CD-0EC7EBC940E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52E69CE2-F2D9-4BA0-A5CD-0EC7EBC940E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52E69CE2-F2D9-4BA0-A5CD-0EC7EBC940E1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{52E69CE2-F2D9-4BA0-A5CD-0EC7EBC940E1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{52E69CE2-F2D9-4BA0-A5CD-0EC7EBC940E1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{52E69CE2-F2D9-4BA0-A5CD-0EC7EBC940E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52E69CE2-F2D9-4BA0-A5CD-0EC7EBC940E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52E69CE2-F2D9-4BA0-A5CD-0EC7EBC940E1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{52E69CE2-F2D9-4BA0-A5CD-0EC7EBC940E1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{52E69CE2-F2D9-4BA0-A5CD-0EC7EBC940E1}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
