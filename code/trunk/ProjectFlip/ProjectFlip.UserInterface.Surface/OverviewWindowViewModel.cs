@@ -9,7 +9,7 @@ using ProjectFlip.Services.Interfaces;
 
 namespace ProjectFlip.UserInterface.Surface
 {
-    public class OverviewWindowViewModel : INotifyPropertyChanged
+    public class OverviewWindowViewModel : ViewModelBase
     {
 
         public OverviewWindowViewModel(IProjectNotesService projectNotesService)
@@ -17,15 +17,6 @@ namespace ProjectFlip.UserInterface.Surface
             ProjectNotes = projectNotesService.ProjectNotes;
         }
 
-        private void Notify(string propertyName)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         public List<IProjectNote> ProjectNotes { get; private set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
     }
 }
