@@ -5,14 +5,17 @@ using ProjectFlip.Services.Interfaces;
 
 namespace ProjectFlip.Preparer
 {
-    class DownloadProcessor : IProcessor
+    internal class DownloadProcessor : IProcessor
     {
+        #region IProcessor Members
+
         public bool Process(IProjectNote projectNote)
         {
-
             if (!File.Exists(projectNote.FilepathPdf)) Download(projectNote);
             return true;
         }
+
+        #endregion
 
         private bool Download(IProjectNote projectNote, int i = 0)
         {

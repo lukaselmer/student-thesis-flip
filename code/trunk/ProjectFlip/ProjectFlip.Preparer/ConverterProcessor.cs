@@ -4,13 +4,16 @@ using ProjectFlip.Services.Interfaces;
 
 namespace ProjectFlip.Preparer
 {
-    class ConverterProcessor : IProcessor
+    internal class ConverterProcessor : IProcessor
     {
         private readonly IConverter _converter;
+
         public ConverterProcessor(IConverter converter)
         {
             _converter = converter;
         }
+
+        #region IProcessor Members
 
         public bool Process(IProjectNote projectNote)
         {
@@ -21,5 +24,7 @@ namespace ProjectFlip.Preparer
             }
             return false;
         }
+
+        #endregion
     }
 }
