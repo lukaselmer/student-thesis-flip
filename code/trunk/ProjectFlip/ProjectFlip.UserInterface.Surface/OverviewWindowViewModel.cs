@@ -10,6 +10,13 @@ namespace ProjectFlip.UserInterface.Surface
             ProjectNotes = projectNotesService.ProjectNotes;
         }
 
+        public Command OpenDetailWindowCommand { get; private set; }
+
+        private void OpenDetailWindow(object parameter)
+        {
+
+        }
+
         public List<IProjectNote> ProjectNotes { get; private set; }
     }
 }
