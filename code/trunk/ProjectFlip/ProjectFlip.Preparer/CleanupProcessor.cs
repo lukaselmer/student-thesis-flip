@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using ProjectFlip.Services.Interfaces;
 
@@ -8,19 +7,15 @@ namespace ProjectFlip.Preparer
     {
         public bool Process(IProjectNote projectNote)
         {
+            bool success = true;
             if (!File.Exists(projectNote.FilepathImage))
             {
-                try
-                {
-                    File.Delete(projectNote.FilepathPdf);
-                    File.Delete(projectNote.FilepathXps);
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
+                try { File.Delete(projectNote.FilepathPdf); }
+                catch { success = false; }
+                try { File.Delete(projectNote.FilepathXps); }
+                catch { success = false; }
             }
-            return true;
+            return success;
         }
     }
 }
