@@ -1,7 +1,11 @@
-﻿using System.IO;
+﻿#region
+
+using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
 using ProjectFlip.Services.Interfaces;
+
+#endregion
 
 namespace ProjectFlip.Preparer
 {

@@ -1,4 +1,6 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Practices.Unity;
@@ -8,6 +10,8 @@ using ProjectFlip.Services;
 using ProjectFlip.Services.Interfaces;
 using ProjectFlip.Services.Loader;
 using ProjectFlip.Services.Loader.Interfaces;
+
+#endregion
 
 namespace ProjectFlip.Preparer
 {
@@ -19,12 +23,10 @@ namespace ProjectFlip.Preparer
             ConfigureContainer(container);
 
             var processors = new List<IProcessor>
-                                 {
-                                     new DownloadProcessor(),
-                                     new ConverterProcessor(container.Resolve<IConverter>()),
-                                     new ImageExtractorProcessor(),
-                                     new CleanupProcessor()
-                                 };
+                             {
+                                 new DownloadProcessor(), new ConverterProcessor(container.Resolve<IConverter>()),
+                                 new ImageExtractorProcessor(), new CleanupProcessor()
+                             };
 
             var actions = new List<Action>();
             foreach (var line in container.Resolve<IProjectNotesLoader>().Import())

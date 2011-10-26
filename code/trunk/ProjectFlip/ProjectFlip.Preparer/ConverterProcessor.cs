@@ -1,6 +1,10 @@
-﻿using System.IO;
+﻿#region
+
+using System.IO;
 using ProjectFlip.Converter.Interfaces;
 using ProjectFlip.Services.Interfaces;
+
+#endregion
 
 namespace ProjectFlip.Preparer
 {
