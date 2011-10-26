@@ -7,7 +7,7 @@ namespace ProjectFlip.Preparer
     {
         public bool Process(IProjectNote projectNote)
         {
-            bool success = true;
+            var success = true;
             if (!File.Exists(projectNote.FilepathImage))
             {
                 try { File.Delete(projectNote.FilepathPdf); }
