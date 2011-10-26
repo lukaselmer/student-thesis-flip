@@ -1,4 +1,6 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
@@ -10,13 +12,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using System.Windows.Xps.Packaging;
 using ProjectFlip.Services.Interfaces;
-using Image = System.Drawing.Image;
+
+#endregion
 
 namespace ProjectFlip.Preparer
 {
     // TODO: Refactor this class
-    class ImageExtractorProcessor : IProcessor
+    internal class ImageExtractorProcessor : IProcessor
     {
+        #region IProcessor Members
+
         public bool Process(IProjectNote projectNote)
         {
             if (!File.Exists(projectNote.FilepathImage))
@@ -29,26 +34,36 @@ namespace ProjectFlip.Preparer
             return false;
         }
 
+        #endregion
+
         private static void ExtractImage(string xpsPath, string imagePath)
         {
             if (!File.Exists(xpsPath)) return;
 
-            try { ProcessDocument(xpsPath, imagePath); }
-            catch (Exception) { return; }
+            try
+            {
+                ProcessDocument(xpsPath, imagePath);
+            }
+            catch (Exception)
+            {
+                return;
+            }
             finally
             {
                 // Memory Leak .NET FrameworkBug!? See http://stackoverflow.com/questions/218681/opening-xps-document-in-net-causes-a-memory-leak
                 // Workaround:
                 // Executes: ContextLayoutManager.From(Dispatcher.CurrentDispatcher).UpdateLayout();
-                var presentationCoreAssembly = Assembly.GetAssembly(typeof(UIElement));
+                var presentationCoreAssembly = Assembly.GetAssembly(typeof (UIElement));
                 var contextLayoutManagerType = presentationCoreAssembly.GetType("System.Windows.ContextLayoutManager");
                 var contextLayoutManager = contextLayoutManagerType.InvokeMember("From",
-                BindingFlags.InvokeMethod | BindingFlags.Static | BindingFlags.NonPublic, null, null, new[] { Dispatcher.CurrentDispatcher });
-                contextLayoutManagerType.InvokeMember("UpdateLayout", BindingFlags.InvokeMethod | BindingFlags.NonPublic | BindingFlags.Instance, null, contextLayoutManager, null);
+                    BindingFlags.InvokeMethod | BindingFlags.Static | BindingFlags.NonPublic, null, null,
+                    new[] {Dispatcher.CurrentDispatcher});
+                contextLayoutManagerType.InvokeMember("UpdateLayout",
+                    BindingFlags.InvokeMethod | BindingFlags.NonPublic | BindingFlags.Instance, null,
+                    contextLayoutManager, null);
                 GC.Collect();
                 // End of workaround
             }
-
         }
 
         private static void ProcessDocument(string xpsPath, string imagePath)
@@ -69,14 +84,10 @@ namespace ProjectFlip.Preparer
         private static void TempImageToCroppedImage(string imagePath, string tempImagePath)
         {
             using (var v = Image.FromFile(tempImagePath))
+            using (var bmpImage = new Bitmap(v))
+            using (var bmpCrop = bmpImage.Clone(new Rectangle(340, 309, 243, 243), bmpImage.PixelFormat))
             {
-                using (var bmpImage = new Bitmap(v))
-                {
-                    using (var bmpCrop = bmpImage.Clone(new Rectangle(340, 309, 243, 243), bmpImage.PixelFormat))
-                    {
-                        bmpCrop.Save(imagePath);
-                    }
-                }
+                bmpCrop.Save(imagePath);
             }
         }
 
@@ -84,10 +95,8 @@ namespace ProjectFlip.Preparer
         {
             using (var docPage = docSeq.DocumentPaginator.GetPage(0))
             {
-                var renderTarget = new RenderTargetBitmap(
-                    (int)docPage.Size.Width,
-                    (int)docPage.Size.Height,
-                    96, 96, // WPF (Avalon) units are 96dpi based
+                var renderTarget = new RenderTargetBitmap((int) docPage.Size.Width, (int) docPage.Size.Height, 96, 96,
+                    // WPF (Avalon) units are 96dpi based
                     PixelFormats.Default);
                 // crop image from 340x309 - 583x552
                 renderTarget.Render(docPage.Visual);
