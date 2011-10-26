@@ -40,7 +40,8 @@ namespace ProjectFlip.Preparer
 
         private static void Process(List<IProcessor> processors, IProjectNote projectNote)
         {
-            processors.ForEach(proc => proc.Process(projectNote));
+            try { processors.ForEach(proc => proc.Process(projectNote)); }
+            catch (Exception e) { Console.WriteLine("Error processing PN: "); Console.WriteLine(e); }
         }
 
         private static void ConfigureContainer(UnityContainer container)
