@@ -1,4 +1,6 @@
 ﻿using System.Windows;
+using System.Windows.Xps.Packaging;
+
 
 namespace ProjectFlip.UserInterface.Surface
 {
@@ -7,9 +9,12 @@ namespace ProjectFlip.UserInterface.Surface
     /// </summary>
     public partial class DetailWindow : Window
     {
-        public DetailWindow()
+        public DetailWindow(DetailWindowViewModel detailWindowViewModel)
         {
             InitializeComponent();
+            DataContext = detailWindowViewModel;
         }
+     
+       
     }
 }

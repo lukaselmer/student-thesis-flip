@@ -1,8 +1,19 @@
 ﻿<Window x:Class="ProjectFlip.UserInterface.Surface.DetailWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:s="clr-namespace:Microsoft.Surface.Presentation.Controls;assembly=Microsoft.Surface.Presentation"
         Title="DetailWindow" Height="300" Width="300">
-    <Grid>
+
+        <Grid>
+
+        <DocumentViewer Document="{Binding Document}">
+        </DocumentViewer>
         
-    </Grid>
-</Window>
+        </Grid>
+
+    </Window>
+
+
+
+
+
