@@ -66,17 +66,6 @@ namespace ProjectFlip.Services.Test
         //
         #endregion
 
-
-        /// <summary>
-        ///A test for ProjectNote Constructor
-        ///</summary>
-        [TestMethod()]
-        public void ProjectNoteConstructorTest()
-        {
-            ProjectNote target = new ProjectNote();
-            Assert.Inconclusive("TODO: Implement code to verify target");
-        }
-
         /// <summary>
         ///A test for ConvertToList
         ///</summary>
@@ -97,155 +86,29 @@ namespace ProjectFlip.Services.Test
         }
 
         /// <summary>
-        ///A test for Applications
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.Services.dll")]
-        public void ApplicationsTest()
-        {
-            ProjectNote_Accessor target = new ProjectNote_Accessor(); // TODO: Initialize to an appropriate value
-            IList<string> expected = new List<string>();
-            expected.Add("test application");
-            IList<string> actual;
-            target.Applications = expected;
-            actual = target.Applications;
-            Assert.AreEqual(expected, actual);
-        }
-
-        /// <summary>
-        ///A test for Customer
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.Services.dll")]
-        public void CustomerTest()
-        {
-            ProjectNote_Accessor target = new ProjectNote_Accessor(); // TODO: Initialize to an appropriate value
-            string expected = string.Empty; // TODO: Initialize to an appropriate value
-            string actual;
-            target.Customer = expected;
-            actual = target.Customer;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
         ///A test for Document
         ///</summary>
         [TestMethod()]
         public void DocumentTest()
         {
-            ProjectNote target = new ProjectNote(); // TODO: Initialize to an appropriate value
-            IDocumentPaginatorSource actual;
-            actual = target.Document;
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            ProjectNote_Accessor target = new ProjectNote_Accessor();
+            target.FilepathXps = @"..\..\..\ProjectFlip.Services.Test\Resources\Xps\pn_test.xps";
+            IDocumentPaginatorSource document;
+            document = target.Document;
+            Assert.IsNotNull(document);
         }
-
-        /// <summary>
-        ///A test for Filename
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.Services.dll")]
-        public void FilenameTest()
-        {
-            ProjectNote_Accessor target = new ProjectNote_Accessor(); // TODO: Initialize to an appropriate value
-            string expected = string.Empty; // TODO: Initialize to an appropriate value
-            string actual;
-            target.Filename = expected;
-            actual = target.Filename;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for FilepathImage
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.Services.dll")]
-        public void FilepathImageTest()
-        {
-            ProjectNote_Accessor target = new ProjectNote_Accessor(); // TODO: Initialize to an appropriate value
-            string expected = string.Empty; // TODO: Initialize to an appropriate value
-            string actual;
-            target.FilepathImage = expected;
-            actual = target.FilepathImage;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for FilepathPdf
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.Services.dll")]
-        public void FilepathPdfTest()
-        {
-            ProjectNote_Accessor target = new ProjectNote_Accessor(); // TODO: Initialize to an appropriate value
-            string expected = string.Empty; // TODO: Initialize to an appropriate value
-            string actual;
-            target.FilepathPdf = expected;
-            actual = target.FilepathPdf;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for FilepathXps
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.Services.dll")]
-        public void FilepathXpsTest()
-        {
-            ProjectNote_Accessor target = new ProjectNote_Accessor(); // TODO: Initialize to an appropriate value
-            string expected = string.Empty; // TODO: Initialize to an appropriate value
-            string actual;
-            target.FilepathXps = expected;
-            actual = target.FilepathXps;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for Focus
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.Services.dll")]
-        public void FocusTest()
-        {
-            ProjectNote_Accessor target = new ProjectNote_Accessor(); // TODO: Initialize to an appropriate value
-            IList<string> expected = null; // TODO: Initialize to an appropriate value
-            IList<string> actual;
-            target.Focus = expected;
-            actual = target.Focus;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for Id
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.Services.dll")]
-        public void IdTest()
-        {
-            ProjectNote_Accessor target = new ProjectNote_Accessor(); // TODO: Initialize to an appropriate value
-            int expected = 0; // TODO: Initialize to an appropriate value
-            int actual;
-            target.Id = expected;
-            actual = target.Id;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
+ 
         /// <summary>
         ///A test for Image
         ///</summary>
         [TestMethod()]
         public void ImageTest()
         {
-            ProjectNote target = new ProjectNote(); // TODO: Initialize to an appropriate value
-            BitmapImage actual;
-            actual = target.Image;
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            ProjectNote_Accessor target = new ProjectNote_Accessor();
+            target.FilepathImage = @"..\..\..\ProjectFlip.Services.Test\Resources\Image\pn_test.bmp";
+            BitmapImage image;
+            image = target.Image;
+            Assert.IsNotNull(image);
         }
 
         /// <summary>
@@ -258,145 +121,6 @@ namespace ProjectFlip.Services.Test
             IList<string> expected = null; // TODO: Initialize to an appropriate value
             target.Line = expected;
             Assert.Inconclusive("Write-only properties cannot be verified.");
-        }
-
-        /// <summary>
-        ///A test for Published
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.Services.dll")]
-        public void PublishedTest()
-        {
-            ProjectNote_Accessor target = new ProjectNote_Accessor(); // TODO: Initialize to an appropriate value
-            DateTime expected = new DateTime(); // TODO: Initialize to an appropriate value
-            DateTime actual;
-            target.Published = expected;
-            actual = target.Published;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for Sector
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.Services.dll")]
-        public void SectorTest()
-        {
-            ProjectNote_Accessor target = new ProjectNote_Accessor(); // TODO: Initialize to an appropriate value
-            string expected = string.Empty; // TODO: Initialize to an appropriate value
-            string actual;
-            target.Sector = expected;
-            actual = target.Sector;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for Services
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.Services.dll")]
-        public void ServicesTest()
-        {
-            ProjectNote_Accessor target = new ProjectNote_Accessor(); // TODO: Initialize to an appropriate value
-            IList<string> expected = null; // TODO: Initialize to an appropriate value
-            IList<string> actual;
-            target.Services = expected;
-            actual = target.Services;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for Technologies
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.Services.dll")]
-        public void TechnologiesTest()
-        {
-            ProjectNote_Accessor target = new ProjectNote_Accessor(); // TODO: Initialize to an appropriate value
-            IList<string> expected = null; // TODO: Initialize to an appropriate value
-            IList<string> actual;
-            target.Technologies = expected;
-            actual = target.Technologies;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for Text
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.Services.dll")]
-        public void TextTest()
-        {
-            ProjectNote_Accessor target = new ProjectNote_Accessor(); // TODO: Initialize to an appropriate value
-            string expected = string.Empty; // TODO: Initialize to an appropriate value
-            string actual;
-            target.Text = expected;
-            actual = target.Text;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for Title
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.Services.dll")]
-        public void TitleTest()
-        {
-            ProjectNote_Accessor target = new ProjectNote_Accessor(); // TODO: Initialize to an appropriate value
-            string expected = string.Empty; // TODO: Initialize to an appropriate value
-            string actual;
-            target.Title = expected;
-            actual = target.Title;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for Tools
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.Services.dll")]
-        public void ToolsTest()
-        {
-            ProjectNote_Accessor target = new ProjectNote_Accessor(); // TODO: Initialize to an appropriate value
-            IList<string> expected = null; // TODO: Initialize to an appropriate value
-            IList<string> actual;
-            target.Tools = expected;
-            actual = target.Tools;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for Url
-        ///</summary>
-        [TestMethod()]
-        public void UrlTest()
-        {
-            ProjectNote target = new ProjectNote(); // TODO: Initialize to an appropriate value
-            string actual;
-            actual = target.Url;
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for ViewCount
-        ///</summary>
-        [TestMethod()]
-        public void ViewCountTest()
-        {
-            ProjectNote target = new ProjectNote(); // TODO: Initialize to an appropriate value
-            int expected = 0; // TODO: Initialize to an appropriate value
-            int actual;
-            target.ViewCount = expected;
-            actual = target.ViewCount;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
         }
     }
 }

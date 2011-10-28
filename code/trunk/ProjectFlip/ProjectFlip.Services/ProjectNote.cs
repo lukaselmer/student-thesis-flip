@@ -101,10 +101,5 @@ namespace ProjectFlip.Services
                 //return Bitmap.FromFile(FilepathImage);
             }
         }
-
-        /// <summary>
-        /// Gets or sets the view count.
-        /// </summary>
-        public int ViewCount { get; set; }
     }
 }
