@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="OverviewWindowViewModelTest.cs" />
     <Compile Include="ProjectNotesServiceMock.cs" />
+    <Compile Include="ProjectNoteViewModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModelBaseTest.cs" />
   </ItemGroup>
