@@ -7,8 +7,8 @@ using System.Windows.Media.Imaging;
 
 namespace ProjectFlip.Services.Test
 {
-    
-    
+
+
     /// <summary>
     ///This is a test class for ProjectNoteTest and is intended
     ///to contain all ProjectNoteTest Unit Tests
@@ -97,7 +97,7 @@ namespace ProjectFlip.Services.Test
             document = target.Document;
             Assert.IsNotNull(document);
         }
- 
+
         /// <summary>
         ///A test for Image
         ///</summary>
@@ -117,10 +117,24 @@ namespace ProjectFlip.Services.Test
         [TestMethod()]
         public void LineTest()
         {
-            ProjectNote target = new ProjectNote(); // TODO: Initialize to an appropriate value
-            IList<string> expected = null; // TODO: Initialize to an appropriate value
-            target.Line = expected;
-            Assert.Inconclusive("Write-only properties cannot be verified.");
+            var line = new List<string>(19) { "1", "Title", "Text", "Sector", "Customer", "Focus", "Services", "Technology", "Application", "Tools", "15.10.2011", "text", "text", "Filename", "text", "text", "text", "text", "text" };
+            ProjectNote target = new ProjectNote();
+            target.Line = line;
+            Assert.AreEqual(Convert.ToInt32(line[0]), target.Id);
+            Assert.AreEqual(line[1], target.Title);
+            Assert.AreEqual(line[2], target.Text);
+            Assert.AreEqual(line[3], target.Sector);
+            Assert.AreEqual(line[4], target.Customer);
+            Assert.AreEqual(line[5], target.Focus[0]);
+            Assert.AreEqual(line[6], target.Services[0]);
+            Assert.AreEqual(line[7], target.Technologies[0]);
+            Assert.AreEqual(line[8], target.Applications[0]);
+            Assert.AreEqual(line[9], target.Tools[0]);
+            Assert.AreEqual(Convert.ToDateTime(line[10]), target.Published);
+            Assert.AreEqual(line[13], target.Filename);
+            Assert.AreEqual((ProjectNote.FilepathFolder + @"\Pdf\" + line[13]), target.FilepathPdf);
+            Assert.AreEqual((ProjectNote.FilepathFolder + @"\Xps\" + line[13]), target.FilepathXps);
+            Assert.AreEqual((ProjectNote.FilepathFolder + @"\Images\" + line[13]), target.FilepathImage);
         }
     }
 }
