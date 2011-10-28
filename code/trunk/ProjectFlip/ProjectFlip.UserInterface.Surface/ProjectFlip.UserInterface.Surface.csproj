@@ -65,6 +65,7 @@
     </Compile>
     <Compile Include="DetailWindowViewModel.cs" />
     <Compile Include="OverviewWindowViewModel.cs" />
+    <Compile Include="ProjectNoteViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Page Include="DetailWindow.xaml">
       <SubType>Designer</SubType>

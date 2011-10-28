@@ -8,15 +8,12 @@ namespace ProjectFlip.UserInterface.Surface
         public OverviewWindowViewModel(IProjectNotesService projectNotesService)
         {
             ProjectNotes = projectNotesService.ProjectNotes;
+            ProjectNoteViewModels = new List<ProjectNoteViewModel>();
+            ProjectNotes.ForEach(pn => ProjectNoteViewModels.Add(new ProjectNoteViewModel(projectNotesService, pn)));
         }
 
-        public Command OpenDetailWindowCommand { get; private set; }
+        public List<IProjectNote> ProjectNotes {get; private set; }
 
-        private void OpenDetailWindow(object parameter)
-        {
-
-        }
-
-        public List<IProjectNote> ProjectNotes { get; private set; }
+        public List<ProjectNoteViewModel> ProjectNoteViewModels { get; private set; }
     }
 }
