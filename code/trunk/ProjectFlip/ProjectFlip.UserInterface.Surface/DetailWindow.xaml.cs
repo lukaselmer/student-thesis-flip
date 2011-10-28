@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Xps.Packaging;
 
 
 namespace ProjectFlip.UserInterface.Surface

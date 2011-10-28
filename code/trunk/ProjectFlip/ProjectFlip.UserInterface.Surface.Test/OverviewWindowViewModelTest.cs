@@ -59,33 +59,5 @@ namespace ProjectFlip.UserInterface.Surface.Test
             var target = new OverviewWindowViewModel(projectNotesService);
             Assert.AreEqual(5, target.ProjectNotes.Count);
         }
-
-        /// <summary>
-        ///A test for Notify
-        ///</summary>
-        [TestMethod]
-        [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
-        public void NotifyTest()
-        {
-            IProjectNotesService projectNotesService = new ProjectNotesServiceMock(3);
-            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
-
-            var success = false;
-            target.add_PropertyChanged((sender, e) => success = true);
-            Assert.IsFalse(success);
-            target.Notify("Title");
-            Assert.IsTrue(success);
-
-            var counter = 0;
-            // ReSharper disable AccessToModifiedClosure
-            target.add_PropertyChanged((sender, e) => counter += 1);
-            // ReSharper restore AccessToModifiedClosure
-            target.add_PropertyChanged((sender, e) => counter += 1);
-            Assert.AreEqual(counter, 0);
-            target.Notify("Title");
-            Assert.AreEqual(counter, 2);
-            target.Notify("Title");
-            Assert.AreEqual(counter, 4);
-        }
     }
 }
