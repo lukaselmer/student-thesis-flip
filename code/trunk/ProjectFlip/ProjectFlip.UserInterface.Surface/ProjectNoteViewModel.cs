@@ -18,7 +18,7 @@ namespace ProjectFlip.UserInterface.Surface
             OpenWindowCommand = new Command(OpenNewWindow);
         }
 
-        private void OpenNewWindow(object obj)
+        private void OpenNewWindow(object parameter)
         {
             var detailWindow = new DetailWindow(new DetailWindowViewModel(ProjectNoteService, ProjectNote));
             detailWindow.Show();

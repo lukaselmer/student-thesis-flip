@@ -1,4 +1,5 @@
-﻿using ProjectFlip.UserInterface.Surface;
+﻿using System.Windows;
+using ProjectFlip.UserInterface.Surface;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using ProjectFlip.Services.Interfaces;
@@ -71,11 +72,12 @@ namespace ProjectFlip.UserInterface.Surface.Test
         [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
         public void OpenNewWindowTest()
         {
-            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-            ProjectNoteViewModel_Accessor target = new ProjectNoteViewModel_Accessor(param0); // TODO: Initialize to an appropriate value
-            object obj = null; // TODO: Initialize to an appropriate value
-            target.OpenNewWindow(obj);
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
+            var service = new ProjectNotesServiceMock(5);
+            var target = new ProjectNoteViewModel_Accessor(service, service.ProjectNotes[0]);
+            string test = "test";
+            target.OpenNewWindow(test);
+            var window = Application.Current.MainWindow;
+            Assert.IsNotNull(window);
         }
     }
 }

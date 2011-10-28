@@ -92,6 +92,7 @@ namespace ProjectFlip.Services.Test
         public void DocumentTest()
         {
             ProjectNote_Accessor target = new ProjectNote_Accessor();
+            
             target.FilepathXps = @"..\..\..\ProjectFlip.Services.Test\Resources\Xps\pn_test.xps";
             IDocumentPaginatorSource document;
             document = target.Document;
