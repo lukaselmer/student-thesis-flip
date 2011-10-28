@@ -15,6 +15,9 @@ namespace ProjectFlip.UserInterface.Surface
         private LinkedList<IProjectNote> ProjectNotes { get; set; }
         private LinkedListNode<IProjectNote> _currentNode;
         public IDocumentPaginatorSource Document { get; private set; }
+        public UserInterface.Command NavigateToLeftCommand { get; private set; }
+        public UserInterface.Command NavigateToRightCommand { get; private set; }
+        public UserInterface.Command CloseWindowCommand { get; private set; }
 
         public DetailWindowViewModel(IProjectNotesService projectNotesService, IProjectNote projectNote)
         {
@@ -23,10 +26,8 @@ namespace ProjectFlip.UserInterface.Surface
             Document = _currentNode.Value.Document;
             NavigateToLeftCommand = new UserInterface.Command(NavigateToLeft);
             NavigateToRightCommand = new UserInterface.Command(NavigateToRight);
+            CloseWindowCommand = new UserInterface.Command(CloseWindow);
         }
-
-        public UserInterface.Command NavigateToLeftCommand { get; private set; }
-        public UserInterface.Command NavigateToRightCommand { get; private set; }
 
         private void NavigateToLeft(object parameter)
         {
@@ -38,6 +39,11 @@ namespace ProjectFlip.UserInterface.Surface
         {
             _currentNode = _currentNode.Next ?? ProjectNotes.First;
             SetDocument(_currentNode.Value);
+        } 
+        
+        private void CloseWindow(object sender)
+        {
+            Application.Current.Shutdown();
         }
 
         private void SetDocument(IProjectNote doc)
