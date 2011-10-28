@@ -22,7 +22,7 @@ namespace ProjectFlip.UserInterface.Surface
         public DetailWindowViewModel(IProjectNotesService projectNotesService, IProjectNote projectNote)
         {
             ProjectNotes = new LinkedList<IProjectNote>(projectNotesService.ProjectNotes);
-            _currentNode = ProjectNotes.First;
+            _currentNode = ProjectNotes.Find(projectNote);
             Document = _currentNode.Value.Document;
             NavigateToLeftCommand = new UserInterface.Command(NavigateToLeft);
             NavigateToRightCommand = new UserInterface.Command(NavigateToRight);
@@ -43,7 +43,7 @@ namespace ProjectFlip.UserInterface.Surface
         
         private void CloseWindow(object sender)
         {
-            Application.Current.Shutdown();
+            Application.Current.MainWindow.Close();
         }
 
         private void SetDocument(IProjectNote doc)

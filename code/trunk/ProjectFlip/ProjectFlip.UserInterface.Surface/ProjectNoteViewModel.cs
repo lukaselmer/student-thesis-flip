@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using ProjectFlip.Services.Interfaces;
@@ -21,6 +22,7 @@ namespace ProjectFlip.UserInterface.Surface
         {
             var detailWindow = new DetailWindow(new DetailWindowViewModel(ProjectNoteService, ProjectNote));
             detailWindow.Show();
+            Application.Current.MainWindow = detailWindow;
         }
 
         public ICommand OpenWindowCommand { get; private set; }
