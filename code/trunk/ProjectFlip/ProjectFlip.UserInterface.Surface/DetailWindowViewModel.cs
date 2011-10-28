@@ -12,12 +12,12 @@ namespace ProjectFlip.UserInterface.Surface
 {
     public class DetailWindowViewModel : ViewModelBase
     {
-        private LinkedList<IProjectNote> ProjectNotes { get; set; }
-        private LinkedListNode<IProjectNote> _currentNode;
         public IDocumentPaginatorSource Document { get; private set; }
         public UserInterface.Command NavigateToLeftCommand { get; private set; }
         public UserInterface.Command NavigateToRightCommand { get; private set; }
         public UserInterface.Command CloseWindowCommand { get; private set; }
+        private LinkedList<IProjectNote> ProjectNotes { get; set; }
+        private LinkedListNode<IProjectNote> _currentNode;
 
         public DetailWindowViewModel(IProjectNotesService projectNotesService, IProjectNote projectNote)
         {
