@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="fd3ce99d-388c-44e1-84d0-2aacf11411e3" name="Lukas Elmer@LUKESPC 2011-10-30 23:42:29" runUser="lukespc\Lukas Elmer" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="ecb0bfb1-6f24-4efe-acbf-86949a26cdb9">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Lukas Elmer_LUKESPC 2011-10-30 23_42_29">
+      <DeploymentItem filename="J:\dev\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.Services.Interfaces\bin\Debug\ProjectFlip.Services.Interfaces.dll" />
+      <DeploymentItem filename="J:\dev\flip_svn.elmermx.ch\code\trunk\ProjectFlip\Libraries\Unity\Microsoft.Practices.Unity.dll" />
+      <DeploymentItem filename="J:\dev\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.UserInterface.Surface\bin\Debug\ProjectFlip.UserInterface.Surface.dll" />
+      <DeploymentItem filename="J:\dev\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.Services\bin\Debug\ProjectFlip.Services.dll" />
+      <DeploymentItem filename="J:\dev\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.Services.Loader.Interfaces\bin\Debug\ProjectFlip.Services.Loader.Interfaces.dll" />
+      <DeploymentItem filename="J:\dev\flip_svn.elmermx.ch\code\trunk\ProjectFlip\PDFConverter\bin\Debug\ProjectFlip.Converter.Pdf.exe" />
+      <DeploymentItem filename="J:\dev\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.UserInterface\bin\Debug\ProjectFlip.UserInterface.dll" />
+      <DeploymentItem filename="J:\dev\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.PdfConverter.Interfaces\bin\Debug\ProjectFlip.Converter.Interfaces.dll" />
+      <DeploymentItem filename="J:\dev\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.Importer\bin\Debug\ProjectFlip.Services.Loader.exe" />
+      <DeploymentItem filename="J:\dev\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.Preparer\bin\Debug\ProjectFlip.Preparer.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-10-30T23:42:29.8763171+01:00" queuing="2011-10-30T23:42:31.5814146+01:00" start="2011-10-30T23:42:31.5904151+01:00" finish="2011-10-30T23:42:33.5005244+01:00" />
+  <ResultSummary outcome="Inconclusive">
+    <Counters total="9" executed="9" passed="8" error="0" failed="0" timeout="0" aborted="0" inconclusive="1" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="LUKESPC" outcome="Warning" timestamp="2011-10-30T23:42:31.5804146+01:00">
+        <Text>Deployment is currently disabled. The deployment item 'ProjectFlip.UserInterface.Surface.dll' on test 'ProjectFlip.UserInterface.Surface.Test.ProjectNoteViewModelTest.OpenNewWindowTest1' was not deployed.</Text>
+      </RunInfo>
+      <RunInfo computerName="LUKESPC" outcome="Warning" timestamp="2011-10-30T23:42:31.5804146+01:00">
+        <Text>Deployment is currently disabled. The deployment item 'ProjectFlip.Preparer.exe' on test 'ProjectFlip.Preparer.Test.ImageExtractorProcessorTest.ExtractImageTest' was not deployed.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="OpenNewWindowTest1" storage="j:\dev\flip_svn.elmermx.ch\code\trunk\projectflip\projectflip.userinterface.surface.test\bin\debug\projectflip.userinterface.surface.test.dll" id="ebb56ab5-42d5-71fc-9442-26dde5656280">
+      <DeploymentItems>
+        <DeploymentItem filename="ProjectFlip.UserInterface.Surface.dll" />
+      </DeploymentItems>
+      <Execution id="1e3b1106-4201-4629-a74a-b35ed4459b52" />
+      <TestMethod codeBase="J:/dev/flip_svn.elmermx.ch/code/trunk/ProjectFlip/ProjectFlip.UserInterface.Surface.Test/bin/Debug/ProjectFlip.UserInterface.Surface.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ProjectFlip.UserInterface.Surface.Test.ProjectNoteViewModelTest, ProjectFlip.UserInterface.Surface.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="OpenNewWindowTest1" />
+    </UnitTest>
+    <UnitTest name="DocumentTest" storage="j:\dev\flip_svn.elmermx.ch\code\trunk\projectflip\projectflip.services.test\bin\debug\projectflip.services.test.dll" id="ed30b4e0-dba3-8e7f-0ab5-fcc96c1c7e5e">
+      <Execution id="bdbbb763-caf7-4681-bc36-bcab6d011aef" />
+      <TestMethod codeBase="J:/dev/flip_svn.elmermx.ch/code/trunk/ProjectFlip/ProjectFlip.Services.Test/bin/Debug/ProjectFlip.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ProjectFlip.Services.Test.ProjectNoteTest, ProjectFlip.Services.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DocumentTest" />
+    </UnitTest>
+    <UnitTest name="ConvertToListTest" storage="j:\dev\flip_svn.elmermx.ch\code\trunk\projectflip\projectflip.services.test\bin\debug\projectflip.services.test.dll" id="bccb58cc-1cce-162f-54b4-53ddafd79ee2">
+      <DeploymentItems>
+        <DeploymentItem filename="ProjectFlip.Services.dll" />
+      </DeploymentItems>
+      <Execution id="765d784c-9de6-4432-9097-0e49bf861cb8" />
+      <TestMethod codeBase="J:/dev/flip_svn.elmermx.ch/code/trunk/ProjectFlip/ProjectFlip.Services.Test/bin/Debug/ProjectFlip.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ProjectFlip.Services.Test.ProjectNoteTest, ProjectFlip.Services.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ConvertToListTest" />
+    </UnitTest>
+    <UnitTest name="ImportTest" storage="j:\dev\flip_svn.elmermx.ch\code\trunk\projectflip\projectflip.services.loader.test\bin\debug\projectflip.services.loader.test.dll" id="66d8e483-98ef-7f5c-f82e-282eb285173f">
+      <Execution id="f689addc-54ea-4269-b75a-631c367d7026" />
+      <TestMethod codeBase="J:/dev/flip_svn.elmermx.ch/code/trunk/ProjectFlip/ProjectFlip.Services.Loader.Test/bin/Debug/ProjectFlip.Services.Loader.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ProjectFlip.Services.Loader.Test.ProjectNotesLoaderTest, ProjectFlip.Services.Loader.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ImportTest" />
+    </UnitTest>
+    <UnitTest name="NotifyTest" storage="j:\dev\flip_svn.elmermx.ch\code\trunk\projectflip\projectflip.userinterface.surface.test\bin\debug\projectflip.userinterface.surface.test.dll" id="44822a49-3d3a-3cd9-6a83-bfb87b866eb6">
+      <DeploymentItems>
+        <DeploymentItem filename="ProjectFlip.UserInterface.Surface.dll" />
+      </DeploymentItems>
+      <Execution id="eaf6de71-627f-4888-a1a6-142a152e6ae6" />
+      <TestMethod codeBase="J:/dev/flip_svn.elmermx.ch/code/trunk/ProjectFlip/ProjectFlip.UserInterface.Surface.Test/bin/Debug/ProjectFlip.UserInterface.Surface.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ProjectFlip.UserInterface.Surface.Test.ViewModelBaseTest, ProjectFlip.UserInterface.Surface.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NotifyTest" />
+    </UnitTest>
+    <UnitTest name="LineTest" storage="j:\dev\flip_svn.elmermx.ch\code\trunk\projectflip\projectflip.services.test\bin\debug\projectflip.services.test.dll" id="16a754d1-abe1-b7cb-6692-10287c0de9e8">
+      <Execution id="e6e38a71-cbd6-41f5-aa57-d6a51424643f" />
+      <TestMethod codeBase="J:/dev/flip_svn.elmermx.ch/code/trunk/ProjectFlip/ProjectFlip.Services.Test/bin/Debug/ProjectFlip.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ProjectFlip.Services.Test.ProjectNoteTest, ProjectFlip.Services.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="LineTest" />
+    </UnitTest>
+    <UnitTest name="OverviewWindowViewModelProjectNotesTest" storage="j:\dev\flip_svn.elmermx.ch\code\trunk\projectflip\projectflip.userinterface.surface.test\bin\debug\projectflip.userinterface.surface.test.dll" id="96c1f950-7ba2-0f26-3c1e-e3d2807e5697">
+      <Execution id="97d73941-fb76-4cdd-9d11-50986ff9ce8c" />
+      <TestMethod codeBase="J:/dev/flip_svn.elmermx.ch/code/trunk/ProjectFlip/ProjectFlip.UserInterface.Surface.Test/bin/Debug/ProjectFlip.UserInterface.Surface.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ProjectFlip.UserInterface.Surface.Test.OverviewWindowViewModelTest, ProjectFlip.UserInterface.Surface.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="OverviewWindowViewModelProjectNotesTest" />
+    </UnitTest>
+    <UnitTest name="ExtractImageTest" storage="j:\dev\flip_svn.elmermx.ch\code\trunk\projectflip\projectflip.preparer.test\bin\debug\projectflip.preparer.test.dll" id="a04b1365-3a46-4a28-167b-1bc7531188c1">
+      <DeploymentItems>
+        <DeploymentItem filename="ProjectFlip.Preparer.exe" />
+      </DeploymentItems>
+      <Execution id="291b257e-4e50-4448-92c0-7d594fcd5a61" />
+      <TestMethod codeBase="J:/dev/flip_svn.elmermx.ch/code/trunk/ProjectFlip/ProjectFlip.Preparer.Test/bin/Debug/ProjectFlip.Preparer.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ProjectFlip.Preparer.Test.ImageExtractorProcessorTest, ProjectFlip.Preparer.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ExtractImageTest" />
+    </UnitTest>
+    <UnitTest name="ImageTest" storage="j:\dev\flip_svn.elmermx.ch\code\trunk\projectflip\projectflip.services.test\bin\debug\projectflip.services.test.dll" id="9f8b89bf-40a2-8d94-74ce-30418e6a0f3b">
+      <Execution id="464ad3dc-0aa5-4d1a-ba1d-fd3fd479160d" />
+      <TestMethod codeBase="J:/dev/flip_svn.elmermx.ch/code/trunk/ProjectFlip/ProjectFlip.Services.Test/bin/Debug/ProjectFlip.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ProjectFlip.Services.Test.ProjectNoteTest, ProjectFlip.Services.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ImageTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="16a754d1-abe1-b7cb-6692-10287c0de9e8" executionId="e6e38a71-cbd6-41f5-aa57-d6a51424643f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="44822a49-3d3a-3cd9-6a83-bfb87b866eb6" executionId="eaf6de71-627f-4888-a1a6-142a152e6ae6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="66d8e483-98ef-7f5c-f82e-282eb285173f" executionId="f689addc-54ea-4269-b75a-631c367d7026" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="96c1f950-7ba2-0f26-3c1e-e3d2807e5697" executionId="97d73941-fb76-4cdd-9d11-50986ff9ce8c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9f8b89bf-40a2-8d94-74ce-30418e6a0f3b" executionId="464ad3dc-0aa5-4d1a-ba1d-fd3fd479160d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a04b1365-3a46-4a28-167b-1bc7531188c1" executionId="291b257e-4e50-4448-92c0-7d594fcd5a61" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bccb58cc-1cce-162f-54b4-53ddafd79ee2" executionId="765d784c-9de6-4432-9097-0e49bf861cb8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ebb56ab5-42d5-71fc-9442-26dde5656280" executionId="1e3b1106-4201-4629-a74a-b35ed4459b52" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ed30b4e0-dba3-8e7f-0ab5-fcc96c1c7e5e" executionId="bdbbb763-caf7-4681-bc36-bcab6d011aef" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="e6e38a71-cbd6-41f5-aa57-d6a51424643f" testId="16a754d1-abe1-b7cb-6692-10287c0de9e8" testName="LineTest" computerName="LUKESPC" duration="00:00:00.0200654" startTime="2011-10-30T23:42:31.5924153+01:00" endTime="2011-10-30T23:42:31.7794260+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e6e38a71-cbd6-41f5-aa57-d6a51424643f">
+    </UnitTestResult>
+    <UnitTestResult executionId="eaf6de71-627f-4888-a1a6-142a152e6ae6" testId="44822a49-3d3a-3cd9-6a83-bfb87b866eb6" testName="NotifyTest" computerName="LUKESPC" duration="00:00:00.0155865" startTime="2011-10-30T23:42:31.7814261+01:00" endTime="2011-10-30T23:42:31.9664367+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="eaf6de71-627f-4888-a1a6-142a152e6ae6">
+    </UnitTestResult>
+    <UnitTestResult executionId="f689addc-54ea-4269-b75a-631c367d7026" testId="66d8e483-98ef-7f5c-f82e-282eb285173f" testName="ImportTest" computerName="LUKESPC" duration="00:00:00.0150581" startTime="2011-10-30T23:42:31.9674367+01:00" endTime="2011-10-30T23:42:32.1444468+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f689addc-54ea-4269-b75a-631c367d7026">
+    </UnitTestResult>
+    <UnitTestResult executionId="97d73941-fb76-4cdd-9d11-50986ff9ce8c" testId="96c1f950-7ba2-0f26-3c1e-e3d2807e5697" testName="OverviewWindowViewModelProjectNotesTest" computerName="LUKESPC" duration="00:00:00.0003203" startTime="2011-10-30T23:42:32.1454469+01:00" endTime="2011-10-30T23:42:32.1494471+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="97d73941-fb76-4cdd-9d11-50986ff9ce8c">
+    </UnitTestResult>
+    <UnitTestResult executionId="464ad3dc-0aa5-4d1a-ba1d-fd3fd479160d" testId="9f8b89bf-40a2-8d94-74ce-30418e6a0f3b" testName="ImageTest" computerName="LUKESPC" duration="00:00:00.0043179" startTime="2011-10-30T23:42:32.1504472+01:00" endTime="2011-10-30T23:42:32.1574476+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="464ad3dc-0aa5-4d1a-ba1d-fd3fd479160d">
+    </UnitTestResult>
+    <UnitTestResult executionId="291b257e-4e50-4448-92c0-7d594fcd5a61" testId="a04b1365-3a46-4a28-167b-1bc7531188c1" testName="ExtractImageTest" computerName="LUKESPC" duration="00:00:00.5082667" startTime="2011-10-30T23:42:32.1584476+01:00" endTime="2011-10-30T23:42:32.8304861+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="291b257e-4e50-4448-92c0-7d594fcd5a61">
+    </UnitTestResult>
+    <UnitTestResult executionId="765d784c-9de6-4432-9097-0e49bf861cb8" testId="bccb58cc-1cce-162f-54b4-53ddafd79ee2" testName="ConvertToListTest" computerName="LUKESPC" duration="00:00:00.0005429" startTime="2011-10-30T23:42:32.8314861+01:00" endTime="2011-10-30T23:42:32.8354864+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="765d784c-9de6-4432-9097-0e49bf861cb8">
+    </UnitTestResult>
+    <UnitTestResult executionId="1e3b1106-4201-4629-a74a-b35ed4459b52" testId="ebb56ab5-42d5-71fc-9442-26dde5656280" testName="OpenNewWindowTest1" computerName="LUKESPC" duration="00:00:00.0115447" startTime="2011-10-30T23:42:32.8374865+01:00" endTime="2011-10-30T23:42:32.8514873+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1e3b1106-4201-4629-a74a-b35ed4459b52">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. TODO: Fix this: new DetailWindow(vm); throws an exception; is it possible to create no new DetailWindow in this method?</Message>
+          <StackTrace>   at ProjectFlip.UserInterface.Surface.Test.ProjectNoteViewModelTest.OpenNewWindowTest1() in J:\dev\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.UserInterface.Surface.Test\ProjectNoteViewModelTest.cs:line 80
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="bdbbb763-caf7-4681-bc36-bcab6d011aef" testId="ed30b4e0-dba3-8e7f-0ab5-fcc96c1c7e5e" testName="DocumentTest" computerName="LUKESPC" duration="00:00:00.2523098" startTime="2011-10-30T23:42:32.8524873+01:00" endTime="2011-10-30T23:42:33.1085020+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bdbbb763-caf7-4681-bc36-bcab6d011aef">
+    </UnitTestResult>
+  </Results>
+</TestRun>

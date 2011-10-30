@@ -42,6 +42,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserInterface", "UserInterf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.Services.Test", "ProjectFlip.Services.Test\ProjectFlip.Services.Test.csproj", "{AB66F867-7455-444D-953B-ABE89E9D2C1B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.Preparer.Test", "ProjectFlip.Preparer.Test\ProjectFlip.Preparer.Test.csproj", "{46A131BC-5052-4D95-84EC-1A7BA6D1729D}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = ProjectFlip.vsmdi
@@ -185,6 +187,16 @@ Global
 		{AB66F867-7455-444D-953B-ABE89E9D2C1B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{AB66F867-7455-444D-953B-ABE89E9D2C1B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{AB66F867-7455-444D-953B-ABE89E9D2C1B}.Release|x86.ActiveCfg = Release|Any CPU
+		{46A131BC-5052-4D95-84EC-1A7BA6D1729D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46A131BC-5052-4D95-84EC-1A7BA6D1729D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46A131BC-5052-4D95-84EC-1A7BA6D1729D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{46A131BC-5052-4D95-84EC-1A7BA6D1729D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{46A131BC-5052-4D95-84EC-1A7BA6D1729D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{46A131BC-5052-4D95-84EC-1A7BA6D1729D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46A131BC-5052-4D95-84EC-1A7BA6D1729D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46A131BC-5052-4D95-84EC-1A7BA6D1729D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{46A131BC-5052-4D95-84EC-1A7BA6D1729D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{46A131BC-5052-4D95-84EC-1A7BA6D1729D}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -202,5 +214,6 @@ Global
 		{C7ED502D-A83D-49A9-B0A5-1532EE193887} = {A270E5A0-2345-43DE-8A6C-1F4614F5FE99}
 		{2C982C06-FFDC-4B54-A05E-26FC606FF552} = {A270E5A0-2345-43DE-8A6C-1F4614F5FE99}
 		{13D14388-0E29-4911-816E-CEF9FFFEE4C7} = {5D09F1F8-B5E4-4B64-BFBF-930C6ED541A9}
+		{46A131BC-5052-4D95-84EC-1A7BA6D1729D} = {5D09F1F8-B5E4-4B64-BFBF-930C6ED541A9}
 	EndGlobalSection
 EndGlobal
