@@ -38,18 +38,18 @@ namespace ProjectFlip.UserInterface.Surface
         private void NavigateToLeft(object parameter)
         {
             _currentNode = _currentNode.Previous ?? ProjectNotes.Last;
-            SetDocument(_currentNode.Value);
+            UpdateDocument();
         }
 
         private void NavigateToRight(object parameter)
         {
             _currentNode = _currentNode.Next ?? ProjectNotes.First;
-            SetDocument(_currentNode.Value);
+            UpdateDocument();
         }
 
-        private void SetDocument(IProjectNote doc)
+        private void UpdateDocument()
         {
-            Document = doc.Document;
+            Document = _currentNode.Value.Document;
             Notify("Document");
         }
     }
