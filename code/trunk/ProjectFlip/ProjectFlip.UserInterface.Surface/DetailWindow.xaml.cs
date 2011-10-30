@@ -14,7 +14,5 @@ namespace ProjectFlip.UserInterface.Surface
             InitializeComponent();
             DataContext = detailWindowViewModel;
         }
-     
-       
     }
 }

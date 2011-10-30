@@ -18,6 +18,7 @@ namespace ProjectFlip.UserInterface.Surface
         public UserInterface.Command CloseWindowCommand { get; private set; }
         private LinkedList<IProjectNote> ProjectNotes { get; set; }
         private LinkedListNode<IProjectNote> _currentNode;
+        public event Action CloseWindow;
 
         public DetailWindowViewModel(IProjectNotesService projectNotesService, IProjectNote projectNote)
         {
@@ -26,7 +27,12 @@ namespace ProjectFlip.UserInterface.Surface
             Document = _currentNode.Value.Document;
             NavigateToLeftCommand = new UserInterface.Command(NavigateToLeft);
             NavigateToRightCommand = new UserInterface.Command(NavigateToRight);
-            CloseWindowCommand = new UserInterface.Command(CloseWindow);
+            CloseWindowCommand = new UserInterface.Command(OnCloseWindow);
+        }
+
+        public void OnCloseWindow(object sender)
+        {
+            if (CloseWindow != null) CloseWindow();
         }
 
         private void NavigateToLeft(object parameter)
@@ -39,11 +45,6 @@ namespace ProjectFlip.UserInterface.Surface
         {
             _currentNode = _currentNode.Next ?? ProjectNotes.First;
             SetDocument(_currentNode.Value);
-        } 
-        
-        private void CloseWindow(object sender)
-        {
-            Application.Current.MainWindow.Close();
         }
 
         private void SetDocument(IProjectNote doc)

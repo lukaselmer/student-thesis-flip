@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="4ef79cf8-0349-4fc3-9ed7-76bdaa7a4430" name="Lukas Elmer@LUKESPC 2011-10-30 21:58:01" runUser="lukespc\Lukas Elmer" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="ecb0bfb1-6f24-4efe-acbf-86949a26cdb9">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment userDeploymentRoot="J:\dev\flip_svn.elmermx.ch\code\trunk\ProjectFlip\TestResults" useDefaultDeploymentRoot="false" enabled="false" runDeploymentRoot="Lukas Elmer_LUKESPC 2011-10-30 21_58_01">
+      <DeploymentItem filename="J:\dev\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.Services\bin\Debug\ProjectFlip.Services.dll" />
+      <DeploymentItem filename="J:\dev\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.UserInterface\bin\Debug\ProjectFlip.UserInterface.dll" />
+      <DeploymentItem filename="J:\dev\flip_svn.elmermx.ch\code\trunk\ProjectFlip\Libraries\Unity\Microsoft.Practices.Unity.dll" />
+      <DeploymentItem filename="J:\dev\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.Importer\bin\Debug\ProjectFlip.Services.Loader.exe" />
+      <DeploymentItem filename="J:\dev\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.UserInterface.Surface\bin\Debug\ProjectFlip.UserInterface.Surface.dll" />
+      <DeploymentItem filename="J:\dev\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.Services.Interfaces\bin\Debug\ProjectFlip.Services.Interfaces.dll" />
+      <DeploymentItem filename="J:\dev\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.Services.Loader.Interfaces\bin\Debug\ProjectFlip.Services.Loader.Interfaces.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-10-30T21:58:01.9848142+01:00" queuing="2011-10-30T21:58:01.9878144+01:00" start="2011-10-30T21:58:01.9958148+01:00" finish="2011-10-30T21:58:02.2878316+01:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="LUKESPC" outcome="Warning" timestamp="2011-10-30T21:58:01.9868143+01:00">
+        <Text>Deployment is currently disabled. The deployment item 'ProjectFlip.UserInterface.Surface.dll' on test 'ProjectFlip.UserInterface.Surface.Test.ProjectNoteViewModelTest.OpenNewWindowTest1' was not deployed.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="OpenNewWindowTest1" storage="j:\dev\flip_svn.elmermx.ch\code\trunk\projectflip\projectflip.userinterface.surface.test\bin\debug\projectflip.userinterface.surface.test.dll" id="ebb56ab5-42d5-71fc-9442-26dde5656280">
+      <DeploymentItems>
+        <DeploymentItem filename="ProjectFlip.UserInterface.Surface.dll" />
+      </DeploymentItems>
+      <Execution id="d84129bd-2d12-4a5f-b500-d66447315fbc" />
+      <TestMethod codeBase="J:/dev/flip_svn.elmermx.ch/code/trunk/ProjectFlip/ProjectFlip.UserInterface.Surface.Test/bin/Debug/ProjectFlip.UserInterface.Surface.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ProjectFlip.UserInterface.Surface.Test.ProjectNoteViewModelTest, ProjectFlip.UserInterface.Surface.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="OpenNewWindowTest1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="ebb56ab5-42d5-71fc-9442-26dde5656280" executionId="d84129bd-2d12-4a5f-b500-d66447315fbc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="d84129bd-2d12-4a5f-b500-d66447315fbc" testId="ebb56ab5-42d5-71fc-9442-26dde5656280" testName="OpenNewWindowTest1" computerName="LUKESPC" duration="00:00:00.0779611" startTime="2011-10-30T21:58:01.9978150+01:00" endTime="2011-10-30T21:58:02.2568298+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d84129bd-2d12-4a5f-b500-d66447315fbc">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method ProjectFlip.UserInterface.Surface.Test.ProjectNoteViewModelTest.OpenNewWindowTest1 threw exception: 
+System.InvalidOperationException: A System.Windows.Application is required.  Please initialize an Application before using this API.</Message>
+          <StackTrace>   at ProjectFlip.UserInterface.Surface.ProjectNoteViewModel_Accessor.OpenNewWindow(Object parameter)
+   at ProjectFlip.UserInterface.Surface.Test.ProjectNoteViewModelTest.OpenNewWindowTest1() in J:\dev\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.UserInterface.Surface.Test\ProjectNoteViewModelTest.cs:line 80
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

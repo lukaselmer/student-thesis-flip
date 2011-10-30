@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,12 @@ namespace ProjectFlip.UserInterface.Surface
             OpenWindowCommand = new Command(OpenNewWindow);
         }
 
-        private void OpenNewWindow(object parameter)
+        private void OpenNewWindow(object sender)
         {
-            var detailWindow = new DetailWindow(new DetailWindowViewModel(ProjectNoteService, ProjectNote));
+            var vm = new DetailWindowViewModel(ProjectNoteService, ProjectNote);
+            var detailWindow = new DetailWindow(vm);
             detailWindow.Show();
-            Application.Current.MainWindow = detailWindow;
+            vm.CloseWindow += detailWindow.Close;
         }
 
         public ICommand OpenWindowCommand { get; private set; }
@@ -40,7 +42,5 @@ namespace ProjectFlip.UserInterface.Surface
         {
             get { return ProjectNote.Image; }
         }
-
-
     }
 }
