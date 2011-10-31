@@ -93,10 +93,22 @@ namespace ProjectFlip.Services.Test
         {
             ProjectNote_Accessor target = new ProjectNote_Accessor();
             
-            target.FilepathXps = @"..\..\..\ProjectFlip.Services.Test\Resources\Xps\pn_test.xps";
+            target.FilepathXps = @"..\..\..\Resources\Test\Xps\test.xps";
             IDocumentPaginatorSource document;
             document = target.Document;
             Assert.IsNotNull(document);
+        }
+
+        /// <summary>
+        ///A test for Url
+        ///</summary>
+        [TestMethod()]
+        public void UrlTest()
+        {
+            ProjectNote_Accessor target = new ProjectNote_Accessor();
+            var filename = "filename";
+            target.Filename = filename;
+            Assert.AreEqual("http://www.zuehlke.com/uploads/tx_zepublications/" + filename, target.Url);
         }
 
         /// <summary>
@@ -105,11 +117,28 @@ namespace ProjectFlip.Services.Test
         [TestMethod()]
         public void ImageTest()
         {
+            var image = GetBitmapImage(@"..\..\..\Resources\Test\Images\test.bmp");
+            Assert.IsNotNull(image);
+        }
+
+
+        /// <summary>
+        ///A test for Image with invalid file path
+        ///</summary>
+        [TestMethod()]
+        public void NoImageTest()
+        {
+            var image = GetBitmapImage(@"..\");
+            Assert.IsNull(image);
+        }
+
+        private static BitmapImage GetBitmapImage(string path)
+        {
             ProjectNote_Accessor target = new ProjectNote_Accessor();
-            target.FilepathImage = @"..\..\..\ProjectFlip.Services.Test\Resources\Image\pn_test.bmp";
+            target.FilepathImage = path;
             BitmapImage image;
             image = target.Image;
-            Assert.IsNotNull(image);
+            return image;
         }
 
         /// <summary>

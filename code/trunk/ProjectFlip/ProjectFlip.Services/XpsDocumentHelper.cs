@@ -43,42 +43,6 @@ namespace ProjectFlip.Services
             return image;
         }
 
-//        private static void SaveImages(string filepath, IEnumerable<XpsImage> images)
-//        {
-//            var dir = filepath + @"_images\";
-//            if (Directory.Exists(dir)) Directory.Delete(dir, true);
-//            Directory.CreateDirectory(dir);
-//
-//            var i = 0;
-//            foreach (var xpsImage in images)
-//            {
-//                ++i;
-//                //var toSaveImage = new BitmapImage();
-//                //toSaveImage.BeginInit();
-//                //toSaveImage.StreamSource = xpsImage.GetStream();
-//                //toSaveImage.EndInit();
-//                var sw = new StreamWriter(dir + i + @".bmp");
-//
-//                var stream = xpsImage.GetStream();
-//                var bw = new BinaryWriter(sw.BaseStream);
-//                int b;
-//                while ((b = stream.ReadByte()) != -1)
-//                {
-//                    /*byte[] bb = new byte[1];
-//                            bb[0] = (byte) b;*/
-//                    bw.Write((byte)b);
-//                }
-//                bw.Flush();
-//                //sw.Write(xpsImage.GetStream());
-//
-//
-//                //xpsImage.GetStream()
-//                //sw.Write(xpsImage.GetStream());
-//                sw.Flush();
-//                sw.Close();
-//            }
-//        }
-
         private static BitmapImage DefaultLogo()
         {
             var image = new BitmapImage();

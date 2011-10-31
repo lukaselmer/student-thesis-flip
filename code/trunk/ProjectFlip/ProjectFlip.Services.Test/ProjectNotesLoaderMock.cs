@@ -15,7 +15,7 @@ namespace ProjectFlip.Services.Test
             list = new List<List<string>>();
             list.Add(new List<string>(19) { "1", "Title", "Text", "Sector", "Customer", "Focus", "Services", "Technology", "Application", "Tools", "15.10.2011", "text", "text", "test.pdf", "text", "text", "text", "text", "text" });
         }
-        public new List<List<String>> Import()
+        public List<List<String>> Import()
         {
             return list;
         }

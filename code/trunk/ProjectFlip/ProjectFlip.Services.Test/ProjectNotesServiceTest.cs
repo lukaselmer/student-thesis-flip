@@ -64,15 +64,31 @@ namespace ProjectFlip.Services.Test
 
 
         /// <summary>
-        ///A test for ProjectNotesService Constructor
+        ///A test for ProjectNotesService Constructor with a valid path
         ///</summary>
         [TestMethod()]
-        public void ProjectNotesServiceConstructorTest()
+        public void ProjectNotesServicewithPnTest()
+        {
+            ProjectNote.FilepathFolder = @"..\..\..\Resources\Test";
+            createAndTestProjectNotesService(1);
+        }
+
+        /// <summary>
+        ///A test for ProjectNotesService Constructor without a valid path
+        ///</summary>
+        [TestMethod()]
+        public void ProjectNotesServiceWithoutPnTest()
+        {
+            ProjectNote.FilepathFolder = @"..\..\..\Resources\";
+            createAndTestProjectNotesService(0);
+        }
+
+        private void createAndTestProjectNotesService(int result)
         {
             IProjectNotesLoader projectNotesLoader = new ProjectNotesLoaderMock();
-            ProjectNote.FilepathFolder = @"..\..\..\Resources\Test";
             ProjectNotesService target = new ProjectNotesService(projectNotesLoader);
-            Assert.AreEqual(1, target.ProjectNotes.Count);
+            Assert.AreEqual(result, target.ProjectNotes.Count);
         }
+
     }
 }
