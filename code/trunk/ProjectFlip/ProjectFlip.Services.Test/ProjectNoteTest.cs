@@ -118,7 +118,8 @@ namespace ProjectFlip.Services.Test
         [TestMethod()]
         public void LineTest()
         {
-            var line = new List<string>(19) { "1", "Title", "Text", "Sector", "Customer", "Focus", "Services", "Technology", "Application", "Tools", "15.10.2011", "text", "text", "Filename", "text", "text", "text", "text", "text" };
+            var filename = "Filename";
+            var line = new List<string>(19) { "1", "Title", "Text", "Sector", "Customer", "Focus", "Services", "Technology", "Application", "Tools", "15.10.2011", "text", "text", filename + ".pdf", "text", "text", "text", "text", "text" };
             ProjectNote target = new ProjectNote();
             target.Line = line;
             Assert.AreEqual(Convert.ToInt32(line[0]), target.Id);
@@ -134,8 +135,8 @@ namespace ProjectFlip.Services.Test
             Assert.AreEqual(Convert.ToDateTime(line[10]), target.Published);
             Assert.AreEqual(line[13], target.Filename);
             Assert.AreEqual((ProjectNote.FilepathFolder + @"\Pdf\" + line[13]), target.FilepathPdf);
-            Assert.AreEqual((ProjectNote.FilepathFolder + @"\Xps\" + line[13]), target.FilepathXps);
-            Assert.AreEqual((ProjectNote.FilepathFolder + @"\Images\" + line[13]), target.FilepathImage);
+            Assert.AreEqual((ProjectNote.FilepathFolder + @"\Xps\" + filename + ".xps"), target.FilepathXps);
+            Assert.AreEqual((ProjectNote.FilepathFolder + @"\Images\" + filename + ".bmp"), target.FilepathImage);
         }
     }
 }
