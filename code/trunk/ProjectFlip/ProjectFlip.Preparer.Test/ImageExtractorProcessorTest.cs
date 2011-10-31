@@ -89,5 +89,33 @@ namespace ProjectFlip.Preparer.Test
             var y = File.ReadAllText(referenceImagePath);
             //File.Delete(tempImagePath);
         }
+
+        /// <summary>
+        ///A test for ExtractImage with invalid path
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("ProjectFlip.Preparer.exe")]
+        public void ExtractImageInvalidPathTest()
+        {
+            var xpsPath = @"..\test.xps";
+            var imagePath = @"..\test.bmp";
+
+            Assert.IsFalse(File.Exists(xpsPath));
+            ImageExtractorProcessor_Accessor.ExtractImage(xpsPath, imagePath);
+        }
+
+        /// <summary>
+        ///A test for ExtractImage with invalid image path
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("ProjectFlip.Preparer.exe")]
+        public void ExtractImageInvalidImagePathTest()
+        {
+            var xpsPath = @"..\..\..\Resources\Test\test.xps";
+            var imagePath = @"..\..\..\test.bmp";
+            Assert.IsTrue(File.Exists(xpsPath));
+            //Assert.IsFalse(File.Exists(imagePath));
+            ImageExtractorProcessor_Accessor.ExtractImage(xpsPath, imagePath);
+        }
     }
 }

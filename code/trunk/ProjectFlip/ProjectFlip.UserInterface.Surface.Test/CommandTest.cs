@@ -69,8 +69,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         [TestMethod()]
         public void CanExecuteTest()
         {
-            var success = false;
-            Action<object> execute = o => success = true;
+            Action<object> execute = o => { };
             Predicate<object> canExecute = o => o != null;
             Command target = new Command(execute, canExecute);
             bool actual = target.CanExecute(new object());
