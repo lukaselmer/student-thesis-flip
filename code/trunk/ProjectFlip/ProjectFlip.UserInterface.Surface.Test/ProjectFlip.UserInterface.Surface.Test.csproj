@@ -59,8 +59,10 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DetailWindowTest.cs" />
     <Compile Include="DetailWindowViewModelTest.cs" />
     <Compile Include="CommandTest.cs" />
+    <Compile Include="OverviewWindowTest.cs" />
     <Compile Include="OverviewWindowViewModelTest.cs" />
     <Compile Include="ProjectNoteMock.cs" />
     <Compile Include="ProjectNotesServiceMock.cs" />

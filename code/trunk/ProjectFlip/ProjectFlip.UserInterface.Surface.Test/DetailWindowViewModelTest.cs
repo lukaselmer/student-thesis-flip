@@ -118,21 +118,5 @@ namespace ProjectFlip.UserInterface.Surface.Test
             target.NavigateToRightCommand.Execute(this);
             Assert.AreSame(target.Document, subsequentPN.Document);
         }
-
-//    /// <summary>
-//        ///A test for UpdateDocument
-//        ///</summary>
-//        [TestMethod()]
-//        [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
-//        public void UpdateDocumentTest()
-//        {
-//            IProjectNotesService projectNotesService = new ProjectNotesServiceMock(4);
-//            IProjectNote projectNote = projectNotesService.ProjectNotes[2];
-//            DetailWindowViewModel_Accessor target = new DetailWindowViewModel_Accessor(projectNotesService, projectNote);
-//            var docBefore = target.Document;
-//            target.UpdateDocument();
-//            var docAfter = target.Document;
-//            Assert.Inconclusive("A method that does not return a value cannot be verified.");
-//        }
     }
 }
