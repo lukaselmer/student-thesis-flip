@@ -27,12 +27,7 @@ namespace ProjectFlip.UserInterface.Surface
             Document = _currentNode.Value.Document;
             NavigateToLeftCommand = new UserInterface.Command(NavigateToLeft);
             NavigateToRightCommand = new UserInterface.Command(NavigateToRight);
-            CloseWindowCommand = new UserInterface.Command(OnCloseWindow);
-        }
-
-        public void OnCloseWindow(object sender)
-        {
-            if (CloseWindow != null) CloseWindow();
+            CloseWindowCommand = new UserInterface.Command((sender) => { if (CloseWindow != null) CloseWindow(); });
         }
 
         private void NavigateToLeft(object parameter)
