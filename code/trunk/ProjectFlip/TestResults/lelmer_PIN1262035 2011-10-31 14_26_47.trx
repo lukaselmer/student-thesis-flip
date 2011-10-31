@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="ae6e5e0d-f6d5-4008-be1c-2ce008722e22" name="lelmer@PIN1262035 2011-10-31 14:26:47" runUser="HSR\lelmer" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="ecb0bfb1-6f24-4efe-acbf-86949a26cdb9">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="lelmer_PIN1262035 2011-10-31 14_26_47">
+      <DeploymentItem filename="D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.PdfConverter.Interfaces\bin\Debug\ProjectFlip.Converter.Interfaces.dll" />
+      <DeploymentItem filename="D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.Services.Interfaces\bin\Debug\ProjectFlip.Services.Interfaces.dll" />
+      <DeploymentItem filename="D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\PDFConverter\bin\Debug\ProjectFlip.Converter.Pdf.exe" />
+      <DeploymentItem filename="D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.Services.Test\bin\Debug\ProjectFlip.Services_Accessor.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-10-31T14:26:47.0243479+01:00" queuing="2011-10-31T14:26:47.7393479+01:00" start="2011-10-31T14:26:47.7943479+01:00" finish="2011-10-31T14:27:09.9771479+01:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="4" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="3" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="PIN1262035" outcome="Warning" timestamp="2011-10-31T14:26:47.0433479+01:00">
+        <Text>Deployment is currently disabled. The deployment item 'ProjectFlip.Converter.Pdf.exe' on test 'ProjectFlip.Converter.Test.PdfConverterTest.TestRequirementsNotOkTestMissingAdobeReader' was not deployed.</Text>
+      </RunInfo>
+      <RunInfo computerName="PIN1262035" outcome="Error" timestamp="2011-10-31T14:27:09.9761479+01:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestRequirementsNotOkTestMissingAdobeReader" storage="d:\flip_svn.elmermx.ch\code\trunk\projectflip\projectflip.converter.test\bin\debug\projectflip.converter.test.dll" id="2e6f33b3-86bf-0f99-bf5a-d8b601872b37">
+      <DeploymentItems>
+        <DeploymentItem filename="ProjectFlip.Converter.Pdf.exe" />
+      </DeploymentItems>
+      <Execution id="f4817526-f029-44a3-a97f-a42874a72e8e" />
+      <TestMethod codeBase="D:/flip_svn.elmermx.ch/code/trunk/ProjectFlip/ProjectFlip.Converter.Test/bin/Debug/ProjectFlip.Converter.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ProjectFlip.Converter.Test.PdfConverterTest, ProjectFlip.Converter.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestRequirementsNotOkTestMissingAdobeReader" />
+    </UnitTest>
+    <UnitTest name="TestRequirementsNotOkTestInvalidFromPath" storage="d:\flip_svn.elmermx.ch\code\trunk\projectflip\projectflip.converter.test\bin\debug\projectflip.converter.test.dll" id="5484f47c-5cb6-3432-23b4-9fe66b5390c1">
+      <DeploymentItems>
+        <DeploymentItem filename="ProjectFlip.Converter.Pdf.exe" />
+      </DeploymentItems>
+      <Execution id="af10a33d-41ec-425e-8890-5385100fc6c8" />
+      <TestMethod codeBase="D:/flip_svn.elmermx.ch/code/trunk/ProjectFlip/ProjectFlip.Converter.Test/bin/Debug/ProjectFlip.Converter.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ProjectFlip.Converter.Test.PdfConverterTest, ProjectFlip.Converter.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestRequirementsNotOkTestInvalidFromPath" />
+    </UnitTest>
+    <UnitTest name="TestRequirementsNotOkTestInvalidToPath" storage="d:\flip_svn.elmermx.ch\code\trunk\projectflip\projectflip.converter.test\bin\debug\projectflip.converter.test.dll" id="954ed5ba-afba-a3e7-b72f-46f96822c0d6">
+      <DeploymentItems>
+        <DeploymentItem filename="ProjectFlip.Converter.Pdf.exe" />
+      </DeploymentItems>
+      <Execution id="e408f796-757f-40d3-b53c-5100234ea0ad" />
+      <TestMethod codeBase="D:/flip_svn.elmermx.ch/code/trunk/ProjectFlip/ProjectFlip.Converter.Test/bin/Debug/ProjectFlip.Converter.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ProjectFlip.Converter.Test.PdfConverterTest, ProjectFlip.Converter.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestRequirementsNotOkTestInvalidToPath" />
+    </UnitTest>
+    <UnitTest name="TestRequirementsOk" storage="d:\flip_svn.elmermx.ch\code\trunk\projectflip\projectflip.converter.test\bin\debug\projectflip.converter.test.dll" id="bb5e44a5-ced0-bd0b-9376-d7595ad99cae">
+      <DeploymentItems>
+        <DeploymentItem filename="ProjectFlip.Converter.Pdf.exe" />
+      </DeploymentItems>
+      <Execution id="43cf7bad-e5e5-4d71-901c-bec631c244f3" />
+      <TestMethod codeBase="D:/flip_svn.elmermx.ch/code/trunk/ProjectFlip/ProjectFlip.Converter.Test/bin/Debug/ProjectFlip.Converter.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ProjectFlip.Converter.Test.PdfConverterTest, ProjectFlip.Converter.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestRequirementsOk" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="2e6f33b3-86bf-0f99-bf5a-d8b601872b37" executionId="f4817526-f029-44a3-a97f-a42874a72e8e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5484f47c-5cb6-3432-23b4-9fe66b5390c1" executionId="af10a33d-41ec-425e-8890-5385100fc6c8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="954ed5ba-afba-a3e7-b72f-46f96822c0d6" executionId="e408f796-757f-40d3-b53c-5100234ea0ad" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bb5e44a5-ced0-bd0b-9376-d7595ad99cae" executionId="43cf7bad-e5e5-4d71-901c-bec631c244f3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="f4817526-f029-44a3-a97f-a42874a72e8e" testId="2e6f33b3-86bf-0f99-bf5a-d8b601872b37" testName="TestRequirementsNotOkTestMissingAdobeReader" computerName="PIN1262035" duration="00:00:22.1348000" startTime="2011-10-31T14:26:47.8423479+01:00" endTime="2011-10-31T14:27:09.9771479+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f4817526-f029-44a3-a97f-a42874a72e8e">
+    </UnitTestResult>
+    <UnitTestResult executionId="af10a33d-41ec-425e-8890-5385100fc6c8" testId="5484f47c-5cb6-3432-23b4-9fe66b5390c1" testName="TestRequirementsNotOkTestInvalidFromPath" computerName="PIN1262035" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="af10a33d-41ec-425e-8890-5385100fc6c8">
+    </UnitTestResult>
+    <UnitTestResult executionId="e408f796-757f-40d3-b53c-5100234ea0ad" testId="954ed5ba-afba-a3e7-b72f-46f96822c0d6" testName="TestRequirementsNotOkTestInvalidToPath" computerName="PIN1262035" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e408f796-757f-40d3-b53c-5100234ea0ad">
+    </UnitTestResult>
+    <UnitTestResult executionId="43cf7bad-e5e5-4d71-901c-bec631c244f3" testId="bb5e44a5-ced0-bd0b-9376-d7595ad99cae" testName="TestRequirementsOk" computerName="PIN1262035" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="43cf7bad-e5e5-4d71-901c-bec631c244f3">
+    </UnitTestResult>
+  </Results>
+</TestRun>

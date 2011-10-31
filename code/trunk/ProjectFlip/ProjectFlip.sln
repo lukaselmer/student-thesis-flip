@@ -42,6 +42,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.Services.Test",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.Preparer.Test", "ProjectFlip.Preparer.Test\ProjectFlip.Preparer.Test.csproj", "{46A131BC-5052-4D95-84EC-1A7BA6D1729D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.Converter.Test", "ProjectFlip.Converter.Test\ProjectFlip.Converter.Test.csproj", "{4A1CD72E-E02A-4F29-BD8C-0F5223EC8B73}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = ProjectFlip.vsmdi
@@ -185,6 +187,16 @@ Global
 		{46A131BC-5052-4D95-84EC-1A7BA6D1729D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{46A131BC-5052-4D95-84EC-1A7BA6D1729D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{46A131BC-5052-4D95-84EC-1A7BA6D1729D}.Release|x86.ActiveCfg = Release|Any CPU
+		{4A1CD72E-E02A-4F29-BD8C-0F5223EC8B73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A1CD72E-E02A-4F29-BD8C-0F5223EC8B73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A1CD72E-E02A-4F29-BD8C-0F5223EC8B73}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4A1CD72E-E02A-4F29-BD8C-0F5223EC8B73}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4A1CD72E-E02A-4F29-BD8C-0F5223EC8B73}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4A1CD72E-E02A-4F29-BD8C-0F5223EC8B73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A1CD72E-E02A-4F29-BD8C-0F5223EC8B73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A1CD72E-E02A-4F29-BD8C-0F5223EC8B73}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{4A1CD72E-E02A-4F29-BD8C-0F5223EC8B73}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{4A1CD72E-E02A-4F29-BD8C-0F5223EC8B73}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

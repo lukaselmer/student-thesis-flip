@@ -35,7 +35,7 @@ namespace ProjectFlip.Preparer
                 projectNote.Line = line;
                 actions.Add(() => Process(processors, projectNote));
             }
-            var parallelOptions = new ParallelOptions { MaxDegreeOfParallelism = 300 };
+            var parallelOptions = new ParallelOptions {MaxDegreeOfParallelism = 300};
             Parallel.Invoke(parallelOptions, actions.ToArray());
         }
 
