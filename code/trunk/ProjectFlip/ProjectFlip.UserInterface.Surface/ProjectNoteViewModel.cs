@@ -32,15 +32,5 @@ namespace ProjectFlip.UserInterface.Surface
         public IProjectNote ProjectNote { get; private set; }
 
         public IProjectNotesService ProjectNoteService { get; private set; }
-
-        public String Title
-        {
-            get { return ProjectNote.Title; }
-        }
-
-        public BitmapImage Image
-        {
-            get { return ProjectNote.Image; }
-        }
     }
 }

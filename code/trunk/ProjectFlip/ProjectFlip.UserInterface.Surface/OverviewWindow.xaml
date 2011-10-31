@@ -9,8 +9,8 @@
         <DataTemplate x:Key="ProjectNoteButtonTemplate">
             <s:SurfaceButton Command="{Binding OpenWindowCommand}" >
                 <StackPanel Width="240" Height="240" Orientation="Vertical"  HorizontalAlignment="Right">
-                    <Image Width="190" Height="190" Source="{Binding Image}" HorizontalAlignment="Center"/>
-                    <TextBlock Text="{Binding Title}" TextTrimming="None" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"/>
+                    <Image Width="190" Height="190" Source="{Binding ProjectNote.Image}" HorizontalAlignment="Center"/>
+                    <TextBlock Text="{Binding ProjectNote.Title}" TextTrimming="None" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"/>
                 </StackPanel>
             </s:SurfaceButton>
         </DataTemplate>
