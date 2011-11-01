@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using System.Windows.Documents;
 using ProjectFlip.Services.Interfaces;
+using System.Windows;
 
-namespace ProjectFlip.UserInterface.Surface.Test
+namespace ProjectFlip.Test.Mock
 {
-    internal class ProjectNoteMock : IProjectNote
+    public class ProjectNoteMock : IProjectNote
     {
         public int Id { get; set; }
 
@@ -42,12 +42,12 @@ namespace ProjectFlip.UserInterface.Surface.Test
 
         public System.Windows.Media.Imaging.BitmapImage Image { get; set; }
 
-        private IDocumentPaginatorSource _document;
-        public IDocumentPaginatorSource Document
+        private System.Windows.Documents.IDocumentPaginatorSource _document;
+        public System.Windows.Documents.IDocumentPaginatorSource Document
         {
             get
             {
-                return _document = _document ?? new FixedDocument();
+                return _document = _document ?? new System.Windows.Documents.FixedDocument();
             }
         }
     }

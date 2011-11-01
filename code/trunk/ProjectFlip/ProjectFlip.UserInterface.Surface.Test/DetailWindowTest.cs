@@ -2,6 +2,7 @@
 using ProjectFlip.Services.Interfaces;
 using ProjectFlip.UserInterface.Surface;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ProjectFlip.Test.Mock;
 using System;
 
 namespace ProjectFlip.UserInterface.Surface.Test

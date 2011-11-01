@@ -1,12 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.IO;
-using System.Windows.Xps.Packaging;
-using ProjectFlip.Services;
 using ProjectFlip.Services.Interfaces;
 
-namespace ProjectFlip.UserInterface.Surface.Test
+namespace ProjectFlip.Test.Mock
 {
-    class ProjectNotesServiceMock : IProjectNotesService
+    public class ProjectNotesServiceMock : IProjectNotesService
     {
 
         private readonly List<IProjectNote> _projectNotes;

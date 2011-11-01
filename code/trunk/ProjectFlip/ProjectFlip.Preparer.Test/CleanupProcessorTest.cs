@@ -1,19 +1,20 @@
-﻿using ProjectFlip.Services.Interfaces;
-using ProjectFlip.Test.Mock;
-using ProjectFlip.UserInterface.Surface;
+﻿using ProjectFlip.Preparer;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using ProjectFlip.Services;
+using ProjectFlip.Services.Interfaces;
+using ProjectFlip.Test.Mock;
 
-namespace ProjectFlip.UserInterface.Surface.Test
+namespace ProjectFlip.Preparer.Test
 {
     
     
     /// <summary>
-    ///This is a test class for ViewModelBaseTest and is intended
-    ///to contain all ViewModelBaseTest Unit Tests
+    ///This is a test class for CleanupProcessorTest and is intended
+    ///to contain all CleanupProcessorTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class ViewModelBaseTest
+    public class CleanupProcessorTest
     {
 
 
@@ -64,41 +65,20 @@ namespace ProjectFlip.UserInterface.Surface.Test
         //}
         //
         #endregion
-
-
-        internal virtual ViewModelBase_Accessor CreateViewModelBase_Accessor()
-        {
-            // TODO: Instantiate an appropriate concrete class.
-            ViewModelBase_Accessor target = null;
-            return target;
-        }
-
+    
         /// <summary>
-        ///A test for Notify
+        ///A test for Process
         ///</summary>
         [TestMethod()]
-        [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
-        public void NotifyTest()
+        public void ProcessTest()
         {
-            IProjectNotesService projectNotesService = new ProjectNotesServiceMock(4);
-            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
-
-            var success = false;
-            target.add_PropertyChanged((sender, e) => success = true);
-            Assert.IsFalse(success);
-            target.Notify("Title");
-            Assert.IsTrue(success);
-
-            var counter = 0;
-            // ReSharper disable AccessToModifiedClosure
-            target.add_PropertyChanged((sender, e) => counter += 1);
-            // ReSharper restore AccessToModifiedClosure
-            target.add_PropertyChanged((sender, e) => counter += 1);
-            Assert.AreEqual(counter, 0);
-            target.Notify("Title");
-            Assert.AreEqual(counter, 2);
-            target.Notify("Title");
-            Assert.AreEqual(counter, 4);
+            CleanupProcessor target = new CleanupProcessor();
+            IProjectNote projectNote = new ProjectNoteMock();
+            bool expected = false; // TODO: Initialize to an appropriate value
+            bool actual;
+            actual = target.Process(projectNote);
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
         }
     }
 }

@@ -64,8 +64,6 @@
     <Compile Include="CommandTest.cs" />
     <Compile Include="OverviewWindowTest.cs" />
     <Compile Include="OverviewWindowViewModelTest.cs" />
-    <Compile Include="ProjectNoteMock.cs" />
-    <Compile Include="ProjectNotesServiceMock.cs" />
     <Compile Include="ProjectNoteViewModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModelBaseTest.cs" />
@@ -81,6 +79,10 @@
     <ProjectReference Include="..\ProjectFlip.Services\ProjectFlip.Services.csproj">
       <Project>{902C8F58-4CA9-4D16-AA01-C897FF205111}</Project>
       <Name>ProjectFlip.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjectFlip.Test.Mock\ProjectFlip.Test.Mock.csproj">
+      <Project>{FBC3C3D8-995A-4ACB-B974-B52A4C3D1246}</Project>
+      <Name>ProjectFlip.Test.Mock</Name>
     </ProjectReference>
     <ProjectReference Include="..\ProjectFlip.UserInterface.Surface\ProjectFlip.UserInterface.Surface.csproj">
       <Project>{5DE0AEBD-753D-4F52-A062-75BC6DE1FB23}</Project>

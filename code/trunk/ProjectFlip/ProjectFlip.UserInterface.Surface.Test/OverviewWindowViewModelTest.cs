@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProjectFlip.Services.Interfaces;
+using ProjectFlip.Test.Mock;
 
 namespace ProjectFlip.UserInterface.Surface.Test
 {
