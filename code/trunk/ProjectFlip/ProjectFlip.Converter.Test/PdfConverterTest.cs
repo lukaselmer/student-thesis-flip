@@ -121,7 +121,8 @@ namespace ProjectFlip.Converter.Test
         {
             PdfConverter.SecondsToWait = 4;
             var target = new PdfConverter();
-            Assert.AreEqual(true, target.Convert(PdfPath, TempXpsPath));
+            var expected = target.Convert(PdfPath, TempXpsPath);
+            Assert.AreEqual(true, expected);
             Assert.IsTrue(File.Exists(TempXpsPath));
 
             var xpsFileInfo = new FileInfo(XpsPath);
