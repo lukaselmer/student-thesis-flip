@@ -17,36 +17,35 @@ using ProjectFlip.Services.Interfaces;
 
 namespace ProjectFlip.Preparer
 {
-    // TODO: Refactor this class
     internal class ImageExtractorProcessor : IProcessor
     {
         #region IProcessor Members
 
         public bool Process(IProjectNote projectNote)
         {
-            if (!File.Exists(projectNote.FilepathImage))
-            {
-                var sta = new Thread(() => ExtractImage(projectNote.FilepathXps, projectNote.FilepathImage));
-                sta.SetApartmentState(ApartmentState.STA);
-                sta.Start();
-                sta.Join();
-            }
-            return false;
+            if (!File.Exists(projectNote.FilepathXps)) return false;
+            if (File.Exists(projectNote.FilepathImage)) return false;
+
+            var sta = new Thread(() => ExtractImage(projectNote.FilepathXps, projectNote.FilepathImage));
+            sta.SetApartmentState(ApartmentState.STA);
+            sta.Start();
+            sta.Join();
+
+            return true;
         }
 
         #endregion
 
-        private static void ExtractImage(string xpsPath, string imagePath)
+        private static bool ExtractImage(string xpsPath, string imagePath)
         {
-            if (!File.Exists(xpsPath)) return;
-
             try
             {
                 ProcessDocument(xpsPath, imagePath);
+                return true;
             }
             catch (Exception)
             {
-                return;
+                return false;
             }
             finally
             {
@@ -81,7 +80,7 @@ namespace ProjectFlip.Preparer
             }
         }
 
-        private static void XpsToTempImage(string tempImagePath, FixedDocumentSequence docSeq)
+        private static void XpsToTempImage(string tempImagePath, IDocumentPaginatorSource docSeq)
         {
             using (var docPage = docSeq.DocumentPaginator.GetPage(0))
             {

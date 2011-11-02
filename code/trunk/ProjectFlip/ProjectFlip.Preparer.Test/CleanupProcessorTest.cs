@@ -1,42 +1,21 @@
-﻿using ProjectFlip.Preparer;
+﻿#region
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using ProjectFlip.Services;
-using ProjectFlip.Services.Interfaces;
 using ProjectFlip.Test.Mock;
+
+#endregion
 
 namespace ProjectFlip.Preparer.Test
 {
-    
-    
     /// <summary>
     ///This is a test class for CleanupProcessorTest and is intended
     ///to contain all CleanupProcessorTest Unit Tests
     ///</summary>
-    [TestClass()]
+    [TestClass]
     public class CleanupProcessorTest
     {
-
-
-        private TestContext testContextInstance;
-
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
-
         #region Additional test attributes
+
         // 
         //You can use the following additional attributes as you write your tests:
         //
@@ -64,21 +43,18 @@ namespace ProjectFlip.Preparer.Test
         //{
         //}
         //
+
         #endregion
-    
+
         /// <summary>
         ///A test for Process
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void ProcessTest()
         {
-            CleanupProcessor target = new CleanupProcessor();
-            IProjectNote projectNote = new ProjectNoteMock();
-            bool expected = false; // TODO: Initialize to an appropriate value
-            bool actual;
-            actual = target.Process(projectNote);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            var target = new CleanupProcessor();
+            var projectNote = new ProjectNoteMock();
+            Assert.AreEqual(false, target.Process(projectNote));
         }
     }
 }

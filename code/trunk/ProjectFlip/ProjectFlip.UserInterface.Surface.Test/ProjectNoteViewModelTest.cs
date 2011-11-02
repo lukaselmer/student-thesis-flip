@@ -74,11 +74,12 @@ namespace ProjectFlip.UserInterface.Surface.Test
         [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
         public void OpenNewWindowTest1()
         {
-            var service = new ProjectNotesServiceMock(5);
-            var target = new ProjectNoteViewModel_Accessor(service, service.ProjectNotes[0]);
-            string test = "test";
-            //target.OpenNewWindow(test); // TODO: Fix this: new DetailWindow(vm); throws an exception; is it possible to create no new DetailWindow in this method?
+            // TODO: Fix this: new DetailWindow(vm); throws an exception; is it possible to create no new DetailWindow in this method?
             Assert.Inconclusive("TODO: Fix this: new DetailWindow(vm); throws an exception; is it possible to create no new DetailWindow in this method?");
+            /*var service = new ProjectNotesServiceMock(5);
+            var target = new ProjectNoteViewModel_Accessor(service, service.ProjectNotes[0]);
+            var test = "test";*/
+            //target.OpenNewWindow(test); 
         }
     }
 }
