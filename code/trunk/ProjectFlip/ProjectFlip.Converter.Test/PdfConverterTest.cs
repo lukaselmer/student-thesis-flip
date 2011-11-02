@@ -1,7 +1,11 @@
-﻿using System.IO;
-using ProjectFlip.Converter.Pdf;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿#region
+
 using System;
+using System.IO;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ProjectFlip.Converter.Pdf;
+
+#endregion
 
 namespace ProjectFlip.Converter.Test
 {
@@ -13,6 +17,7 @@ namespace ProjectFlip.Converter.Test
     public class PdfConverterTest
     {
         #region Additional test attributes
+
         // 
         //You can use the following additional attributes as you write your tests:
         //
@@ -35,8 +40,7 @@ namespace ProjectFlip.Converter.Test
         {
             Cleanup();
             File.ReadLines(ImagePath);
-            Array.ForEach(new[] { PdfPath, XpsPath, ImagePath },
-                path => Assert.IsTrue(File.Exists(path)));
+            Array.ForEach(new[] {PdfPath, XpsPath, ImagePath}, path => Assert.IsTrue(File.Exists(path)));
         }
 
         //Use TestCleanup to run code after each test has run
@@ -48,7 +52,7 @@ namespace ProjectFlip.Converter.Test
 
         private static void Cleanup()
         {
-            Array.ForEach(new[] { InvalidPath, TempPdfPath, TempXpsPath, TempImagePath },
+            Array.ForEach(new[] {InvalidPath, TempPdfPath, TempXpsPath, TempImagePath},
                 path => { if (File.Exists(path)) File.Delete(path); });
         }
 
@@ -64,25 +68,24 @@ namespace ProjectFlip.Converter.Test
         private const string TempXpsPath = @"..\..\..\Resources\Test\Xps\temp.xps";
         private const string TempImagePath = @"..\..\..\Resources\Test\Images\temp.bmp";
 
-        const string InvalidPath = @"..\..\..\Resources\Test\thisFileShouldNotExist.bmp";
-
+        private const string InvalidPath = @"..\..\..\Resources\Test\thisFileShouldNotExist.bmp";
 
         /// <summary>
         ///A test for RequirementsNotOk -> Missing Adobe Reader
         ///</summary>
-        [TestMethod]
-        [DeploymentItem("ProjectFlip.Converter.Pdf.exe")]
+        [TestMethod, DeploymentItem("ProjectFlip.Converter.Pdf.exe")]
+        
         public void TestRequirementsNotOkTestMissingAdobeReader()
         {
-            var target = new PdfConverter_Accessor { AcrobatLocation = InvalidPath };
+            var target = new PdfConverter_Accessor {AcrobatLocation = InvalidPath};
             Assert.AreEqual(false, target.RequirementsOk(PdfPath, TempXpsPath));
         }
 
         /// <summary>
         ///A test for RequirementsNotOk -> Invalid From Path
         ///</summary>
-        [TestMethod]
-        [DeploymentItem("ProjectFlip.Converter.Pdf.exe")]
+        [TestMethod, DeploymentItem("ProjectFlip.Converter.Pdf.exe")]
+        
         public void TestRequirementsNotOkTestInvalidFromPath()
         {
             var target = new PdfConverter_Accessor();
@@ -92,8 +95,8 @@ namespace ProjectFlip.Converter.Test
         /// <summary>
         ///A test for RequirementsNotOk -> Invalid To Path
         ///</summary>
-        [TestMethod]
-        [DeploymentItem("ProjectFlip.Converter.Pdf.exe")]
+        [TestMethod, DeploymentItem("ProjectFlip.Converter.Pdf.exe")]
+        
         public void TestRequirementsNotOkTestInvalidToPath()
         {
             var target = new PdfConverter_Accessor();
@@ -103,14 +106,13 @@ namespace ProjectFlip.Converter.Test
         /// <summary>
         ///A test for RequirementsOk
         ///</summary>
-        [TestMethod]
-        [DeploymentItem("ProjectFlip.Converter.Pdf.exe")]
+        [TestMethod, DeploymentItem("ProjectFlip.Converter.Pdf.exe")]
+        
         public void TestRequirementsOk()
         {
             var target = new PdfConverter_Accessor();
             Assert.AreEqual(true, target.RequirementsOk(PdfPath, TempXpsPath));
         }
-
 
         /// <summary>
         ///A test for Convert
@@ -131,8 +133,8 @@ namespace ProjectFlip.Converter.Test
 
             var xpsFileInfo = new FileInfo(XpsPath);
             var tempXpsFileInfo = new FileInfo(XpsPath);
-            Assert.IsTrue(xpsFileInfo.Length * 1.1 > tempXpsFileInfo.Length);
-            Assert.IsTrue(xpsFileInfo.Length * 0.9 < tempXpsFileInfo.Length);
+            Assert.IsTrue(xpsFileInfo.Length*1.1 > tempXpsFileInfo.Length);
+            Assert.IsTrue(xpsFileInfo.Length*0.9 < tempXpsFileInfo.Length);
             // ReSharper restore HeuristicUnreachableCode
             // ReSharper restore CSharpWarnings::CS0162
         }

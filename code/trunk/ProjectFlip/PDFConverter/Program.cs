@@ -1,9 +1,13 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
+
+#endregion
 
 namespace ProjectFlip.Converter.Pdf
 {
-    internal class Program
+    internal static class Program
     {
         private static void Main(string[] args)
         {
@@ -14,7 +18,7 @@ namespace ProjectFlip.Converter.Pdf
                 return;
             }
             var p = new PdfConverter();
-            if(args.Length == 3) p.AcrobatLocation = args[2];
+            if (args.Length == 3) p.AcrobatLocation = args[2];
             p.Convert(args[0], args[1]);
             Console.ReadLine();
         }
@@ -26,8 +30,7 @@ namespace ProjectFlip.Converter.Pdf
 
         private static void PrintUsage()
         {
-            Console.WriteLine("Converts a PDF to a XPS file.\n\n" +
-                              "PDFConverter source destination [AcroRd32_path]");
+            Console.WriteLine("Converts a PDF to a XPS file.\n\n" + "PDFConverter source destination [AcroRd32_path]");
         }
     }
 }
