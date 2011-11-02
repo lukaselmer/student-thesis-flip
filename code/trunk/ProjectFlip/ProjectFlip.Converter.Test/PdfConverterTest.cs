@@ -5,13 +5,11 @@ using System;
 
 namespace ProjectFlip.Converter.Test
 {
-
-
     /// <summary>
     ///This is a test class for PdfConverterTest and is intended
     ///to contain all PdfConverterTest Unit Tests
     ///</summary>
-    [TestClass()]
+    [TestClass]
     public class PdfConverterTest
     {
         #region Additional test attributes
@@ -32,7 +30,7 @@ namespace ProjectFlip.Converter.Test
         //
 
         //Use TestInitialize to run code before running each test
-        [TestInitialize()]
+        [TestInitialize]
         public void MyTestInitialize()
         {
             Cleanup();
@@ -42,7 +40,7 @@ namespace ProjectFlip.Converter.Test
         }
 
         //Use TestCleanup to run code after each test has run
-        [TestCleanup()]
+        [TestCleanup]
         public void MyTestCleanup()
         {
             Cleanup();
@@ -56,6 +54,8 @@ namespace ProjectFlip.Converter.Test
 
         #endregion
 
+        private const bool TestEverything = false;
+
         private const string PdfPath = @"..\..\..\Resources\Test\Pdf\test.pdf";
         private const string XpsPath = @"..\..\..\Resources\Test\Xps\test.xps";
         private const string ImagePath = @"..\..\..\Resources\Test\Images\test.bmp";
@@ -66,21 +66,22 @@ namespace ProjectFlip.Converter.Test
 
         const string InvalidPath = @"..\..\..\Resources\Test\thisFileShouldNotExist.bmp";
 
+
         /// <summary>
         ///A test for RequirementsNotOk -> Missing Adobe Reader
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         [DeploymentItem("ProjectFlip.Converter.Pdf.exe")]
         public void TestRequirementsNotOkTestMissingAdobeReader()
         {
-            var target = new PdfConverter_Accessor() { AcrobatLocation = InvalidPath };
+            var target = new PdfConverter_Accessor { AcrobatLocation = InvalidPath };
             Assert.AreEqual(false, target.RequirementsOk(PdfPath, TempXpsPath));
         }
 
         /// <summary>
         ///A test for RequirementsNotOk -> Invalid From Path
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         [DeploymentItem("ProjectFlip.Converter.Pdf.exe")]
         public void TestRequirementsNotOkTestInvalidFromPath()
         {
@@ -88,11 +89,10 @@ namespace ProjectFlip.Converter.Test
             Assert.AreEqual(false, target.RequirementsOk(TempPdfPath, TempXpsPath));
         }
 
-
         /// <summary>
         ///A test for RequirementsNotOk -> Invalid To Path
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         [DeploymentItem("ProjectFlip.Converter.Pdf.exe")]
         public void TestRequirementsNotOkTestInvalidToPath()
         {
@@ -103,7 +103,7 @@ namespace ProjectFlip.Converter.Test
         /// <summary>
         ///A test for RequirementsOk
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         [DeploymentItem("ProjectFlip.Converter.Pdf.exe")]
         public void TestRequirementsOk()
         {
@@ -111,12 +111,18 @@ namespace ProjectFlip.Converter.Test
             Assert.AreEqual(true, target.RequirementsOk(PdfPath, TempXpsPath));
         }
 
+
         /// <summary>
         ///A test for Convert
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void ConvertTest()
         {
+            // ReSharper disable ConditionIsAlwaysTrueOrFalse
+            if (!TestEverything) return;
+            // ReSharper restore ConditionIsAlwaysTrueOrFalse
+            // ReSharper disable CSharpWarnings::CS0162
+            // ReSharper disable HeuristicUnreachableCode
             PdfConverter.SecondsToWait = 4;
             var target = new PdfConverter();
             var expected = target.Convert(PdfPath, TempXpsPath);
@@ -127,12 +133,14 @@ namespace ProjectFlip.Converter.Test
             var tempXpsFileInfo = new FileInfo(XpsPath);
             Assert.IsTrue(xpsFileInfo.Length * 1.1 > tempXpsFileInfo.Length);
             Assert.IsTrue(xpsFileInfo.Length * 0.9 < tempXpsFileInfo.Length);
+            // ReSharper restore HeuristicUnreachableCode
+            // ReSharper restore CSharpWarnings::CS0162
         }
 
         /// <summary>
         ///A test for Convert with bad requirements
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void ConvertTestWithBadRequirements()
         {
             var target = new PdfConverter();
