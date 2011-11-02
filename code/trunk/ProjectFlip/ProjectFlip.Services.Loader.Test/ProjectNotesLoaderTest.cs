@@ -1,7 +1,11 @@
-﻿using System.IO;
+﻿#region
+
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
+
+#endregion
 
 namespace ProjectFlip.Services.Loader.Test
 {
@@ -12,13 +16,8 @@ namespace ProjectFlip.Services.Loader.Test
     [TestClass]
     public class ProjectNotesLoaderTest
     {
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext { get; set; }
-
         #region Additional test attributes
+
         // 
         //You can use the following additional attributes as you write your tests:
         //
@@ -46,8 +45,8 @@ namespace ProjectFlip.Services.Loader.Test
         //{
         //}
         //
-        #endregion
 
+        #endregion
 
         /// <summary>
         ///A test for Import
@@ -57,8 +56,8 @@ namespace ProjectFlip.Services.Loader.Test
         {
             const string filename = @"..\..\..\ProjectFlip.Services.Loader.Test\testdata.txt";
             Assert.IsTrue(File.Exists(filename), "Testfile " + filename + " does not exist!");
-            var target = new ProjectNotesLoader { Filename = filename };
-            var listFromAtoS = Enumerable.Range('a', 19).Select(c => "" + (char)c).ToList();
+            var target = new ProjectNotesLoader {Filename = filename};
+            var listFromAtoS = Enumerable.Range('a', 19).Select(c => "" + (char) c).ToList();
             var expected = new List<List<string>> {listFromAtoS};
             var actual = target.Import();
             Assert.AreEqual(expected.Count, actual.Count);

@@ -1,35 +1,18 @@
-﻿using ProjectFlip.Services;
+﻿#region
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using ProjectFlip.Services.Loader.Interfaces;
-using ProjectFlip.Services.Interfaces;
-using System.Collections.Generic;
+
+#endregion
 
 namespace ProjectFlip.Services.Test
 {
-
-
     /// <summary>
     ///This is a test class for ProjectNotesServiceTest and is intended
     ///to contain all ProjectNotesServiceTest Unit Tests
     ///</summary>
-    [TestClass()]
+    [TestClass]
     public class ProjectNotesServiceTest
     {
-
-
-        private TestContext testContextInstance;
-
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext
-        {
-            get { return testContextInstance; }
-            set { testContextInstance = value; }
-        }
-
         #region Additional test attributes
 
         // 
@@ -62,11 +45,10 @@ namespace ProjectFlip.Services.Test
 
         #endregion
 
-
         /// <summary>
         ///A test for ProjectNotesService Constructor with a valid path
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void ProjectNotesServicewithPnTest()
         {
             ProjectNote.FilepathFolder = @"..\..\..\Resources\Test";
@@ -76,7 +58,7 @@ namespace ProjectFlip.Services.Test
         /// <summary>
         ///A test for ProjectNotesService Constructor without a valid path
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void ProjectNotesServiceWithoutPnTest()
         {
             ProjectNote.FilepathFolder = @"..\..\..\Resources\";
@@ -85,10 +67,9 @@ namespace ProjectFlip.Services.Test
 
         private void createAndTestProjectNotesService(int result)
         {
-            IProjectNotesLoader projectNotesLoader = new ProjectNotesLoaderMock();
-            ProjectNotesService target = new ProjectNotesService(projectNotesLoader);
+            var projectNotesLoader = new ProjectNotesLoaderMock();
+            var target = new ProjectNotesService(projectNotesLoader);
             Assert.AreEqual(result, target.ProjectNotes.Count);
         }
-
     }
 }

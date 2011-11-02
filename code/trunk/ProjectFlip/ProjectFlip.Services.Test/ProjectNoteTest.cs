@@ -1,42 +1,23 @@
-﻿using ProjectFlip.Services;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿#region
+
 using System;
 using System.Collections.Generic;
-using System.Windows.Documents;
 using System.Windows.Media.Imaging;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+#endregion
 
 namespace ProjectFlip.Services.Test
 {
-
-
     /// <summary>
     ///This is a test class for ProjectNoteTest and is intended
     ///to contain all ProjectNoteTest Unit Tests
     ///</summary>
-    [TestClass()]
+    [TestClass]
     public class ProjectNoteTest
     {
-
-
-        private TestContext testContextInstance;
-
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
-
         #region Additional test attributes
+
         // 
         //You can use the following additional attributes as you write your tests:
         //
@@ -64,49 +45,41 @@ namespace ProjectFlip.Services.Test
         //{
         //}
         //
+
         #endregion
 
         /// <summary>
         ///A test for ConvertToList
         ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.Services.dll")]
+        [TestMethod, DeploymentItem("ProjectFlip.Services.dll")]
+
         public void ConvertToListTest()
         {
-            var line = "test";
-            IList<string> expected = new List<string>();
-            expected.Add(line);
-            IList<string> actual;
-            actual = ProjectNote_Accessor.ConvertToList(line);
-            Assert.AreEqual(expected.Count, actual.Count);
-            for (int i = 0; i < expected.Count; i++)
-            {
-                Assert.AreEqual(expected[0], actual[i]);
-            }
+            const string line = "test";
+            var actual = ProjectNote_Accessor.ConvertToList(line);
+            Assert.AreEqual(1, actual.Count);
+            Assert.AreEqual(line, actual[0]);
         }
 
         /// <summary>
         ///A test for Document
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void DocumentTest()
         {
-            ProjectNote_Accessor target = new ProjectNote_Accessor();
-            
-            target.FilepathXps = @"..\..\..\Resources\Test\Xps\test.xps";
-            IDocumentPaginatorSource document;
-            document = target.Document;
+            var target = new ProjectNote_Accessor { FilepathXps = @"..\..\..\Resources\Test\Xps\test.xps" };
+            var document = target.Document;
             Assert.IsNotNull(document);
         }
 
         /// <summary>
         ///A test for Url
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void UrlTest()
         {
-            ProjectNote_Accessor target = new ProjectNote_Accessor();
-            var filename = "filename";
+            var target = new ProjectNote_Accessor();
+            const string filename = "filename";
             target.Filename = filename;
             Assert.AreEqual("http://www.zuehlke.com/uploads/tx_zepublications/" + filename, target.Url);
         }
@@ -114,18 +87,17 @@ namespace ProjectFlip.Services.Test
         /// <summary>
         ///A test for Image
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void ImageTest()
         {
             var image = GetBitmapImage(@"..\..\..\Resources\Test\Images\test.bmp");
             Assert.IsNotNull(image);
         }
 
-
         /// <summary>
         ///A test for Image with invalid file path
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void NoImageTest()
         {
             var image = GetBitmapImage(@"..\");
@@ -134,23 +106,25 @@ namespace ProjectFlip.Services.Test
 
         private static BitmapImage GetBitmapImage(string path)
         {
-            ProjectNote_Accessor target = new ProjectNote_Accessor();
-            target.FilepathImage = path;
-            BitmapImage image;
-            image = target.Image;
+            var target = new ProjectNote_Accessor { FilepathImage = path };
+            var image = target.Image;
             return image;
         }
 
         /// <summary>
         ///A test for Line
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void LineTest()
         {
-            var filename = "Filename";
-            var line = new List<string>(19) { "1", "Title", "Text", "Sector", "Customer", "Focus", "Services", "Technology", "Application", "Tools", "15.10.2011", "text", "text", filename + ".pdf", "text", "text", "text", "text", "text" };
-            ProjectNote target = new ProjectNote();
-            target.Line = line;
+            const string filename = "Filename";
+            var line = new List<string>(19)
+                       {
+                           "1", "Title", "Text", "Sector", "Customer", "Focus", "Services", "Technology", "Application",
+                           "Tools", "15.10.2011", "text", "text", filename + ".pdf", "text", "text", "text", "text",
+                           "text"
+                       };
+            var target = new ProjectNote { Line = line };
             Assert.AreEqual(Convert.ToInt32(line[0]), target.Id);
             Assert.AreEqual(line[1], target.Title);
             Assert.AreEqual(line[2], target.Text);

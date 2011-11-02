@@ -1,23 +1,38 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using ProjectFlip.Services.Loader.Interfaces;
+
+#endregion
 
 namespace ProjectFlip.Services.Test
 {
-    class ProjectNotesLoaderMock : IProjectNotesLoader
+    internal class ProjectNotesLoaderMock : IProjectNotesLoader
     {
-        private List<List<string>> list;
-
         public ProjectNotesLoaderMock()
         {
-            list = new List<List<string>>();
-            list.Add(new List<string>(19) { "1", "Title", "Text", "Sector", "Customer", "Focus", "Services", "Technology", "Application", "Tools", "15.10.2011", "text", "text", "test.pdf", "text", "text", "text", "text", "text" });
+            List = new List<List<string>>
+                   {
+                       new List<string>(19)
+                       {
+                           "1", "Title", "Text", "Sector", "Customer", "Focus", "Services", "Technology", "Application",
+                           "Tools", "15.10.2011", "text", "text", "test.pdf", "text", "text", "text", "text", "text"
+                       }
+                   };
         }
+
+        private List<List<string>> List { get; set; }
+
+        #region IProjectNotesLoader Members
+
         public List<List<String>> Import()
         {
-            return list;
+            return List;
         }
+
+        public string Filename { get; set; }
+
+        #endregion
     }
 }
