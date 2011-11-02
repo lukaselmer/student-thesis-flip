@@ -1,28 +1,24 @@
-﻿using System.Collections.Generic;
+﻿#region
+
+using System.Collections.Generic;
+using System.Linq;
 using ProjectFlip.Services.Interfaces;
+
+#endregion
 
 namespace ProjectFlip.Test.Mock
 {
     public class ProjectNotesServiceMock : IProjectNotesService
     {
-
-        private readonly List<IProjectNote> _projectNotes;
-
-        public ProjectNotesServiceMock(int count)
+        public ProjectNotesServiceMock(int count, string o = "")
         {
-            _projectNotes = new List<IProjectNote>();
-            for (int i = 0; i < count; i++)
-            {
-                var pn = new ProjectNoteMock();
-                _projectNotes.Add(pn);
-            }
+            ProjectNotes = new List<IProjectNote>(Enumerable.Range(0, count).Select(i => new ProjectNoteMock()));
         }
 
-        public List<IProjectNote> ProjectNotes
-        {
-            get { return _projectNotes; }
-        }
+        #region IProjectNotesService Members
 
+        public List<IProjectNote> ProjectNotes { get; private set; }
 
+        #endregion
     }
 }
