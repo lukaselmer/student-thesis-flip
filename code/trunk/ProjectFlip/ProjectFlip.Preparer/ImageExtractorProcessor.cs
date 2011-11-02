@@ -50,7 +50,7 @@ namespace ProjectFlip.Preparer
             }
             finally
             {
-                // Memory Leak .NET FrameworkBug!? See http://stackoverflow.com/questions/218681/opening-xps-document-in-net-causes-a-memory-leak
+                // Memory Leak in .NET FrameworkBug!? See http://stackoverflow.com/questions/218681/opening-xps-document-in-net-causes-a-memory-leak
                 // Workaround:
                 // Executes: ContextLayoutManager.From(Dispatcher.CurrentDispatcher).UpdateLayout();
                 var presentationCoreAssembly = Assembly.GetAssembly(typeof (UIElement));
@@ -81,24 +81,12 @@ namespace ProjectFlip.Preparer
             }
         }
 
-        private static void TempImageToCroppedImage(string imagePath, string tempImagePath)
-        {
-            using (var v = Image.FromFile(tempImagePath))
-            using (var bmpImage = new Bitmap(v))
-            using (var bmpCrop = bmpImage.Clone(new Rectangle(340, 309, 243, 243), bmpImage.PixelFormat))
-            {
-                bmpCrop.Save(imagePath);
-            }
-        }
-
         private static void XpsToTempImage(string tempImagePath, FixedDocumentSequence docSeq)
         {
             using (var docPage = docSeq.DocumentPaginator.GetPage(0))
             {
                 var renderTarget = new RenderTargetBitmap((int) docPage.Size.Width, (int) docPage.Size.Height, 96, 96,
-                    // WPF (Avalon) units are 96dpi based
-                    PixelFormats.Default);
-                // crop image from 340x309 - 583x552
+                    PixelFormats.Default); // WPF (Avalon) units are 96dpi based
                 renderTarget.Render(docPage.Visual);
 
                 var encoder = new BmpBitmapEncoder(); // Choose type here ie: JpegBitmapEncoder, etc
@@ -108,6 +96,16 @@ namespace ProjectFlip.Preparer
                     encoder.Save(pageOutStream);
                     pageOutStream.Close();
                 }
+            }
+        }
+
+        private static void TempImageToCroppedImage(string imagePath, string tempImagePath)
+        {
+            using (var v = Image.FromFile(tempImagePath))
+            using (var bmpImage = new Bitmap(v)) // crop image from 340x309 - 583x552
+            using (var bmpCrop = bmpImage.Clone(new Rectangle(340, 309, 243, 243), bmpImage.PixelFormat))
+            {
+                bmpCrop.Save(imagePath);
             }
         }
     }
