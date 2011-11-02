@@ -1,8 +1,12 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using ProjectFlip.Services.Loader.Interfaces;
+
+#endregion
 
 namespace ProjectFlip.Services.Loader
 {
@@ -15,6 +19,8 @@ namespace ProjectFlip.Services.Loader
             Filename = @"..\..\..\Resources\metadata.txt";
         }
 
+        #region IProjectNotesLoader Members
+
         public string Filename { get; set; }
 
         public List<List<String>> Import()
@@ -24,6 +30,8 @@ namespace ProjectFlip.Services.Loader
             CleanFields();
             return Rows();
         }
+
+        #endregion
 
         private void CleanFields()
         {
@@ -38,7 +46,10 @@ namespace ProjectFlip.Services.Loader
 
         private void CheckText()
         {
-            _lines.ForEach(line => Debug.Assert(line.Count == 19, "Wrong text file: Expected each Line to contain 19 elements (18 tabs)."));
+            _lines.ForEach(
+                line =>
+                    Debug.Assert(line.Count == 19,
+                        "Wrong text file: Expected each Line to contain 19 elements (18 tabs)."));
         }
 
         private void LoadText()

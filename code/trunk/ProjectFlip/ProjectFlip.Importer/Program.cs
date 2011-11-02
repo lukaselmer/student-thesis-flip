@@ -1,16 +1,18 @@
-﻿using System;
+﻿#region
+
+using System;
+
+#endregion
 
 namespace ProjectFlip.Services.Loader
 {
-    class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             var importer = new ProjectNotesLoader();
             var list = importer.Import();
-
             list.ForEach(line => line.ForEach(Console.WriteLine));
-
             Console.ReadKey();
         }
     }
