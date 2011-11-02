@@ -25,11 +25,11 @@ namespace ProjectFlip.Services
         public string Text { get; private set; } // In einem externen Audit untersucht Zühlke die IT und die ...
         public string Sector { get; private set; } // Banking & Financial Services
         public string Customer { get; private set; } // HYPO Capital Management AG
-        public IEnumerable<string> Focus { get; private set; } // Software Solutions
-        public IEnumerable<string> Services { get; private set; } //"_ Tecogy Cong;#__ Tecogy Con;#__ Teo Eise
-        public IEnumerable<string> Technologies { get; private set; } // Java EE
-        public IEnumerable<string> Applications { get; private set; } //Information Systems
-        public IEnumerable<string> Tools { get; private set; } // Eclipse;#Java Enterprise Edition;#Oracle;#SOAP;#XSL
+        public IList<string> Focus { get; private set; } // Software Solutions
+        public IList<string> Services { get; private set; } //"_ Tecogy Cong;#__ Tecogy Con;#__ Teo Eise
+        public IList<string> Technologies { get; private set; } // Java EE
+        public IList<string> Applications { get; private set; } //Information Systems
+        public IList<string> Tools { get; private set; } // Eclipse;#Java Enterprise Edition;#Oracle;#SOAP;#XSL
         public DateTime Published { get; private set; }
         public string Filename { get; private set; }
         public string FilepathPdf { get; private set; }
@@ -105,10 +105,10 @@ namespace ProjectFlip.Services
             FilepathImage = FilepathFolder + @"\Images\" + pdfRegex.Replace(Filename, ".bmp");
         }
 
-        private static IEnumerable<string> ConvertToList(string line)
+        private static IList<string> ConvertToList(string line)
         {
             // TODO: implement this
-            return new List<string> {line};
+            return new List<string> { line };
         }
     }
 }

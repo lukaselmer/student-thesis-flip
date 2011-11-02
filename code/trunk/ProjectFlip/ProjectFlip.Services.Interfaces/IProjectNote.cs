@@ -17,11 +17,13 @@ namespace ProjectFlip.Services.Interfaces
         string Text { get; }
         string Sector { get; }
         string Customer { get; }
-        IEnumerable<string> Focus { get; }
-        IEnumerable<string> Services { get; }
-        IEnumerable<string> Technologies { get; }
-        IEnumerable<string> Applications { get; }
-        IEnumerable<string> Tools { get; }
+        // ReSharper disable ReturnTypeCanBeEnumerable.Global
+        IList<string> Focus { get; }
+        IList<string> Services { get; }
+        IList<string> Technologies { get; }
+        IList<string> Applications { get; }
+        IList<string> Tools { get; }
+        // ReSharper restore ReturnTypeCanBeEnumerable.Global
         DateTime Published { get; }
         string Filename { get; }
         string FilepathPdf { get; }

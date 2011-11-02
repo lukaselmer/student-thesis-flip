@@ -73,7 +73,7 @@ namespace ProjectFlip.Services.Test
         [DeploymentItem("ProjectFlip.Services.dll")]
         public void ConvertToListTest()
         {
-            string line = "test";
+            var line = "test";
             IList<string> expected = new List<string>();
             expected.Add(line);
             IList<string> actual;

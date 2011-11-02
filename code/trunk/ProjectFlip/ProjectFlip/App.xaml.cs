@@ -47,7 +47,6 @@ namespace ProjectFlip
 
         private static void ConfigureContainer(IUnityContainer container)
         {
-            container.RegisterType<ILogService, ConsoleLogService>();
             container.RegisterType<IProjectNotesService, ProjectNotesService>();
             container.RegisterType<IProjectNotesLoader, ProjectNotesLoader>();
         }
