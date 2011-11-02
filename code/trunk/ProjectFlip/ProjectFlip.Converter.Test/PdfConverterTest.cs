@@ -1,9 +1,7 @@
 ﻿using System.IO;
-using System.Windows.Xps.Packaging;
 using ProjectFlip.Converter.Pdf;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Linq;
 
 namespace ProjectFlip.Converter.Test
 {

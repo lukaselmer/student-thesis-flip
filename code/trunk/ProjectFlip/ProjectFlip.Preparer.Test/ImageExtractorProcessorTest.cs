@@ -1,7 +1,5 @@
 ﻿using System.IO;
-using ProjectFlip.Preparer;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
 namespace ProjectFlip.Preparer.Test
 {
@@ -11,29 +9,9 @@ namespace ProjectFlip.Preparer.Test
     ///This is a test class for ImageExtractorProcessorTest and is intended
     ///to contain all ImageExtractorProcessorTest Unit Tests
     ///</summary>
-    [TestClass()]
+    [TestClass]
     public class ImageExtractorProcessorTest
     {
-
-
-        private TestContext testContextInstance;
-
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
-
         #region Additional test attributes
         // 
         //You can use the following additional attributes as you write your tests:
@@ -68,7 +46,7 @@ namespace ProjectFlip.Preparer.Test
         /// <summary>
         ///A test for ExtractImage
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         [DeploymentItem("ProjectFlip.Preparer.exe")]
         public void ExtractImageTest()
         {
@@ -85,15 +63,12 @@ namespace ProjectFlip.Preparer.Test
 
             Assert.IsTrue(File.Exists(tempImagePath));
             Assert.AreEqual(File.ReadAllText(referenceImagePath), File.ReadAllText(tempImagePath));
-            var x = File.ReadAllText(referenceImagePath);
-            var y = File.ReadAllText(referenceImagePath);
-            //File.Delete(tempImagePath);
         }
 
         /// <summary>
         ///A test for ExtractImage with invalid path
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         [DeploymentItem("ProjectFlip.Preparer.exe")]
         public void ExtractImageInvalidPathTest()
         {
@@ -107,7 +82,7 @@ namespace ProjectFlip.Preparer.Test
         /// <summary>
         ///A test for ExtractImage with invalid image path
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         [DeploymentItem("ProjectFlip.Preparer.exe")]
         public void ExtractImageInvalidImagePathTest()
         {
