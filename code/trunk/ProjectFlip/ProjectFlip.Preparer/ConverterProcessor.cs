@@ -21,12 +21,9 @@ namespace ProjectFlip.Preparer
 
         public bool Process(IProjectNote projectNote)
         {
-            if (!File.Exists(projectNote.FilepathXps))
-            {
-                if (!File.Exists(projectNote.FilepathPdf)) return false;
-                _converter.Convert(projectNote.FilepathPdf, projectNote.FilepathXps);
-            }
-            return false;
+            if (File.Exists(projectNote.FilepathXps)) return false;
+            if (!File.Exists(projectNote.FilepathPdf)) return false;
+            return _converter.Convert(projectNote.FilepathPdf, projectNote.FilepathXps);
         }
 
         #endregion

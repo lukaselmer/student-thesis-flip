@@ -15,8 +15,7 @@ namespace ProjectFlip.Preparer
 
         public bool Process(IProjectNote projectNote)
         {
-            if (!File.Exists(projectNote.FilepathPdf)) Download(projectNote);
-            return true;
+            return File.Exists(projectNote.FilepathPdf) || Download(projectNote);
         }
 
         #endregion
@@ -33,8 +32,7 @@ namespace ProjectFlip.Preparer
             catch (WebException e)
             {
                 if (e.Status != WebExceptionStatus.ProtocolError) throw;
-                if (i >= 9) return false;
-                return Download(projectNote, i + 1);
+                return i < 9 && Download(projectNote, i + 1);
             }
         }
     }
