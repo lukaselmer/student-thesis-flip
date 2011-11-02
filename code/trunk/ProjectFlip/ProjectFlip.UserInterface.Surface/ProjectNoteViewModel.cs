@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
+﻿#region
+
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
 using ProjectFlip.Services.Interfaces;
+
+#endregion
 
 namespace ProjectFlip.UserInterface.Surface
 {
@@ -19,6 +16,14 @@ namespace ProjectFlip.UserInterface.Surface
             OpenWindowCommand = new Command(OpenNewWindow);
         }
 
+        // ReSharper disable MemberCanBePrivate.Global
+        // ReSharper disable UnusedAutoPropertyAccessor.Global
+        public ICommand OpenWindowCommand { get; private set; }
+        public IProjectNote ProjectNote { get; private set; }
+        public IProjectNotesService ProjectNoteService { get; private set; }
+        // ReSharper restore UnusedAutoPropertyAccessor.Global
+        // ReSharper restore MemberCanBePrivate.Global
+
         private void OpenNewWindow(object sender)
         {
             var vm = new DetailWindowViewModel(ProjectNoteService, ProjectNote);
@@ -27,10 +32,5 @@ namespace ProjectFlip.UserInterface.Surface
             vm.CloseWindow += detailWindow.Close;
         }
 
-        public ICommand OpenWindowCommand { get; private set; }
-
-        public IProjectNote ProjectNote { get; private set; }
-
-        public IProjectNotesService ProjectNoteService { get; private set; }
     }
 }
