@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using ProjectFlip.Services.Interfaces;
-using System.Windows;
 
 namespace ProjectFlip.Test.Mock
 {
     public class ProjectNoteMock : IProjectNote
     {
+        // ReSharper disable UnusedAutoPropertyAccessor.Global
         public int Id { get; set; }
 
         public string Title { get; set; }
@@ -41,6 +41,7 @@ namespace ProjectFlip.Test.Mock
         public IList<string> Line { get; set; }
 
         public System.Windows.Media.Imaging.BitmapImage Image { get; set; }
+        // ReSharper restore UnusedAutoPropertyAccessor.Global
 
         private System.Windows.Documents.IDocumentPaginatorSource _document;
         public System.Windows.Documents.IDocumentPaginatorSource Document
