@@ -107,8 +107,7 @@ namespace ProjectFlip.Services
 
         private static IList<string> ConvertToList(string line)
         {
-            // TODO: implement this
-            return new List<string> { line };
+            return SharepointStringDeserializer.ToList(line);
         }
     }
 }
