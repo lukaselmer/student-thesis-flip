@@ -52,11 +52,23 @@ namespace ProjectFlip.Services.Test
         [TestMethod]
         public void ToListTests()
         {
-            TestString("", new[] { "" });
-            TestString("test", new[] { "test" });
+            ToListTest("", new[] { "" });
+            ToListTest("test", new[] { "test" });
+            return;
+            // TODO: finish this...
+            ToListTest("Perl;#Struts;#Windows", new[] { "Perl", "Struts", "Windows" });
+            ToListTest("\"Consulting;#_ Technology Consulting;#__ Technology Consultation;#_ Methodology;#__ Software-Testing;#Development;#_ Software solutions;#__ Bespoke Solutions;#_ Product innovation;#__ Test Engineering\"",
+                new[] { "Consulting", "Technology Consulting", "Technology Consultation", "Methodology", "Software-Testing", "Development", "Software solutions", "Bespoke Solutions", "Product innovation", "Test Engineering" });
+            ToListTest("Real-Time and Embedded Software", new[] { "Real-Time and Embedded Software" });
+            ToListTest("\"Embedded Systems;#Control Systems;#Machine Control Systems\"",
+                new[] { "Embedded Systems", "Control Systems", "Machine Control Systems" });
+            ToListTest("C++;#LabVIEW;#MS Excel;#UML;#CAD - ProE; MS Visual Studio; SW Analyse Tools; GOOP",
+                new[] { "C++", "LabVIEW", "MS Excel", "UML", "CAD - ProE", "MS Visual Studio", "SW Analyse Tools", "GOOP" });
+            ToListTest("\"Embedded Systems;#Sensors/Signal Processing\"",
+                new[] { "Embedded Systems", "Sensors/Signal Processing" });
         }
 
-        private static void TestString(string input, IEnumerable<string> expectedArray)
+        private static void ToListTest(string input, IEnumerable<string> expectedArray)
         {
             var actual = SharepointStringDeserializer.ToList(input);
             Assert.IsTrue(expectedArray.SequenceEqual(actual), "Lists are not equal");
