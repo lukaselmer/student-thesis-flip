@@ -23,11 +23,11 @@ namespace ProjectFlip.Test.Mock
         public string Text { get; set; }
         public string Sector { get; set; }
         public string Customer { get; set; }
-        public IList<string> Focus { get; set; }
-        public IList<string> Services { get; set; }
-        public IList<string> Technologies { get; set; }
-        public IList<string> Applications { get; set; }
-        public IList<string> Tools { get; set; }
+        public IList<IMetadata> Focus { get; set; }
+        public IList<IMetadata> Services { get; set; }
+        public IList<IMetadata> Technologies { get; set; }
+        public IList<IMetadata> Applications { get; set; }
+        public IList<IMetadata> Tools { get; set; }
         public DateTime Published { get; set; }
         public string Filename { get; set; }
         public string FilepathPdf { get; set; }

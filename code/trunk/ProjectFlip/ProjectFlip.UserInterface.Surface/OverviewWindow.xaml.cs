@@ -12,10 +12,10 @@ namespace ProjectFlip.UserInterface.Surface
         /// <summary>
         /// Default constructor.
         /// </summary>
-        public OverviewWindow(OverviewWindowViewModel surfaceWindowViewModel)
+        public OverviewWindow(OverviewWindowViewModel viewModel)
         {
             InitializeComponent();
-            DataContext = surfaceWindowViewModel;
+            DataContext = viewModel;
         }
     }
 }

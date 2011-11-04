@@ -1,10 +1,9 @@
-﻿<s:SurfaceWindow x:Class="ProjectFlip.UserInterface.Surface.DetailWindow"
+﻿<UserControl x:Class="ProjectFlip.UserInterface.Surface.DetailView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:s="http://schemas.microsoft.com/surface/2008"
-    Title="ProjectFlip.UserInterface.Surface">
+    xmlns:s="http://schemas.microsoft.com/surface/2008">
 
-    <Grid Background="Gray" x:Name="LayoutRoot">
+    <Grid Background="#AA000000" x:Name="LayoutRoot">
       <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="1.5*"/>
@@ -15,14 +14,14 @@
         <s:SurfaceButton VerticalAlignment="Center" Margin="8,0,0,0" x:Name="ToLeftButton" Command="{Binding NavigateToLeftCommand}">
             <TextBlock TextWrapping="Wrap">nach links</TextBlock></s:SurfaceButton>
 
-        <DocumentViewer Grid.Column="1" Margin="8" Document="{Binding Document}"></DocumentViewer>
+        <DocumentViewer Grid.Column="1" Margin="8" Document="{Binding Document}" />
 
         <s:SurfaceButton VerticalAlignment="Center" Margin="0,0,0,8" Grid.Column="2" x:Name="ToRightButton" Command="{Binding NavigateToRightCommand}">
             <TextBlock TextWrapping="Wrap">nach rechts</TextBlock></s:SurfaceButton>
 
         <Grid Grid.Column="3" Margin="8" x:Name="CloseButton">
-            <s:SurfaceButton VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,8,0,8" Grid.Column="3" Width="150" Command="{Binding CloseWindowCommand}">
+            <s:SurfaceButton VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,8,0,8" Grid.Column="3" Width="150" Command="{Binding HideDetailsCommand}">
                 <TextBlock TextWrapping="Wrap">diese Ansicht schliessen</TextBlock></s:SurfaceButton>
         </Grid>
     </Grid>
-</s:SurfaceWindow>
+</UserControl>

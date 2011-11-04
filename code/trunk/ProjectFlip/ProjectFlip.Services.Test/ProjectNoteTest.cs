@@ -48,68 +48,68 @@ namespace ProjectFlip.Services.Test
 
         #endregion
 
-        /// <summary>
-        ///A test for ConvertToList
-        ///</summary>
-        [TestMethod, DeploymentItem("ProjectFlip.Services.dll")]
+        ///// <summary>
+        /////A test for ConvertToList
+        /////</summary>
+        //[TestMethod, DeploymentItem("ProjectFlip.Services.dll")]
 
-        public void ConvertToListTest()
-        {
-            const string line = "test";
-            var actual = ProjectNote_Accessor.ConvertToList(line);
-            Assert.AreEqual(1, actual.Count);
-            Assert.AreEqual(line, actual[0]);
-        }
+        //public void ConvertToListTest()
+        //{
+        //    const string line = "test";
+        //    var actual = ProjectNote_Accessor.ConvertToList(line);
+        //    Assert.AreEqual(1, actual.Count);
+        //    Assert.AreEqual(line, actual[0]);
+        //}
 
-        /// <summary>
-        ///A test for Document
-        ///</summary>
-        [TestMethod]
-        public void DocumentTest()
-        {
-            var target = new ProjectNote_Accessor { FilepathXps = @"..\..\..\Resources\Test\Xps\test.xps" };
-            var document = target.Document;
-            Assert.IsNotNull(document);
-        }
+        ///// <summary>
+        /////A test for Document
+        /////</summary>
+        //[TestMethod]
+        //public void DocumentTest()
+        //{
+        //    var target = new ProjectNote_Accessor { FilepathXps = @"..\..\..\Resources\Test\Xps\test.xps" };
+        //    var document = target.Document;
+        //    Assert.IsNotNull(document);
+        //}
 
-        /// <summary>
-        ///A test for Url
-        ///</summary>
-        [TestMethod]
-        public void UrlTest()
-        {
-            var target = new ProjectNote_Accessor();
-            const string filename = "filename";
-            target.Filename = filename;
-            Assert.AreEqual("http://www.zuehlke.com/uploads/tx_zepublications/" + filename, target.Url);
-        }
+        ///// <summary>
+        /////A test for Url
+        /////</summary>
+        //[TestMethod]
+        //public void UrlTest()
+        //{
+        //    var target = new ProjectNote_Accessor();
+        //    const string filename = "filename";
+        //    target.Filename = filename;
+        //    Assert.AreEqual("http://www.zuehlke.com/uploads/tx_zepublications/" + filename, target.Url);
+        //}
 
-        /// <summary>
-        ///A test for Image
-        ///</summary>
-        [TestMethod]
-        public void ImageTest()
-        {
-            var image = GetBitmapImage(@"..\..\..\Resources\Test\Images\test.bmp");
-            Assert.IsNotNull(image);
-        }
+        ///// <summary>
+        /////A test for Image
+        /////</summary>
+        //[TestMethod]
+        //public void ImageTest()
+        //{
+        //    var image = GetBitmapImage(@"..\..\..\Resources\Test\Images\test.bmp");
+        //    Assert.IsNotNull(image);
+        //}
 
-        /// <summary>
-        ///A test for Image with invalid file path
-        ///</summary>
-        [TestMethod]
-        public void NoImageTest()
-        {
-            var image = GetBitmapImage(@"..\");
-            Assert.IsNull(image);
-        }
+        ///// <summary>
+        /////A test for Image with invalid file path
+        /////</summary>
+        //[TestMethod]
+        //public void NoImageTest()
+        //{
+        //    var image = GetBitmapImage(@"..\");
+        //    Assert.IsNull(image);
+        //}
 
-        private static BitmapImage GetBitmapImage(string path)
-        {
-            var target = new ProjectNote_Accessor { FilepathImage = path };
-            var image = target.Image;
-            return image;
-        }
+        //private static BitmapImage GetBitmapImage(string path)
+        //{
+        //    var target = new ProjectNote_Accessor { FilepathImage = path };
+        //    var image = target.Image;
+        //    return image;
+        //}
 
         /// <summary>
         ///A test for Line

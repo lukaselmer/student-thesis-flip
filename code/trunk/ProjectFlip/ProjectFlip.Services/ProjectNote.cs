@@ -25,11 +25,11 @@ namespace ProjectFlip.Services
         public string Text { get; private set; } // In einem externen Audit untersucht Zühlke die IT und die ...
         public string Sector { get; private set; } // Banking & Financial Services
         public string Customer { get; private set; } // HYPO Capital Management AG
-        public IList<string> Focus { get; private set; } // Software Solutions
-        public IList<string> Services { get; private set; } //"_ Tecogy Cong;#__ Tecogy Con;#__ Teo Eise
-        public IList<string> Technologies { get; private set; } // Java EE
-        public IList<string> Applications { get; private set; } //Information Systems
-        public IList<string> Tools { get; private set; } // Eclipse;#Java Enterprise Edition;#Oracle;#SOAP;#XSL
+        public IList<IMetadata> Focus { get; private set; } // Software Solutions
+        public IList<IMetadata> Services { get; private set; } //"_ Tecogy Cong;#__ Tecogy Con;#__ Teo Eise
+        public IList<IMetadata> Technologies { get; private set; } // Java EE
+        public IList<IMetadata> Applications { get; private set; } //Information Systems
+        public IList<IMetadata> Tools { get; private set; } // Eclipse;#Java Enterprise Edition;#Oracle;#SOAP;#XSL
         public DateTime Published { get; private set; }
         public string Filename { get; private set; }
         public string FilepathPdf { get; private set; }
@@ -89,11 +89,11 @@ namespace ProjectFlip.Services
 
         private void InitListValues(IList<string> value)
         {
-            Focus = ConvertToList(value[5]);
-            Services = ConvertToList(value[6]);
-            Technologies = ConvertToList(value[7]);
-            Applications = ConvertToList(value[8]);
-            Tools = ConvertToList(value[9]);
+            Focus = ConvertToList(value[5], MetadataType.Focus);
+            Services = ConvertToList(value[6], MetadataType.Services);
+            Technologies = ConvertToList(value[7], MetadataType.Technologies);
+            Applications = ConvertToList(value[8], MetadataType.Applications);
+            Tools = ConvertToList(value[9], MetadataType.Tools);
         }
 
         private void InitFileValues(IList<string> value)
@@ -105,9 +105,9 @@ namespace ProjectFlip.Services
             FilepathImage = FilepathFolder + @"\Images\" + pdfRegex.Replace(Filename, ".bmp");
         }
 
-        private static IList<string> ConvertToList(string line)
+        private static IList<IMetadata> ConvertToList(string line, MetadataType type)
         {
-            return SharepointStringDeserializer.ToList(line);
+            return SharepointStringDeserializer.ToList(line, type);
         }
     }
 }

@@ -52,11 +52,10 @@ namespace ProjectFlip.Services.Test
         [TestMethod]
         public void ToListTests()
         {
-            ToListTest("", new[] { "" });
+            ToListTest("", new string[0]);
             ToListTest("test", new[] { "test" });
-            return;
-            // TODO: finish this...
             ToListTest("Perl;#Struts;#Windows", new[] { "Perl", "Struts", "Windows" });
+            ToListTest("\"test\"", new[] { "test" });
             ToListTest("\"Consulting;#_ Technology Consulting;#__ Technology Consultation;#_ Methodology;#__ Software-Testing;#Development;#_ Software solutions;#__ Bespoke Solutions;#_ Product innovation;#__ Test Engineering\"",
                 new[] { "Consulting", "Technology Consulting", "Technology Consultation", "Methodology", "Software-Testing", "Development", "Software solutions", "Bespoke Solutions", "Product innovation", "Test Engineering" });
             ToListTest("Real-Time and Embedded Software", new[] { "Real-Time and Embedded Software" });
@@ -66,12 +65,17 @@ namespace ProjectFlip.Services.Test
                 new[] { "C++", "LabVIEW", "MS Excel", "UML", "CAD - ProE", "MS Visual Studio", "SW Analyse Tools", "GOOP" });
             ToListTest("\"Embedded Systems;#Sensors/Signal Processing\"",
                 new[] { "Embedded Systems", "Sensors/Signal Processing" });
+            ToListTest(@"So kommt der ""Aeroccino"" termingerecht auf den Weltmarkt.",
+                new[] { "So kommt der \"Aeroccino\" termingerecht auf den Weltmarkt." });
+            ToListTest("C#;#MS SQL;#SAP;#UML;#Windows;#XML;#Axapta; Windows Share Point Services",
+                new[] { "C#", "MS SQL", "SAP", "UML", "Windows", "XML", "Axapta", "Windows Share Point Services" });
         }
 
         private static void ToListTest(string input, IEnumerable<string> expectedArray)
         {
-            var actual = SharepointStringDeserializer.ToList(input);
-            Assert.IsTrue(expectedArray.SequenceEqual(actual), "Lists are not equal");
+            var expected = new List<string>(expectedArray);
+            var actual = SharepointStringDeserializer.ToStringList(input).ToList();
+            Assert.IsTrue(expected.SequenceEqual(actual), "Lists are not equal, input: #{0}", input);
         }
     }
 }

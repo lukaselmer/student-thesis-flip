@@ -50,15 +50,15 @@ namespace ProjectFlip.UserInterface.Surface.Test
         #endregion
 
 
-        /// <summary>
-        ///A test for OverviewWindowViewModel Constructor & ProjectNotes Property
-        ///</summary>
-        [TestMethod]
-        public void OverviewWindowViewModelProjectNotesTest()
-        {
-            var projectNotesService = new ProjectNotesServiceMock(5);
-            var target = new OverviewWindowViewModel(projectNotesService);
-            Assert.AreEqual(5, target.ProjectNotes.Count);
-        }
+        ///// <summary>
+        /////A test for OverviewWindowViewModel Constructor & ProjectNotes Property
+        /////</summary>
+        //[TestMethod]
+        //public void OverviewWindowViewModelProjectNotesTest()
+        //{
+        //    var projectNotesService = new ProjectNotesServiceMock(5);
+        //    var target = new OverviewWindowViewModel(projectNotesService);
+        //    Assert.AreEqual(5, target.ProjectNotes.Count);
+        //}
     }
 }

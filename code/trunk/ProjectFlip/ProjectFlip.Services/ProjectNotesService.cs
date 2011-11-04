@@ -1,5 +1,6 @@
 ﻿#region
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using ProjectFlip.Services.Interfaces;
@@ -12,6 +13,7 @@ namespace ProjectFlip.Services
     public class ProjectNotesService : IProjectNotesService
     {
         private readonly List<IProjectNote> _projectNotes;
+        //private readonly Dictionary<MetadataType,List<IMetadata>> _filters;
         private readonly IProjectNotesLoader _projectNotesLoader;
 
         public ProjectNotesService(IProjectNotesLoader projectNotesLoader)

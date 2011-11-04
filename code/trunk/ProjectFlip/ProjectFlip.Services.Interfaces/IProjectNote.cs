@@ -18,11 +18,11 @@ namespace ProjectFlip.Services.Interfaces
         string Sector { get; }
         string Customer { get; }
         // ReSharper disable ReturnTypeCanBeEnumerable.Global
-        IList<string> Focus { get; }
-        IList<string> Services { get; }
-        IList<string> Technologies { get; }
-        IList<string> Applications { get; }
-        IList<string> Tools { get; }
+        IList<IMetadata> Focus { get; }
+        IList<IMetadata> Services { get; }
+        IList<IMetadata> Technologies { get; }
+        IList<IMetadata> Applications { get; }
+        IList<IMetadata> Tools { get; }
         // ReSharper restore ReturnTypeCanBeEnumerable.Global
         DateTime Published { get; }
         string Filename { get; }

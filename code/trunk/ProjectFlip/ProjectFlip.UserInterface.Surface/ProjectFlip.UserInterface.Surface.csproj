@@ -60,14 +60,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command.cs" />
-    <Compile Include="DetailWindow.xaml.cs">
-      <DependentUpon>DetailWindow.xaml</DependentUpon>
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converters\ValueConverterBase.cs" />
+    <Compile Include="DetailView.xaml.cs">
+      <DependentUpon>DetailView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DetailWindowViewModel.cs" />
+    <Compile Include="FilterView.xaml.cs">
+      <DependentUpon>FilterView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="OverviewWindowViewModel.cs" />
-    <Compile Include="ProjectNoteViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
-    <Page Include="DetailWindow.xaml">
+    <Page Include="DetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FilterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
