@@ -7,9 +7,10 @@
     <s:SurfaceWindow.Resources>
 
         <DataTemplate x:Key="ProjectNoteButtonTemplate">
-            <s:SurfaceButton Command="{Binding OpenWindowCommand}" >
-                <StackPanel Width="240" Height="240" Orientation="Vertical"  HorizontalAlignment="Right">
-                    <Image Width="190" Height="190" Source="{Binding ProjectNote.Image}" HorizontalAlignment="Center"/>
+            <s:SurfaceButton Background="Blue" Margin="0" Padding="0" Command="{Binding OpenWindowCommand}" >
+                <StackPanel Margin="0" Background="White" Width="280" Height="280" Orientation="Vertical"  HorizontalAlignment="Right">
+                    <Image Margin="0" Width="190" Height="190" Source="{Binding ProjectNote.Image}" HorizontalAlignment="Center"/>
+                    <Rectangle Width="190" Height="1" Fill="Orange"></Rectangle>
                     <TextBlock Text="{Binding ProjectNote.Title}" TextTrimming="None" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"/>
                 </StackPanel>
             </s:SurfaceButton>
@@ -23,7 +24,7 @@
     </s:SurfaceWindow.Resources>
         
   <Grid Background="Gray">
-        <s:SurfaceListBox ItemsSource="{Binding ProjectNoteViewModels}" ItemTemplate="{StaticResource ProjectNoteButtonTemplate}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsPanel="{DynamicResource ItemPanelTemplate}">
+        <s:SurfaceListBox Margin="0" Padding="0" ItemsSource="{Binding ProjectNoteViewModels}" ItemTemplate="{StaticResource ProjectNoteButtonTemplate}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsPanel="{DynamicResource ItemPanelTemplate}">
         </s:SurfaceListBox>
-  </Grid>
+    </Grid>
 </s:SurfaceWindow>
