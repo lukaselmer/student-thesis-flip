@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Media.Imaging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ProjectFlip.Services.Interfaces;
 
 #endregion
 
@@ -128,8 +129,8 @@ namespace ProjectFlip.Services.Test
             Assert.AreEqual(Convert.ToInt32(line[0]), target.Id);
             Assert.AreEqual(line[1], target.Title);
             Assert.AreEqual(line[2], target.Text);
-            Assert.AreEqual(line[3], target.Sector);
-            Assert.AreEqual(line[4], target.Customer);
+            Assert.AreEqual(line[3], target.Sector.Description);
+            Assert.AreEqual(line[4], target.Customer.Description);
             Assert.AreEqual(line[5], target.Focus[0].Description);
             Assert.AreEqual(line[6], target.Services[0].Description);
             Assert.AreEqual(line[7], target.Technologies[0].Description);
@@ -140,6 +141,14 @@ namespace ProjectFlip.Services.Test
             Assert.AreEqual((ProjectNote.FilepathFolder + @"\Pdf\" + line[13]), target.FilepathPdf);
             Assert.AreEqual((ProjectNote.FilepathFolder + @"\Xps\" + filename + ".xps"), target.FilepathXps);
             Assert.AreEqual((ProjectNote.FilepathFolder + @"\Images\" + filename + ".bmp"), target.FilepathImage);
+
+            Assert.AreSame(Metadata.Get(MetadataType.Sector, line[3]), target.Sector);
+            Assert.AreSame(Metadata.Get(MetadataType.Customer, line[4]), target.Customer);
+            Assert.AreSame(Metadata.Get(MetadataType.Focus, line[5]), target.Focus[0]);
+            Assert.AreSame(Metadata.Get(MetadataType.Services, line[6]), target.Services[0]);
+            Assert.AreSame(Metadata.Get(MetadataType.Technologies, line[7]), target.Technologies[0]);
+            Assert.AreSame(Metadata.Get(MetadataType.Applications, line[8]), target.Applications[0]);
+            Assert.AreSame(Metadata.Get(MetadataType.Tools, line[9]), target.Tools[0]);
         }
     }
 }

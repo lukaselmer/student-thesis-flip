@@ -15,8 +15,8 @@ namespace ProjectFlip.Services.Interfaces
         int Id { get; }
         string Title { get; }
         string Text { get; }
-        string Sector { get; }
-        string Customer { get; }
+        IMetadata Sector { get; }
+        IMetadata Customer { get; }
         // ReSharper disable ReturnTypeCanBeEnumerable.Global
         IList<IMetadata> Focus { get; }
         IList<IMetadata> Services { get; }

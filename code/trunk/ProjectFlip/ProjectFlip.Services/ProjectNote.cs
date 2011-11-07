@@ -23,8 +23,8 @@ namespace ProjectFlip.Services
         public int Id { get; private set; }
         public string Title { get; private set; } // Audit einer IT-Infrastruktur und Organisation
         public string Text { get; private set; } // In einem externen Audit untersucht Zühlke die IT und die ...
-        public string Sector { get; private set; } // Banking & Financial Services
-        public string Customer { get; private set; } // HYPO Capital Management AG
+        public IMetadata Sector { get; private set; } // Banking & Financial Services
+        public IMetadata Customer { get; private set; } // HYPO Capital Management AG
         public IList<IMetadata> Focus { get; private set; } // Software Solutions
         public IList<IMetadata> Services { get; private set; } //"_ Tecogy Cong;#__ Tecogy Con;#__ Teo Eise
         public IList<IMetadata> Technologies { get; private set; } // Java EE
@@ -83,8 +83,8 @@ namespace ProjectFlip.Services
         {
             Title = value[1];
             Text = value[2];
-            Sector = value[3];
-            Customer = value[4];
+            Sector = Metadata.Get(MetadataType.Sector, value[3]);
+            Customer = Metadata.Get(MetadataType.Customer, value[4]);
         }
 
         private void InitListValues(IList<string> value)

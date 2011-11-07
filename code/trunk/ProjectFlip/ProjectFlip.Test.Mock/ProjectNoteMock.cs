@@ -21,8 +21,8 @@ namespace ProjectFlip.Test.Mock
         public int Id { get; set; }
         public string Title { get; set; }
         public string Text { get; set; }
-        public string Sector { get; set; }
-        public string Customer { get; set; }
+        public IMetadata Sector { get; set; }
+        public IMetadata Customer { get; set; }
         public IList<IMetadata> Focus { get; set; }
         public IList<IMetadata> Services { get; set; }
         public IList<IMetadata> Technologies { get; set; }

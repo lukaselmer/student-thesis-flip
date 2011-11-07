@@ -9,7 +9,7 @@ namespace ProjectFlip.Services
     {
         public static IList<IMetadata> ToList(string line, MetadataType type)
         {
-            return ToStringList(line).Select(s => new Metadata(type, s)).Cast<IMetadata>().ToList();
+            return ToStringList(line).Select(s => Metadata.Get(type, s)).Cast<IMetadata>().ToList();
         }
 
         public static IEnumerable<string> ToStringList(string line)
