@@ -130,11 +130,11 @@ namespace ProjectFlip.Services.Test
             Assert.AreEqual(line[2], target.Text);
             Assert.AreEqual(line[3], target.Sector);
             Assert.AreEqual(line[4], target.Customer);
-            Assert.AreEqual(line[5], target.Focus[0]);
-            Assert.AreEqual(line[6], target.Services[0]);
-            Assert.AreEqual(line[7], target.Technologies[0]);
-            Assert.AreEqual(line[8], target.Applications[0]);
-            Assert.AreEqual(line[9], target.Tools[0]);
+            Assert.AreEqual(line[5], target.Focus[0].Description);
+            Assert.AreEqual(line[6], target.Services[0].Description);
+            Assert.AreEqual(line[7], target.Technologies[0].Description);
+            Assert.AreEqual(line[8], target.Applications[0].Description);
+            Assert.AreEqual(line[9], target.Tools[0].Description);
             Assert.AreEqual(Convert.ToDateTime(line[10]), target.Published);
             Assert.AreEqual(line[13], target.Filename);
             Assert.AreEqual((ProjectNote.FilepathFolder + @"\Pdf\" + line[13]), target.FilepathPdf);
