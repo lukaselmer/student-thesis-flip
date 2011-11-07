@@ -5,21 +5,31 @@
 
     <Grid Background="#AA000000" x:Name="LayoutRoot">
       <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="1.5*"/>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="*"/>
       </Grid.ColumnDefinitions>
+        
+        <StackPanel>
+            <StackPanel>
+                <TextBlock>Firma</TextBlock>
+                <s:SurfaceButton>
+                    Swisscom
+                </s:SurfaceButton>
+            </StackPanel>
+        </StackPanel>
 
-        <s:SurfaceButton VerticalAlignment="Center" Margin="8,0,0,0" x:Name="ToLeftButton" Command="{Binding NavigateToLeftCommand}">
+        <s:SurfaceButton VerticalAlignment="Center" Margin="8,0,0,0" Grid.Column="1" x:Name="ToLeftButton" Command="{Binding NavigateToLeftCommand}">
             <TextBlock TextWrapping="Wrap">nach links</TextBlock></s:SurfaceButton>
 
-        <DocumentViewer Grid.Column="1" Margin="8" Document="{Binding Document}" />
+        <DocumentViewer Grid.Column="2" Margin="8" Document="{Binding Document}" />
 
-        <s:SurfaceButton VerticalAlignment="Center" Margin="0,0,0,8" Grid.Column="2" x:Name="ToRightButton" Command="{Binding NavigateToRightCommand}">
+        <s:SurfaceButton VerticalAlignment="Center" Margin="0,0,0,8" Grid.Column="3" x:Name="ToRightButton" Command="{Binding NavigateToRightCommand}">
             <TextBlock TextWrapping="Wrap">nach rechts</TextBlock></s:SurfaceButton>
 
-        <Grid Grid.Column="3" Margin="8" x:Name="CloseButton">
+        <Grid Grid.Column="4" Margin="8" x:Name="CloseButton">
             <s:SurfaceButton VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,8,0,8" Grid.Column="3" Width="150" Command="{Binding HideDetailsCommand}">
                 <TextBlock TextWrapping="Wrap">diese Ansicht schliessen</TextBlock></s:SurfaceButton>
         </Grid>
