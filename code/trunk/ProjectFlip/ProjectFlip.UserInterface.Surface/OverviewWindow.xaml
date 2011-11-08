@@ -26,12 +26,7 @@
                 </StackPanel>
             </s:SurfaceButton>
         </DataTemplate>
-
-        <DataTemplate x:Key="Blubb">
-            <s:SurfaceButton Command="{Binding DataContext.DeleteButtonCommand, RelativeSource={RelativeSource AncestorType={x:Type s:ScatterView}}}">
-                <TextBox Text="{Binding Title, Mode=OneWay}"></TextBox>
-            </s:SurfaceButton>
-        </DataTemplate>
+        
         <ItemsPanelTemplate x:Key="ItemPanelTemplate">
             <WrapPanel Margin="5">
                 <WrapPanel.Resources>
@@ -50,12 +45,10 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Surface:FilterView />
         <s:SurfaceListBox Name="listBox" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ProjectNotes}"
                           ItemTemplate="{StaticResource ProjectNoteButtonTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" />
-        <s:ScatterView Grid.Column="2" ItemsSource="{Binding ProjectNotes}" ItemTemplate="{StaticResource Blubb}"/>
         <Surface:DetailView Grid.Column="1" Visibility="{Binding IsDetailViewVisible, Converter={Converters:BoolToVisibilityConverter}}"/>
     </Grid>
 </s:SurfaceWindow>
