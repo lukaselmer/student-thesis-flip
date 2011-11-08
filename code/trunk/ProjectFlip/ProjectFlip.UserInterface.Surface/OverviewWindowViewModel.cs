@@ -22,18 +22,23 @@ namespace ProjectFlip.UserInterface.Surface
         public OverviewWindowViewModel(IProjectNotesService projectNotesService)
         {
             ProjectNotes = new ListCollectionView(projectNotesService.ProjectNotes);
-            ProjectNotes.MoveCurrentToFirst();
             ProjectNotes.Filter = FilterCallback;
+            Document = ((IProjectNote) ProjectNotes.CurrentItem).Document;
             ProjectNotes.CurrentChanged += OnCurrentProjectNoteChanged;
-
             Filters = new CollectionView(_filters);
 
             ShowDetailsCommand = new Command(o => IsDetailViewVisible = true);
             HideDetailsCommand = new Command(o => IsDetailViewVisible = false);
             NavigateToLeftCommand = new Command(o => MoveToPrevious());
             NavigateToRightCommand = new Command(o => MoveToNext());
+            DeleteButtonCommand = new Command(OnDeleteButtonCommand);
 
             AddFilterCommand = new Command(RemoveFilter);
+        }
+
+        private void OnDeleteButtonCommand(object obj)
+        {
+            Console.WriteLine(((IProjectNote)ProjectNotes.CurrentItem).Title);
         }
 
         public IDocumentPaginatorSource Document
@@ -54,6 +59,7 @@ namespace ProjectFlip.UserInterface.Surface
         public Command NavigateToRightCommand { get; private set; }
         public ICommand AddFilterCommand { get; private set; }
         public ICommand RemoveFilterCommand { get; private set; }
+        public ICommand DeleteButtonCommand { get; set; }
 
         public bool IsDetailViewVisible
         {
@@ -73,6 +79,7 @@ namespace ProjectFlip.UserInterface.Surface
 
         private void OnCurrentProjectNoteChanged(object sender, EventArgs e)
         {
+            if (ProjectNotes.IsCurrentAfterLast || ProjectNotes.IsCurrentBeforeFirst) return;
             Document = ((IProjectNote)ProjectNotes.CurrentItem).Document;
         }
 
@@ -90,7 +97,7 @@ namespace ProjectFlip.UserInterface.Surface
             {
                 ProjectNotes.MoveCurrentToFirst();
             }
-        }
+         }
 
         private void MoveToPrevious()
         {

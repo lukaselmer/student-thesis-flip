@@ -18,7 +18,7 @@
 
         <DataTemplate x:Key="ProjectNoteButtonTemplate">
             <s:SurfaceButton Margin="2" Padding="10,15,10,0" Background="White" Width="280" Height="350"
-                             Command="{Binding DataContext.ShowDetailsCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceListBox}}}">
+                             Command="{Binding DataContext.ShowDetailsCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceWindow}}}">
                 <StackPanel Orientation="Vertical"  HorizontalAlignment="Center">
                     <Image Source="{Binding Image}" HorizontalAlignment="Center"/>
                     <Rectangle Margin="0,10,0,0" Height="1" Fill="Orange" />
@@ -27,6 +27,11 @@
             </s:SurfaceButton>
         </DataTemplate>
 
+        <DataTemplate x:Key="Blubb">
+            <s:SurfaceButton Command="{Binding DataContext.DeleteButtonCommand, RelativeSource={RelativeSource AncestorType={x:Type s:ScatterView}}}">
+                <TextBox Text="{Binding Title, Mode=OneWay}"></TextBox>
+            </s:SurfaceButton>
+        </DataTemplate>
         <ItemsPanelTemplate x:Key="ItemPanelTemplate">
             <WrapPanel Margin="5">
                 <WrapPanel.Resources>
@@ -45,10 +50,12 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200" />
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Surface:FilterView />
-        <s:SurfaceListBox Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ProjectNotes}"
+        <s:SurfaceListBox Name="listBox" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ProjectNotes}"
                           ItemTemplate="{StaticResource ProjectNoteButtonTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" />
-        <Surface:DetailView Grid.Column="1" Visibility="{Binding IsDetailViewVisible, Converter={Converters:BoolToVisibilityConverter}}" />
+        <s:ScatterView Grid.Column="2" ItemsSource="{Binding ProjectNotes}" ItemTemplate="{StaticResource Blubb}"/>
+        <Surface:DetailView Grid.Column="1" Visibility="{Binding IsDetailViewVisible, Converter={Converters:BoolToVisibilityConverter}}"/>
     </Grid>
 </s:SurfaceWindow>
