@@ -21,13 +21,12 @@ namespace ProjectFlip.UserInterface.Surface
 
         public OverviewWindowViewModel(IProjectNotesService projectNotesService)
         {
-            ProjectNotes = new ListCollectionView(projectNotesService.ProjectNotes);
-            ProjectNotes.Filter = FilterCallback;
-            Document = ((IProjectNote) ProjectNotes.CurrentItem).Document;
+            ProjectNotes = new ListCollectionView(projectNotesService.ProjectNotes) { Filter = FilterCallback };
+            Document = ((IProjectNote)ProjectNotes.CurrentItem).Document;
             ProjectNotes.CurrentChanged += OnCurrentProjectNoteChanged;
             Filters = new CollectionView(_filters);
 
-            ShowDetailsCommand = new Command(o => IsDetailViewVisible = true);
+            ShowDetailsCommand = new Command(pn => { if (pn != null)ProjectNotes.MoveCurrentTo(pn); IsDetailViewVisible = true; });
             HideDetailsCommand = new Command(o => IsDetailViewVisible = false);
             NavigateToLeftCommand = new Command(o => MoveToPrevious());
             NavigateToRightCommand = new Command(o => MoveToNext());
@@ -97,7 +96,7 @@ namespace ProjectFlip.UserInterface.Surface
             {
                 ProjectNotes.MoveCurrentToFirst();
             }
-         }
+        }
 
         private void MoveToPrevious()
         {
