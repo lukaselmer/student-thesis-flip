@@ -2,6 +2,12 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:s="http://schemas.microsoft.com/surface/2008">
+    
+    <UserControl.Resources>
+        <DataTemplate x:Key="MetadataTemplate">
+            <TextBlock Text="{Binding Description}" TextWrapping="WrapWithOverflow" ></TextBlock>
+        </DataTemplate>
+    </UserControl.Resources>
 
     <Grid Background="#AA000000" x:Name="LayoutRoot">
       <Grid.ColumnDefinitions>
@@ -11,15 +17,14 @@
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="*"/>
       </Grid.ColumnDefinitions>
-        
-        <StackPanel>
-            <StackPanel>
-                <TextBlock>Firma</TextBlock>
-                <s:SurfaceButton>
-                    Swisscom
-                </s:SurfaceButton>
-            </StackPanel>
-        </StackPanel>
+
+        <s:SurfaceListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <TextBlock FontSize="25">Sektor</TextBlock>
+            <TextBlock FontSize="25">Firma</TextBlock>
+            <TextBlock FontSize="20" Text="{Binding Customer}"></TextBlock>
+            <TextBlock FontSize="25">Fokus</TextBlock>
+            <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Focus}" ItemTemplate="{DynamicResource MetadataTemplate}"></ListView>
+        </s:SurfaceListBox>
 
         <s:SurfaceButton VerticalAlignment="Center" Margin="8,0,0,0" Grid.Column="1" x:Name="ToLeftButton" Command="{Binding NavigateToLeftCommand}">
             <TextBlock TextWrapping="Wrap">nach links</TextBlock></s:SurfaceButton>

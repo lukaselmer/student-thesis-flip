@@ -16,13 +16,15 @@ namespace ProjectFlip.UserInterface.Surface
     public class OverviewWindowViewModel : ViewModelBase
     {
         private IDocumentPaginatorSource _document;
+        private string _customer;
+        private IList<IMetadata> _focus; 
+        
         private readonly List<IMetadata> _filters = new List<IMetadata>();
         private bool _isDetailViewVisible;
 
         public OverviewWindowViewModel(IProjectNotesService projectNotesService)
         {
             ProjectNotes = new ListCollectionView(projectNotesService.ProjectNotes) { Filter = FilterCallback };
-            Document = ((IProjectNote)ProjectNotes.CurrentItem).Document;
             ProjectNotes.CurrentChanged += OnCurrentProjectNoteChanged;
             Filters = new CollectionView(_filters);
 
@@ -49,6 +51,24 @@ namespace ProjectFlip.UserInterface.Surface
                 Notify("Document");
             }
         }
+
+        public string Customer
+        {
+            get { return _customer; }
+            private set { _customer = value;
+            Notify("Customer");
+            }
+        }
+
+        public IList<IMetadata> Focus
+        {
+            get
+            {
+                return _focus;
+            }
+            private set { _focus = value; Notify("Focus"); }
+            
+        } 
 
         public ICollectionView ProjectNotes { get; private set; }
         public ICollectionView Filters { get; private set; }
@@ -80,6 +100,8 @@ namespace ProjectFlip.UserInterface.Surface
         {
             if (ProjectNotes.IsCurrentAfterLast || ProjectNotes.IsCurrentBeforeFirst) return;
             Document = ((IProjectNote)ProjectNotes.CurrentItem).Document;
+            Customer = ((IProjectNote) ProjectNotes.CurrentItem).Customer.Description;
+            Focus = ((IProjectNote) ProjectNotes.CurrentItem).Focus;
         }
 
         private bool FilterCallback(object projectNoteObj)
