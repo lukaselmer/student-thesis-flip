@@ -19,17 +19,22 @@
       </Grid.ColumnDefinitions>
 
         <s:SurfaceListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                <TextBlock FontSize="25">Sektor</TextBlock>
+            <TextBlock FontSize="25">Sektor</TextBlock>
+            <TextBlock Background="White" FontSize="20" Text="{Binding CurrentProjectNote.Sector.Description}"></TextBlock>
             <TextBlock FontSize="25">Firma</TextBlock>
-            <TextBlock FontSize="20" Text="{Binding Customer}"></TextBlock>
+            <TextBlock Background="White" FontSize="20" Text="{Binding CurrentProjectNote.Customer.Description}"></TextBlock>
             <TextBlock FontSize="25">Fokus</TextBlock>
-            <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Focus}" ItemTemplate="{DynamicResource MetadataTemplate}"></ListView>
+            <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding CurrentProjectNote.Focus}" ItemTemplate="{DynamicResource MetadataTemplate}"></ListView>
+            <TextBlock FontSize="25">Service</TextBlock>
+            <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding CurrentProjectNote.Services}" ItemTemplate="{DynamicResource MetadataTemplate}"></ListView>
+            <TextBlock FontSize="25">Tools</TextBlock>
+            <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding CurrentProjectNote.Tools}" ItemTemplate="{DynamicResource MetadataTemplate}"></ListView>
         </s:SurfaceListBox>
 
         <s:SurfaceButton VerticalAlignment="Center" Margin="8,0,0,0" Grid.Column="1" x:Name="ToLeftButton" Command="{Binding NavigateToLeftCommand}">
             <TextBlock TextWrapping="Wrap">nach links</TextBlock></s:SurfaceButton>
 
-        <DocumentViewer Grid.Column="2" Margin="8" Document="{Binding Document}" />
+        <DocumentViewer Grid.Column="2" Margin="8" Document="{Binding CurrentProjectNote.Document}" />
 
         <s:SurfaceButton VerticalAlignment="Center" Margin="0,0,0,8" Grid.Column="3" x:Name="ToRightButton" Command="{Binding NavigateToRightCommand}">
             <TextBlock TextWrapping="Wrap">nach rechts</TextBlock></s:SurfaceButton>

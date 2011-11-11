@@ -15,9 +15,7 @@ namespace ProjectFlip.UserInterface.Surface
 {
     public class OverviewWindowViewModel : ViewModelBase
     {
-        private IDocumentPaginatorSource _document;
-        private string _customer;
-        private IList<IMetadata> _focus; 
+        private IProjectNote _currentProjectNote;
         
         private readonly List<IMetadata> _filters = new List<IMetadata>();
         private bool _isDetailViewVisible;
@@ -26,6 +24,7 @@ namespace ProjectFlip.UserInterface.Surface
         {
             ProjectNotes = new ListCollectionView(projectNotesService.ProjectNotes) { Filter = FilterCallback };
             ProjectNotes.CurrentChanged += OnCurrentProjectNoteChanged;
+            CurrentProjectNote = ((IProjectNote)ProjectNotes.CurrentItem);
             Filters = new CollectionView(_filters);
 
             ShowDetailsCommand = new Command(pn => { if (pn != null)ProjectNotes.MoveCurrentTo(pn); IsDetailViewVisible = true; });
@@ -42,33 +41,14 @@ namespace ProjectFlip.UserInterface.Surface
             Console.WriteLine(((IProjectNote)ProjectNotes.CurrentItem).Title);
         }
 
-        public IDocumentPaginatorSource Document
+        public IProjectNote CurrentProjectNote
         {
-            get { return _document; }
-            private set
-            {
-                _document = value;
-                Notify("Document");
+            get { return _currentProjectNote; }
+            private set { 
+                _currentProjectNote = value;
+                Notify("CurrentProjectNote");
             }
         }
-
-        public string Customer
-        {
-            get { return _customer; }
-            private set { _customer = value;
-            Notify("Customer");
-            }
-        }
-
-        public IList<IMetadata> Focus
-        {
-            get
-            {
-                return _focus;
-            }
-            private set { _focus = value; Notify("Focus"); }
-            
-        } 
 
         public ICollectionView ProjectNotes { get; private set; }
         public ICollectionView Filters { get; private set; }
@@ -99,9 +79,7 @@ namespace ProjectFlip.UserInterface.Surface
         private void OnCurrentProjectNoteChanged(object sender, EventArgs e)
         {
             if (ProjectNotes.IsCurrentAfterLast || ProjectNotes.IsCurrentBeforeFirst) return;
-            Document = ((IProjectNote)ProjectNotes.CurrentItem).Document;
-            Customer = ((IProjectNote) ProjectNotes.CurrentItem).Customer.Description;
-            Focus = ((IProjectNote) ProjectNotes.CurrentItem).Focus;
+            CurrentProjectNote = ((IProjectNote) ProjectNotes.CurrentItem);
         }
 
         private bool FilterCallback(object projectNoteObj)
