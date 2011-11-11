@@ -69,6 +69,12 @@ namespace ProjectFlip.Services.Test
                 new[] { "So kommt der \"Aeroccino\" termingerecht auf den Weltmarkt." });
             ToListTest("C#;#MS SQL;#SAP;#UML;#Windows;#XML;#Axapta; Windows Share Point Services",
                 new[] { "C#", "MS SQL", "SAP", "UML", "Windows", "XML", "Axapta", "Windows Share Point Services" });
+            ToListTest("Review, Wirkungsnetzanalyse, Goldfire",
+                new[] { "Review", "Wirkungsnetzanalyse", "Goldfire" });
+            ToListTest("Integration;#_ Business Process Management",
+                new[] { "Integration", "Business Process Management" });
+            ToListTest("\"__ Business Process Management;#__ IT Strategy & Enterprise Architecture\"",
+                 new[] { "Business Process Management", "IT Strategy & Enterprise Architecture" });
         }
 
         private static void ToListTest(string input, IEnumerable<string> expectedArray)

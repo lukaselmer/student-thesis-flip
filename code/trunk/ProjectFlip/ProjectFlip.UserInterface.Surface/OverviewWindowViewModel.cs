@@ -27,7 +27,7 @@ namespace ProjectFlip.UserInterface.Surface
             CurrentProjectNote = ((IProjectNote)ProjectNotes.CurrentItem);
             Filters = new CollectionView(_filters);
 
-            ShowDetailsCommand = new Command(pn => { if (pn != null)ProjectNotes.MoveCurrentTo(pn); IsDetailViewVisible = true; });
+            ShowDetailsCommand = new Command(pn => { if (pn != null) ProjectNotes.MoveCurrentTo(pn); IsDetailViewVisible = true; });
             HideDetailsCommand = new Command(o => IsDetailViewVisible = false);
             NavigateToLeftCommand = new Command(o => MoveToPrevious());
             NavigateToRightCommand = new Command(o => MoveToNext());
