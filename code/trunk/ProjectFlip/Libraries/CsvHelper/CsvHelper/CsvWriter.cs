@@ -9,6 +9,8 @@ using System.Text;
 
 #endregion
 
+// Source: http://www.codeproject.com/KB/cs/CsvReaderAndWriter.aspx
+
 namespace Common.Csv
 {
     /// <summary>
