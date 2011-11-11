@@ -1,4 +1,7 @@
-﻿namespace ProjectFlip.Services.Interfaces
+﻿using System.Collections.Concurrent;
+using System.Collections.Generic;
+
+namespace ProjectFlip.Services.Interfaces
 {
     public enum MetadataType
     {

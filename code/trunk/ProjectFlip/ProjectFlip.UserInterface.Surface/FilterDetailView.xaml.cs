@@ -9,17 +9,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ProjectFlip.UserInterface.Surface
 {
     /// <summary>
-    /// Interaction logic for FilterView.xaml
+    /// Interaction logic for FilterDetailView.xaml
     /// </summary>
-    public partial class FilterView
+    public partial class FilterDetailView
     {
-        public FilterView()
+        public FilterDetailView()
         {
             InitializeComponent();
         }

@@ -15,6 +15,7 @@ namespace ProjectFlip.Services
         private readonly List<IProjectNote> _projectNotes;
         //private readonly Dictionary<MetadataType,List<IMetadata>> _filters;
         private readonly IProjectNotesLoader _projectNotesLoader;
+        public IList<IList<IMetadata>> Metadata; 
 
         public ProjectNotesService(IProjectNotesLoader projectNotesLoader)
         {

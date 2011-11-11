@@ -46,9 +46,10 @@
             <ColumnDefinition Width="200" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Surface:FilterView />
+        <Surface:FilterView Grid.Column="0"/>
         <s:SurfaceListBox Name="listBox" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ProjectNotes}"
                           ItemTemplate="{StaticResource ProjectNoteButtonTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" />
         <Surface:DetailView Grid.Column="1" Visibility="{Binding IsDetailViewVisible, Converter={Converters:BoolToVisibilityConverter}}"/>
+        <Surface:FilterDetailView Grid.Column="1" Visibility="{Binding IsFilterViewVisible, Converter={Converters:BoolToVisibilityConverter}}"/>
     </Grid>
 </s:SurfaceWindow>
