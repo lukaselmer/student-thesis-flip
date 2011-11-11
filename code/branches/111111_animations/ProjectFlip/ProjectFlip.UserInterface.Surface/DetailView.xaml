@@ -1,0 +1,65 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="http://schemas.microsoft.com/surface/2008" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" x:Class="ProjectFlip.UserInterface.Surface.DetailView"
+    >
+    
+    <UserControl.Resources>
+        <DataTemplate x:Key="MetadataTemplate">
+            <TextBlock Text="{Binding Description}" TextWrapping="WrapWithOverflow" />
+        </DataTemplate>
+        <Storyboard x:Key="FadeInDetailView"/>
+    </UserControl.Resources>
+	<UserControl.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard Storyboard="{StaticResource FadeInDetailView}"/>
+		</EventTrigger>
+	</UserControl.Triggers>
+
+    <Grid Background="#AA000000" x:Name="LayoutRoot">
+      <Grid.ColumnDefinitions>
+      	<ColumnDefinition Width="200"/>
+      	<ColumnDefinition Width="100"/>
+      	<ColumnDefinition Width="1.5*"/>
+      	<ColumnDefinition Width="100"/>
+      	<ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+
+        <s:SurfaceListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <TextBlock FontSize="25"><Run Text="Sektor"/></TextBlock>
+            <TextBlock Background="White" FontSize="20" Text="{Binding CurrentProjectNote.Sector.Description}"/>
+            <TextBlock FontSize="25"><Run Text="Firma"/></TextBlock>
+            <TextBlock Background="White" FontSize="20" Text="{Binding CurrentProjectNote.Customer.Description}"/>
+            <TextBlock FontSize="25"><Run Text="Fokus"/></TextBlock>
+            <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding CurrentProjectNote.Focus}" ItemTemplate="{DynamicResource MetadataTemplate}"/>
+            <TextBlock FontSize="25"><Run Text="Service"/></TextBlock>
+            <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding CurrentProjectNote.Services}" ItemTemplate="{DynamicResource MetadataTemplate}"/>
+            <TextBlock FontSize="25"><Run Text="Tools"/></TextBlock>
+            <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding CurrentProjectNote.Tools}" ItemTemplate="{DynamicResource MetadataTemplate}"/>
+        </s:SurfaceListBox>
+
+        <s:SurfaceButton VerticalAlignment="Center" Margin="8,0,0,0" Grid.Column="1" x:Name="ToLeftButton" Command="{Binding NavigateToLeftCommand}">
+            <TextBlock TextWrapping="Wrap"><Run Text="nach links"/></TextBlock></s:SurfaceButton>
+
+    	<DocumentViewer DataContext="{Binding CurrentProjectNote}" Grid.Column="2" Margin="8" Document="{Binding Document}" >
+    		<i:Interaction.Behaviors>
+    			<ei:FluidMoveBehavior InitialTag="DataContext" IsActive="{Binding IsDetailViewVisible}">
+    				<ei:FluidMoveBehavior.EaseY>
+    					<CubicEase EasingMode="EaseInOut"/>
+    				</ei:FluidMoveBehavior.EaseY>
+    				<ei:FluidMoveBehavior.EaseX>
+    					<CubicEase EasingMode="EaseInOut"/>
+    				</ei:FluidMoveBehavior.EaseX>
+    			</ei:FluidMoveBehavior>
+    		</i:Interaction.Behaviors>
+    	</DocumentViewer>
+
+        <s:SurfaceButton VerticalAlignment="Center" Margin="0,0,0,8" Grid.Column="3" x:Name="ToRightButton" Command="{Binding NavigateToRightCommand}">
+            <TextBlock TextWrapping="Wrap"><Run Text="nach rechts"/></TextBlock></s:SurfaceButton>
+
+        <Grid Grid.Column="4" Margin="8" x:Name="CloseButton">
+            <s:SurfaceButton VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,8,0,8" Grid.Column="3" Width="150" Command="{Binding HideDetailsCommand}">
+                <TextBlock TextWrapping="Wrap"><Run Text="diese Ansicht schliessen"/></TextBlock></s:SurfaceButton>
+        </Grid>
+    </Grid>
+</UserControl>
