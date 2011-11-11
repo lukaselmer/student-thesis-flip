@@ -21,6 +21,12 @@ namespace ProjectFlip.Test.Mock
         public int Id { get; set; }
         public string Title { get; set; }
         public string Text { get; set; }
+
+        public IDictionary<MetadataType, IList<IMetadata>> Metadata
+        {
+            get { throw new NotImplementedException(); }
+        }
+
         public IMetadata Sector { get; set; }
         public IMetadata Customer { get; set; }
         public IList<IMetadata> Focus { get; set; }

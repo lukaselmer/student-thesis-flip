@@ -7,7 +7,7 @@ namespace ProjectFlip.Services
 {
     internal static class SharepointStringDeserializer
     {
-        public static IList<IMetadata> ToList(string line, MetadataType type)
+        public static IEnumerable<IMetadata> Deserialize(string line, MetadataType type)
         {
             return ToStringList(line).Select(s => Metadata.Get(type, s)).Cast<IMetadata>().ToList();
         }

@@ -1,9 +1,11 @@
 ﻿#region
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Documents;
 using System.Windows.Media.Imaging;
@@ -23,18 +25,22 @@ namespace ProjectFlip.Services
         public int Id { get; private set; }
         public string Title { get; private set; } // Audit einer IT-Infrastruktur und Organisation
         public string Text { get; private set; } // In einem externen Audit untersucht Zühlke die IT und die ...
-        public IMetadata Sector { get; private set; } // Banking & Financial Services
-        public IMetadata Customer { get; private set; } // HYPO Capital Management AG
-        public IList<IMetadata> Focus { get; private set; } // Software Solutions
-        public IList<IMetadata> Services { get; private set; } //"_ Tecogy Cong;#__ Tecogy Con;#__ Teo Eise
-        public IList<IMetadata> Technologies { get; private set; } // Java EE
-        public IList<IMetadata> Applications { get; private set; } //Information Systems
-        public IList<IMetadata> Tools { get; private set; } // Eclipse;#Java Enterprise Edition;#Oracle;#SOAP;#XSL
+
+        public IDictionary<MetadataType, IList<IMetadata>> Metadata { get; private set; }
+
+        public IMetadata Sector { get { return Metadata[MetadataType.Sector][0]; } } // Banking & Financial Services
+        public IMetadata Customer { get { return Metadata[MetadataType.Customer][0]; } } // HYPO Capital Management AG
+        public IList<IMetadata> Focus { get { return Metadata[MetadataType.Focus]; } } // Software Solutions
+        public IList<IMetadata> Services { get { return Metadata[MetadataType.Services]; } } //"_ Tecogy Cong;#__ Tecogy Con;#__ Teo Eise
+        public IList<IMetadata> Technologies { get { return Metadata[MetadataType.Technologies]; } } // Java EE
+        public IList<IMetadata> Applications { get { return Metadata[MetadataType.Applications]; } } //Information Systems
+        public IList<IMetadata> Tools { get { return Metadata[MetadataType.Tools]; } } // Eclipse;#Java Enterprise Edition;#Oracle;#SOAP;#XSL
         public DateTime Published { get; private set; }
         public string Filename { get; private set; }
         public string FilepathPdf { get; private set; }
         public string FilepathXps { get; private set; }
         public string FilepathImage { get; private set; }
+
 
         public string Url { get { return "http://www.zuehlke.com/uploads/tx_zepublications/" + Filename; } }
 
@@ -46,10 +52,29 @@ namespace ProjectFlip.Services
 
                 Id = Convert.ToInt32(value[0]);
                 InitStringValues(value);
-                InitListValues(value);
                 Published = Convert.ToDateTime(value[10]);
                 InitFileValues(value);
+                InitMetadata(value);
             }
+        }
+
+        private void InitMetadata(IList<string> value)
+        {
+            Metadata = new Dictionary<MetadataType, IList<IMetadata>>();
+            AddToMetadata(MetadataType.Sector, value[3]);
+            AddToMetadata(MetadataType.Customer, value[4]);
+            AddToMetadata(MetadataType.Focus, value[5]);
+            AddToMetadata(MetadataType.Services, value[6]);
+            AddToMetadata(MetadataType.Technologies, value[7]);
+            AddToMetadata(MetadataType.Applications, value[8]);
+            AddToMetadata(MetadataType.Tools, value[9]);
+        }
+
+        private void AddToMetadata(MetadataType metadataType, string line)
+        {
+            var metadataList = SharepointStringDeserializer.Deserialize(line, metadataType);
+            var aggregatedList = metadataList.Select(Aggregator.AggregateMetadata).ToList();
+            Metadata.Add(new KeyValuePair<MetadataType, IList<IMetadata>>(metadataType, aggregatedList));
         }
 
         public IDocumentPaginatorSource Document
@@ -83,17 +108,6 @@ namespace ProjectFlip.Services
         {
             Title = value[1];
             Text = value[2];
-            Sector = Metadata.Get(MetadataType.Sector, value[3]);
-            Customer = Metadata.Get(MetadataType.Customer, value[4]);
-        }
-
-        private void InitListValues(IList<string> value)
-        {
-            Focus = ConvertToList(value[5], MetadataType.Focus);
-            Services = ConvertToList(value[6], MetadataType.Services);
-            Technologies = ConvertToList(value[7], MetadataType.Technologies);
-            Applications = ConvertToList(value[8], MetadataType.Applications);
-            Tools = ConvertToList(value[9], MetadataType.Tools);
         }
 
         private void InitFileValues(IList<string> value)
@@ -103,11 +117,6 @@ namespace ProjectFlip.Services
             FilepathPdf = FilepathFolder + @"\Pdf\" + Filename;
             FilepathXps = FilepathFolder + @"\Xps\" + pdfRegex.Replace(Filename, ".xps");
             FilepathImage = FilepathFolder + @"\Images\" + pdfRegex.Replace(Filename, ".bmp");
-        }
-
-        private static IList<IMetadata> ConvertToList(string line, MetadataType type)
-        {
-            return SharepointStringDeserializer.ToList(line, type);
         }
     }
 }
