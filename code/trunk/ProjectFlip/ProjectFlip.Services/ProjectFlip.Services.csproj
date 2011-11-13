@@ -57,6 +57,10 @@
     <Compile Include="SharepointStringDeserializer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Libraries\CsvHelper\CsvHelper\Common.Csv.csproj">
+      <Project>{D8D73059-70E8-417D-BED8-D56ECCD14591}</Project>
+      <Name>Common.Csv</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProjectFlip.Importer\ProjectFlip.Services.Loader.csproj">
       <Project>{761B0F94-E5E6-43EF-8F1B-475AFBDE6BE0}</Project>
       <Name>ProjectFlip.Services.Loader</Name>
