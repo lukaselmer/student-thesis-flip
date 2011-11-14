@@ -11,8 +11,10 @@ namespace ProjectFlip.Services
 {
     internal static class Aggregator
     {
+        private const string Separator = "\t";
         public static string MappingFilePath = @"..\..\..\Resources\mapping.txt";
         static Dictionary<string, IMetadata> _mapping = new Dictionary<string, IMetadata>();
+        private static readonly string[] Header = new[] { "Kategorie", "Mapping nach", "Mapping von 1", "Mapping von 2", "Mapping von 3", "usw. ..." };
 
         public static void LoadMapping()
         {
@@ -28,7 +30,7 @@ namespace ProjectFlip.Services
                     {
                         var line = handle.ReadLine();
                         Debug.Assert(line != null, "line != null");
-                        var elements = line.Split(new[] { '\t' });
+                        var elements = line.Split(new[] { Separator.ToCharArray()[0] });
                         if (elements.Length < 2) continue;
                         var category = elements[0];
                         var mapTo = elements[1];
@@ -46,56 +48,37 @@ namespace ProjectFlip.Services
 
         public static void SaveMapping()
         {
-            try
+            var reverseMapping = ReverseMapping();
+            var lines = new List<List<string>> { Header.ToList() };
+            reverseMapping.Keys.ToList().ForEach(metadata =>
             {
-                var reverseMapping = new Dictionary<IMetadata, List<string>>();
-                _mapping.Keys.ToList().ForEach(mappingFrom =>
-                    {
-                        var metadata = _mapping[mappingFrom];
-                        if (!reverseMapping.ContainsKey(metadata)) reverseMapping[metadata] = new List<string>();
-                        reverseMapping[metadata].Add(mappingFrom);
-                    });
+                var line = new List<string> { metadata.Type.Name, metadata.Description };
+                line.AddRange(reverseMapping[metadata]);
+                lines.Add(line);
+            });
 
-                using (var handle = new StreamWriter(MappingFilePath))
-                {
-                    var header = new[]
-                    {
-                        "Kategorie", "Mapping nach", "Mapping von 1", "Mapping von 2", "Mapping von 3",
-                        "usw. ..."
-                    };
-                    handle.WriteLine(String.Join("\t", header)); // Write header line
-                    reverseMapping.Keys.ToList().ForEach(metadata =>
-                        {
-                            var line = new List<string> { metadata.Type.Name, metadata.Description };
-                            line.AddRange(reverseMapping[metadata]);
-                            handle.WriteLine(String.Join("\t", line));
-                        });
-                    handle.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
+            WriteFile(lines);
 
-            //Csv.Write(filePath, objectsToWrite, false);
-            /*using(var writer = new CsvWriter(filePath, objectsToWrite, ",", columns, false, false, "\"", "\n", false))
-            {
-                writer.Write();
-            }*/
-
-            //var csv = Csv.LoadText(text, true);
-            /*var csvFile = new CsvFile();
-            csvFile.Populate(filePath, true);
-            
-            using (var writer = new CsvWriter())
-            {
-                writer.WriteCsv(csvFile, filePath);
-            }*/
         }
 
-        private static void WriteLineToMapping(string obj)
+        private static Dictionary<IMetadata, List<string>> ReverseMapping()
         {
+            var reverseMapping = new Dictionary<IMetadata, List<string>>();
+            _mapping.Keys.ToList().ForEach(mappingFrom =>
+                {
+                    var metadata = _mapping[mappingFrom];
+                    if (!reverseMapping.ContainsKey(metadata)) reverseMapping[metadata] = new List<string>();
+                    reverseMapping[metadata].Add(mappingFrom);
+                });
+            return reverseMapping;
+        }
+
+        private static void WriteFile(List<List<string>> lines)
+        {
+            using (var handle = new StreamWriter(MappingFilePath))
+            {
+                lines.ForEach(line => handle.WriteLine(String.Join(Separator, line)));
+            }
         }
 
         public static IMetadata AggregateMetadata(IMetadata metadata)
