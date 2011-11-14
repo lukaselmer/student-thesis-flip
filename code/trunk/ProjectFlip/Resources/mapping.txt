@@ -1,4 +1,4 @@
-Kategorie	Mapping nach	Mapping von 1	Mapping von 2	Mapping von 3	usw. ...
+﻿Kategorie	Mapping nach	Mapping von 1	Mapping von 2	Mapping von 3	usw. ...
 Sector	Banking & Financial Services	Banking & Financial Services
 Customer	HYPO Capital Management AG	HYPO Capital Management AG
 Focus	Software Solutions	Software Solutions
@@ -11,7 +11,7 @@ Sector	Telecommunications	Telecommunications
 Customer	Swisscom	Swisscom
 Focus	Management Consulting	Management Consulting
 Services	Consulting	Consulting
-bla	Business Process Management	Business Process Management
+Services	Business Process Management	Business Process Management
 Services	Change Management	Change Management
 Services	Development	Development
 Services	Software solutions	Software solutions
@@ -196,7 +196,7 @@ Tools	GWT	GWT
 Tools	Agilo	Agilo
 Customer	SBB	SBB
 Tools	Systems Engineering	Systems Engineering
-Blubb	Energy & Water	Energy & Water
+Sector	Energy & Water	Energy & Water
 Customer	Encontrol	Encontrol
 Tools	Silverlight	Silverlight
 Customer	CS	CS
