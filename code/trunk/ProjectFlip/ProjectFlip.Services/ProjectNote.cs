@@ -28,13 +28,6 @@ namespace ProjectFlip.Services
 
         public IDictionary<MetadataType, IList<IMetadata>> Metadata { get; private set; }
 
-        public IMetadata Sector { get { return Metadata[MetadataType.Sector][0]; } } // Banking & Financial Services
-        public IMetadata Customer { get { return Metadata[MetadataType.Customer][0]; } } // HYPO Capital Management AG
-        public IList<IMetadata> Focus { get { return Metadata[MetadataType.Focus]; } } // Software Solutions
-        public IList<IMetadata> Services { get { return Metadata[MetadataType.Services]; } } //"_ Tecogy Cong;#__ Tecogy Con;#__ Teo Eise
-        public IList<IMetadata> Technologies { get { return Metadata[MetadataType.Technologies]; } } // Java EE
-        public IList<IMetadata> Applications { get { return Metadata[MetadataType.Applications]; } } //Information Systems
-        public IList<IMetadata> Tools { get { return Metadata[MetadataType.Tools]; } } // Eclipse;#Java Enterprise Edition;#Oracle;#SOAP;#XSL
         public DateTime Published { get; private set; }
         public string Filename { get; private set; }
         public string FilepathPdf { get; private set; }
@@ -74,7 +67,11 @@ namespace ProjectFlip.Services
         {
             var metadataList = SharepointStringDeserializer.Deserialize(line, metadataType);
             var aggregatedList = metadataList.Select(Aggregator.AggregateMetadata).ToList();
-            Metadata.Add(new KeyValuePair<MetadataType, IList<IMetadata>>(metadataType, aggregatedList));
+            aggregatedList.ForEach(m =>
+                {
+                    if (!Metadata.ContainsKey(m.Type)) Metadata[m.Type] = new List<IMetadata>();
+                    Metadata[m.Type].Add(m);
+                });
         }
 
         public IDocumentPaginatorSource Document

@@ -19,13 +19,6 @@ namespace ProjectFlip.Services.Interfaces
 
         IDictionary<MetadataType, IList<IMetadata>> Metadata { get; }
 
-        IMetadata Sector { get; }
-        IMetadata Customer { get; }
-        IList<IMetadata> Focus { get; }
-        IList<IMetadata> Services { get; }
-        IList<IMetadata> Technologies { get; }
-        IList<IMetadata> Applications { get; }
-        IList<IMetadata> Tools { get; }
         DateTime Published { get; }
         string Filename { get; }
         string FilepathPdf { get; }
