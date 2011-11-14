@@ -22,7 +22,8 @@ namespace ProjectFlip.Test.Mock
 
         public IDictionary<IMetadataType, IList<IMetadata>> Metadata
         {
-            get {
+            get
+            {
                 return new Dictionary<IMetadataType, IList<IMetadata>>()
                 {
                     {
@@ -30,7 +31,7 @@ namespace ProjectFlip.Test.Mock
                            new MetadataMock() {Description = "Unterkriterium 1"}, new MetadataMock() {Description =  "Unterkriterium 2"} 
                         }
                     }      
-                }; 
+                };
             }
         }
 
@@ -44,6 +45,13 @@ namespace ProjectFlip.Test.Mock
 
     public class MetadataMock : IMetadata
     {
+        public MetadataMock() { }
+        public MetadataMock(IMetadataType type, string description)
+        {
+            Type = type;
+            Description = description;
+        }
+
         public IMetadataType Type { get; set; }
 
         public string Description { get; set; }

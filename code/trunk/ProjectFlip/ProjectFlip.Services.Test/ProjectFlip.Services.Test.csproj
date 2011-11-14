@@ -86,6 +86,10 @@
       <Project>{902C8F58-4CA9-4D16-AA01-C897FF205111}</Project>
       <Name>ProjectFlip.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProjectFlip.Test.Mock\ProjectFlip.Test.Mock.csproj">
+      <Project>{FBC3C3D8-995A-4ACB-B974-B52A4C3D1246}</Project>
+      <Name>ProjectFlip.Test.Mock</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />

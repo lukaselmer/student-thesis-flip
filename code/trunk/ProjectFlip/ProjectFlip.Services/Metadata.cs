@@ -12,13 +12,13 @@ namespace ProjectFlip.Services
 {
     public class Metadata : IMetadata
     {
-        private static readonly IDictionary<MetadataType, IDictionary<string, Metadata>> Metadatas =
-            new Dictionary<MetadataType, IDictionary<string, Metadata>>(5);
+        private static readonly IDictionary<IMetadataType, IDictionary<string, Metadata>> Metadatas =
+            new Dictionary<IMetadataType, IDictionary<string, Metadata>>(5);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Metadata"/> class.
         /// </summary>
-        private Metadata(MetadataType type, string description)
+        private Metadata(IMetadataType type, string description)
         {
             Type = type;
             Description = description;
@@ -31,14 +31,13 @@ namespace ProjectFlip.Services
 
         public bool Match(IProjectNote projectNote)
         {
-            if (!projectNote.Metadata.ContainsKey(Type)) return false;
-            return projectNote.Metadata[Type].Any(m => m.Description == Description);
+            return projectNote.Metadata.ContainsKey(Type) && projectNote.Metadata[Type].Contains(this);
         }
 
         #endregion
 
         [MethodImpl(MethodImplOptions.Synchronized)]
-        public static Metadata Get(MetadataType type, string description)
+        public static Metadata Get(IMetadataType type, string description)
         {
             if (!Metadatas.ContainsKey(type)) Metadatas[type] = new Dictionary<string, Metadata>(100);
             if (!Metadatas[type].ContainsKey(description)) Metadatas[type][description] = new Metadata(type, description);
