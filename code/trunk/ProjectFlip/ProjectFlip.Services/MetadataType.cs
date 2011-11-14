@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using ProjectFlip.Services.Interfaces;
 
 namespace ProjectFlip.Services
@@ -14,6 +15,7 @@ namespace ProjectFlip.Services
             Name = name;
         }
 
+        [MethodImpl(MethodImplOptions.Synchronized)]
         public static MetadataType Get(string name)
         {
             if (!MetadataTypes.ContainsKey(name)) MetadataTypes[name] = new MetadataType(name);

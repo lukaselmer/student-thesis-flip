@@ -129,26 +129,26 @@ namespace ProjectFlip.Services.Test
             Assert.AreEqual(Convert.ToInt32(line[0]), target.Id);
             Assert.AreEqual(line[1], target.Title);
             Assert.AreEqual(line[2], target.Text);
-            Assert.AreEqual(line[3], target.Sector.Description);
-            Assert.AreEqual(line[4], target.Customer.Description);
-            Assert.AreEqual(line[5], target.Focus[0].Description);
-            Assert.AreEqual(line[6], target.Services[0].Description);
-            Assert.AreEqual(line[7], target.Technologies[0].Description);
-            Assert.AreEqual(line[8], target.Applications[0].Description);
-            Assert.AreEqual(line[9], target.Tools[0].Description);
+            Assert.AreEqual(line[3], target.Metadata[MetadataType.Get("Sector")][0].Description);
+            Assert.AreEqual(line[4], target.Metadata[MetadataType.Get("Customer")][0].Description);
+            Assert.AreEqual(line[5], target.Metadata[MetadataType.Get("Focus")][0].Description);
+            Assert.AreEqual(line[6], target.Metadata[MetadataType.Get("Services")][0].Description);
+            Assert.AreEqual(line[7], target.Metadata[MetadataType.Get("Technologies")][0].Description);
+            Assert.AreEqual(line[8], target.Metadata[MetadataType.Get("Applications")][0].Description);
+            Assert.AreEqual(line[9], target.Metadata[MetadataType.Get("Tools")][0].Description);
             Assert.AreEqual(Convert.ToDateTime(line[10]), target.Published);
             Assert.AreEqual(line[13], target.Filename);
             Assert.AreEqual((ProjectNote.FilepathFolder + @"\Pdf\" + line[13]), target.FilepathPdf);
             Assert.AreEqual((ProjectNote.FilepathFolder + @"\Xps\" + filename + ".xps"), target.FilepathXps);
             Assert.AreEqual((ProjectNote.FilepathFolder + @"\Images\" + filename + ".bmp"), target.FilepathImage);
 
-            Assert.AreSame(Metadata.Get(MetadataType.Sector, line[3]), target.Sector);
-            Assert.AreSame(Metadata.Get(MetadataType.Customer, line[4]), target.Customer);
-            Assert.AreSame(Metadata.Get(MetadataType.Focus, line[5]), target.Focus[0]);
-            Assert.AreSame(Metadata.Get(MetadataType.Services, line[6]), target.Services[0]);
-            Assert.AreSame(Metadata.Get(MetadataType.Technologies, line[7]), target.Technologies[0]);
-            Assert.AreSame(Metadata.Get(MetadataType.Applications, line[8]), target.Applications[0]);
-            Assert.AreSame(Metadata.Get(MetadataType.Tools, line[9]), target.Tools[0]);
+            Assert.AreSame(Metadata.Get(MetadataType.Get("Sector"), line[3]), target.Metadata[MetadataType.Get("Sector")][0]);
+            Assert.AreSame(Metadata.Get(MetadataType.Get("Customer"), line[4]), target.Metadata[MetadataType.Get("Customer")][0]);
+            Assert.AreSame(Metadata.Get(MetadataType.Get("Focus"), line[5]), target.Metadata[MetadataType.Get("Focus")][0]);
+            Assert.AreSame(Metadata.Get(MetadataType.Get("Services"), line[6]), target.Metadata[MetadataType.Get("Services")][0]);
+            Assert.AreSame(Metadata.Get(MetadataType.Get("Technologies"), line[7]), target.Metadata[MetadataType.Get("Technologies")][0]);
+            Assert.AreSame(Metadata.Get(MetadataType.Get("Applications"), line[8]), target.Metadata[MetadataType.Get("Applications")][0]);
+            Assert.AreSame(Metadata.Get(MetadataType.Get("Tools"), line[9]), target.Metadata[MetadataType.Get("Tools")][0]);
         }
     }
 }

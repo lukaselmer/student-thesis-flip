@@ -48,7 +48,8 @@ namespace ProjectFlip.Services.Test
         [TestMethod]
         public void GetTest()
         {
-            Assert.AreSame(Metadata.Get(MetadataType.Sector, "bla"), Metadata.Get(MetadataType.Sector, "bla"));
+            Assert.AreSame(MetadataType.Get("Sector"), MetadataType.Get("Sector"));
+            Assert.AreSame(Metadata.Get(MetadataType.Get("Sector"), "bla"), Metadata.Get(MetadataType.Get("Sector"), "bla"));
         }
     }
 }
