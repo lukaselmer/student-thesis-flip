@@ -54,18 +54,18 @@ namespace ProjectFlip.Services
         private void InitMetadata(IList<string> value)
         {
             Metadata = new Dictionary<MetadataType, IList<IMetadata>>();
-            AddToMetadata(MetadataType.Sector, value[3]);
-            AddToMetadata(MetadataType.Customer, value[4]);
-            AddToMetadata(MetadataType.Focus, value[5]);
-            AddToMetadata(MetadataType.Services, value[6]);
-            AddToMetadata(MetadataType.Technologies, value[7]);
-            AddToMetadata(MetadataType.Applications, value[8]);
-            AddToMetadata(MetadataType.Tools, value[9]);
+            AddToMetadata("Sector", value[3]);
+            AddToMetadata("Customer", value[4]);
+            AddToMetadata("Focus", value[5]);
+            AddToMetadata("Services", value[6]);
+            AddToMetadata("Technologies", value[7]);
+            AddToMetadata("Applications", value[8]);
+            AddToMetadata("Tools", value[9]);
         }
 
-        private void AddToMetadata(MetadataType metadataType, string line)
+        private void AddToMetadata(string metadataType, string line)
         {
-            var metadataList = SharepointStringDeserializer.Deserialize(line, metadataType);
+            var metadataList = SharepointStringDeserializer.Deserialize(line, MetadataType.Get(metadataType));
             var aggregatedList = metadataList.Select(Aggregator.AggregateMetadata).ToList();
             aggregatedList.ForEach(m =>
                 {
