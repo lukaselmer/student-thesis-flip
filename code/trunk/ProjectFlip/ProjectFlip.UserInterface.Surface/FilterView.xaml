@@ -15,12 +15,13 @@
     </DataTemplate>
     </UserControl.Resources>
     <Grid>
-        <Label>
-            <TextBlock FontSize="18" FontFamily="Arial" TextWrapping="WrapWithOverflow" Text="Auswahlkriterien"></TextBlock>
-        </Label>
-        <s:SurfaceListBox ItemsSource="{Binding Filters}" ItemTemplate="{DynamicResource FilterCriteriaTemplate}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <s:SurfaceListBox Grid.Row="0" ItemsSource="{Binding Filters}" ItemTemplate="{DynamicResource FilterCriteriaTemplate}">
         </s:SurfaceListBox>
-        <s:SurfaceButton Background="#ff820a" Width="150" Height="70" Command="{Binding ShowFilterCommand}" >
+        <s:SurfaceButton Grid.Row="1" VerticalAlignment="Top" Background="#ff820a" Width="150" Height="70" Command="{Binding ShowFilterCommand}" >
             <TextBlock Text="Kriterium hinzufügen" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock></s:SurfaceButton>
     </Grid>
 </UserControl>
