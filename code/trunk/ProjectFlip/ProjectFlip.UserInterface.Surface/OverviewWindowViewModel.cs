@@ -16,7 +16,7 @@ namespace ProjectFlip.UserInterface.Surface
     public class OverviewWindowViewModel : ViewModelBase
     {
         private IProjectNote _currentProjectNote;
-        private readonly IDictionary<MetadataType, IList<IMetadata>> _criteria;
+        private readonly IDictionary<IMetadataType, IList<IMetadata>> _criteria;
         
         private readonly List<IMetadata> _filters = new List<IMetadata>();
         private bool _isDetailViewVisible;
@@ -59,7 +59,7 @@ namespace ProjectFlip.UserInterface.Surface
         private void OnCurrentMainCriteriaChanged(object sender, EventArgs e)
         {
             IList<IMetadata> value;
-            _criteria.TryGetValue((MetadataType) Maincriteria.CurrentItem, out value);
+            _criteria.TryGetValue((IMetadataType) Maincriteria.CurrentItem, out value);
             Subcriteria = new CollectionView(value);
         }
 
@@ -82,7 +82,7 @@ namespace ProjectFlip.UserInterface.Surface
             }
         }
 
-        public IDictionary<MetadataType,IList<IMetadata>> Criteria
+        public IDictionary<IMetadataType,IList<IMetadata>> Criteria
         {
             get { return _criteria; }
         }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ProjectFlip.Services.Interfaces
 {
-    public class MetadataType
+    public class MetadataType : IMetadataType
     {
         private static readonly Dictionary<string, MetadataType> MetadataTypes = new Dictionary<string, MetadataType>();
 

@@ -9,6 +9,6 @@ namespace ProjectFlip.Services.Interfaces
     public interface IProjectNotesService
     {
         List<IProjectNote> ProjectNotes { get; }
-        IDictionary<MetadataType, IList<IMetadata>> Metadata { get; }
+        IDictionary<IMetadataType, IList<IMetadata>> Metadata { get; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿#region
 
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using ProjectFlip.Services.Interfaces;
@@ -15,15 +16,41 @@ namespace ProjectFlip.Test.Mock
             ProjectNotes = new List<IProjectNote>(Enumerable.Range(0, count).Select(i => new ProjectNoteMock()));
         }
 
-        #region IProjectNotesService Members
-
         public List<IProjectNote> ProjectNotes { get; private set; }
 
-        public IDictionary<MetadataType, IList<IMetadata>> Metadata
+        #region IProjectNotesService Members
+
+        public IDictionary<IMetadataType, IList<IMetadata>> Metadata
         {
-            get { throw new System.NotImplementedException(); }
+            get {
+                return new Dictionary<IMetadataType, IList<IMetadata>>()
+                {
+                    {
+                        new MetadataTypeMock {Name = "Oberkriterium"}, new List<IMetadata> {
+                           new MetadataMock() {Description = "Unterkriterium 1"}, new MetadataMock() {Description =  "Unterkriterium 2"} 
+                        }
+                    }      
+                }; 
+            }
         }
 
         #endregion
+    }
+
+    public class MetadataTypeMock : IMetadataType
+    {
+        public string Name { get; set; }
+    }
+
+    public class MetadataMock : IMetadata
+    {
+        public MetadataType Type { get; set; }
+
+        public string Description { get; set; }
+
+        public bool Match(IProjectNote projectNote)
+        {
+            return true;
+        }
     }
 }

@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IMetadata.cs" />
+    <Compile Include="IMetadataType.cs" />
     <Compile Include="IProjectNote.cs" />
     <Compile Include="IProjectNotesService.cs" />
     <Compile Include="MetadataType.cs" />
