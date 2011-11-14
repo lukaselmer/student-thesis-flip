@@ -17,12 +17,15 @@
     <s:SurfaceWindow.Resources>
 
         <DataTemplate x:Key="ProjectNoteButtonTemplate">
-            <s:SurfaceButton Margin="2" Padding="10,15,10,0" Background="White" Width="280" Height="350" CommandParameter="{Binding}"
+            <s:SurfaceButton Margin="2" Padding="10,10,10,5" Background="White" Width="220" Height="280" CommandParameter="{Binding}"
                              Command="{Binding DataContext.ShowDetailsCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceWindow}}}">
                 <StackPanel Orientation="Vertical"  HorizontalAlignment="Center">
                     <Image Source="{Binding Image}" HorizontalAlignment="Center"/>
-                    <Rectangle Margin="0,10,0,0" Height="1" Fill="Orange" />
-                    <TextBlock Text="{Binding Title}" TextTrimming="None" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"/>
+                    <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 5">
+                        <Rectangle Width="90" Margin="0,0,10,0"  Height="2" Fill="#ff8204" />
+                        <Rectangle Width="90" Margin="10,0,0,0" Height="2" Fill="#ff8204" />
+                    </StackPanel>
+                    <TextBlock Text="{Binding Title}" Foreground="#ff8204" TextTrimming="CharacterEllipsis" TextWrapping="WrapWithOverflow" HorizontalAlignment="Left"/>
                 </StackPanel>
             </s:SurfaceButton>
         </DataTemplate>
@@ -47,7 +50,7 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Surface:FilterView Grid.Column="0"/>
-        <s:SurfaceListBox Name="listBox" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ProjectNotes}"
+        <s:SurfaceListBox Background="#e6e6e6" Name="listBox" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ProjectNotes}"
                           ItemTemplate="{StaticResource ProjectNoteButtonTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" />
         <Surface:DetailView Grid.Column="1" Visibility="{Binding IsDetailViewVisible, Converter={Converters:BoolToVisibilityConverter}}"/>
         <Surface:FilterDetailView Grid.Column="1" Visibility="{Binding IsFilterViewVisible, Converter={Converters:BoolToVisibilityConverter}}"/>
