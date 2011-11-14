@@ -1,0 +1,710 @@
+Kategorie	Mapping nach	Mapping von 1	Mapping von 2	Mapping von 3	usw. ...
+Sector	Banking & Financial Services	Banking & Financial Services
+Customer	HYPO Capital Management AG	HYPO Capital Management AG
+Focus	Software Solutions	Software Solutions
+Services	Technology Consulting	Technology Consulting
+Services	Technology Consultation	Technology Consultation
+Services	Technology Expertise	Technology Expertise
+Services	Methodology	Methodology
+Services	ZAAF	ZAAF
+Sector	Telecommunications	Telecommunications
+Customer	Swisscom	Swisscom
+Focus	Management Consulting	Management Consulting
+Services	Consulting	Consulting
+Services	Business Process Management	Business Process Management
+Services	Change Management	Change Management
+Services	Development	Development
+Services	Software solutions	Software solutions
+Services	Development support	Development support
+Technologies	Java EE	Java EE
+Applications	Information Systems	Information Systems
+Tools	Eclipse	Eclipse
+Tools	Java Enterprise Edition	Java Enterprise Edition
+Tools	Oracle	Oracle
+Tools	SOAP	SOAP
+Tools	XSL	XSL
+Sector	Devices & Apparatus	Devices & Apparatus
+Customer	Brita	Brita
+Focus	Product Innovation	Product Innovation
+Services	Product innovation	Product innovation
+Services	Simulation & Calculation	Simulation & Calculation
+Technologies	Plastics Technology	Plastics Technology
+Tools	SolidWorks	SolidWorks
+Tools	Flow Simulation (Solid Works)	Flow Simulation (Solid Works)
+Services	Innovation technology	Innovation technology
+Services	Usability	Usability
+Services	Requirements Engineering	Requirements Engineering
+Services	Product development	Product development
+Tools	ANSYS	ANSYS
+Tools	FRED	FRED
+Tools	LabVIEW	LabVIEW
+Tools	IAR Embedded Workbench	IAR Embedded Workbench
+Tools	Altium	Altium
+Tools	Mathcad	Mathcad
+Sector	Trade & Wholesale Trade	Trade & Wholesale Trade
+Customer	Betty Bossi	Betty Bossi
+Services	Business Opportunities	Business Opportunities
+Services	Product Development Process	Product Development Process
+Services	Team Training	Team Training
+Sector	Transportation & Logistics	Transportation & Logistics
+Customer	neutral	neutral
+Services	Security	Security
+Technologies	Web Services	Web Services
+Tools	HTML	HTML
+Tools	IIS	IIS
+Tools	Java Script	Java Script
+Tools	Linux	Linux
+Tools	Windows	Windows
+Sector	SW Products & Services	SW Products & Services
+Customer	Haufe-Lexware	Haufe-Lexware
+Services	Software-Testing	Software-Testing
+Services	Quality assurance	Quality assurance
+Tools	Perl	Perl
+Tools	Struts	Struts
+Customer	Delta Energy Systems	Delta Energy Systems
+Technologies	Real-Time and Embedded Software	Real-Time and Embedded Software
+Applications	Embedded Systems	Embedded Systems
+Tools	C++	C++
+Tools	Eclipse CDT	Eclipse CDT
+Tools	Jenkins	Jenkins
+Tools	Boost	Boost
+Tools	cppunit	cppunit
+Customer	Dacuda	Dacuda
+Services	Building Prototypes	Building Prototypes
+Technologies	Optics	Optics
+Sector	Medical & Laboratory Devices	Medical & Laboratory Devices
+Customer	Metrohm	Metrohm
+Services	Software Development Process	Software Development Process
+Sector	Public Sector	Public Sector
+Customer	EJPD	EJPD
+Services	Testing	Testing
+Tools	Java Standard Edition	Java Standard Edition
+Tools	Maven	Maven
+Tools	MS Excel	MS Excel
+Tools	XML	XML
+Sector	Insurance	Insurance
+Customer	Basler Versicherungen	Basler Versicherungen
+Technologies	Agile Methods	Agile Methods
+Tools	BEAWebLogic	BEAWebLogic
+Tools	Hibernate	Hibernate
+Tools	JDBC	JDBC
+Tools	DB2	DB2
+Tools	MagicDraw	MagicDraw
+Tools	AndroMDA	AndroMDA
+Tools	JUnit	JUnit
+Tools	DBUnit	DBUnit
+Customer	Braun	Braun
+Customer	BBT/RVK	BBT/RVK
+Services	Bespoke Solutions	Bespoke Solutions
+Applications	Migration	Migration
+Tools	MS .NET Framework	MS .NET Framework
+Tools	MS SQL	MS SQL
+Tools	Patterns	Patterns
+Tools	RUP	RUP
+Tools	UML	UML
+Tools	vb.net	vb.net
+Tools	Syncfusion	Syncfusion
+Sector	Machinery & Plants	Machinery & Plants
+Customer	Jakob Müller	Jakob Müller
+Technologies	Model-Based Design	Model-Based Design
+Applications	Machine Control Systems	Machine Control Systems
+Tools	Matlab	Matlab
+Tools	Simulink	Simulink
+Customer	SIX	SIX
+Services	IT Strategy & Enterprise Architecture	IT Strategy & Enterprise Architecture
+Services	Business Modelling	Business Modelling
+Services	Project management	Project management
+Tools	Artisan	Artisan
+Tools	Select	Select
+Customer	Post	Post
+Services	Design Methods	Design Methods
+Tools	Modellierung: Artisan	Modellierung: Artisan
+Services	Energy Efficiency & EcoDesign	Energy Efficiency & EcoDesign
+Technologies	Energy Efficiency	Energy Efficiency
+Tools	MathCAC	MathCAC
+Tools	VDI Wärmeatlas	VDI Wärmeatlas
+Customer	ABB	ABB
+Technologies	NET	NET
+Tools	C#	C#
+Tools	WPF	WPF
+Customer	Phonak	Phonak
+Tools	Subversion	Subversion
+Tools	Expression Blend	Expression Blend
+Tools	Benutzerorientiertes Design	Benutzerorientiertes Design
+Customer	Dreyfus	Dreyfus
+Tools	CruiseControl	CruiseControl
+Tools	Java Swing	Java Swing
+Customer	RhB	RhB
+Technologies	Java SE	Java SE
+Tools	JSF	JSF
+Tools	JAXB	JAXB
+Tools	JAX-WS	JAX-WS
+Tools	Ivy	Ivy
+Customer	Kern	Kern
+Tools	Rhapsody	Rhapsody
+Tools	Scrum	Scrum
+Customer	Abraxas	Abraxas
+Customer	ZVV & VBZ	ZVV & VBZ
+Sector	Others	Others
+Applications	Information Management	Information Management
+Services	Organisation development	Organisation development
+Services	Integration	Integration
+Applications	Innovation Management	Innovation Management
+Customer	Skyguide	Skyguide
+Tools	MS Project	MS Project
+Tools	TimeWinner	TimeWinner
+Customer	Postlogistics	Postlogistics
+Tools	JSP	JSP
+Tools	Hudson	Hudson
+Tools	Nexus	Nexus
+Tools	Barcode4J	Barcode4J
+Tools	iText	iText
+Tools	Facelets	Facelets
+Tools	SoapUI	SoapUI
+Customer	Innovation Group	Innovation Group
+Technologies	.NET	.NET
+Tools	BPMN	BPMN
+Tools	Team Foundation Server	Team Foundation Server
+Sector	Measuring	Measuring
+Sector	Steering & Control	Steering & Control
+Customer	mivune	mivune
+Applications	Mobile Computing	Mobile Computing
+Applications	Rich Internet Applications	Rich Internet Applications
+Applications	Control Systems	Control Systems
+Tools	J2SE	J2SE
+Tools	openArchitectureWare	openArchitectureWare
+Customer	VR AG	VR AG
+Tools	RTOS	RTOS
+Customer	UCL	UCL
+Technologies	BizTalk	BizTalk
+Applications	Client Infrastructure	Client Infrastructure
+Customer	PlanetHome	PlanetHome
+Tools	JBoss	JBoss
+Tools	ITIL	ITIL
+Tools	Virtualisierung	Virtualisierung
+Customer	Siemens	Siemens
+Applications	Automation Systems	Automation Systems
+Tools	CORBA	CORBA
+Tools	JMS	JMS
+Tools	SessionBeans	SessionBeans
+Tools	TogetherJ	TogetherJ
+Tools	Spring	Spring
+Tools	Java Servlet	Java Servlet
+Tools	JGroups	JGroups
+Customer	Duagon	Duagon
+Tools	GWT	GWT
+Tools	Agilo	Agilo
+Customer	SBB	SBB
+Tools	Systems Engineering	Systems Engineering
+Sector	Energy & Water	Energy & Water
+Customer	Encontrol	Encontrol
+Tools	Silverlight	Silverlight
+Customer	CS	CS
+Tools	Rational Method Composer (RMC)	Rational Method Composer (RMC)
+Customer	Varian	Varian
+Tools	VxWorks	VxWorks
+Tools	Rational Rose	Rational Rose
+Customer	Liebherr	Liebherr
+Tools	Ruby on Rails	Ruby on Rails
+Tools	SCONS	SCONS
+Tools	LINT	LINT
+Tools	KDevelop	KDevelop
+Customer	Daetwyler	Daetwyler
+Services	Test Engineering	Test Engineering
+Customer	B. Braun	B. Braun
+Tools	Windows CE	Windows CE
+Tools	Visual Studio	Visual Studio
+Customer	Hamilton	Hamilton
+Services	Production cost reduction	Production cost reduction
+Technologies	Microprocessors/FPGA	Microprocessors/FPGA
+Applications	Bahntechnik	Bahntechnik
+Tools	Alterra FPGA	Alterra FPGA
+Tools	Altium Designer	Altium Designer
+Tools	PCI-Express	PCI-Express
+Customer	Tecan	Tecan
+Technologies	Digital Engineering	Digital Engineering
+Tools	Pro/E	Pro/E
+Tools	PEP	PEP
+Customer	ETH	ETH
+Customer	Uni Zürich	Uni Zürich
+Customer	Datacon	Datacon
+Tools	Solid Works	Solid Works
+Customer	Schneider Electric	Schneider Electric
+Customer	inNet	inNet
+Tools	Visual Studio .NET	Visual Studio .NET
+Customer	DSwiss	DSwiss
+Tools	Adobe Flex	Adobe Flex
+Tools	Ant	Ant
+Tools	BlazeDS	BlazeDS
+Tools	Quartz	Quartz
+Tools	Tamcat	Tamcat
+Tools	Postgres	Postgres
+Customer	Kuoni	Kuoni
+Tools	Mantis	Mantis
+Customer	Kardex	Kardex
+Customer	NeuroPie	NeuroPie
+Tools	ADO	ADO
+Tools	Team Foundation Server Infragistics	Team Foundation Server Infragistics
+Tools	IBM Websphere	IBM Websphere
+Tools	TIBCO RV	TIBCO RV
+Tools	COHERENCE	COHERENCE
+Customer	Komax	Komax
+Tools	Sciopta RIOS	Sciopta RIOS
+Tools	ARM9	ARM9
+Customer	Philips	Philips
+Customer	Sauter	Sauter
+Applications	PDM / PLM	PDM / PLM
+Applications	Sensors/Signal Processing	Sensors/Signal Processing
+Tools	MS Word	MS Word
+Sector	Automotive	Automotive
+Customer	Apag	Apag
+Customer	PEKA	PEKA
+Customer	Alstom	Alstom
+Customer	Reiner SCT	Reiner SCT
+Applications	Electronic Payments	Electronic Payments
+Technologies	Wireless	Wireless
+Tools	ASP .NET	ASP .NET
+Tools	Ruby	Ruby
+Tools	AJAX	AJAX
+Customer	Netstal	Netstal
+Tools	Magic Draw	Magic Draw
+Customer	Homag Holzbearbeitungssysteme	Homag Holzbearbeitungssysteme
+Customer	Hunkeler	Hunkeler
+Tools	Rhapsody in C++	Rhapsody in C++
+Tools	python	python
+Tools	boost	boost
+Customer	SIE	SIE
+Technologies	Microprocessors	Microprocessors
+Customer	Acutronic	Acutronic
+Technologies	FPGA	FPGA
+Tools	CompactRio	CompactRio
+Tools	LabVIEW FPGA	LabVIEW FPGA
+Tools	VHDL	VHDL
+Applications	E-Commerce	E-Commerce
+Tools	MS Visual Studio	MS Visual Studio
+Tools	Commerce Server	Commerce Server
+Tools	SourceGear Vault	SourceGear Vault
+Customer	ZKB	ZKB
+Customer	Egro	Egro
+Customer	Schindler	Schindler
+Customer	Pantec Biosolutions AG	Pantec Biosolutions AG
+Tools	Moldflow Plastic Advisor	Moldflow Plastic Advisor
+Tools	ProEngineer WF4	ProEngineer WF4
+Customer	GETEC	GETEC
+Services	Integration Solutions	Integration Solutions
+Services	ZAFIR	ZAFIR
+Tools	SQL Server Intergration Services	SQL Server Intergration Services
+Sector	Banking & Financial services	Banking & Financial services
+Customer	Postfinance	Postfinance
+Tools	J2EE	J2EE
+Customer	ZHT Treuhand	ZHT Treuhand
+Tools	Apache	Apache
+Tools	PHP	PHP
+Tools	MySQL	MySQL
+Customer	SwissLife	SwissLife
+Customer	BKW FMB Energie AG	BKW FMB Energie AG
+Tools	Enterprise Architect	Enterprise Architect
+Customer	IBS	IBS
+Customer	Schweizer Zoll	Schweizer Zoll
+Customer	affilinet	affilinet
+Tools	SAP	SAP
+Tools	TFS	TFS
+Applications	Product Testing	Product Testing
+Tools	CAD - ProE	CAD - ProE
+Tools	SW Analyse Tools	SW Analyse Tools
+Tools	GOOP	GOOP
+Customer	Tornos	Tornos
+Services	Platform & Module strategies	Platform & Module strategies
+Customer	Weidmann	Weidmann
+Customer	PSI	PSI
+Tools	Altera	Altera
+Tools	Quartus	Quartus
+Tools	MAX+	MAX+
+Tools	HDL-Designer	HDL-Designer
+Tools	ModelSim	ModelSim
+Customer	DZ Bank	DZ Bank
+Services	Service-oriented Architectures	Service-oriented Architectures
+Tools	IONA Artix	IONA Artix
+Tools	Sun Solaris	Sun Solaris
+Tools	IBM WebSphere MQ	IBM WebSphere MQ
+Customer	Sensile	Sensile
+Tools	MSYS/PEP	MSYS/PEP
+Tools	Infragistics	Infragistics
+Tools	Crystal Reports	Crystal Reports
+Tools	Extrem Optimizations	Extrem Optimizations
+Tools	Zde Graph	Zde Graph
+Tools	DevExpress Layout Control	DevExpress Layout Control
+Tools	Gigasoft ProEssentials	Gigasoft ProEssentials
+Tools	Koogra	Koogra
+Tools	Log4Net	Log4Net
+Customer	SpinX-Technologies	SpinX-Technologies
+Customer	Avaloq	Avaloq
+Customer	BVK	BVK
+Tools	QF-Test	QF-Test
+Tools	Jyton	Jyton
+Customer	Medela	Medela
+Customer	Bosch	Bosch
+Tools	Jython/Python	Jython/Python
+Tools	Lgo4J	Lgo4J
+Tools	Rational Software Architect	Rational Software Architect
+Customer	ASTRA	ASTRA
+Tools	MS Team System	MS Team System
+Tools	ZEMAX	ZEMAX
+Applications	Enterprise Resource Planning	Enterprise Resource Planning
+Applications	Rich Client Application	Rich Client Application
+Customer	Georg Fischer Piping Systems	Georg Fischer Piping Systems
+Customer	M & G	M & G
+Tools	MQ	MQ
+Tools	Fit	Fit
+Customer	Thermoplan	Thermoplan
+Tools	Extreme Programming	Extreme Programming
+Tools	Retrospectives	Retrospectives
+Tools	Broadband Delphi	Broadband Delphi
+Tools	V-Modell	V-Modell
+Tools	RationalClearQuest	RationalClearQuest
+Tools	MS Access	MS Access
+Tools	Apache Axis	Apache Axis
+Tools	Apache Axis 2	Apache Axis 2
+Tools	JBos	JBos
+Tools	Apache ServiceMix	Apache ServiceMix
+Tools	Solaris	Solaris
+Customer	IWB	IWB
+Tools	Axapta	Axapta
+Tools	Windows Share Point Services	Windows Share Point Services
+Applications	Agile Methoden	Agile Methoden
+Tools	ADO.NET	ADO.NET
+Tools	Ajax	Ajax
+Customer	Siemens VDO/ Continental	Siemens VDO/ Continental
+Applications	Laboratory software	Laboratory software
+Customer	Raiffeisen	Raiffeisen
+Customer	suva	suva
+Tools	EntityBeans	EntityBeans
+Tools	Data Junction	Data Junction
+Tools	Sotograph	Sotograph
+Tools	Tomcat	Tomcat
+Customer	Ista	Ista
+Customer	Cochlear Acoustics	Cochlear Acoustics
+Tools	PorE	PorE
+Tools	Orcad	Orcad
+Customer	Roche Diagnostics	Roche Diagnostics
+Tools	MathCad	MathCad
+Tools	OptiCad	OptiCad
+Tools	Pro/Mechanica (FEM)	Pro/Mechanica (FEM)
+Tools	MTM-UAS	MTM-UAS
+Tools	MTM-Prokon	MTM-Prokon
+Applications	Measuring Systems	Measuring Systems
+Tools	Magicdraw UML	Magicdraw UML
+Tools	Web 2.0	Web 2.0
+Tools	trac	trac
+Customer	GE Money Bank	GE Money Bank
+Customer	Inficon	Inficon
+Tools	ABC-Analyse	ABC-Analyse
+Customer	Wyler	Wyler
+Tools	ActiveX	ActiveX
+Customer	Nespresso	Nespresso
+Customer	Corris Fundraising	Corris Fundraising
+Tools	XPO2	XPO2
+Customer	Lenze	Lenze
+Tools	Trac	Trac
+Tools	Lint	Lint
+Tools	CodeWright	CodeWright
+Tools	VisualStudio.	VisualStudio.
+Customer	Bluewin	Bluewin
+Tools	Python und Boost	Python und Boost
+Tools	Macrovision InstallShield	Macrovision InstallShield
+Tools	Ethereal	Ethereal
+Customer	Hekatron	Hekatron
+Sector	Pharma & Biotech	Pharma & Biotech
+Customer	Clariant	Clariant
+Customer	AxAir	AxAir
+Technologies	Enterprise Application	Enterprise Application
+Customer	Optrel	Optrel
+Customer	Sagem Orga	Sagem Orga
+Tools	IBM Websphere MQ	IBM Websphere MQ
+Customer	Skandia	Skandia
+Tools	Derby	Derby
+Tools	Apache tomcat	Apache tomcat
+Tools	Team Enabling	Team Enabling
+Customer	etrans	etrans
+Tools	WinForms	WinForms
+Tools	NetAdvant	NetAdvant
+Customer	Agfa	Agfa
+Tools	CAN Bus	CAN Bus
+Tools	FireWire	FireWire
+Tools	FDA	FDA
+Customer	UBS	UBS
+Tools	Websphere MQ	Websphere MQ
+Customer	maxonmotor	maxonmotor
+Tools	Stateflow	Stateflow
+Tools	Fixpoint Blockset	Fixpoint Blockset
+Tools	Realtime Workshop	Realtime Workshop
+Customer	Leica Microsystems	Leica Microsystems
+Tools	DSP	DSP
+Tools	Kostenreduktion	Kostenreduktion
+Tools	Windows Mobile	Windows Mobile
+Customer	Securiton	Securiton
+Customer	Syngenta	Syngenta
+Customer	Stadt Zürich (OIZ)	Stadt Zürich (OIZ)
+Customer	Hochbaudepartement Stadt Zürich	Hochbaudepartement Stadt Zürich
+Customer	ESEC	ESEC
+Customer	Unique	Unique
+Customer	Unaxis	Unaxis
+Tools	Problemanalyse	Problemanalyse
+Tools	Fehlerbehebung	Fehlerbehebung
+Customer	De Sede	De Sede
+Customer	Jaquet	Jaquet
+Customer	Bucher	Bucher
+Tools	ABC Analyse	ABC Analyse
+Tools	Funktionskostenanalyse	Funktionskostenanalyse
+Customer	Bystronic	Bystronic
+Tools	Visual Source Safe	Visual Source Safe
+Tools	nUnit	nUnit
+Tools	nAnt	nAnt
+Tools	nDoc	nDoc
+Customer	Axpo	Axpo
+Tools	Produktplattform	Produktplattform
+Tools	Strategie	Strategie
+Tools	OE	OE
+Tools	EJB	EJB
+Tools	CRM-System	CRM-System
+Tools	PDM/PLM-System	PDM/PLM-System
+Tools	Prozessmanagement	Prozessmanagement
+Tools	Review	Review
+Tools	Wirkungsnetzanalyse	Wirkungsnetzanalyse
+Tools	Goldfire	Goldfire
+Customer	Enermet	Enermet
+Tools	Mobile Lösungen	Mobile Lösungen
+Tools	Bluetooth	Bluetooth
+Customer	Bernina	Bernina
+Tools	Spritzguss	Spritzguss
+Customer	Vodafone	Vodafone
+Tools	VBA	VBA
+Tools	OLE	OLE
+Customer	Ascom	Ascom
+Tools	Risk Management Change Management	Risk Management Change Management
+Customer	Zehnder	Zehnder
+Customer	Vectronix	Vectronix
+Customer	PAckSys Global	PAckSys Global
+Tools	ThreadX	ThreadX
+Tools	Python	Python
+Tools	Quast	Quast
+Customer	Belimo	Belimo
+Tools	Codesoft	Codesoft
+Tools	Konzeptstudie	Konzeptstudie
+Tools	FEM Analyse	FEM Analyse
+Customer	Bibliotheca	Bibliotheca
+Tools	Anbindung Vodafone Life (Chat Plattform)	Anbindung Vodafone Life (Chat Plattform)
+Tools	Java-Servlets	Java-Servlets
+Tools	Business Case	Business Case
+Tools	Konzept	Konzept
+Tools	Architektur	Architektur
+Tools	Smoketest	Smoketest
+Tools	WebTest	WebTest
+Tools	CMM Level 3	CMM Level 3
+Tools	RequisitePro	RequisitePro
+Customer	Ammann	Ammann
+Tools	FMEA	FMEA
+Tools	Crypto++	Crypto++
+Customer	Novartis	Novartis
+Tools	Laborautomation	Laborautomation
+Customer	Kuhn Rikon	Kuhn Rikon
+Customer	Grundig	Grundig
+Tools	Treo 600	Treo 600
+Tools	Palm OS	Palm OS
+Customer	ep2	ep2
+Tools	Perforce	Perforce
+Customer	Thyssen	Thyssen
+Tools	ProEngineer	ProEngineer
+Customer	Geberit	Geberit
+Customer	internal project	internal project
+Tools	internes Camp	internes Camp
+Technologies	Visual Studio Team System	Visual Studio Team System
+Customer	SIS	SIS
+Tools	Pro Engineer	Pro Engineer
+Tools	CAN Interface	CAN Interface
+Customer	CSFS	CSFS
+Tools	QMBridge	QMBridge
+Tools	JUnitEE	JUnitEE
+Customer	Prionics	Prionics
+Tools	Visual SourceSafe	Visual SourceSafe
+Customer	Dornier	Dornier
+Tools	OO	OO
+Tools	Realisierung	Realisierung
+Customer	Bionas	Bionas
+Customer	VBZ	VBZ
+Tools	EMV	EMV
+Customer	Pendragon	Pendragon
+Tools	Alpha OpenVMS	Alpha OpenVMS
+Tools	ActiveState Perl	ActiveState Perl
+Tools	Rational Robot	Rational Robot
+Tools	Rational ClearCase	Rational ClearCase
+Tools	Smoke Test	Smoke Test
+Customer	Siemens VDO	Siemens VDO
+Tools	Java	Java
+Tools	SPR Knowledge Base	SPR Knowledge Base
+Customer	Alphasem	Alphasem
+Customer	Comsys	Comsys
+Tools	Pre Engineered Modules	Pre Engineered Modules
+Tools	Embedded	Embedded
+Tools	Case Tools	Case Tools
+Customer	SHKB	SHKB
+Customer	Ismatec	Ismatec
+Customer	Five Informatik	Five Informatik
+Tools	Webservices	Webservices
+Tools	SQL-Server	SQL-Server
+Tools	DirectX	DirectX
+Tools	.NET Framework	.NET Framework
+Tools	VB.NET	VB.NET
+Tools	Crossover-Engineering	Crossover-Engineering
+Tools	Mikrotechnik	Mikrotechnik
+Tools	Präzisionspositionierung	Präzisionspositionierung
+Tools	Feinmechanik	Feinmechanik
+Customer	Ivoclar	Ivoclar
+Tools	PROEngineer	PROEngineer
+Customer	Marquardt	Marquardt
+Tools	TogetherCC	TogetherCC
+Tools	Tuxedo	Tuxedo
+Tools	OrCad	OrCad
+Tools	RFID	RFID
+Customer	CSS	CSS
+Tools	VisiBroker	VisiBroker
+Tools	Websphere	Websphere
+Tools	Together	Together
+Tools	JBuilder	JBuilder
+Customer	Ascom/Neopost	Ascom/Neopost
+Tools	Antriebstechnik	Antriebstechnik
+Customer	Orange	Orange
+Customer	Aareal	Aareal
+Tools	PKI	PKI
+Tools	LDAP	LDAP
+Tools	SSOSicherheitsarchitektur	SSOSicherheitsarchitektur
+Customer	Hapimag	Hapimag
+Tools	Technology Evaluation	Technology Evaluation
+Tools	GxP	GxP
+Tools	Functional Specs	Functional Specs
+Tools	CRYSTAL	CRYSTAL
+Tools	MS Visual Source Safe	MS Visual Source Safe
+Customer	Telekurs	Telekurs
+Tools	Projekt- und Prozessmanagement Coaching	Projekt- und Prozessmanagement Coaching
+Customer	?	?
+Customer	Finanzdepartement Basel	Finanzdepartement Basel
+Customer	Giesecke & Devrient	Giesecke & Devrient
+Tools	Cash-Terminal	Cash-Terminal
+Tools	internes Camp LabView	internes Camp LabView
+Customer	SCM	SCM
+Tools	EAI	EAI
+Tools	TIBCO	TIBCO
+Tools	Risikominimierung	Risikominimierung
+Tools	SEI/CMM	SEI/CMM
+Tools	UBS MAP	UBS MAP
+Customer	Geneva Logistics Group	Geneva Logistics Group
+Customer	Heptagon	Heptagon
+Tools	zentrale Datenverwaltung	zentrale Datenverwaltung
+Customer	in-Luft	in-Luft
+Customer	Shell	Shell
+Tools	.NET Coaching	.NET Coaching
+Tools	Enterprise Modeling	Enterprise Modeling
+Tools	Business Modeling	Business Modeling
+Tools	Fixpreis	Fixpreis
+Customer	Unitek	Unitek
+Tools	Server	Server
+Tools	Usability Engineering	Usability Engineering
+Customer	Diebold	Diebold
+Customer	Swisscard AECS	Swisscard AECS
+Tools	Integration Acquirer System in die ep2 Umgebung	Integration Acquirer System in die ep2 Umgebung
+Customer	Provinzial (WPV)	Provinzial (WPV)
+Tools	Software Ergonomie	Software Ergonomie
+Tools	EasyRide	EasyRide
+Tools	Entwicklung Gateway	Entwicklung Gateway
+Customer	Winterthur	Winterthur
+Tools	Projektleitung Informatik	Projektleitung Informatik
+Tools	Schulung	Schulung
+Customer	Chemspeed	Chemspeed
+Tools	Patent Werkzeug-wechsel und 4-Nadelkopf	Patent Werkzeug-wechsel und 4-Nadelkopf
+Tools	erste ortsungebundene Dosierung auf dem Markt	erste ortsungebundene Dosierung auf dem Markt
+Customer	Zeptosens	Zeptosens
+Tools	Beratung Managementsystem	Beratung Managementsystem
+Customer	RUAG	RUAG
+Tools	Coaching	Coaching
+Customer	bsquare	bsquare
+Tools	B2B mit .NET	B2B mit .NET
+Customer	NZZ	NZZ
+Customer	Vitrashop	Vitrashop
+Tools	Optimierung ERP	Optimierung ERP
+Tools	MaCs	MaCs
+Customer	Oertli	Oertli
+Tools	SW-Expertise	SW-Expertise
+Customer	Berchtold	Berchtold
+Applications	Noch nicht definiert	Noch nicht definiert
+Tools	embedded Linux für Videokonferenzen	embedded Linux für Videokonferenzen
+Tools	Stellantrieb	Stellantrieb
+Tools	neutrale Expertise	neutrale Expertise
+Tools	Entwicklungsprozess RUP	Entwicklungsprozess RUP
+Customer	Imaging Solutions	Imaging Solutions
+Tools	Entw. Bedien- und Steuerungssoftware	Entw. Bedien- und Steuerungssoftware
+Tools	optimierung ERP	optimierung ERP
+Customer	@Rating	@Rating
+Tools	Sicherstellung Realisierung der Anwendung	Sicherstellung Realisierung der Anwendung
+Customer	DVAG	DVAG
+Customer	FIFA	FIFA
+Tools	BEA	BEA
+Customer	LGT / Informationobjects	LGT / Informationobjects
+Tools	Requisite Pro	Requisite Pro
+Tools	Rational ClearQuest	Rational ClearQuest
+Tools	Rational Test Manager	Rational Test Manager
+Tools	Robot	Robot
+Customer	HypoVereinsbank	HypoVereinsbank
+Tools	Train/EAI	Train/EAI
+Tools	e-Tender	e-Tender
+Tools	Spezifikation der neuen Postomat Generation	Spezifikation der neuen Postomat Generation
+Customer	Gretag	Gretag
+Tools	Reengineering Steuerungssoftware	Reengineering Steuerungssoftware
+Customer	Swissair Group	Swissair Group
+Tools	Internetapplikation für Management-Kennzahlen	Internetapplikation für Management-Kennzahlen
+Customer	Europay	Europay
+Tools	Spezifikation der neuen Bancomat Generation	Spezifikation der neuen Bancomat Generation
+Customer	Häni-Prolectron AG	Häni-Prolectron AG
+Tools	Erfassung der Fahrdaten der Passagiere	Erfassung der Fahrdaten der Passagiere
+Tools	ASP	ASP
+Tools	WML	WML
+Tools	FieldLink Prototype	FieldLink Prototype
+Customer	British Airways	British Airways
+Customer	DG Bank	DG Bank
+Tools	Front-/Backoffice-Systeme	Front-/Backoffice-Systeme
+Tools	Smart Clients	Smart Clients
+Tools	DataMan	DataMan
+Tools	COM/DNA	COM/DNA
+Tools	STREAM	STREAM
+Customer	Darby Group	Darby Group
+Tools	Innovations- und Technologiemanagement	Innovations- und Technologiemanagement
+Customer	Swissport	Swissport
+Tools	Produktion	Produktion
+Tools	Projektmanagement	Projektmanagement
+Customer	Erdgas Zürich	Erdgas Zürich
+Tools	Produktion IT	Produktion IT
+Customer	Zürich Financial Services	Zürich Financial Services
+Tools	SW-Architektur	SW-Architektur
+Customer	Louis Lang	Louis Lang
+Tools	Optimierung Organisation	Optimierung Organisation
+Customer	SIC/SAIT	SIC/SAIT
+Tools	Organisationsentw.	Organisationsentw.
+Customer	Intamin	Intamin
+Tools	Sensorik	Sensorik
+Customer	Viessman	Viessman
+Tools	GU-Auftrag A-Z	GU-Auftrag A-Z
+Tools	Nachweis von Antikörper	Nachweis von Antikörper
+Customer	atraxis	atraxis
+Tools	Studie Connectivity	Studie Connectivity
+Customer	SE	SE
+Tools	SGI	SGI
+Tools	Sniff	Sniff
+Tools	RCS	RCS
+Tools	Purify	Purify
+Tools	DIS	DIS
+Customer	Zürich Versicherung	Zürich Versicherung
+Tools	AUS	AUS
+Tools	Dimensionierungswerkzeug	Dimensionierungswerkzeug
+Customer	AfU	AfU
+Tools	MS SourceSafe	MS SourceSafe
+Tools	RogueWave	RogueWave
+Customer	SBB/ÖBB	SBB/ÖBB

@@ -19,10 +19,12 @@ namespace ProjectFlip.Services
 
         public ProjectNotesService(IProjectNotesLoader projectNotesLoader)
         {
+            Aggregator.LoadMapping();
             _projectNotesLoader = projectNotesLoader;
             _projectNotes =
                 new List<IProjectNote>(_projectNotesLoader.Import().ConvertAll(line => new ProjectNote { Line = line }));
             _projectNotes.RemoveAll(pn => !File.Exists(pn.FilepathXps));
+            Aggregator.SaveMapping();
         }
 
         #region IProjectNotesService Members

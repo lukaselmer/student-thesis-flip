@@ -73,9 +73,7 @@ namespace ProjectFlip.Services
         private void AddToMetadata(MetadataType metadataType, string line)
         {
             var metadataList = SharepointStringDeserializer.Deserialize(line, metadataType);
-            Aggregator.LoadMapping(@"C:\test.txt");
             var aggregatedList = metadataList.Select(Aggregator.AggregateMetadata).ToList();
-            Aggregator.SaveMapping(@"C:\test.txt");
             Metadata.Add(new KeyValuePair<MetadataType, IList<IMetadata>>(metadataType, aggregatedList));
         }
 

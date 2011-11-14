@@ -14,17 +14,17 @@ namespace ProjectFlip.Services
 {
     internal static class Aggregator
     {
+        public static string MappingFilePath = @"..\..\..\Resources\mapping.txt";
         static Dictionary<string, IMetadata> _mapping = new Dictionary<string, IMetadata>();
 
-        public static void LoadMapping(string filePath)
+        public static void LoadMapping()
         {
             try
             {
-
-                if (!File.Exists(filePath)) return;
+                if (!File.Exists(MappingFilePath)) return;
                 _mapping = new Dictionary<string, IMetadata>();
 
-                using (var handle = new StreamReader(filePath))
+                using (var handle = new StreamReader(MappingFilePath))
                 {
                     handle.ReadLine(); // Skip header line
                     while (!handle.EndOfStream)
@@ -47,18 +47,19 @@ namespace ProjectFlip.Services
             }
         }
 
-        public static void SaveMapping(string filePath)
+        public static void SaveMapping()
         {
             try
             {
                 var reverseMapping = new Dictionary<IMetadata, List<string>>();
-                _mapping.Values.ToList().ForEach(metadata =>
-                {
-                    if (!reverseMapping.ContainsKey(metadata)) reverseMapping[metadata] = new List<string>();
-                    reverseMapping[metadata].Add(metadata.Description);
-                });
+                _mapping.Keys.ToList().ForEach(mappingFrom =>
+                    {
+                        var metadata = _mapping[mappingFrom];
+                        if (!reverseMapping.ContainsKey(metadata)) reverseMapping[metadata] = new List<string>();
+                        reverseMapping[metadata].Add(mappingFrom);
+                    });
 
-                using (var handle = new StreamWriter(filePath))
+                using (var handle = new StreamWriter(MappingFilePath))
                 {
                     var header = new[]
                     {
