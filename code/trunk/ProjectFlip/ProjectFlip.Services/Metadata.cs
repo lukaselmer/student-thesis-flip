@@ -31,25 +31,8 @@ namespace ProjectFlip.Services
 
         public bool Match(IProjectNote projectNote)
         {
-            switch (Type.Name)
-            {
-                case "Sector":
-                    return projectNote.Sector.Description == Description;
-                case "Technologies":
-                    return projectNote.Technologies.Any(d => d.Description == Description);
-                case "Services":
-                    return projectNote.Services.Any(d => d.Description == Description);
-                case "Tools":
-                    return projectNote.Tools.Any(d => d.Description == Description);
-                case "Customer":
-                    return projectNote.Customer.Description == Description;
-                case "Focus":
-                    return projectNote.Focus.Any(d => d.Description == Description);
-                case "Applications":
-                    return projectNote.Applications.Any(d => d.Description == Description);
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            if (!projectNote.Metadata.ContainsKey(Type)) return false;
+            return projectNote.Metadata[Type].Any(m => m.Description == Description);
         }
 
         #endregion
