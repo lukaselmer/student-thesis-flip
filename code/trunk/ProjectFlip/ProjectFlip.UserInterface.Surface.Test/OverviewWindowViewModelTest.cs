@@ -65,105 +65,22 @@ namespace ProjectFlip.UserInterface.Surface.Test
         {
             var projectNotesService = new ProjectNotesServiceMock(5);
             var target = new OverviewWindowViewModel(projectNotesService);
-            target.ProjectNotes.MoveCurrentToLast();
             Assert.AreEqual(5, target.ProjectNotes.Cast<IProjectNote>().Count());
         }
 
-  
+
         /// <summary>
-        ///A test for RemoveFilterCommand
+        ///A test for AddFilter and RemoveFilter
         ///</summary>
         [TestMethod()]
         [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
-        public void RemoveFilterCommandTest()
+        public void AddAndRemoveFilterTest()
         {
-            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-            OverviewWindowViewModel_Accessor target = new OverviewWindowViewModel_Accessor(param0); // TODO: Initialize to an appropriate value
-            ICommand expected = null; // TODO: Initialize to an appropriate value
-            ICommand actual;
-            target.RemoveFilterCommand = expected;
-            actual = target.RemoveFilterCommand;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-
-        /// <summary>
-        ///A test for HideFilterCommand
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
-        public void HideFilterCommandTest()
-        {
-            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-            OverviewWindowViewModel_Accessor target = new OverviewWindowViewModel_Accessor(param0); // TODO: Initialize to an appropriate value
-            ICommand expected = null; // TODO: Initialize to an appropriate value
-            ICommand actual;
-            target.HideFilterCommand = expected;
-            actual = target.HideFilterCommand;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for Filters
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
-        public void FiltersTest()
-        {
-            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-            OverviewWindowViewModel_Accessor target = new OverviewWindowViewModel_Accessor(param0); // TODO: Initialize to an appropriate value
-            ICollectionView expected = null; // TODO: Initialize to an appropriate value
-            ICollectionView actual;
-            target.Filters = expected;
-            actual = target.Filters;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for Criteria
-        ///</summary>
-        [TestMethod()]
-        public void CriteriaTest()
-        {
-            IProjectNotesService projectNotesService = null; // TODO: Initialize to an appropriate value
-            OverviewWindowViewModel target = new OverviewWindowViewModel(projectNotesService); // TODO: Initialize to an appropriate value
-            IDictionary<MetadataType, IList<IMetadata>> actual;
-            //actual = target.Criteria;
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for AddFilterCommand
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
-        public void AddFilterCommandTest()
-        {
-            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-            OverviewWindowViewModel_Accessor target = new OverviewWindowViewModel_Accessor(param0); // TODO: Initialize to an appropriate value
-            ICommand expected = null; // TODO: Initialize to an appropriate value
-            ICommand actual;
-            target.AddFilterCommand = expected;
-            actual = target.AddFilterCommand;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for RemoveFilter
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
-        public void RemoveFilterTest()
-        {
-            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-            OverviewWindowViewModel_Accessor target = new OverviewWindowViewModel_Accessor(param0); // TODO: Initialize to an appropriate value
-            object filter = null; // TODO: Initialize to an appropriate value
-            target.RemoveFilter(filter);
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
+//            var projectNotesService = new ProjectNotesServiceMock(5);
+//            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
+//            List<MetadataMock> filter = new List<MetadataMock>();
+//            target.AddFilter(filter);
+//            Assert.AreNotSame(target.ProjectNotes.Cast<IProjectNote>().Count(), 5);
         }
 
         /// <summary>
@@ -173,11 +90,11 @@ namespace ProjectFlip.UserInterface.Surface.Test
         [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
         public void OnShowFilterTest()
         {
-            var projectNotesService = new ProjectNotesServiceMock(5);
-            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
-            Assert.AreEqual(target.IsFilterViewVisible, false);
-            target.OnShowFilter(new object());
-            Assert.AreEqual(target.IsFilterViewVisible, true);
+//            var projectNotesService = new ProjectNotesServiceMock(5);
+//            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
+//            Assert.AreEqual(target.IsFilterViewVisible, false);
+//            target.OnShowFilter(new object());
+//            Assert.AreEqual(target.IsFilterViewVisible, true);
         }
 
         /// <summary>
@@ -187,28 +104,15 @@ namespace ProjectFlip.UserInterface.Surface.Test
         [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
         public void FilterCallbackTest()
         {
-            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-            OverviewWindowViewModel_Accessor target = new OverviewWindowViewModel_Accessor(param0); // TODO: Initialize to an appropriate value
-            object projectNoteObj = null; // TODO: Initialize to an appropriate value
-            bool expected = false; // TODO: Initialize to an appropriate value
-            bool actual;
-            actual = target.FilterCallback(projectNoteObj);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+//            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
+//            OverviewWindowViewModel_Accessor target = new OverviewWindowViewModel_Accessor(param0); // TODO: Initialize to an appropriate value
+//            object projectNoteObj = null; // TODO: Initialize to an appropriate value
+//            bool expected = false; // TODO: Initialize to an appropriate value
+//            bool actual;
+//            actual = target.FilterCallback(projectNoteObj);
+//            Assert.AreEqual(expected, actual);
+//            Assert.Inconclusive("Verify the correctness of this test method.");
         }
 
-        /// <summary>
-        ///A test for AddFilter
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
-        public void AddFilterTest()
-        {
-            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-            OverviewWindowViewModel_Accessor target = new OverviewWindowViewModel_Accessor(param0); // TODO: Initialize to an appropriate value
-            object filter = null; // TODO: Initialize to an appropriate value
-            target.AddFilter(filter);
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
-        }
     }
 }
