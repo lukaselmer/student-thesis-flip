@@ -22,7 +22,7 @@ namespace ProjectFlip.Test.Mock
         public string Title { get; set; }
         public string Text { get; set; }
 
-        public IDictionary<MetadataType, IList<IMetadata>> Metadata
+        public IDictionary<IMetadataType, IList<IMetadata>> Metadata
         {
             get { throw new NotImplementedException(); }
         }

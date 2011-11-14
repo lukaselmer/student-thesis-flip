@@ -26,7 +26,7 @@ namespace ProjectFlip.Services
 
         #region IMetadata Members
 
-        public MetadataType Type { get; private set; }
+        public IMetadataType Type { get; private set; }
         public string Description { get; private set; }
 
         public bool Match(IProjectNote projectNote)

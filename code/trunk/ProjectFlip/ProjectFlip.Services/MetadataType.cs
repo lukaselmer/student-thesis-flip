@@ -1,7 +1,7 @@
-﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
+using ProjectFlip.Services.Interfaces;
 
-namespace ProjectFlip.Services.Interfaces
+namespace ProjectFlip.Services
 {
     public class MetadataType : IMetadataType
     {

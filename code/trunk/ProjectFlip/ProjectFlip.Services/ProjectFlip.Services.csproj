@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Aggregator.cs" />
     <Compile Include="Metadata.cs" />
+    <Compile Include="MetadataType.cs" />
     <Compile Include="ProjectNote.cs" />
     <Compile Include="ProjectNotesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -2,7 +2,7 @@
 {
     public interface IMetadata
     {
-        MetadataType Type { get; }
+        IMetadataType Type { get; }
         string Description { get; }
 
         bool Match(IProjectNote projectNote);

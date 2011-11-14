@@ -44,7 +44,7 @@ namespace ProjectFlip.Test.Mock
 
     public class MetadataMock : IMetadata
     {
-        public MetadataType Type { get; set; }
+        public IMetadataType Type { get; set; }
 
         public string Description { get; set; }
 

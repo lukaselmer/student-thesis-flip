@@ -26,7 +26,7 @@ namespace ProjectFlip.Services
         public string Title { get; private set; } // Audit einer IT-Infrastruktur und Organisation
         public string Text { get; private set; } // In einem externen Audit untersucht Zühlke die IT und die ...
 
-        public IDictionary<MetadataType, IList<IMetadata>> Metadata { get; private set; }
+        public IDictionary<IMetadataType, IList<IMetadata>> Metadata { get; private set; }
 
         public DateTime Published { get; private set; }
         public string Filename { get; private set; }
@@ -53,7 +53,7 @@ namespace ProjectFlip.Services
 
         private void InitMetadata(IList<string> value)
         {
-            Metadata = new Dictionary<MetadataType, IList<IMetadata>>();
+            Metadata = new Dictionary<IMetadataType, IList<IMetadata>>();
             AddToMetadata("Sector", value[3]);
             AddToMetadata("Customer", value[4]);
             AddToMetadata("Focus", value[5]);
