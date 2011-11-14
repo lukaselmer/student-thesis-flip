@@ -114,5 +114,34 @@ namespace ProjectFlip.UserInterface.Surface.Test
 //            Assert.Inconclusive("Verify the correctness of this test method.");
         }
 
+        /// <summary>
+        ///A test for MoxeToNext
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
+        public void MoveToNextTest()
+        {
+            IProjectNotesService projectNotesService = new ProjectNotesServiceMock(2);
+            OverviewWindowViewModel_Accessor target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            target.MoveToNext();
+            Assert.AreEqual(target.CurrentProjectNote, projectNotesService.ProjectNotes.ElementAt(1));
+            target.MoveToNext();
+            Assert.AreEqual(target.CurrentProjectNote, projectNotesService.ProjectNotes.ElementAt(0));
+        }
+
+        /// <summary>
+        ///A test for MoveToPrevious
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
+        public void MoveToPreviousTest()
+        {
+            IProjectNotesService projectNotesService = new ProjectNotesServiceMock(2);
+            OverviewWindowViewModel_Accessor target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            target.MoveToPrevious();
+            Assert.AreEqual(target.CurrentProjectNote, projectNotesService.ProjectNotes.ElementAt(1));
+            target.MoveToPrevious();
+            Assert.AreEqual(target.CurrentProjectNote, projectNotesService.ProjectNotes.ElementAt(0));
+        }
     }
 }
