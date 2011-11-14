@@ -14,7 +14,7 @@ namespace ProjectFlip.UserInterface.Surface.Converters
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            return ((Visibility) value) == Visibility.Visible;
         }
     }
 }
