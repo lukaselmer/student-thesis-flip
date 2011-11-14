@@ -69,23 +69,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
             Assert.AreEqual(5, target.ProjectNotes.Cast<IProjectNote>().Count());
         }
 
-        /// <summary>
-        ///A test for ShowFilterCommand
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
-        public void ShowFilterCommandTest()
-        {
-            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-            OverviewWindowViewModel_Accessor target = new OverviewWindowViewModel_Accessor(param0); // TODO: Initialize to an appropriate value
-            ICommand expected = null; // TODO: Initialize to an appropriate value
-            ICommand actual;
-            target.ShowFilterCommand = expected;
-            actual = target.ShowFilterCommand;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
+  
         /// <summary>
         ///A test for RemoveFilterCommand
         ///</summary>
@@ -103,21 +87,6 @@ namespace ProjectFlip.UserInterface.Surface.Test
             Assert.Inconclusive("Verify the correctness of this test method.");
         }
 
-        /// <summary>
-        ///A test for IsFilterViewVisible
-        ///</summary>
-        [TestMethod()]
-        public void IsFilterViewVisibleTest()
-        {
-            IProjectNotesService projectNotesService = null; // TODO: Initialize to an appropriate value
-            OverviewWindowViewModel target = new OverviewWindowViewModel(projectNotesService); // TODO: Initialize to an appropriate value
-            bool expected = false; // TODO: Initialize to an appropriate value
-            bool actual;
-            target.IsFilterViewVisible = expected;
-            actual = target.IsFilterViewVisible;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
 
         /// <summary>
         ///A test for HideFilterCommand
@@ -204,10 +173,10 @@ namespace ProjectFlip.UserInterface.Surface.Test
         [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
         public void OnShowFilterTest()
         {
-            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-            OverviewWindowViewModel_Accessor target = new OverviewWindowViewModel_Accessor(param0); // TODO: Initialize to an appropriate value
-            object o = null; // TODO: Initialize to an appropriate value
-            target.OnShowFilter(o);
+            var projectNotesService = new ProjectNotesServiceMock(5);
+            var target = new OverviewWindowViewModel(projectNotesService);
+            Assert.AreEqual(target.IsFilterViewVisible, false);
+            target.OnShowFilter(new object());
             Assert.Inconclusive("A method that does not return a value cannot be verified.");
         }
 

@@ -24,7 +24,6 @@ namespace ProjectFlip.UserInterface.Surface
         private CollectionView _subcriteria;
         private ICollectionView _filtersCollectionView;
 
-
         public OverviewWindowViewModel(IProjectNotesService projectNotesService)
         {
             ProjectNotes = new ListCollectionView(projectNotesService.ProjectNotes) {Filter = FilterCallback};
