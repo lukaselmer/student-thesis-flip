@@ -5,9 +5,6 @@ using System.Data.Odbc;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-//using ComLib;
-//using ComLib.CsvParse;
-using ComLib.CsvParse;
 using ProjectFlip.Services.Interfaces;
 
 namespace ProjectFlip.Services
