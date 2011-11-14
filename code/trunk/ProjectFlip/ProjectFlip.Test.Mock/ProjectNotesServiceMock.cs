@@ -13,7 +13,7 @@ namespace ProjectFlip.Test.Mock
     {
         public ProjectNotesServiceMock(int count, string o = "")
         {
-            ProjectNotes = new List<IProjectNote>(Enumerable.Range(0, count).Select(i => new ProjectNoteMock()));
+            ProjectNotes = new List<IProjectNote>(Enumerable.Range(0, count).Select(i => new ProjectNoteMock(o)));
         }
 
         public List<IProjectNote> ProjectNotes { get; private set; }
@@ -27,8 +27,8 @@ namespace ProjectFlip.Test.Mock
                 return new Dictionary<IMetadataType, IList<IMetadata>>()
                 {
                     {
-                        new MetadataTypeMock {Name = "Oberkriterium"}, new List<IMetadata> {
-                           new MetadataMock() {Description = "Unterkriterium 1"}, new MetadataMock() {Description =  "Unterkriterium 2"} 
+                        new MetadataTypeMock {Name = "Name"}, new List<IMetadata> {
+                           new MetadataMock() {Description = "Description"} 
                         }
                     }      
                 };

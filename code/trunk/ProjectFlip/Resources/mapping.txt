@@ -1,4 +1,4 @@
-﻿Kategorie	Mapping nach	Mapping von 1	Mapping von 2	Mapping von 3	usw. ...
+Kategorie	Mapping nach	Mapping von 1	Mapping von 2	Mapping von 3	usw. ...
 Sector	Banking & Financial Services	Banking & Financial Services
 Customer	HYPO Capital Management AG	HYPO Capital Management AG
 Focus	Software Solutions	Software Solutions
@@ -708,3 +708,10 @@ Customer	AfU	AfU
 Tools	MS SourceSafe	MS SourceSafe
 Tools	RogueWave	RogueWave
 Customer	SBB/ÖBB	SBB/ÖBB
+Sector	Sector	Sector
+Customer	Customer	Customer
+Focus	Focus	Focus
+Services	Services	Services
+Technologies	Technology	Technology
+Applications	Application	Application
+Tools	Tools	Tools

@@ -76,11 +76,16 @@ namespace ProjectFlip.UserInterface.Surface.Test
         [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
         public void AddAndRemoveFilterTest()
         {
-//            var projectNotesService = new ProjectNotesServiceMock(5);
-//            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
-//            List<MetadataMock> filter = new List<MetadataMock>();
-//            target.AddFilter(filter);
-//            Assert.AreNotSame(target.ProjectNotes.Cast<IProjectNote>().Count(), 5);
+            var projectNotesService = new ProjectNotesServiceMock(5, "Sector");
+            var n = projectNotesService.Metadata.Keys.ElementAt(0).Name;
+            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            var filter = new MetadataMock(new MetadataTypeMock() {Name = "Sector"},"Oberkriterium");
+
+            target.AddFilter(filter);
+            Assert.AreEqual(target.IsFilterViewVisible, false);
+            //Assert.AreEqual(target.ProjectNotes.Cast<IProjectNote>().Count(), 4);
+            //target.RemoveFilter(filter);
+            //Assert.AreEqual(target.ProjectNotes.Cast<IProjectNote>().Count(), 5);
         }
 
         /// <summary>
@@ -90,11 +95,11 @@ namespace ProjectFlip.UserInterface.Surface.Test
         [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
         public void OnShowFilterTest()
         {
-//            var projectNotesService = new ProjectNotesServiceMock(5);
-//            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
-//            Assert.AreEqual(target.IsFilterViewVisible, false);
-//            target.OnShowFilter(new object());
-//            Assert.AreEqual(target.IsFilterViewVisible, true);
+            var projectNotesService = new ProjectNotesServiceMock(5);
+            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            Assert.AreEqual(target.IsFilterViewVisible, false);
+            target.OnShowFilter(new object());
+            Assert.AreEqual(target.IsFilterViewVisible, true);
         }
 
         /// <summary>

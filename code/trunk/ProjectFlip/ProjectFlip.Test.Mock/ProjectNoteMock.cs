@@ -18,6 +18,13 @@ namespace ProjectFlip.Test.Mock
 
         #region IProjectNote Members
 
+        public ProjectNoteMock() { }
+
+        public ProjectNoteMock(string o)
+        {
+            Sector = new MetadataMock(new MetadataTypeMock {Name = o}, o);
+        }
+
         public int Id { get; set; }
         public string Title { get; set; }
         public string Text { get; set; }
