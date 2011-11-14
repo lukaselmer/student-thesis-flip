@@ -19,6 +19,11 @@ namespace ProjectFlip.Test.Mock
 
         public List<IProjectNote> ProjectNotes { get; private set; }
 
+        public IDictionary<MetadataType, IList<IMetadata>> Metadata
+        {
+            get { throw new System.NotImplementedException(); }
+        }
+
         #endregion
     }
 }

@@ -4,8 +4,15 @@
     xmlns:s="http://schemas.microsoft.com/surface/2008">
 
     <UserControl.Resources>
-        <DataTemplate x:Key="FilterCriteriasTemplate">
+        <DataTemplate x:Key="FilterMainCriteriaTemplate">
             <s:SurfaceButton Background="Yellow" >
+                <TextBlock Text="{Binding Name}"></TextBlock>
+            </s:SurfaceButton>
+        </DataTemplate>
+
+        <DataTemplate x:Key="FilterSubCriteriaTemplate">
+            <s:SurfaceButton CommandParameter="{Binding}"  Command="{Binding DataContext.AddFilterCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceListBox}}}" Background="Orange" >
+                <TextBlock Text="{Binding Description}"></TextBlock>
             </s:SurfaceButton>
         </DataTemplate>
     </UserControl.Resources>
@@ -15,12 +22,11 @@
             <ColumnDefinition Width="200" />
             <ColumnDefinition Width="600"/>
         </Grid.ColumnDefinitions>
-        
-        <s:SurfaceListBox Background="Gray" VerticalAlignment="Center" Grid.Column="0" ItemsSource="{Binding Criterias}" ItemTemplate="{DynamicResource FilterCriteriasTemplate}">
+
+        <s:SurfaceListBox Background="Gray" VerticalAlignment="Center" Grid.Column="0" ItemsSource="{Binding Maincriteria}" ItemTemplate="{DynamicResource FilterMainCriteriaTemplate}">
         </s:SurfaceListBox>
         
-        <s:SurfaceListBox Background="Gray" Height="400" VerticalAlignment="Center" Grid.Column="1">
-            <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding CurrentProjectNote.Focus}"  ></ListView>
+        <s:SurfaceListBox Background="Gray" Height="400" VerticalAlignment="Center" Grid.Column="1" ItemsSource="{Binding Subcriteria}" ItemTemplate="{DynamicResource FilterSubCriteriaTemplate}" >
         </s:SurfaceListBox>
         
     </Grid>
