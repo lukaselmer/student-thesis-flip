@@ -1,8 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Odbc;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using Common.Csv;
+//using ComLib;
+//using ComLib.CsvParse;
+using ComLib.CsvParse;
 using ProjectFlip.Services.Interfaces;
 
 namespace ProjectFlip.Services
@@ -13,35 +18,92 @@ namespace ProjectFlip.Services
 
         public static void LoadMapping(string filePath)
         {
-            if (!File.Exists(filePath)) return;
-
-
-            using (var handle = new StreamReader(filePath))
+            try
             {
-                while (!handle.EndOfStream)
+
+                if (!File.Exists(filePath)) return;
+                _mapping = new Dictionary<string, IMetadata>();
+
+                using (var handle = new StreamReader(filePath))
                 {
-                    var line = handle.ReadLine();
-                    //line.Split(new []{','}, 2);
-                    //MetadataType.TryParse()
+                    handle.ReadLine(); // Skip header line
+                    while (!handle.EndOfStream)
+                    {
+                        var line = handle.ReadLine();
+                        Debug.Assert(line != null, "line != null");
+                        var elements = line.Split(new[] { '\t' });
+                        if (elements.Length < 2) continue;
+                        var category = elements[0];
+                        var mapTo = elements[1];
+                        var mappingsTo = elements.Skip(2);
+                        mappingsTo.ToList().ForEach(el => _mapping[el] = Metadata.Get(MetadataType.Get(category), mapTo));
+                    }
                 }
+
             }
-            _mapping = new Dictionary<string, IMetadata>();
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         public static void SaveMapping(string filePath)
         {
-            var csvFile = new CsvFile();
+            try
+            {
+                var reverseMapping = new Dictionary<IMetadata, List<string>>();
+                _mapping.Values.ToList().ForEach(metadata =>
+                {
+                    if (!reverseMapping.ContainsKey(metadata)) reverseMapping[metadata] = new List<string>();
+                    reverseMapping[metadata].Add(metadata.Description);
+                });
+
+                using (var handle = new StreamWriter(filePath))
+                {
+                    var header = new[]
+                    {
+                        "Kategorie", "Mapping nach", "Mapping von 1", "Mapping von 2", "Mapping von 3",
+                        "usw. ..."
+                    };
+                    handle.WriteLine(String.Join("\t", header)); // Write header line
+                    reverseMapping.Keys.ToList().ForEach(metadata =>
+                        {
+                            var line = new List<string> { metadata.Type.Name, metadata.Description };
+                            line.AddRange(reverseMapping[metadata]);
+                            handle.WriteLine(String.Join("\t", line));
+                        });
+                    handle.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+            //Csv.Write(filePath, objectsToWrite, false);
+            /*using(var writer = new CsvWriter(filePath, objectsToWrite, ",", columns, false, false, "\"", "\n", false))
+            {
+                writer.Write();
+            }*/
+
+            //var csv = Csv.LoadText(text, true);
+            /*var csvFile = new CsvFile();
             csvFile.Populate(filePath, true);
             
             using (var writer = new CsvWriter())
             {
                 writer.WriteCsv(csvFile, filePath);
-            }
+            }*/
+        }
+
+        private static void WriteLineToMapping(string obj)
+        {
         }
 
         public static IMetadata AggregateMetadata(IMetadata metadata)
         {
-            return _mapping.ContainsKey(metadata.Description) ? _mapping[metadata.Description] : metadata;
+            if (!_mapping.ContainsKey(metadata.Description)) _mapping[metadata.Description] = metadata;
+            return _mapping[metadata.Description];
         }
     }
 }

@@ -31,21 +31,21 @@ namespace ProjectFlip.Services
 
         public bool Match(IProjectNote projectNote)
         {
-            switch (Type)
+            switch (Type.Name)
             {
-                case MetadataType.Sector:
+                case "Sector":
                     return projectNote.Sector.Description == Description;
-                case MetadataType.Technologies:
+                case "Technologies":
                     return projectNote.Technologies.Any(d => d.Description == Description);
-                case MetadataType.Services:
+                case "Services":
                     return projectNote.Services.Any(d => d.Description == Description);
-                case MetadataType.Tools:
+                case "Tools":
                     return projectNote.Tools.Any(d => d.Description == Description);
-                case MetadataType.Customer:
+                case "Customer":
                     return projectNote.Customer.Description == Description;
-                case MetadataType.Focus:
+                case "Focus":
                     return projectNote.Focus.Any(d => d.Description == Description);
-                case MetadataType.Applications:
+                case "Applications":
                     return projectNote.Applications.Any(d => d.Description == Description);
                 default:
                     throw new ArgumentOutOfRangeException();
