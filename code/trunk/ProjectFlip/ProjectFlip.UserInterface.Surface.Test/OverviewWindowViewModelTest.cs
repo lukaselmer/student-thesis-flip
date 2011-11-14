@@ -174,10 +174,10 @@ namespace ProjectFlip.UserInterface.Surface.Test
         public void OnShowFilterTest()
         {
             var projectNotesService = new ProjectNotesServiceMock(5);
-            var target = new OverviewWindowViewModel(projectNotesService);
+            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
             Assert.AreEqual(target.IsFilterViewVisible, false);
             target.OnShowFilter(new object());
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
+            Assert.AreEqual(target.IsFilterViewVisible, true);
         }
 
         /// <summary>
