@@ -31,7 +31,7 @@ namespace ProjectFlip.UserInterface.Surface
             ProjectNotes.CurrentChanged += OnCurrentProjectNoteChanged; 
             CurrentProjectNote = ((IProjectNote)ProjectNotes.CurrentItem);
             Filters = new CollectionView(_filters);
-            _criteria = CurrentProjectNote.Metadata;
+            _criteria = projectNotesService.Metadata;
             Maincriteria = new CollectionView(_criteria.Keys);
             Maincriteria.CurrentChanged += OnCurrentMainCriteriaChanged;
             

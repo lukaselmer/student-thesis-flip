@@ -5,13 +5,13 @@
 
     <UserControl.Resources>
         <DataTemplate x:Key="FilterMainCriteriaTemplate">
-            <s:SurfaceButton Background="Yellow" >
+            <s:SurfaceButton Background="#d5d5d5" >
                 <TextBlock Text="{Binding Name}"></TextBlock>
             </s:SurfaceButton>
         </DataTemplate>
 
         <DataTemplate x:Key="FilterSubCriteriaTemplate">
-            <s:SurfaceButton CommandParameter="{Binding}"  Command="{Binding DataContext.AddFilterCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceListBox}}}" Background="Orange" >
+            <s:SurfaceButton Background="#ffd869" CommandParameter="{Binding}" Command="{Binding DataContext.AddFilterCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceListBox}}}" >
                 <TextBlock Text="{Binding Description}"></TextBlock>
             </s:SurfaceButton>
         </DataTemplate>
