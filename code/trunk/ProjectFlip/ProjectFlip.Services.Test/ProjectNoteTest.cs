@@ -2,9 +2,8 @@
 
 using System;
 using System.Collections.Generic;
-using System.Windows.Media.Imaging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ProjectFlip.Services.Interfaces;
+using ProjectFlip.Test.Mock;
 
 #endregion
 
@@ -125,7 +124,8 @@ namespace ProjectFlip.Services.Test
                            "Tools", "15.10.2011", "text", "text", filename + ".pdf", "text", "text", "text", "text",
                            "text"
                        };
-            var target = new ProjectNote { Line = line };
+            var aggregator = new AggregatorMock();
+            var target = new ProjectNote { Aggregator = aggregator, Line = line };
             Assert.AreEqual(Convert.ToInt32(line[0]), target.Id);
             Assert.AreEqual(line[1], target.Title);
             Assert.AreEqual(line[2], target.Text);

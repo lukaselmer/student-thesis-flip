@@ -19,10 +19,10 @@ namespace ProjectFlip.Services
 
         public ProjectNotesService(IProjectNotesLoader projectNotesLoader)
         {
-            Aggregator.LoadMapping();
+            var aggregator = new Aggregator();
+            aggregator.LoadMapping();
             _projectNotesLoader = projectNotesLoader;
-            _projectNotes =
-                new List<IProjectNote>(_projectNotesLoader.Import().ConvertAll(line => new ProjectNote { Line = line }));
+            _projectNotes = new List<IProjectNote>(_projectNotesLoader.Import().ConvertAll(line => new ProjectNote { Aggregator = aggregator, Line = line }));
             _projectNotes.RemoveAll(pn => !File.Exists(pn.FilepathXps));
             _metadata = new Dictionary<IMetadataType, IList<IMetadata>>();
             _projectNotes.ForEach(pn => pn.Metadata.ToList().ForEach(ms => ms.Value.ToList().ForEach(m =>
@@ -30,7 +30,7 @@ namespace ProjectFlip.Services
                     if (!_metadata.ContainsKey(m.Type)) _metadata[m.Type] = new List<IMetadata>();
                     if (!_metadata[m.Type].Contains(m)) _metadata[m.Type].Add(m);
                 })));
-            Aggregator.SaveMapping();
+            aggregator.SaveMapping();
         }
 
         #region IProjectNotesService Members

@@ -9,14 +9,14 @@ using ProjectFlip.Services.Interfaces;
 
 namespace ProjectFlip.Services
 {
-    internal static class Aggregator
+    public class Aggregator : IAggregator
     {
         private const string Separator = "\t";
-        public static string MappingFilePath = @"..\..\..\Resources\mapping.txt";
-        static Dictionary<string, IMetadata> _mapping = new Dictionary<string, IMetadata>();
-        private static readonly string[] Header = new[] { "Kategorie", "Mapping nach", "Mapping von 1", "Mapping von 2", "Mapping von 3", "usw. ..." };
+        public string MappingFilePath = @"..\..\..\Resources\mapping.txt";
+        Dictionary<string, IMetadata> _mapping = new Dictionary<string, IMetadata>();
+        private readonly string[] Header = new[] { "Kategorie", "Mapping nach", "Mapping von 1", "Mapping von 2", "Mapping von 3", "usw. ..." };
 
-        public static void LoadMapping()
+        public void LoadMapping()
         {
             try
             {
@@ -46,7 +46,7 @@ namespace ProjectFlip.Services
             }
         }
 
-        public static void SaveMapping()
+        public void SaveMapping()
         {
             var reverseMapping = ReverseMapping();
             var lines = new List<List<string>> { Header.ToList() };
@@ -61,7 +61,7 @@ namespace ProjectFlip.Services
 
         }
 
-        private static Dictionary<IMetadata, List<string>> ReverseMapping()
+        private Dictionary<IMetadata, List<string>> ReverseMapping()
         {
             var reverseMapping = new Dictionary<IMetadata, List<string>>();
             _mapping.Keys.ToList().ForEach(mappingFrom =>
@@ -73,7 +73,7 @@ namespace ProjectFlip.Services
             return reverseMapping;
         }
 
-        private static void WriteFile(List<List<string>> lines)
+        private void WriteFile(List<List<string>> lines)
         {
             using (var handle = new StreamWriter(MappingFilePath))
             {
@@ -81,7 +81,7 @@ namespace ProjectFlip.Services
             }
         }
 
-        public static IMetadata AggregateMetadata(IMetadata metadata)
+        public IMetadata AggregateMetadata(IMetadata metadata)
         {
             if (!_mapping.ContainsKey(metadata.Description)) _mapping[metadata.Description] = metadata;
             return _mapping[metadata.Description];

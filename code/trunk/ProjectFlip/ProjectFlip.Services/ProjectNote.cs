@@ -99,6 +99,8 @@ namespace ProjectFlip.Services
             }
         }
 
+        public IAggregator Aggregator { private get; set; }
+
         #endregion
 
         private void InitStringValues(IList<string> value)
