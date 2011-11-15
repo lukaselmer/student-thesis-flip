@@ -26,7 +26,7 @@ namespace ProjectFlip.Services
         public string Title { get; private set; } // Audit einer IT-Infrastruktur und Organisation
         public string Text { get; private set; } // In einem externen Audit untersucht Zühlke die IT und die ...
 
-        public IDictionary<IMetadataType, IList<IMetadata>> Metadata { get; private set; }
+        public IDictionary<IMetadataType, ICollection<IMetadata>> Metadata { get; private set; }
 
         public DateTime Published { get; private set; }
         public string Filename { get; private set; }
@@ -53,7 +53,7 @@ namespace ProjectFlip.Services
 
         private void InitMetadata(IList<string> value)
         {
-            Metadata = new Dictionary<IMetadataType, IList<IMetadata>>();
+            Metadata = new Dictionary<IMetadataType, ICollection<IMetadata>>();
             AddToMetadata("Sector", value[3]);
             AddToMetadata("Customer", value[4]);
             AddToMetadata("Focus", value[5]);
@@ -69,7 +69,7 @@ namespace ProjectFlip.Services
             var aggregatedList = metadataList.Select(Aggregator.AggregateMetadata).ToList();
             aggregatedList.ForEach(m =>
                 {
-                    if (!Metadata.ContainsKey(m.Type)) Metadata[m.Type] = new List<IMetadata>();
+                    if (!Metadata.ContainsKey(m.Type)) Metadata[m.Type] = new SortedSet<IMetadata>(new MetadataComparer());
                     Metadata[m.Type].Add(m);
                 });
         }

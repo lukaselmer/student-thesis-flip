@@ -17,7 +17,7 @@ namespace ProjectFlip.Services.Interfaces
         string Title { get; }
         string Text { get; }
 
-        IDictionary<IMetadataType, IList<IMetadata>> Metadata { get; }
+        IDictionary<IMetadataType, ICollection<IMetadata>> Metadata { get; }
 
         DateTime Published { get; }
         string Filename { get; }

@@ -76,7 +76,7 @@ namespace ProjectFlip.Services.Test
 
             var pn = new ProjectNoteMock
                 {
-                    Metadata = new Dictionary<IMetadataType, IList<IMetadata>>
+                    Metadata = new Dictionary<IMetadataType, ICollection<IMetadata>>
                         {
                             {t1, new List<IMetadata>{t1M1, t1M2}},
                             {t2, new List<IMetadata>{t2M1, t2M2}},

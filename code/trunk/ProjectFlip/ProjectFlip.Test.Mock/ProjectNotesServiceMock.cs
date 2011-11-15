@@ -20,11 +20,11 @@ namespace ProjectFlip.Test.Mock
 
         #region IProjectNotesService Members
 
-        public IDictionary<IMetadataType, IList<IMetadata>> Metadata
+        public IDictionary<IMetadataType, ICollection<IMetadata>> Metadata
         {
             get
             {
-                return new Dictionary<IMetadataType, IList<IMetadata>>()
+                return new Dictionary<IMetadataType, ICollection<IMetadata>>()
                 {
                     {
                         new MetadataTypeMock {Name = "Name"}, new List<IMetadata> {
