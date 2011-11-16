@@ -17,7 +17,10 @@
         </DataTemplate>
     </UserControl.Resources>
 
-    <Grid Background="#AA000000">
+    <Grid>
+        <s:SurfaceButton Background="#AA000000" Command="{Binding ShowFilterCommand}" />
+       
+        <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200" />
             <ColumnDefinition Width="600"/>
@@ -28,6 +31,7 @@
         
         <s:SurfaceListBox Background="Gray" Height="400" VerticalAlignment="Center" Grid.Column="1" ItemsSource="{Binding Subcriteria}" ItemTemplate="{DynamicResource FilterSubCriteriaTemplate}" >
         </s:SurfaceListBox>
-        
+   
+      </Grid>
     </Grid>
 </UserControl>

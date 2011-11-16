@@ -68,7 +68,7 @@ namespace ProjectFlip.UserInterface.Surface
 
         private void OnShowFilter(object o)
         {
-            IsFilterViewVisible = true;
+            IsFilterViewVisible = !IsFilterViewVisible;
         }
 
         public IProjectNote CurrentProjectNote

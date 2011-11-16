@@ -16,17 +16,20 @@
         </DataTemplate>
     </UserControl.Resources>
 
-    <Grid Background="#AA000000" x:Name="LayoutRoot">
+    <Grid>
+        <s:SurfaceButton Background="#AA000000" Command="{Binding HideDetailsCommand}" />
+    <Grid x:Name="LayoutRoot">
       <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="1.5*"/>
             <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.5*"/>
       </Grid.ColumnDefinitions>
 
-        <s:SurfaceListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding CurrentProjectNote.Metadata}" ItemTemplate="{DynamicResource MetadataListTemplate}">
-            <!--<TextBlock FontSize="25">Sektor</TextBlock>
+       
+                <s:SurfaceListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding CurrentProjectNote.Metadata}" ItemTemplate="{DynamicResource MetadataListTemplate}">
+                    <!--<TextBlock FontSize="25">Sektor</TextBlock>
             <TextBlock Background="White" FontSize="20" Text="{Binding CurrentProjectNote.Sector.Description}"></TextBlock>
             <TextBlock FontSize="25">Firma</TextBlock>
             <TextBlock Background="White" FontSize="20" Text="{Binding CurrentProjectNote.Customer.Description}"></TextBlock>
@@ -36,9 +39,9 @@
             <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding CurrentProjectNote.Services}" ItemTemplate="{DynamicResource MetadataTemplate}"></ListView>
             <TextBlock FontSize="25">Tools</TextBlock>
             <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding CurrentProjectNote.Tools}" ItemTemplate="{DynamicResource MetadataTemplate}"></ListView>-->
-        </s:SurfaceListBox>
-
-        <s:SurfaceButton VerticalAlignment="Center" Margin="8,0,0,0" Grid.Column="1" x:Name="ToLeftButton" Command="{Binding NavigateToLeftCommand}">
+                </s:SurfaceListBox>
+          
+            <s:SurfaceButton VerticalAlignment="Center" Margin="8,0,0,0" Grid.Column="1" x:Name="ToLeftButton" Command="{Binding NavigateToLeftCommand}">
             <TextBlock TextWrapping="Wrap">nach links</TextBlock></s:SurfaceButton>
 
         <DocumentViewer Grid.Column="2" Margin="8" Document="{Binding CurrentProjectNote.Document}" />
@@ -46,9 +49,10 @@
         <s:SurfaceButton VerticalAlignment="Center" Margin="0,0,0,8" Grid.Column="3" x:Name="ToRightButton" Command="{Binding NavigateToRightCommand}">
             <TextBlock TextWrapping="Wrap">nach rechts</TextBlock></s:SurfaceButton>
 
-        <Grid Grid.Column="4" Margin="8" x:Name="CloseButton">
-            <s:SurfaceButton VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,8,0,8" Grid.Column="3" Width="150" Command="{Binding HideDetailsCommand}">
-                <TextBlock TextWrapping="Wrap">diese Ansicht schliessen</TextBlock></s:SurfaceButton>
-        </Grid>
+<!--        <Grid Grid.Column="4" Margin="8" x:Name="CloseButton">-->
+<!--            <s:SurfaceButton VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,8,0,8" Grid.Column="3" Width="150" Command="{Binding HideDetailsCommand}">-->
+<!--                <TextBlock TextWrapping="Wrap">diese Ansicht schliessen</TextBlock></s:SurfaceButton>-->
+<!--        </Grid>-->
+    </Grid>
     </Grid>
 </UserControl>
