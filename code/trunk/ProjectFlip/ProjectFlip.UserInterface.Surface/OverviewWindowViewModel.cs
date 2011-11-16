@@ -69,6 +69,7 @@ namespace ProjectFlip.UserInterface.Surface
         private void OnShowFilter(object o)
         {
             IsFilterViewVisible = !IsFilterViewVisible;
+            if (IsDetailViewVisible) IsDetailViewVisible = false;
         }
 
         public IProjectNote CurrentProjectNote
@@ -125,6 +126,7 @@ namespace ProjectFlip.UserInterface.Surface
             _filters.Remove((IMetadata)filter);
             Filters.Refresh();
             ProjectNotes.Refresh();
+            IsDetailViewVisible = false;
         }
 
         private void AddFilter(object filter)
@@ -166,5 +168,4 @@ namespace ProjectFlip.UserInterface.Surface
             }
         }
     }
-
 }
