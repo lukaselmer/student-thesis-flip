@@ -70,11 +70,11 @@ namespace ProjectFlip.UserInterface.Surface.Test
 
 
         /// <summary>
-        ///A test for AddFilter and RemoveFilter
+        ///A test for AddFilter, RemoveFilter and FilterCallback
         ///</summary>
         [TestMethod()]
         [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
-        public void AddAndRemoveFilterTest()
+        public void AddAndRemoveAndCallbackFilterTest()
         {
             var projectNotesService = new ProjectNotesServiceMock(5, "Sector");
             var n = projectNotesService.Metadata.Keys.ElementAt(0).Name;
@@ -83,9 +83,9 @@ namespace ProjectFlip.UserInterface.Surface.Test
 
             target.AddFilter(filter);
             Assert.AreEqual(target.IsFilterViewVisible, false);
-            //Assert.AreEqual(target.ProjectNotes.Cast<IProjectNote>().Count(), 4);
-            //target.RemoveFilter(filter);
-            //Assert.AreEqual(target.ProjectNotes.Cast<IProjectNote>().Count(), 5);
+            Assert.AreEqual(0, target.ProjectNotes.Cast<IProjectNote>().Count());
+            target.RemoveFilter(filter);
+            Assert.AreEqual(5, target.ProjectNotes.Cast<IProjectNote>().Count());
         }
 
         /// <summary>
@@ -100,23 +100,6 @@ namespace ProjectFlip.UserInterface.Surface.Test
             Assert.AreEqual(target.IsFilterViewVisible, false);
             target.OnShowFilter(new object());
             Assert.AreEqual(target.IsFilterViewVisible, true);
-        }
-
-        /// <summary>
-        ///A test for FilterCallback
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
-        public void FilterCallbackTest()
-        {
-//            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-//            OverviewWindowViewModel_Accessor target = new OverviewWindowViewModel_Accessor(param0); // TODO: Initialize to an appropriate value
-//            object projectNoteObj = null; // TODO: Initialize to an appropriate value
-//            bool expected = false; // TODO: Initialize to an appropriate value
-//            bool actual;
-//            actual = target.FilterCallback(projectNoteObj);
-//            Assert.AreEqual(expected, actual);
-//            Assert.Inconclusive("Verify the correctness of this test method.");
         }
 
         /// <summary>
@@ -147,6 +130,36 @@ namespace ProjectFlip.UserInterface.Surface.Test
             Assert.AreEqual(target.CurrentProjectNote, projectNotesService.ProjectNotes.ElementAt(1));
             target.MoveToPrevious();
             Assert.AreEqual(target.CurrentProjectNote, projectNotesService.ProjectNotes.ElementAt(0));
+        }
+
+        /// <summary>
+        ///A test for OnCurrentMainCriteriaChanged
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
+        public void OnCurrentMainCriteriaChangedTest()
+        {
+            IProjectNotesService projectNotesService = new ProjectNotesServiceMock(1);
+            OverviewWindowViewModel_Accessor target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            Assert.IsNull(target.Subcriteria);
+            target.OnCurrentMainCriteriaChanged(new object(), null);
+            Assert.IsNotNull(target.Subcriteria);
+        }
+
+        /// <summary>
+        ///A test for OnShowDetail
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
+        public void OnShowDetailTest()
+        {
+            IProjectNotesService projectNotesService = new ProjectNotesServiceMock(2);
+            OverviewWindowViewModel_Accessor target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            Assert.IsFalse(target.IsDetailViewVisible);
+            Assert.AreEqual(projectNotesService.ProjectNotes.ElementAt(0), target.CurrentProjectNote);
+            target.OnShowDetail(projectNotesService.ProjectNotes.ElementAt(1));
+            Assert.AreEqual(projectNotesService.ProjectNotes.ElementAt(1), target.CurrentProjectNote);
+            Assert.IsTrue(target.IsDetailViewVisible);
         }
     }
 }

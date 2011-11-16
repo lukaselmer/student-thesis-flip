@@ -16,7 +16,6 @@ namespace ProjectFlip.UserInterface.Surface
     public class OverviewWindowViewModel : ViewModelBase
     {
         private IProjectNote _currentProjectNote;
-        private readonly IDictionary<IMetadataType, ICollection<IMetadata>> _criteria;
         
         private readonly List<IMetadata> _filters = new List<IMetadata>();
         private bool _isDetailViewVisible;
@@ -30,20 +29,25 @@ namespace ProjectFlip.UserInterface.Surface
             ProjectNotes.CurrentChanged += OnCurrentProjectNoteChanged; 
             CurrentProjectNote = ((IProjectNote)ProjectNotes.CurrentItem);
             Filters = new CollectionView(_filters);
-            _criteria = projectNotesService.Metadata;
-            Maincriteria = new CollectionView(_criteria.Keys);
+            Criteria  = projectNotesService.Metadata;
+            Maincriteria = new CollectionView(Criteria.Keys);
             Maincriteria.CurrentChanged += OnCurrentMainCriteriaChanged;
             
-            ShowDetailsCommand = new Command(pn => { if (pn != null) ProjectNotes.MoveCurrentTo(pn); IsDetailViewVisible = true; });
+            ShowDetailsCommand = new Command(OnShowDetail);
             HideDetailsCommand = new Command(o => IsDetailViewVisible = false);
             ShowFilterCommand = new Command(OnShowFilter);
             HideFilterCommand = new Command(o => IsFilterViewVisible = false);
             NavigateToLeftCommand = new Command(o => MoveToPrevious());
             NavigateToRightCommand = new Command(o => MoveToNext());
-            DeleteButtonCommand = new Command(OnDeleteButtonCommand);
 
             RemoveFilterCommand = new Command(RemoveFilter); 
             AddFilterCommand = new Command(AddFilter);
+        }
+
+        private void OnShowDetail(object pn)
+        {
+            if (pn != null) ProjectNotes.MoveCurrentTo(pn);
+            IsDetailViewVisible = true;
         }
 
         public CollectionView Maincriteria { get; private set; }
@@ -58,18 +62,13 @@ namespace ProjectFlip.UserInterface.Surface
         private void OnCurrentMainCriteriaChanged(object sender, EventArgs e)
         {
             ICollection<IMetadata> value;
-            _criteria.TryGetValue((IMetadataType) Maincriteria.CurrentItem, out value);
+            Criteria.TryGetValue((IMetadataType) Maincriteria.CurrentItem, out value);
             Subcriteria = new CollectionView(value);
         }
 
         private void OnShowFilter(object o)
         {
             IsFilterViewVisible = true;
-        }
-
-        private void OnDeleteButtonCommand(object obj)
-        {
-            Console.WriteLine(((IProjectNote)ProjectNotes.CurrentItem).Title);
         }
 
         public IProjectNote CurrentProjectNote
@@ -81,10 +80,7 @@ namespace ProjectFlip.UserInterface.Surface
             }
         }
 
-        public IDictionary<IMetadataType, ICollection<IMetadata>> Criteria
-        {
-            get { return _criteria; }
-        }
+        public IDictionary<IMetadataType, ICollection<IMetadata>> Criteria { get; set; }
 
         public ICollectionView Filters {
             get { return _filtersCollectionView; }
@@ -149,7 +145,7 @@ namespace ProjectFlip.UserInterface.Surface
         {
             if (_filters.Count == 0) return true;
             var projectNote = (IProjectNote)projectNoteObj;
-            return _filters.Any(f => f.Match(projectNote));
+            return _filters.All(f => f.Match(projectNote));
         }
 
         private void MoveToNext()

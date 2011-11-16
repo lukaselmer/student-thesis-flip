@@ -58,7 +58,7 @@ namespace ProjectFlip.Test.Mock
 
         public bool Match(IProjectNote projectNote)
         {
-            return true;
+            return false;
         }
     }
 }
