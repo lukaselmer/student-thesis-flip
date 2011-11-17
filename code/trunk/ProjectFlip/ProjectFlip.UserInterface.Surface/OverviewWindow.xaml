@@ -5,27 +5,21 @@
                  xmlns:Converters="clr-namespace:ProjectFlip.UserInterface.Surface.Converters" Title="Project Flip 2.0"
     Background="White">
 
-    <!--<s:SurfaceWindow.Background>
-        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-            <LinearGradientBrush.GradientStops>
-                <GradientStop Offset="0.0" Color="#F6E7FF" />
-                <GradientStop Offset="1.0" Color="#DC9FFF" />
-            </LinearGradientBrush.GradientStops>
-        </LinearGradientBrush>
-    </s:SurfaceWindow.Background>-->
-
     <s:SurfaceWindow.Resources>
 
         <DataTemplate x:Key="ProjectNoteButtonTemplate">
-            <s:SurfaceButton Margin="2" Padding="10,10,10,5" Background="White" Width="220" Height="280" CommandParameter="{Binding}"
+            <s:SurfaceButton Margin="10" Padding="10,10,10,5" Background="White" Width="220" Height="280" CommandParameter="{Binding}"
                              Command="{Binding DataContext.ShowDetailsCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceWindow}}}">
+                <s:SurfaceButton.Effect>
+                    <DropShadowEffect Direction="310" Opacity="0.25"/>
+                </s:SurfaceButton.Effect>
                 <StackPanel Orientation="Vertical"  HorizontalAlignment="Center">
                     <Image Source="{Binding Image}" HorizontalAlignment="Center"/>
-                    <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 5">
+                    <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 6">
                         <Rectangle Width="90" Margin="0,0,10,0"  Height="2" Fill="#ff8204" />
                         <Rectangle Width="90" Margin="10,0,0,0" Height="2" Fill="#ff8204" />
                     </StackPanel>
-                    <TextBlock Text="{Binding Title}" Foreground="#ff8204" TextTrimming="CharacterEllipsis" TextWrapping="WrapWithOverflow" HorizontalAlignment="Left"/>
+                    <TextBlock Text="{Binding Title}" Foreground="#ff8204" TextTrimming="CharacterEllipsis" TextWrapping="WrapWithOverflow" HorizontalAlignment="Left" FontFamily="AA Zuehlke"/>
                 </StackPanel>
             </s:SurfaceButton>
         </DataTemplate>
