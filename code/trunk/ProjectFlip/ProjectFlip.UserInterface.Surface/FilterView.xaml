@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:s="clr-namespace:Microsoft.Surface.Presentation.Controls;assembly=Microsoft.Surface.Presentation"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="200">
+             d:DesignHeight="490" d:DesignWidth="240">
 
     <UserControl.Resources>
     <DataTemplate x:Key="FilterCriteriaTemplate">
@@ -14,16 +14,28 @@
         </s:SurfaceButton>
     </DataTemplate>
     </UserControl.Resources>
-    <Grid>
+    <Grid Margin="20">
         <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="300"/>
             <RowDefinition Height="100"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" VerticalAlignment="Bottom">
-            <TextBlock Text="Auswahlkriterien" Foreground="#ff820a" FontStretch="Expanded" FontSize="24" TextWrapping="WrapWithOverflow"></TextBlock>
+        <StackPanel Grid.Row="0" VerticalAlignment="Top" Orientation="Horizontal">
+            <Rectangle Width="90" Margin="0,0,10,0"  Height="2" Fill="#ff8204" />
+            <Rectangle Width="90" Margin="10,0,0,0" Height="2" Fill="#ff8204" />
+        </StackPanel>
+        <Label Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock FontFamily="AA Zuehlke" Text="Auswahlkriterien" Foreground="#ff820a" FontStretch="Expanded" FontSize="24" TextWrapping="WrapWithOverflow"></TextBlock>
         </Label>
-        <Rectangle Margin="0,10,0,0" Height="1" Fill="#ff820a" VerticalAlignment="Bottom"/>
+        <StackPanel Grid.Row="0" VerticalAlignment="Bottom" Orientation="Horizontal">
+            <Rectangle Width="90" Margin="0,0,10,0"  Height="2" Fill="#ff8204" />
+            <Rectangle Width="90" Margin="10,0,0,0" Height="2" Fill="#ff8204" />
+        </StackPanel>
+        <StackPanel Margin="0,10,0,10" Grid.Row="1">
+            <Rectangle Height="80" d:LayoutOverrides="HorizontalMargin" Fill="#FFFFD869" RadiusX="10" RadiusY="10"/>
+            <Rectangle Height="80" d:LayoutOverrides="HorizontalMargin" Fill="#FFFFD869" RadiusX="10" RadiusY="10"/>
+            <Rectangle Height="80" d:LayoutOverrides="HorizontalMargin" Fill="#FFFFD869" RadiusX="10" RadiusY="10"/>
+        </StackPanel>
         <s:SurfaceListBox Grid.Row="1" ItemsSource="{Binding Filters}" ItemTemplate="{DynamicResource FilterCriteriaTemplate}">
         </s:SurfaceListBox>
         <s:SurfaceButton Grid.Row="2" VerticalAlignment="Top" Background="#ff820a" Width="150" Height="70" Command="{Binding ShowFilterCommand}" >
