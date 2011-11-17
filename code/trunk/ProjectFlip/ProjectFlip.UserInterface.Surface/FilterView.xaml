@@ -31,13 +31,13 @@
             <Rectangle Width="90" Margin="0,0,10,0"  Height="2" Fill="#ff8204" />
             <Rectangle Width="90" Margin="10,0,0,0" Height="2" Fill="#ff8204" />
         </StackPanel>
-        <StackPanel Margin="0,10,0,10" Grid.Row="1">
-            <Rectangle Height="80" d:LayoutOverrides="HorizontalMargin" Fill="#FFFFD869" RadiusX="10" RadiusY="10"/>
-            <Rectangle Height="80" d:LayoutOverrides="HorizontalMargin" Fill="#FFFFD869" RadiusX="10" RadiusY="10"/>
-            <Rectangle Height="80" d:LayoutOverrides="HorizontalMargin" Fill="#FFFFD869" RadiusX="10" RadiusY="10"/>
-        </StackPanel>
-        <s:SurfaceListBox Grid.Row="1" ItemsSource="{Binding Filters}" ItemTemplate="{DynamicResource FilterCriteriaTemplate}">
+        <s:SurfaceListBox Background="Transparent" Foreground="Transparent" Grid.Row="1" ItemsSource="{Binding Filters}" ItemTemplate="{DynamicResource FilterCriteriaTemplate}">
         </s:SurfaceListBox>
+        <StackPanel Background="White" Grid.Row="1">
+            <Rectangle Margin="0,10,0,10" Height="80" Fill="#f9f9f9" RadiusX="10" RadiusY="10"/>
+            <Rectangle Margin="0,10,0,10" Height="80" Fill="#f9f9f9" RadiusX="10" RadiusY="10"/>
+            <Rectangle Margin="0,10,0,10" Height="80" Fill="#f9f9f9" RadiusX="10" RadiusY="10"/>
+        </StackPanel>
         <s:SurfaceButton Grid.Row="2" VerticalAlignment="Top" Background="#ff820a" Width="150" Height="70" Command="{Binding ShowFilterCommand}" >
             <TextBlock Text="Kriterium hinzufügen" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock></s:SurfaceButton>
     </Grid>
