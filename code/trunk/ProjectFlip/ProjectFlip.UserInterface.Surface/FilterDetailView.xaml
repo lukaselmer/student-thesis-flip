@@ -6,41 +6,15 @@
     <UserControl.Resources>
         <DataTemplate x:Key="FilterMainCriteriaTemplate">
             <s:SurfaceButton Background="#d5d5d5" >
-                <TextBlock Text="{Binding Name}"></TextBlock>
+                <TextBlock Style="{DynamicResource TextStyle}" Text="{Binding Name}" />
             </s:SurfaceButton>
         </DataTemplate>
 
         <DataTemplate x:Key="FilterSubCriteriaTemplate">
-            <s:SurfaceButton Background="#ffd869" CommandParameter="{Binding}" Command="{Binding DataContext.AddFilterCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceListBox}}}" >
-                <TextBlock Text="{Binding Description}"></TextBlock>
+            <s:SurfaceButton Style="{DynamicResource FilterButtonStyle}" CommandParameter="{Binding}" Command="{Binding DataContext.AddFilterCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceListBox}}}" >
+                <TextBlock Style="{DynamicResource TextStyle}" Text="{Binding Description}" />
             </s:SurfaceButton>
         </DataTemplate>
-
-        <Style x:Key="BackgroundButtonStyle" TargetType="s:SurfaceButton">
-            <Setter Property="Background" Value="#AA000000" />
-        </Style>
-
-        <Style TargetType="s:SurfaceButton">
-            <Setter Property="Height" Value="80"/>
-            <Setter Property="Width" Value="200"/>
-            <Setter Property="Background" Value="#ffd869"/>
-            <Setter Property="Margin" Value="10" />
-            <Setter Property="Padding" Value="0" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="s:SurfaceButton">
-                        <Border 
-                            CornerRadius="10"
-                            Background="{TemplateBinding Background}">
-                            <ContentPresenter 
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center">
-                            </ContentPresenter>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
 
         <ItemsPanelTemplate x:Key="ItemPanelTemplate">
             <WrapPanel Margin="10" Background="White">
@@ -57,7 +31,7 @@
     </UserControl.Resources>
 
     <Grid>
-        <s:SurfaceButton Style="{StaticResource BackgroundButtonStyle}" Command="{Binding ShowHideFilterCommand}" />
+        <s:SurfaceButton Style="{DynamicResource BackgroundButtonStyle}" Command="{Binding ShowHideFilterCommand}" />
 
         <Grid>
         <Grid.ColumnDefinitions>
