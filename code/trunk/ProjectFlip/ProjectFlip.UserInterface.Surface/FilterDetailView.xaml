@@ -68,8 +68,6 @@
         <s:SurfaceListBox Background="Gray" VerticalAlignment="Center" Grid.Column="0" ItemsSource="{Binding Maincriteria}" ItemTemplate="{DynamicResource FilterMainCriteriaTemplate}">
         </s:SurfaceListBox>
         
-       
-
         <s:SurfaceListBox Background="#e6e6e6" Name="listBox" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Subcriteria}" ItemTemplate="{StaticResource FilterSubCriteriaTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" />
 
         </Grid>
