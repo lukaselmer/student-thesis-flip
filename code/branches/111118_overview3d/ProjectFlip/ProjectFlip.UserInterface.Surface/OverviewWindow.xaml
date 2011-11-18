@@ -1,0 +1,103 @@
+﻿<s:SurfaceWindow x:Class="ProjectFlip.UserInterface.Surface.OverviewWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="http://schemas.microsoft.com/surface/2008" xmlns:Surface="clr-namespace:ProjectFlip.UserInterface.Surface"
+                 xmlns:Converters="clr-namespace:ProjectFlip.UserInterface.Surface.Converters" Title="Project Flip 2.0"
+    Background="White">
+
+    <s:SurfaceWindow.Resources>
+
+        <DataTemplate x:Key="ProjectNoteButtonTemplate">
+            <s:SurfaceButton Margin="10" Padding="10,10,10,5" Background="White" Width="220" Height="280" CommandParameter="{Binding}"
+                             Command="{Binding DataContext.ShowDetailsCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceWindow}}}">
+                <s:SurfaceButton.Effect>
+                    <DropShadowEffect Direction="310" Opacity="0.25"/>
+                </s:SurfaceButton.Effect>
+                <StackPanel Orientation="Vertical"  HorizontalAlignment="Center">
+                    <Image Source="{Binding Image}" HorizontalAlignment="Center"/>
+                    <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 6">
+                        <Rectangle Width="90" Margin="0,0,10,0"  Height="2" Fill="#ff8204" />
+                        <Rectangle Width="90" Margin="10,0,0,0" Height="2" Fill="#ff8204" />
+                    </StackPanel>
+                    <TextBlock Text="{Binding Title}" Foreground="#ff8204" TextTrimming="CharacterEllipsis" TextWrapping="WrapWithOverflow" HorizontalAlignment="Left" FontFamily="AA Zuehlke"/>
+                </StackPanel>
+            </s:SurfaceButton>
+        </DataTemplate>
+        
+        <ItemsPanelTemplate x:Key="ItemPanelTemplate">
+            <Surface:Panel3DLuke Background="Red" />
+            <!--<WrapPanel Margin="5">
+                <WrapPanel.Resources>
+                    <Style TargetType="s:SurfaceListBoxItem">
+                        <Setter Property="Margin" Value="0" />
+                        <Setter Property="Padding" Value="0" />
+                        <Setter Property="Background" Value="Transparent" />
+                    </Style>
+                </WrapPanel.Resources>
+            </WrapPanel>-->
+        </ItemsPanelTemplate>
+
+
+        <Style x:Key="Wall3D_ListBoxItemStyle" TargetType="ListBoxItem">
+            <Setter Property="Padding" Value="3"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <!--<Setter Property="TabNavigation" Value="Local"/>-->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Grid x:Name="grid" Background="{TemplateBinding Background}" IsHitTestVisible="False">
+                            <!--Loaded="OnItemLoaded" -->
+                            <Grid x:Name="reflex" Height="292" Margin="0,0,0,-326" Width="389" IsHitTestVisible="False">
+                                <Image x:Name="reflex_image" HorizontalAlignment="Center" Width="389" Source="{Binding Image}" RenderTransformOrigin="0.5,0.5" OpacityMask="{x:Null}" Height="292" VerticalAlignment="Bottom" IsHitTestVisible="False">
+                                    <Image.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="-1"/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform Y="310"/>
+                                        </TransformGroup>
+                                    </Image.RenderTransform>
+                                </Image>
+                                <Rectangle x:Name="reflex_cover" Stroke="{x:Null}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RenderTransformOrigin="0.5,0.5">
+                                    <Rectangle.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform Y="310"/>
+                                        </TransformGroup>
+                                    </Rectangle.RenderTransform>
+                                    <Rectangle.Fill>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="#72000000"/>
+                                            <GradientStop Color="#FF000000" Offset="0.89"/>
+                                        </LinearGradientBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                            </Grid>
+                            <Image x:Name="row1" HorizontalAlignment="Center" Width="389" Source="{Binding image}" Height="292" Margin="0,0,0,-290" VerticalAlignment="Bottom"/>
+                            <Rectangle x:Name="border" Fill="{x:Null}" Stroke="#FF1D202A" HorizontalAlignment="Left" Width="389" Opacity="0.7" Height="292" VerticalAlignment="Top" Margin="0,0,0,-290" StrokeThickness="4"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </s:SurfaceWindow.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Surface:FilterView Grid.Column="0"/>
+        <s:SurfaceListBox Background="#e6e6e6" Name="listBox" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ProjectNotes}"
+                          ItemsPanel="{DynamicResource ItemPanelTemplate}" ItemTemplate="{StaticResource ProjectNoteButtonTemplate}" />
+        <!-- ItemContainerStyle="{StaticResource Wall3D_ListBoxItemStyle}"-->
+        <Surface:DetailView Grid.Column="1" Visibility="{Binding IsDetailViewVisible, Converter={Converters:BoolToVisibilityConverter}}"/>
+        <Surface:FilterDetailView Grid.Column="1" Visibility="{Binding IsFilterViewVisible, Converter={Converters:BoolToVisibilityConverter}}"/>
+    </Grid>
+</s:SurfaceWindow>
