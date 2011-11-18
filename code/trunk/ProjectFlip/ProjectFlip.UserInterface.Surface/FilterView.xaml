@@ -17,21 +17,23 @@
         <Style x:Key="ButtonStyle" TargetType="s:SurfaceButton">
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Grid>
-                            <Rectangle Fill="{TemplateBinding Background}" StrokeThickness="1" Width="200" Height="80">
+                    <ControlTemplate TargetType="{x:Type s:SurfaceButton}">
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                        	<Grid.Effect>
+                        		<DropShadowEffect Direction="310" Opacity="0.25" ShadowDepth="1" BlurRadius="3"/>
+                        	</Grid.Effect>
+                            <Rectangle Fill="{TemplateBinding Background}" StrokeThickness="7" Width="210" Height="90" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            	<Rectangle.Effect>
+                            		<BlurEffect/>
+                            	</Rectangle.Effect>
+                            	<Rectangle.Stroke>
+                            		<LinearGradientBrush EndPoint="0.427,0.06" StartPoint="0.578,0.967">
+                            			<GradientStop Color="#FFFE6100" Offset="0.5"/>
+                            			<GradientStop Color="#FFFED7BF" Offset="0.533"/>
+                            		</LinearGradientBrush>
+                            	</Rectangle.Stroke>
                             </Rectangle>
-                            <Border Width="200" Height="80" BorderBrush="#FFFED7BF" BorderThickness="2,2,0,0">
-                                <Border.Effect>
-                                    <BlurEffect Radius="3"/>
-                                </Border.Effect>
-                            </Border>
-                            <Border Width="200" Height="80" BorderBrush="#FFFE6100" BorderThickness="0,0,2,2">
-                                <Border.Effect>
-                                    <BlurEffect Radius="3"/>
-                                </Border.Effect>
-                            </Border>
-                            <ContentPresenter HorizontalAlignment="Center"
+                            <ContentPresenter Margin="10" HorizontalAlignment="Center"
                                           VerticalAlignment="Center"/>
                         </Grid>
                     </ControlTemplate>
@@ -102,6 +104,6 @@
         <s:SurfaceListBox Background="Transparent" VerticalContentAlignment="Bottom" Foreground="Transparent" Grid.Row="1" ItemsSource="{Binding Filters}" ItemTemplate="{DynamicResource FilterCriteriaTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
         </s:SurfaceListBox>
         <s:SurfaceButton Style="{StaticResource ButtonStyle}" Grid.Row="2" VerticalAlignment="Top" Background="#ff820a" Command="{Binding ShowHideFilterCommand}" Width="200" Margin="0,10,0,10" >
-            <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="AA Zuehlke" Foreground="Black" FontSize="21.333"><Run Text="Kriteri"/><Run Language="de-ch" Text="en"/><LineBreak/><Run Language="de-ch"/><Run Text="hinzufügen"/></TextBlock></s:SurfaceButton>
+            <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="AA Zuehlke" Foreground="Black" FontSize="22" TextAlignment="Center">Kriterien hinzufügen</TextBlock></s:SurfaceButton>
     </Grid>
 </UserControl>
