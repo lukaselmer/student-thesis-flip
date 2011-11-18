@@ -37,7 +37,7 @@ namespace ProjectFlip.UserInterface.Surface
             HideDetailsCommand = new Command(o => IsDetailViewVisible = false);
             ShowHideFilterCommand = new Command(OnShowFilter);
             
-            NavigateToLeftCommand = new Command(o => MoveToPrevious());
+            NavigateToLeftCommand = new Command(o => MoveToPrevious()); 
             NavigateToRightCommand = new Command(o => MoveToNext());
 
             RemoveFilterCommand = new Command(RemoveFilter); 

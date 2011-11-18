@@ -79,10 +79,12 @@ namespace ProjectFlip.UserInterface.Surface.Test
             var projectNotesService = new ProjectNotesServiceMock(5, "Sector");
             var n = projectNotesService.Metadata.Keys.ElementAt(0).Name;
             var target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            target.IsDetailViewVisible = true;
             var filter = new MetadataMock(new MetadataTypeMock() {Name = "Sector"},"Oberkriterium");
 
             target.AddFilter(filter);
             Assert.IsFalse(target.IsFilterViewVisible);
+            Assert.IsFalse(target.IsDetailViewVisible);
             Assert.AreEqual(0, target.ProjectNotes.Cast<IProjectNote>().Count());
             target.RemoveFilter(filter);
             Assert.AreEqual(5, target.ProjectNotes.Cast<IProjectNote>().Count());
@@ -160,6 +162,39 @@ namespace ProjectFlip.UserInterface.Surface.Test
             target.OnShowDetail(projectNotesService.ProjectNotes.ElementAt(1));
             Assert.AreEqual(projectNotesService.ProjectNotes.ElementAt(1), target.CurrentProjectNote);
             Assert.IsTrue(target.IsDetailViewVisible);
+        }
+
+        /// <summary>
+        ///A test for HideDetailsCommand
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
+        public void HideDetailsCommandTest()
+        {
+            IProjectNotesService projectNotesService = new ProjectNotesServiceMock(2);
+            OverviewWindowViewModel_Accessor target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            target.HideDetailsCommand.Execute(null);
+            Assert.IsFalse(target.IsDetailViewVisible);
+        }
+
+        /// <summary>
+        ///A test for NavigateToLeftCommand
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
+        public void NavigateToLeftRightCommandTest()
+        {
+            IProjectNotesService projectNotesService = new ProjectNotesServiceMock(3);
+            OverviewWindowViewModel_Accessor target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            target.CurrentProjectNote = projectNotesService.ProjectNotes.ElementAt(0);
+            target.NavigateToLeftCommand.Execute(null);
+            Assert.AreEqual(target.CurrentProjectNote, projectNotesService.ProjectNotes.ElementAt(2));
+            target.NavigateToLeftCommand.Execute(null);
+            Assert.AreEqual(target.CurrentProjectNote, projectNotesService.ProjectNotes.ElementAt(1));
+            target.NavigateToRightCommand.Execute(null);
+            Assert.AreEqual(target.CurrentProjectNote, projectNotesService.ProjectNotes.ElementAt(2));
+            target.NavigateToRightCommand.Execute(null);
+            Assert.AreEqual(target.CurrentProjectNote, projectNotesService.ProjectNotes.ElementAt(0));
         }
     }
 }
