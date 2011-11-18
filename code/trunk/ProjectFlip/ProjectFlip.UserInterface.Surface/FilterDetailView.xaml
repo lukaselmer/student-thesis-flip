@@ -15,23 +15,63 @@
                 <TextBlock Text="{Binding Description}"></TextBlock>
             </s:SurfaceButton>
         </DataTemplate>
+
+        <Style x:Key="BackgroundButtonStyle" TargetType="s:SurfaceButton">
+            <Setter Property="Background" Value="#AA000000" />
+        </Style>
+
+        <Style TargetType="s:SurfaceButton">
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Background" Value="#ffd869"/>
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="s:SurfaceButton">
+                        <Border 
+                            CornerRadius="10"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ItemsPanelTemplate x:Key="ItemPanelTemplate">
+            <WrapPanel Margin="10" Background="White">
+                <WrapPanel.Resources>
+                    <Style TargetType="s:SurfaceListBoxItem">
+                        <Setter Property="Margin" Value="0" />
+                        <Setter Property="Padding" Value="0" />
+                        <Setter Property="Background" Value="Transparent" />
+                    </Style>
+                </WrapPanel.Resources>
+            </WrapPanel>
+        </ItemsPanelTemplate>
+
     </UserControl.Resources>
 
     <Grid>
-        <s:SurfaceButton Background="#AA000000" Command="{Binding ShowHideFilterCommand}" />
-       
+        <s:SurfaceButton Style="{StaticResource BackgroundButtonStyle}" Command="{Binding ShowHideFilterCommand}" />
+
         <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200" />
-            <ColumnDefinition Width="600"/>
+            <ColumnDefinition Width="240" />
+            <ColumnDefinition Width="1120"/>
         </Grid.ColumnDefinitions>
 
         <s:SurfaceListBox Background="Gray" VerticalAlignment="Center" Grid.Column="0" ItemsSource="{Binding Maincriteria}" ItemTemplate="{DynamicResource FilterMainCriteriaTemplate}">
         </s:SurfaceListBox>
         
-        <s:SurfaceListBox Background="Gray" Height="400" VerticalAlignment="Center" Grid.Column="1" ItemsSource="{Binding Subcriteria}" ItemTemplate="{DynamicResource FilterSubCriteriaTemplate}" >
-        </s:SurfaceListBox>
-   
-      </Grid>
+       
+
+        <s:SurfaceListBox Background="#e6e6e6" Name="listBox" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Subcriteria}" ItemTemplate="{StaticResource FilterSubCriteriaTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" />
+
+        </Grid>
     </Grid>
 </UserControl>

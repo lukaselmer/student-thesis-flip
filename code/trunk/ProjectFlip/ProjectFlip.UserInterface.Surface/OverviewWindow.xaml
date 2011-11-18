@@ -35,7 +35,6 @@
                 </WrapPanel.Resources>
             </WrapPanel>
         </ItemsPanelTemplate>
-
     </s:SurfaceWindow.Resources>
 
     <Grid>

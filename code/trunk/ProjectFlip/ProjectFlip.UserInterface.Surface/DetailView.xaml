@@ -14,10 +14,37 @@
                 <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Value}" ItemTemplate="{DynamicResource MetadataTemplate}" />
             </StackPanel>
         </DataTemplate>
+
+        <Style x:Key="BackgroundButtonStyle" TargetType="s:SurfaceButton">
+            <Setter Property="Background" Value="#AA000000" />
+        </Style>
+
+        <Style TargetType="s:SurfaceButton">
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Background" Value="#ffd869"/>
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="s:SurfaceButton">
+                        <Border 
+                            CornerRadius="10"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </UserControl.Resources>
 
     <Grid>
-        <s:SurfaceButton Background="#AA000000" Command="{Binding HideDetailsCommand}" />
+        <s:SurfaceButton Style="{StaticResource BackgroundButtonStyle}" Command="{Binding HideDetailsCommand}" />
     
         <Grid x:Name="LayoutRoot">
           <Grid.ColumnDefinitions>

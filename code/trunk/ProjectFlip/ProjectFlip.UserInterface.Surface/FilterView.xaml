@@ -9,8 +9,8 @@
 
     <UserControl.Resources>
     <DataTemplate x:Key="FilterCriteriaTemplate">
-        <s:SurfaceButton Background="#ffd869" Margin="0,20,0,0" CommandParameter="{Binding}"  Command="{Binding DataContext.RemoveFilterCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceListBox}}}" >
-                <TextBlock Text="{Binding Description}"></TextBlock>
+        <s:SurfaceButton CommandParameter="{Binding}" Command="{Binding DataContext.RemoveFilterCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceListBox}}}" >
+            <TextBlock Text="{Binding Description}" VerticalAlignment="Center"  TextTrimming="CharacterEllipsis" TextWrapping="WrapWithOverflow" HorizontalAlignment="Left" FontFamily="AA Zuehlke"/>
         </s:SurfaceButton>
     </DataTemplate>
 
@@ -39,6 +39,40 @@
             </Setter>
         </Style>
 
+        <Style TargetType="s:SurfaceButton">
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Background" Value="#ffd869"/>
+            <Setter Property="Margin" Value="0,10,0,10" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="s:SurfaceButton">
+                        <Border 
+                            CornerRadius="10"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <ItemsPanelTemplate x:Key="ItemPanelTemplate">
+            <StackPanel Margin="0">
+                <StackPanel.Resources>
+                    <Style TargetType="s:SurfaceListBoxItem">
+                        <Setter Property="Margin" Value="0" />
+                        <Setter Property="Padding" Value="0" />
+                        <Setter Property="Background" Value="Transparent" />
+                    </Style>
+                </StackPanel.Resources>
+            </StackPanel>
+        </ItemsPanelTemplate>
+        
     </UserControl.Resources>
     
     
@@ -65,7 +99,7 @@
             <Rectangle Margin="0,10,0,10" Height="80" Fill="#f9f9f9" RadiusX="10" RadiusY="10"/>
             <Rectangle Margin="0,10,0,10" Height="80" Fill="#f9f9f9" RadiusX="10" RadiusY="10"/>
         </StackPanel>
-        <s:SurfaceListBox Background="Transparent" Foreground="Transparent" Grid.Row="1" ItemsSource="{Binding Filters}" ItemTemplate="{DynamicResource FilterCriteriaTemplate}">
+        <s:SurfaceListBox Background="Transparent" VerticalContentAlignment="Bottom" Foreground="Transparent" Grid.Row="1" ItemsSource="{Binding Filters}" ItemTemplate="{DynamicResource FilterCriteriaTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
         </s:SurfaceListBox>
         <s:SurfaceButton Style="{StaticResource ButtonStyle}" Grid.Row="2" VerticalAlignment="Top" Background="#ff820a" Command="{Binding ShowHideFilterCommand}" Width="200" Margin="0,10,0,10" >
             <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="AA Zuehlke" Foreground="Black" FontSize="21.333"><Run Text="Kriteri"/><Run Language="de-ch" Text="en"/><LineBreak/><Run Language="de-ch"/><Run Text="hinzufügen"/></TextBlock></s:SurfaceButton>
