@@ -18,7 +18,7 @@
     </UserControl.Resources>
 
     <Grid>
-        <s:SurfaceButton Background="#AA000000" Command="{Binding ShowFilterCommand}" />
+        <s:SurfaceButton Background="#AA000000" Command="{Binding ShowHideFilterCommand}" />
        
         <Grid>
         <Grid.ColumnDefinitions>

@@ -82,7 +82,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
             var filter = new MetadataMock(new MetadataTypeMock() {Name = "Sector"},"Oberkriterium");
 
             target.AddFilter(filter);
-            Assert.AreEqual(target.IsFilterViewVisible, false);
+            Assert.IsFalse(target.IsFilterViewVisible);
             Assert.AreEqual(0, target.ProjectNotes.Cast<IProjectNote>().Count());
             target.RemoveFilter(filter);
             Assert.AreEqual(5, target.ProjectNotes.Cast<IProjectNote>().Count());
@@ -97,9 +97,9 @@ namespace ProjectFlip.UserInterface.Surface.Test
         {
             var projectNotesService = new ProjectNotesServiceMock(5);
             var target = new OverviewWindowViewModel_Accessor(projectNotesService);
-            Assert.AreEqual(target.IsFilterViewVisible, false);
+            Assert.IsFalse(target.IsFilterViewVisible);
             target.OnShowFilter(new object());
-            Assert.AreEqual(target.IsFilterViewVisible, true);
+            Assert.IsTrue(target.IsFilterViewVisible);
         }
 
         /// <summary>

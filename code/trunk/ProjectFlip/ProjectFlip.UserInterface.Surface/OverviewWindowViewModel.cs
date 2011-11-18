@@ -35,8 +35,8 @@ namespace ProjectFlip.UserInterface.Surface
             
             ShowDetailsCommand = new Command(OnShowDetail);
             HideDetailsCommand = new Command(o => IsDetailViewVisible = false);
-            ShowFilterCommand = new Command(OnShowFilter);
-            HideFilterCommand = new Command(o => IsFilterViewVisible = false);
+            ShowHideFilterCommand = new Command(OnShowFilter);
+            
             NavigateToLeftCommand = new Command(o => MoveToPrevious());
             NavigateToRightCommand = new Command(o => MoveToNext());
 
@@ -69,7 +69,6 @@ namespace ProjectFlip.UserInterface.Surface
         private void OnShowFilter(object o)
         {
             IsFilterViewVisible = !IsFilterViewVisible;
-            if (IsDetailViewVisible) IsDetailViewVisible = false;
         }
 
         public IProjectNote CurrentProjectNote
@@ -93,7 +92,7 @@ namespace ProjectFlip.UserInterface.Surface
         public ICollectionView ProjectNotes { get; private set; }
         public ICommand ShowDetailsCommand { get; private set; }
         public ICommand HideDetailsCommand { get; private set; }
-        public ICommand ShowFilterCommand { get; private set; }
+        public ICommand ShowHideFilterCommand { get; private set; }
         public ICommand HideFilterCommand { get; private set; }
         public Command NavigateToLeftCommand { get; private set; }
         public Command NavigateToRightCommand { get; private set; }
@@ -135,6 +134,7 @@ namespace ProjectFlip.UserInterface.Surface
             Filters.Refresh();
             ProjectNotes.Refresh();
             IsFilterViewVisible = false;
+            if (IsDetailViewVisible) IsDetailViewVisible = false;
         }
 
         private void OnCurrentProjectNoteChanged(object sender, EventArgs e)
