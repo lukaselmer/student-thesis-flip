@@ -9,8 +9,9 @@
 
     <UserControl.Resources>
         <DataTemplate x:Key="FilterCriteriaTemplate">
-            <s:SurfaceButton Style="{DynamicResource FilterButtonStyle}" Margin="20,10,20,10" CommandParameter="{Binding}" Command="{Binding DataContext.RemoveFilterCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceListBox}}}" >
-                <TextBlock Text="{Binding Description}" VerticalAlignment="Center"  TextTrimming="CharacterEllipsis" TextWrapping="WrapWithOverflow" HorizontalAlignment="Left" FontFamily="AA Zuehlke"/>
+            <s:SurfaceButton Style="{DynamicResource FilterButtonStyle}" Margin="20,10,20,10" CommandParameter="{Binding}" 
+                             Command="{Binding DataContext.RemoveFilterCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceListBox}}}" >
+                <TextBlock Style="{DynamicResource TextStyle}" Text="{Binding Description}" VerticalAlignment="Center" HorizontalAlignment="Left" />
             </s:SurfaceButton>
         </DataTemplate>
 
@@ -31,10 +32,12 @@
                                                 <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
                                                     <EasingColorKeyFrame KeyTime="0:0:0" Value="#FFD26507"/>
                                                 </ColorAnimationUsingKeyFrames>
-                                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="rectangle">
+                                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[1].(GradientStop.Color)" 
+                                                                              Storyboard.TargetName="rectangle">
                                                     <EasingColorKeyFrame KeyTime="0:0:0" Value="#803910"/>
                                                 </ColorAnimationUsingKeyFrames>
-                                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="rectangle">
+                                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[0].(GradientStop.Color)" 
+                                                                              Storyboard.TargetName="rectangle">
                                                     <EasingColorKeyFrame KeyTime="0:0:0" Value="#FFD08044"/>
                                                 </ColorAnimationUsingKeyFrames>
                                             </Storyboard>
@@ -53,8 +56,7 @@
                                     </LinearGradientBrush>
                                 </Rectangle.Stroke>
                             </Rectangle>
-                            <ContentPresenter Margin="10" HorizontalAlignment="Center"
-                                          VerticalAlignment="Center"/>
+                            <ContentPresenter Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -75,8 +77,6 @@
 
     </UserControl.Resources>
 
-
-
     <Grid Margin="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="90"/>
@@ -88,7 +88,7 @@
             <Rectangle Width="90" Margin="10,0,0,0" Height="2" Fill="#ff8204" />
         </StackPanel>
         <Label Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock FontFamily="AA Zuehlke" Text="Auswahlkriterien" Foreground="#ff820a" FontStretch="Expanded" FontSize="24" TextWrapping="WrapWithOverflow"></TextBlock>
+            <TextBlock Style="{DynamicResource TextStyle}" Text="Auswahlkriterien" Foreground="#ff820a" FontStretch="Expanded" FontSize="24" />
         </Label>
         <StackPanel Grid.Row="0" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
             <Rectangle Width="90" Margin="0,0,10,0"  Height="2" Fill="#ff8204" />
@@ -111,10 +111,11 @@
                 </Rectangle.Effect>
             </Rectangle>
         </StackPanel>
-        <s:SurfaceListBox Background="Transparent" VerticalContentAlignment="Bottom" Foreground="Transparent" Grid.Row="1" ItemsSource="{Binding Filters}" ItemTemplate="{DynamicResource FilterCriteriaTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-        </s:SurfaceListBox>
-        <s:SurfaceButton Style="{StaticResource ButtonStyle}" Grid.Row="2" VerticalAlignment="Top" Background="#ff820a" Command="{Binding ShowHideFilterCommand}" Width="200" Margin="0,10,0,10" >
-            <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="AA Zuehlke" Foreground="Black" FontSize="22" TextAlignment="Center">Kriterien hinzufügen</TextBlock>
+        <s:SurfaceListBox Background="Transparent" VerticalContentAlignment="Bottom" Foreground="Transparent" Grid.Row="1" ItemsSource="{Binding Filters}" 
+                          ItemTemplate="{DynamicResource FilterCriteriaTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                          ScrollViewer.VerticalScrollBarVisibility="Disabled" />
+        <s:SurfaceButton Style="{StaticResource ButtonStyle}" Grid.Row="2" VerticalAlignment="Top" Command="{Binding ShowHideFilterCommand}" Width="200" Margin="0,10,0,10" >
+            <TextBlock Style="{DynamicResource TextStyle}" Text="Kriterien hinzufügen" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" TextAlignment="Center" />
         </s:SurfaceButton>
     </Grid>
 </UserControl>

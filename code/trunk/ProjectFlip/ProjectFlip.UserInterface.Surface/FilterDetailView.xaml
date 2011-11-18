@@ -11,7 +11,8 @@
         </DataTemplate>
 
         <DataTemplate x:Key="FilterSubCriteriaTemplate">
-            <s:SurfaceButton Style="{DynamicResource FilterButtonStyle}" CommandParameter="{Binding}" Command="{Binding DataContext.AddFilterCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceListBox}}}" >
+            <s:SurfaceButton Style="{DynamicResource FilterButtonStyle}" CommandParameter="{Binding}" 
+                             Command="{Binding DataContext.AddFilterCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceListBox}}}" >
                 <TextBlock Style="{DynamicResource TextStyle}" Text="{Binding Description}" />
             </s:SurfaceButton>
         </DataTemplate>
@@ -34,16 +35,15 @@
         <s:SurfaceButton Style="{DynamicResource BackgroundButtonStyle}" Command="{Binding ShowHideFilterCommand}" />
 
         <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="240" />
-            <ColumnDefinition Width="1120"/>
-        </Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="240" />
+                <ColumnDefinition Width="1120"/>
+            </Grid.ColumnDefinitions>
 
-        <s:SurfaceListBox Background="Gray" VerticalAlignment="Center" Grid.Column="0" ItemsSource="{Binding Maincriteria}" ItemTemplate="{DynamicResource FilterMainCriteriaTemplate}">
-        </s:SurfaceListBox>
-        
-        <s:SurfaceListBox Background="#e6e6e6" Name="listBox" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Subcriteria}" ItemTemplate="{StaticResource FilterSubCriteriaTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" />
-
+            <s:SurfaceListBox Background="#e6e6e6" VerticalAlignment="Center" Grid.Column="0" ItemsSource="{Binding Maincriteria}" 
+                              ItemTemplate="{DynamicResource FilterMainCriteriaTemplate}" />
+            <s:SurfaceListBox Background="#e6e6e6" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Subcriteria}" 
+                              ItemTemplate="{StaticResource FilterSubCriteriaTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" />
         </Grid>
     </Grid>
 </UserControl>
