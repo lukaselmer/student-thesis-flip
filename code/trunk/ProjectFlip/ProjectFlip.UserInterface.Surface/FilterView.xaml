@@ -22,7 +22,27 @@
                         	<Grid.Effect>
                         		<DropShadowEffect Direction="310" Opacity="0.25" ShadowDepth="1" BlurRadius="3"/>
                         	</Grid.Effect>
-                            <Rectangle Fill="{TemplateBinding Background}" StrokeThickness="7" Width="210" Height="90" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="Common">
+<VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <Storyboard>
+                                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
+                                                    <EasingColorKeyFrame KeyTime="0:0:0" Value="#FFD26507"/>
+                                                </ColorAnimationUsingKeyFrames>
+                                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="rectangle">
+                                                    <EasingColorKeyFrame KeyTime="0:0:0" Value="#803910"/>
+                                                </ColorAnimationUsingKeyFrames>
+                                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="rectangle">
+                                                    <EasingColorKeyFrame KeyTime="0:0:0" Value="#FFD08044"/>
+                                                </ColorAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Rectangle x:Name="rectangle" StrokeThickness="7" Width="210" Height="90" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="#FFFF820A">
                             	<Rectangle.Effect>
                             		<BlurEffect/>
                             	</Rectangle.Effect>
@@ -79,27 +99,39 @@
     
     
     
-    <Grid Margin="20,0,20,0">
+    <Grid Margin="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="90"/>
             <RowDefinition Height="300"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" VerticalAlignment="Top" Orientation="Horizontal">
+        <StackPanel Grid.Row="0" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center">
             <Rectangle Width="90" Margin="0,0,10,0"  Height="2" Fill="#ff8204" />
             <Rectangle Width="90" Margin="10,0,0,0" Height="2" Fill="#ff8204" />
         </StackPanel>
         <Label Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock FontFamily="AA Zuehlke" Text="Auswahlkriterien" Foreground="#ff820a" FontStretch="Expanded" FontSize="24" TextWrapping="WrapWithOverflow"></TextBlock>
         </Label>
-        <StackPanel Grid.Row="0" VerticalAlignment="Bottom" Orientation="Horizontal">
+        <StackPanel Grid.Row="0" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
             <Rectangle Width="90" Margin="0,0,10,0"  Height="2" Fill="#ff8204" />
             <Rectangle Width="90" Margin="10,0,0,0" Height="2" Fill="#ff8204" />
         </StackPanel>
         <StackPanel Background="White" Grid.Row="1">
-            <Rectangle Margin="0,10,0,10" Height="80" Fill="#f9f9f9" RadiusX="10" RadiusY="10"/>
-            <Rectangle Margin="0,10,0,10" Height="80" Fill="#f9f9f9" RadiusX="10" RadiusY="10"/>
-            <Rectangle Margin="0,10,0,10" Height="80" Fill="#f9f9f9" RadiusX="10" RadiusY="10"/>
+            <Rectangle Margin="0,10,0,10" Height="80" Fill="#f9f9f9" RadiusX="10" RadiusY="10" Width="200" StrokeThickness="5">
+            	<Rectangle.Effect>
+            		<DropShadowEffect Direction="135" Opacity="0.25" BlurRadius="3" ShadowDepth="3"/>
+            	</Rectangle.Effect>
+            </Rectangle>
+            <Rectangle Margin="0,10,0,10" Height="80" Fill="#f9f9f9" RadiusX="10" RadiusY="10" Width="200">
+            	<Rectangle.Effect>
+            		<DropShadowEffect Direction="135" Opacity="0.25" BlurRadius="3" ShadowDepth="3"/>
+            	</Rectangle.Effect>
+            </Rectangle>
+            <Rectangle Margin="0,10,0,10" Height="80" Fill="#f9f9f9" RadiusX="10" RadiusY="10" Width="200">
+            	<Rectangle.Effect>
+            		<DropShadowEffect Direction="135" Opacity="0.25" BlurRadius="3" ShadowDepth="3"/>
+            	</Rectangle.Effect>
+            </Rectangle>
         </StackPanel>
         <s:SurfaceListBox Background="Transparent" VerticalContentAlignment="Bottom" Foreground="Transparent" Grid.Row="1" ItemsSource="{Binding Filters}" ItemTemplate="{DynamicResource FilterCriteriaTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
         </s:SurfaceListBox>
