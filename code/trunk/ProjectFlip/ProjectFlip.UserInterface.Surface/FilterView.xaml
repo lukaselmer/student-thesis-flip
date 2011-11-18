@@ -10,12 +10,29 @@
     <UserControl.Resources>
     <DataTemplate x:Key="FilterCriteriaTemplate">
         <s:SurfaceButton Background="#ffd869" Margin="0,20,0,0" CommandParameter="{Binding}"  Command="{Binding DataContext.RemoveFilterCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceListBox}}}" >
-            
-<TextBlock Text="{Binding Description}"></TextBlock>
+                <TextBlock Text="{Binding Description}"></TextBlock>
         </s:SurfaceButton>
     </DataTemplate>
+
+        <Style x:Key="ButtonStyle" TargetType="s:SurfaceButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle Fill="{TemplateBinding Background}"/>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </UserControl.Resources>
-    <Grid Margin="20">
+    
+    
+    
+    <Grid Margin="20,0,20,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="90"/>
             <RowDefinition Height="300"/>
@@ -39,7 +56,7 @@
         </StackPanel>
         <s:SurfaceListBox Background="Transparent" Foreground="Transparent" Grid.Row="1" ItemsSource="{Binding Filters}" ItemTemplate="{DynamicResource FilterCriteriaTemplate}">
         </s:SurfaceListBox>
-        <s:SurfaceButton Grid.Row="2" VerticalAlignment="Top" Background="#ff820a" Width="150" Height="70" Command="{Binding ShowHideFilterCommand}" >
-            <TextBlock Text="Kriterium hinzufügen" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock></s:SurfaceButton>
+        <s:SurfaceButton Style="{StaticResource ButtonStyle}" Grid.Row="2" VerticalAlignment="Top" Background="#ff820a" Width="200" Height="80" Command="{Binding ShowHideFilterCommand}" >
+            <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="AA Zuehlke" Foreground="Black" FontSize="21.333"><Run Text="Kriteri"/><Run Language="de-ch" Text="en"/><LineBreak/><Run Language="de-ch"/><Run Text="hinzufügen"/></TextBlock></s:SurfaceButton>
     </Grid>
 </UserControl>
