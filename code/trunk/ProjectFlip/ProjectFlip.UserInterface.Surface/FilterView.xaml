@@ -20,6 +20,16 @@
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Grid>
                             <Rectangle Fill="{TemplateBinding Background}"/>
+                            <Border Width="200" Height="80" BorderBrush="#FFFED7BF" BorderThickness="2,2,0,0">
+                            	<Border.Effect>
+                            		<BlurEffect Radius="3"/>
+                            	</Border.Effect>
+                            </Border>
+                            <Border Width="197" Height="80" BorderBrush="#FFFE6100" BorderThickness="0,0,2,2">
+                            	<Border.Effect>
+                            		<BlurEffect Radius="3"/>
+                            	</Border.Effect>
+                            </Border>
                             <ContentPresenter HorizontalAlignment="Center"
                                           VerticalAlignment="Center"/>
                         </Grid>
