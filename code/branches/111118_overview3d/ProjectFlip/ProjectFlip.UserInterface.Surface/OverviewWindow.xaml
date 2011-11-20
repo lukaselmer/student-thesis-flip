@@ -25,7 +25,7 @@
         </DataTemplate>
         
         <ItemsPanelTemplate x:Key="ItemPanelTemplate">
-            <Surface:Panel3DLuke Background="Red" />
+            <Surface:Panel3DLuke Background="White" />
             <!--<WrapPanel Margin="5">
                 <WrapPanel.Resources>
                     <Style TargetType="s:SurfaceListBoxItem">
