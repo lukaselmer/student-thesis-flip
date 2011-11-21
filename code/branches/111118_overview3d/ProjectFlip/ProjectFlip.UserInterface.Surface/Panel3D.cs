@@ -38,15 +38,15 @@ namespace ProjectFlip.UserInterface.Surface
 
         protected override Size ArrangeOverride(Size finalSize)
         {
-            this.Refresh(finalSize);
-            return base.ArrangeOverride(finalSize);
+            Refresh(finalSize);
+            return finalSize;
         }
 
         private void Refresh(Size finalSize)
         {
             if (Children.OfType<FrameworkElement>().Count() == 0) return;
 
-            foreach (FrameworkElement child in Children) child.LayoutTransform = null;
+            foreach (FrameworkElement child in Children) child.Visibility = Visibility.Hidden;
 
             var width = Children.OfType<FrameworkElement>().Max(el => el.DesiredSize.Width);
             var height = Children.OfType<FrameworkElement>().Max(el => el.DesiredSize.Height);
@@ -56,32 +56,15 @@ namespace ProjectFlip.UserInterface.Surface
             {
                 var position = positioner.CalculateCurrentPosition();
 
-                var tg = new TransformGroup();
-                //tg.Children.Add(new RotateTransform(45, 25, 25));
-                //tg.Children.Add(new ScaleTransform(.75,.75));
-                //Console.WriteLine(position.ScaleX);
-                tg.Children.Add(new ScaleTransform(position.ScaleX, position.ScaleY));
-                //tg.Children.Add(new SkewTransform(2000, 200, -200, 1000));
+                if (position.ScaleY < .01) break;
+                childElement.Visibility = Visibility.Visible;
 
+                var tg = new TransformGroup();
+                tg.Children.Add(new ScaleTransform(position.ScaleX, position.ScaleY));
                 if (position.HorizontalAlignment != HorizontalAlignment.Center)
                     tg.Children.Add(new SkewTransform(4.2 * position.ElementsFromCenter, 0));
-                //tg.Children.Add(new SkewTransform(10, 1));
-                //tg.Children.Add(new MatrixTransform(1.1, 1.1,1,1,0,0));
-                /*switch (position.HorizontalAlignment)
-                {
-                    case HorizontalAlignment.Left:
-                        tg.Children.Add(new SkewTransform(-100 * position.ElementsFromCenter, 0));
-                        break;
-                    case HorizontalAlignment.Right:
-                        tg.Children.Add(new SkewTransform(100, 0));
-                        break;
-                }*/
-
-                //tg.Children.Add(new MatrixTransform(5, 0, 3, 1, 0,0));
-                //childElement.LayoutTransform = tg;
                 childElement.RenderTransform = tg;
 
-                //var r = new Rect(300, 300, childElement.DesiredSize.Width, childElement.DesiredSize.Height);
                 var r = new Rect(position.X, position.Y, childElement.DesiredSize.Width, childElement.DesiredSize.Height);
                 childElement.Arrange(r);
                 positioner.MoveToNext();

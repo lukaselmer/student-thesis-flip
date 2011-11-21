@@ -12,7 +12,7 @@ namespace ProjectFlip.UserInterface.Surface
 
         public Panel3DPositioner(Size windowSize, Size elementSize, double scrollPosition, IPanel3DScaleFunction scaleFunction = null)
         {
-            if (scaleFunction == null) scaleFunction = new Panel3DLinearScaleFunction(.91, .75);
+            if (scaleFunction == null) scaleFunction = new Panel3DLinearScaleFunction(.91, .77);
             WindowSize = windowSize;
             ElementSize = elementSize;
             ScrollPosition = scrollPosition;
