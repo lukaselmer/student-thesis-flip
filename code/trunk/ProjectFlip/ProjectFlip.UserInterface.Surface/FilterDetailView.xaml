@@ -5,19 +5,31 @@
 
     <UserControl.Resources>
 
+        <Storyboard x:Key="CriteriaSelected">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
+                <EasingColorKeyFrame KeyTime="0:0:0" Value="#FFD5D5D5"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="rectangle">
+                <EasingColorKeyFrame KeyTime="0:0:0" Value="#FFD5D5D5"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="rectangle">
+                <EasingColorKeyFrame KeyTime="0:0:0" Value="#FFD5D5D5"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+
         <Style x:Key="FilterMaincriteriaButtonStyle" TargetType="s:SurfaceButton">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type s:SurfaceButton}">
-                        <Grid x:Name="grid" HorizontalAlignment="Center" VerticalAlignment="Center" Height="104" Width="230">
-                            <Rectangle x:Name="rectangle" StrokeThickness="7" Width="240" Height="114" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="#FFFF820A">
+                        <Grid Margin="-1" x:Name="grid" HorizontalAlignment="Center" VerticalAlignment="Center" Height="104" Width="230">
+                            <Rectangle x:Name="rectangle" StrokeThickness="7" Width="240" Height="114" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="#dddddd">
                                 <Rectangle.Effect>
                                     <BlurEffect/>
                                 </Rectangle.Effect>
                                 <Rectangle.Stroke>
-                                    <LinearGradientBrush EndPoint="0.427,0.06" StartPoint="0.578,0.967">
-                                        <GradientStop Color="#FFFE6100" Offset="0.5"/>
-                                        <GradientStop Color="#FFFED7BF" Offset="0.533"/>
+                                    <LinearGradientBrush EndPoint="0.41,0.075" StartPoint="0.595,0.952">
+                                        <GradientStop Color="#8b8b8b" Offset="0.49"/>
+                                        <GradientStop Color="#ffffff" Offset="0.531"/>
                                     </LinearGradientBrush>
                                 </Rectangle.Stroke>
                             </Rectangle>
@@ -26,6 +38,14 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=IsSelected, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceWindow}}}" Value="True">
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard Storyboard="{StaticResource CriteriaSelected}">
+                        </BeginStoryboard>
+                    </DataTrigger.EnterActions>
+                </DataTrigger>
+            </Style.Triggers>
         </Style>
 
 
@@ -54,6 +74,18 @@
             </WrapPanel>
         </ItemsPanelTemplate>
 
+        <ItemsPanelTemplate x:Key="MaincriteriaItemPanelTemplate">
+            <StackPanel>
+                <StackPanel.Resources>
+                    <Style TargetType="s:SurfaceListBoxItem">
+                        <Setter Property="Margin" Value="0" />
+                        <Setter Property="Padding" Value="0" />
+                        <Setter Property="Background" Value="Transparent" />
+                    </Style>
+                </StackPanel.Resources>
+            </StackPanel>
+        </ItemsPanelTemplate>
+
     </UserControl.Resources>
 
     <Grid>
@@ -64,9 +96,9 @@
                 <ColumnDefinition Width="230" />
                 <ColumnDefinition Width="1120"/>
             </Grid.ColumnDefinitions>
-
-            <s:SurfaceListBox Background="#e6e6e6" VerticalAlignment="Center" Grid.Column="0" ItemsSource="{Binding Maincriteria}" 
-                              ItemTemplate="{DynamicResource FilterMainCriteriaTemplate}" />
+            <!--<s:SurfaceButton Grid.Column="0" Style="{DynamicResource FilterMaincriteriaButtonStyle}"></s:SurfaceButton>-->
+            <s:SurfaceListBox Background="#e6e6e6"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Center" Grid.Column="0" ItemsSource="{Binding Maincriteria}" 
+                              ItemTemplate="{DynamicResource FilterMainCriteriaTemplate}" ItemsPanel="{DynamicResource MaincriteriaItemPanelTemplate}" />
             <s:SurfaceListBox Background="#e6e6e6" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Subcriteria}" 
                               ItemTemplate="{StaticResource FilterSubCriteriaTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" />
         </Grid>
