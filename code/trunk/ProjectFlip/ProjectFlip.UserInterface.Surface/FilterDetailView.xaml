@@ -26,8 +26,8 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
 
-                            <Grid Grid.Row="0" Margin="-1" x:Name="grid" HorizontalAlignment="Center" VerticalAlignment="Center" Height="104" Width="230">
-                                <Rectangle x:Name="rectangle" StrokeThickness="7" Width="240" Height="114" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="#dddddd">
+                            <Grid Grid.Row="0" Margin="-1" x:Name="grid" HorizontalAlignment="Center" VerticalAlignment="Center" Height="104" Width="220">
+                                <Rectangle x:Name="rectangle" StrokeThickness="7" Width="230" Height="114" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="#dddddd">
                                     <Rectangle.Effect>
                                         <BlurEffect/>
                                     </Rectangle.Effect>
@@ -40,8 +40,8 @@
                                 </Rectangle>
                                 
                             </Grid>
-                            <Grid Grid.Row="0" Margin="-1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="104" Width="230">
-                                <Rectangle Width="240" Height="114" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="#d5d5d5">
+                            <Grid Grid.Row="0" Margin="-1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="104" Width="220">
+                                <Rectangle Width="230" Height="114" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="#d5d5d5">
                                 </Rectangle>
                                 <Grid.Style>
                                     <Style>
@@ -74,7 +74,7 @@
             </s:SurfaceButton>
         </DataTemplate>
 
-        <ItemsPanelTemplate x:Key="ItemPanelTemplate">
+        <ItemsPanelTemplate x:Key="SubcriteriaItemPanelTemplate">
             <WrapPanel Margin="10" Background="White">
                 <WrapPanel.Resources>
                     <Style TargetType="s:SurfaceListBoxItem">
@@ -103,15 +103,15 @@
     <Grid>
         <s:SurfaceButton Style="{DynamicResource BackgroundButtonStyle}" Command="{Binding ShowHideFilterCommand}" />
 
-        <Grid Margin="10">
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="230" />
                 <ColumnDefinition Width="1120"/>
             </Grid.ColumnDefinitions>
-            <s:SurfaceListBox Name="MaincriteriaListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Center" Grid.Column="0" ItemsSource="{Binding Maincriteria}" 
+            <s:SurfaceListBox Name="MaincriteriaListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="0" ItemsSource="{Binding Maincriteria}" 
                               ItemTemplate="{DynamicResource FilterMainCriteriaTemplate}" ItemsPanel="{DynamicResource MaincriteriaItemPanelTemplate}" />
-            <s:SurfaceListBox Height="{Binding ElementName=MaincriteriaListBox, Path=ActualHeight}" Background="#d5d5d5" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Subcriteria}" 
-                              ItemTemplate="{StaticResource FilterSubCriteriaTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" />
+            <s:SurfaceListBox BorderBrush="#d5d5d5" BorderThickness="10" Height="{Binding ElementName=MaincriteriaListBox, Path=ActualHeight}" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Subcriteria}" 
+                              ItemTemplate="{StaticResource FilterSubCriteriaTemplate}" Background="White" ItemsPanel="{DynamicResource SubcriteriaItemPanelTemplate}" />
         </Grid>
     </Grid>
 </UserControl>
