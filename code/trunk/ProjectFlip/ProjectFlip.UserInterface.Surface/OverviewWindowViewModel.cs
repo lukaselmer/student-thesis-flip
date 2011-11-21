@@ -125,6 +125,7 @@ namespace ProjectFlip.UserInterface.Surface
             _filters.Remove((IMetadata)filter);
             Filters.Refresh();
             ProjectNotes.Refresh();
+            IsFilterViewVisible = false;
             IsDetailViewVisible = false;
         }
 
