@@ -130,6 +130,7 @@ namespace ProjectFlip.UserInterface.Surface
 
         private void AddFilter(object filter)
         {
+            if (_filters.Contains(filter) || _filters.Count == 3) return;
             _filters.Add((IMetadata)filter);
             Filters.Refresh();
             ProjectNotes.Refresh();

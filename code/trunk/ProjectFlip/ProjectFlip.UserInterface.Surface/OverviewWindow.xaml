@@ -10,6 +10,7 @@
     <s:SurfaceWindow.Resources>
 
         <Style x:Key="TextStyle" TargetType="TextBlock">
+            <Setter Property="Margin" Value="5" />
             <Setter Property="TextWrapping" Value="WrapWithOverflow" />
             <Setter Property="FontFamily" Value="AA Zuehlke" />
             <Setter Property="Foreground" Value="Black" />
@@ -23,15 +24,36 @@
         <Style x:Key="FilterButtonStyle" TargetType="s:SurfaceButton">
             <Setter Property="Height" Value="80"/>
             <Setter Property="Width" Value="200"/>
-            <Setter Property="Background" Value="#ffd869"/>
             <Setter Property="Margin" Value="10" />
             <Setter Property="Padding" Value="0" />
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="s:SurfaceButton">
-                        <Border CornerRadius="10" Background="{TemplateBinding Background}">
+                    <ControlTemplate TargetType="{x:Type s:SurfaceButton}">
+                        <Grid>
+                            <Rectangle Height="80" RadiusX="10" RadiusY="10" Width="200" Fill="#FFFFD869">
+                                <Rectangle.Stroke>
+                                    <LinearGradientBrush EndPoint="0.571,0.968" StartPoint="0.429,0.032">
+                                        <GradientStop Color="#FFFFF1C8" Offset="0.448"/>
+                                        <GradientStop Color="#FFF0BC4F" Offset="0.566"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Stroke>
+                                <Rectangle.Effect>
+                                    <DropShadowEffect Direction="310" Opacity="0.25" BlurRadius="3" ShadowDepth="1"/>
+                                </Rectangle.Effect>
+                            </Rectangle>
+                            <Border BorderThickness="2" Height="78" Width="200" CornerRadius="10">
+                                <Border.Effect>
+                                    <BlurEffect/>
+                                </Border.Effect>
+                                <Border.BorderBrush>
+                                    <LinearGradientBrush EndPoint="0.433,0.029" StartPoint="0.567,0.971">
+                                        <GradientStop Color="#FFF0BC4F" Offset="0.448"/>
+                                        <GradientStop Color="#FFFFF1C8" Offset="0.566"/>
+                                    </LinearGradientBrush>
+                                </Border.BorderBrush>
+                            </Border>
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
+                        </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
