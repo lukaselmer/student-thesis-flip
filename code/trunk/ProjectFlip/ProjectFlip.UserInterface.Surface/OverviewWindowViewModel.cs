@@ -3,6 +3,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -23,6 +25,7 @@ namespace ProjectFlip.UserInterface.Surface
         private CollectionView _subcriteria;
         private ICollectionView _filtersCollectionView;
 
+
         public OverviewWindowViewModel(IProjectNotesService projectNotesService)
         {
             ProjectNotes = new ListCollectionView(projectNotesService.ProjectNotes) {Filter = FilterCallback};
@@ -39,7 +42,7 @@ namespace ProjectFlip.UserInterface.Surface
             HideDetailsCommand = new Command(o => IsDetailViewVisible = false);
             ShowHideFilterCommand = new Command(OnShowFilter);
             
-            NavigateToLeftCommand = new Command(o => MoveToPrevious()); 
+            NavigateToLeftCommand = new Command(o =>MoveToPrevious()); 
             NavigateToRightCommand = new Command(o => MoveToNext());
 
             RemoveFilterCommand = new Command(RemoveFilter); 
@@ -108,6 +111,38 @@ namespace ProjectFlip.UserInterface.Surface
         public ICommand AddFilterCommand { get; private set; }
         public ICommand RemoveFilterCommand { get; private set; }
         public ICommand DeleteButtonCommand { get; set; }
+        public void OnTouchDown(object sender, TouchEventArgs e)
+        {
+//            if (e.TouchDevice == TouchAction.Move) return;
+
+            //            if (e.TouchDevice == TouchAction.Move) return;
+           // var k = e.TouchDevice;
+            //            var l = SurfaceTouchDevice.;
+
+            //            bool isFinger = true;
+            //            SurfaceTouchDevice device = e.TouchDevice as SurfaceTouchDevice;
+            //            if (device != null)
+            //                {
+            //                isFinger = device.Contact.IsFingerRecognized;
+            //                }
+            //Do something
+
+            var d = ((DocumentViewer) sender);
+            var gridLength = new GridLength(Math.Abs(DocumentViewerWidth.Value - 300) < 1?1.5:300, GridUnitType.Star);
+            DocumentViewerWidth = gridLength;
+            d.FitToWidth();
+        }
+
+        private GridLength _documentViewerWidth = new GridLength(1.5, GridUnitType.Star);
+        public GridLength DocumentViewerWidth
+        {
+            get { return _documentViewerWidth; }
+            set
+            {
+                _documentViewerWidth = value;
+                Notify("DocumentViewerWidth");
+            }
+        }
 
         public bool IsDetailViewVisible
         {

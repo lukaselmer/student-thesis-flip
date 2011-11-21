@@ -2,7 +2,8 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:s="http://schemas.microsoft.com/surface/2008"
-             xmlns:ui="clr-namespace:System.Windows.Documents;assembly=PresentationUI">
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions">
 
     <UserControl.Resources>
         <DataTemplate x:Key="MetadataTemplate">
@@ -36,25 +37,38 @@
             </StackPanel>
         </ItemsPanelTemplate>
         <Style x:Key="SurfaceDocumentViewerStyle" BasedOn="{x:Null}" TargetType="{x:Type DocumentViewer}">
-        	<Setter Property="Template">
-        		<Setter.Value>
-        			<ControlTemplate TargetType="{x:Type DocumentViewer}">
-        				<Border Focusable="False">
-        					<Grid>
-        						<ScrollViewer x:Name="PART_ContentHost" CanContentScroll="true" Focusable="{TemplateBinding Focusable}" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" />
-        						<DockPanel>
-        							<FrameworkElement DockPanel.Dock="Right" Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"/>
-        							<Rectangle Visibility="Hidden" VerticalAlignment="top">
-        							</Rectangle>
-        						</DockPanel>
-							</Grid>
-        				</Border>
-        			</ControlTemplate>
-        		</Setter.Value>
-        	</Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DocumentViewer}">
+                        <Border Focusable="False">
+                            <Grid>
+
+                                <ScrollViewer x:Name="PART_ContentHost" CanContentScroll="true" Focusable="{TemplateBinding Focusable}" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" />
+
+                                <DockPanel>
+                                    <ToolBar DockPanel.Dock="Bottom">
+                                        <Button Command="NavigationCommands.IncreaseZoom" 
+                CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                Content="Zoom In"/>
+                                        <Button Command="NavigationCommands.DecreaseZoom" 
+                CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                Content="Zoom Out"/>
+                                        <Button Command="DocumentViewer.FitToWidthCommand" 
+                CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                Content="Fit to Width" />
+                                    </ToolBar>
+                                    <FrameworkElement DockPanel.Dock="Right" Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"/>
+                                    <Rectangle Visibility="Hidden" VerticalAlignment="top">
+                                    </Rectangle>
+                                </DockPanel>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
-        
-        
+
+
 
     </UserControl.Resources>
 
@@ -66,7 +80,7 @@
                 <ColumnDefinition Width="0.2*"/>
                 <ColumnDefinition Width="70"/>
                 <ColumnDefinition Width="240"/>
-                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="{Binding DocumentViewerWidth}"/>
                 <ColumnDefinition Width="70"/>
                 <ColumnDefinition Width="0.2*"/>
             </Grid.ColumnDefinitions>
@@ -91,11 +105,19 @@
                 <s:SurfaceListBox Margin="10" ScrollViewer.HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Center" Grid.Row="1" ItemsSource="{Binding CurrentProjectNote.Metadata}" ItemTemplate="{DynamicResource MetadataListTemplate}" ItemsPanel="{DynamicResource MetadataListBoxTemplate}" />
             </Grid>
 
-            <DocumentViewer Grid.Column="3" Document="{Binding CurrentProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}" />
+            <DocumentViewer IsManipulationEnabled="True" Grid.Column="3" Document="{Binding CurrentProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TouchDown" >
+                        <ei:CallMethodAction TargetObject="{Binding}" MethodName="OnTouchDown"></ei:CallMethodAction>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </DocumentViewer> 
+          <!--            Width="{Binding DocumentViewerWidth}"-->
 
             <s:SurfaceButton Style="{StaticResource NavigateButtonStyle}" VerticalAlignment="Center" Margin="8,0,0,0" Grid.Column="4" x:Name="ToRightButton" Command="{Binding NavigateToRightCommand}">
                 <TextBlock Style="{DynamicResource TextStyle}">nach rechts</TextBlock>
             </s:SurfaceButton>
+            
         </Grid>
     </Grid>
 </UserControl>
