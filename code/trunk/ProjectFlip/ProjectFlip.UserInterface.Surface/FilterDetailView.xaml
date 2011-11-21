@@ -5,47 +5,59 @@
 
     <UserControl.Resources>
 
-        <Storyboard x:Key="CriteriaSelected">
+        <!--<Storyboard x:Key="CriteriaSelected">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
-                <EasingColorKeyFrame KeyTime="0:0:0" Value="#FFD5D5D5"/>
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="#FFD5D5D5"/>
             </ColorAnimationUsingKeyFrames>
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="rectangle">
-                <EasingColorKeyFrame KeyTime="0:0:0" Value="#FFD5D5D5"/>
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="#FFD5D5D5"/>
             </ColorAnimationUsingKeyFrames>
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="rectangle">
-                <EasingColorKeyFrame KeyTime="0:0:0" Value="#FFD5D5D5"/>
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="#FFD5D5D5"/>
             </ColorAnimationUsingKeyFrames>
-        </Storyboard>
+        </Storyboard>-->
 
         <Style x:Key="FilterMaincriteriaButtonStyle" TargetType="s:SurfaceButton">
-            <Setter Property="Template">
+          <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type s:SurfaceButton}">
-                        <Grid Margin="-1" x:Name="grid" HorizontalAlignment="Center" VerticalAlignment="Center" Height="104" Width="230">
-                            <Rectangle x:Name="rectangle" StrokeThickness="7" Width="240" Height="114" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="#dddddd">
-                                <Rectangle.Effect>
-                                    <BlurEffect/>
-                                </Rectangle.Effect>
-                                <Rectangle.Stroke>
-                                    <LinearGradientBrush EndPoint="0.41,0.075" StartPoint="0.595,0.952">
-                                        <GradientStop Color="#8b8b8b" Offset="0.49"/>
-                                        <GradientStop Color="#ffffff" Offset="0.531"/>
-                                    </LinearGradientBrush>
-                                </Rectangle.Stroke>
-                            </Rectangle>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0" Margin="-1" x:Name="grid" HorizontalAlignment="Center" VerticalAlignment="Center" Height="104" Width="230">
+                                <Rectangle x:Name="rectangle" StrokeThickness="7" Width="240" Height="114" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="#dddddd">
+                                    <Rectangle.Effect>
+                                        <BlurEffect/>
+                                    </Rectangle.Effect>
+                                    <Rectangle.Stroke>
+                                        <LinearGradientBrush EndPoint="0.41,0.075" StartPoint="0.595,0.952">
+                                            <GradientStop Color="#8b8b8b" Offset="0.49"/>
+                                            <GradientStop Color="#ffffff" Offset="0.531"/>
+                                        </LinearGradientBrush>
+                                    </Rectangle.Stroke>
+                                </Rectangle>
+                                
+                            </Grid>
+                            <Grid Grid.Row="0" Margin="-1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="104" Width="230">
+                                <Rectangle Width="240" Height="114" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="#dddddd">
+                                </Rectangle>
+                                <Grid.Style>
+                                    <Style>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}}" Value="false">
+                                                <Setter Property="Grid.Visibility" Value="Hidden"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Grid.Style>
+                            </Grid>
                             <ContentPresenter Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding Path=IsSelected, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceWindow}}}" Value="True">
-                    <DataTrigger.EnterActions>
-                        <BeginStoryboard Storyboard="{StaticResource CriteriaSelected}">
-                        </BeginStoryboard>
-                    </DataTrigger.EnterActions>
-                </DataTrigger>
-            </Style.Triggers>
         </Style>
 
 
