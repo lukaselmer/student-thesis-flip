@@ -6,14 +6,16 @@ namespace ProjectFlip.UserInterface.Surface
     public class Panel3DPositionCalculator
     {
         public IPanel3DScaleFunction ScaleFunction { get; set; }
+        public int ElementsPerLine { get; set; }
         private Size _elementSize;
         private readonly Size _windowSize;
         private double _scrollPosition;
         public bool LeftAligned;
 
-        public Panel3DPositionCalculator(Size elementSize, Size windowSize, double scrollPosition, IPanel3DScaleFunction scaleFunction)
+        public Panel3DPositionCalculator(Size elementSize, Size windowSize, double scrollPosition, IPanel3DScaleFunction scaleFunction, int elementsPerLine)
         {
             ScaleFunction = scaleFunction;
+            ElementsPerLine = elementsPerLine;
             _elementSize = elementSize;
             _windowSize = windowSize;
             _scrollPosition = scrollPosition;
@@ -21,13 +23,14 @@ namespace ProjectFlip.UserInterface.Surface
 
         public Position3D Calculate(int row, int col)
         {
-            var positionLeftAligned = new Position3D(col * _elementSize.Width, ScaleFunction.SqueezeFactor(row) * _elementSize.Height, ScaleFunction.Scale(row), HorizontalAlignment.Center);
-            if (row == 0 || LeftAligned) return positionLeftAligned;
-            var halfWindowSize = _windowSize.Width/2;
-            if (halfWindowSize < positionLeftAligned.X) return new Position3D(positionLeftAligned.X, positionLeftAligned.Y, positionLeftAligned.Scale, HorizontalAlignment.Left);
-            var marginLeft = _elementSize.Width - _elementSize.Width * positionLeftAligned.Scale;
-            var centered = halfWindowSize - _elementSize.Width < positionLeftAligned.X;
-            return new Position3D(positionLeftAligned.X + marginLeft * (centered ? 0.5 : 1), positionLeftAligned.Y, positionLeftAligned.Scale, (centered ? HorizontalAlignment.Center : HorizontalAlignment.Right));
+            var scaledElementWidth = _elementSize.Width * ScaleFunction.ScaleX(row);
+            var elementsFromCenter = (col - ((ElementsPerLine - 1.0) / 2.0));
+            var distanceFromCenter = scaledElementWidth * elementsFromCenter;
+            var x = _windowSize.Width / 2 - distanceFromCenter - _elementSize.Width / 2.0;
+            var alignment = elementsFromCenter > 0.1
+                ? HorizontalAlignment.Right
+                : (elementsFromCenter < 0.1 ? HorizontalAlignment.Left : HorizontalAlignment.Center);
+            return new Position3D(x, ScaleFunction.SqueezeFactorY(row) * _elementSize.Height, ScaleFunction.ScaleX(row), ScaleFunction.ScaleY(row), alignment, elementsFromCenter);
         }
     }
 }

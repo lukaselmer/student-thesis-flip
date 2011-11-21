@@ -76,13 +76,13 @@ namespace ProjectFlip.UserInterface.Surface.Test
                     new double[]{6,9},
                     new double[]{8,9}
                 };
-            CalculateCurrentPositionTest(new Size(10, 100), new Size(2, 3), expectedPositions, new Panel3DLinearScaleFunction(1));
+            CalculateCurrentPositionTest(new Size(10, 100), new Size(2, 3), expectedPositions, new Panel3DLinearScaleFunction(1, 1));
         }
 
         private static void CalculateCurrentPositionTest(Size windowSize, Size elSize, IEnumerable<double[]> expectedPositionsArray, IPanel3DScaleFunction scaleFunction)
         {
             var positioner = new Panel3DPositioner(windowSize, elSize, 0, scaleFunction);
-            foreach (var expectedPosition in expectedPositionsArray.Select(pos => new Position3D(pos[0], pos[1], 1, HorizontalAlignment.Left)))
+            foreach (var expectedPosition in expectedPositionsArray.Select(pos => new Position3D(pos[0], pos[1], 1, 1, HorizontalAlignment.Left, 0)))
             {
                 var calculatedPosition = positioner.CalculateCurrentPosition();
                 Assert.AreEqual(expectedPosition.X, calculatedPosition.X, 0.25);

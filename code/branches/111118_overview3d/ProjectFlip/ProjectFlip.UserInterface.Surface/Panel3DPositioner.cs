@@ -12,17 +12,17 @@ namespace ProjectFlip.UserInterface.Surface
 
         public Panel3DPositioner(Size windowSize, Size elementSize, double scrollPosition, IPanel3DScaleFunction scaleFunction = null)
         {
-            if (scaleFunction == null) scaleFunction = new Panel3DLinearScaleFunction(0.75);
+            if (scaleFunction == null) scaleFunction = new Panel3DLinearScaleFunction(.91, .75);
             WindowSize = windowSize;
             ElementSize = elementSize;
             ScrollPosition = scrollPosition;
             Index = 0;
-            _panel3DPositionCalculator = new Panel3DPositionCalculator(elementSize, windowSize, scrollPosition, scaleFunction);
+            _panel3DPositionCalculator = new Panel3DPositionCalculator(elementSize, windowSize, scrollPosition, scaleFunction, ElementsPerLine());
         }
 
         public int Index { get; set; }
 
-        public int CurrentRow { get { return Index / ElementsPerLine(); } }
+        public int CurrentRow { get { return Index / ElementsPerLine() -3; } }
         public int CurrentCol { get { return Index % ElementsPerLine(); } }
 
         public int ElementsPerLine()

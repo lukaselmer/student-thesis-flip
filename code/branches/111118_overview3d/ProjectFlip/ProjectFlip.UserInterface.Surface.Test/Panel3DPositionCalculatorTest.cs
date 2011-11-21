@@ -51,7 +51,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         [TestMethod]
         public void CalculateTest1()
         {
-            var target = new Panel3DPositionCalculator(new Size(2, 3), new Size(20, 20), 0, new Panel3DLinearScaleFunction(1));
+            var target = new Panel3DPositionCalculator(new Size(2, 3), new Size(20, 20), 0, new Panel3DLinearScaleFunction(1, 1), 10);
 
             var actual = target.Calculate(0, 0);
             Assert.AreEqual(0, actual.X);
@@ -101,7 +101,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         [TestMethod]
         public void CalculateTest2()
         {
-            var target = new Panel3DPositionCalculator(new Size(400, 600), new Size(100000, 100000), 0, new Panel3DLinearScaleFunction(0.5));
+            var target = new Panel3DPositionCalculator(new Size(400, 600), new Size(100000, 100000), 0, new Panel3DLinearScaleFunction(0.5, 1), 1000);
             target.LeftAligned = true;
 
             var actual = target.Calculate(0, 0);
