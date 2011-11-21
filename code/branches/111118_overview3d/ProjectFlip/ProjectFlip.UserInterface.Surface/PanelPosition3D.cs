@@ -29,7 +29,7 @@ namespace ProjectFlip.UserInterface.Surface
             UnscaledItemHeight = (int)children.Max(el => el.DesiredSize.Height) + 1;
 
             CountX = (int)(finalSize.Width / itemWidth) - 1;
-            CountY = Children.Count / CountX;
+            CountY = Children.Count / CountX + 1;
             ItemWidth = itemWidth;
             ItemHeight = UnscaledItemHeight;
 

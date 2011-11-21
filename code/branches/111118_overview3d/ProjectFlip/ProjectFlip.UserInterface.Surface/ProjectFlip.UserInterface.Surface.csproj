@@ -73,11 +73,17 @@
     <Compile Include="FilterView.xaml.cs">
       <DependentUpon>FilterView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IPanel3DScaleFunction.cs" />
     <Compile Include="OverviewWindowViewModel.cs" />
     <Compile Include="Panel3D.cs" />
+    <Compile Include="Panel3DPositionCalculator.cs" />
+    <Compile Include="Panel3DPositioner.cs" />
+    <Compile Include="Panel3DLinearScaleFunction.cs" />
+    <Compile Include="Panel3D_bak.cs" />
     <Compile Include="Panel3DLuke.cs" />
     <Compile Include="PanelPosition3D.cs" />
     <Compile Include="Plane.cs" />
+    <Compile Include="Position3D.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Page Include="DetailView.xaml">
       <SubType>Designer</SubType>

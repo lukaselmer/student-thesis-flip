@@ -25,7 +25,15 @@
         </DataTemplate>
         
         <ItemsPanelTemplate x:Key="ItemPanelTemplate">
-            <Surface:Panel3DLuke Background="White" />
+            <Surface:Panel3D Background="White">
+                <Surface:Panel3D.Resources>
+                    <Style TargetType="s:SurfaceListBoxItem">
+                        <Setter Property="Margin" Value="0" />
+                        <Setter Property="Padding" Value="0" />
+                        <Setter Property="Background" Value="Transparent" />
+                    </Style>
+                </Surface:Panel3D.Resources>
+            </Surface:Panel3D>
             <!--<WrapPanel Margin="5">
                 <WrapPanel.Resources>
                     <Style TargetType="s:SurfaceListBoxItem">

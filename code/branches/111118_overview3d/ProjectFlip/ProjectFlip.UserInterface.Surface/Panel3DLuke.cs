@@ -14,6 +14,7 @@ namespace ProjectFlip.UserInterface.Surface
     public class Panel3DLuke : Panel
     {
         private PanelPosition3D _position;
+        private double _scrollPosition = 0;
 
         protected override Size MeasureOverride(Size availableSize)
         {
@@ -49,16 +50,16 @@ namespace ProjectFlip.UserInterface.Surface
 
             foreach (FrameworkElement child in Children) child.LayoutTransform = null;
 
-            if (_position == null || Math.Abs(_position.FinalSize.Height - finalSize.Height) > 1 || 
-                Math.Abs(_position.FinalSize.Width - finalSize.Width) > 1 || _position.Children.Count() != Children.Count)
-                _position = new PanelPosition3D(finalSize, Children.OfType<FrameworkElement>().ToList());
+            //if (_position == null || Math.Abs(_position.FinalSize.Height - finalSize.Height) > 1 || 
+            //    Math.Abs(_position.FinalSize.Width - finalSize.Width) > 1 || _position.Children.Count() != Children.Count)
+            _position = new PanelPosition3D(finalSize, Children.OfType<FrameworkElement>().ToList());
 
             foreach (FrameworkElement childElement in Children)
             {
                 //var alignX = childElement.DesiredSize.Width / 2;
                 //var alignY = childElement.DesiredSize.Height / 2;
 
-                
+
                 var tg = new TransformGroup();
                 //tg.Children.Add(new RotateTransform(45, 25, 25));
                 tg.Children.Add(new ScaleTransform(_position.Scale, _position.Scale));

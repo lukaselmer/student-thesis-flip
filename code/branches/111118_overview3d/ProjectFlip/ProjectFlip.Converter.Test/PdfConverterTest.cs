@@ -58,7 +58,7 @@ namespace ProjectFlip.Converter.Test
 
         #endregion
 
-        private const bool TestEverything = false;
+        private readonly bool _testEverything = File.Exists(@"C:\test_everything.txt");
 
         private const string PdfPath = @"..\..\..\Resources\Test\Pdf\test.pdf";
         private const string XpsPath = @"..\..\..\Resources\Test\Xps\test.xps";
@@ -121,7 +121,7 @@ namespace ProjectFlip.Converter.Test
         public void ConvertTest()
         {
             // ReSharper disable ConditionIsAlwaysTrueOrFalse
-            if (!TestEverything) return;
+            if (!_testEverything) return;
             // ReSharper restore ConditionIsAlwaysTrueOrFalse
             // ReSharper disable CSharpWarnings::CS0162
             // ReSharper disable HeuristicUnreachableCode

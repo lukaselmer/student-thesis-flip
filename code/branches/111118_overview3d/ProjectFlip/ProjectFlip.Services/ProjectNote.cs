@@ -66,7 +66,7 @@ namespace ProjectFlip.Services
         private void AddToMetadata(string metadataType, string line)
         {
             var metadataList = SharepointStringDeserializer.Deserialize(line, MetadataType.Get(metadataType));
-            var aggregatedList = metadataList.Select(Aggregator.AggregateMetadata).ToList();
+            var aggregatedList = Aggregator == null ? metadataList.ToList() : metadataList.Select(Aggregator.AggregateMetadata).ToList();
             aggregatedList.ForEach(m =>
                 {
                     if (!Metadata.ContainsKey(m.Type)) Metadata[m.Type] = new SortedSet<IMetadata>(new MetadataComparer());

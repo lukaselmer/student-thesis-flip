@@ -11,7 +11,7 @@ namespace ProjectFlip.Converter.Pdf
 {
     public class PdfConverter : IConverter
     {
-        public static int SecondsToWait = 30;
+        public static int SecondsToWait = 60;
 
         public PdfConverter()
         {
