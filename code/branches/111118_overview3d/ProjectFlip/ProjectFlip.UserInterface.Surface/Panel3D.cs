@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace ProjectFlip.UserInterface.Surface
@@ -59,9 +60,19 @@ namespace ProjectFlip.UserInterface.Surface
                 //tg.Children.Add(new ScaleTransform(.75,.75));
                 //Console.WriteLine(position.Scale);
                 tg.Children.Add(new ScaleTransform(position.Scale, position.Scale));
-                tg.Children.Add(new SkewTransform(0, 0));
+                switch (position.HorizontalAlignment)
+                {
+                    case HorizontalAlignment.Left:
+                        tg.Children.Add(new SkewTransform(-8, 2));
+                        break;
+                    case HorizontalAlignment.Right:
+                        tg.Children.Add(new SkewTransform(8, -2));
+                        break;
+                }
+
                 //tg.Children.Add(new MatrixTransform(5, 0, 3, 1, 0,0));
-                childElement.LayoutTransform = tg;
+                //childElement.LayoutTransform = tg;
+                childElement.RenderTransform = tg;
 
                 //var r = new Rect(300, 300, childElement.DesiredSize.Width, childElement.DesiredSize.Height);
                 var r = new Rect(position.X, position.Y, childElement.DesiredSize.Width, childElement.DesiredSize.Height);

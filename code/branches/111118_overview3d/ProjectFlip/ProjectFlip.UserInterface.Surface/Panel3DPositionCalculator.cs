@@ -21,13 +21,13 @@ namespace ProjectFlip.UserInterface.Surface
 
         public Position3D Calculate(int row, int col)
         {
-            var positionLeftAligned = new Position3D(col * _elementSize.Width, ScaleFunction.SqueezeFactor(row) * _elementSize.Height, ScaleFunction.Scale(row));
+            var positionLeftAligned = new Position3D(col * _elementSize.Width, ScaleFunction.SqueezeFactor(row) * _elementSize.Height, ScaleFunction.Scale(row), HorizontalAlignment.Center);
             if (row == 0 || LeftAligned) return positionLeftAligned;
             var halfWindowSize = _windowSize.Width/2;
-            if (halfWindowSize < positionLeftAligned.X) return positionLeftAligned; // Left aligned
+            if (halfWindowSize < positionLeftAligned.X) return new Position3D(positionLeftAligned.X, positionLeftAligned.Y, positionLeftAligned.Scale, HorizontalAlignment.Left);
             var marginLeft = _elementSize.Width - _elementSize.Width * positionLeftAligned.Scale;
             var centered = halfWindowSize - _elementSize.Width < positionLeftAligned.X;
-            return new Position3D(positionLeftAligned.X + marginLeft * (centered ? 0.5 : 1), positionLeftAligned.Y, positionLeftAligned.Scale);
+            return new Position3D(positionLeftAligned.X + marginLeft * (centered ? 0.5 : 1), positionLeftAligned.Y, positionLeftAligned.Scale, (centered ? HorizontalAlignment.Center : HorizontalAlignment.Right));
         }
     }
 }

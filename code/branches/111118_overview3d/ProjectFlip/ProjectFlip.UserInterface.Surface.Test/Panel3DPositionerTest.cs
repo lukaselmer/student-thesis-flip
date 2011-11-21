@@ -82,7 +82,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         private static void CalculateCurrentPositionTest(Size windowSize, Size elSize, IEnumerable<double[]> expectedPositionsArray, IPanel3DScaleFunction scaleFunction)
         {
             var positioner = new Panel3DPositioner(windowSize, elSize, 0, scaleFunction);
-            foreach (var expectedPosition in expectedPositionsArray.Select(pos => new Position3D(pos[0], pos[1], 1)))
+            foreach (var expectedPosition in expectedPositionsArray.Select(pos => new Position3D(pos[0], pos[1], 1, HorizontalAlignment.Left)))
             {
                 var calculatedPosition = positioner.CalculateCurrentPosition();
                 Assert.AreEqual(expectedPosition.X, calculatedPosition.X, 0.25);
