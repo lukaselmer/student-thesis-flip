@@ -9,6 +9,7 @@ namespace ProjectFlip.UserInterface.Surface
         private Size _elementSize;
         private readonly Size _windowSize;
         private double _scrollPosition;
+        public bool LeftAligned;
 
         public Panel3DPositionCalculator(Size elementSize, Size windowSize, double scrollPosition, IPanel3DScaleFunction scaleFunction)
         {
@@ -21,7 +22,7 @@ namespace ProjectFlip.UserInterface.Surface
         public Position3D Calculate(int row, int col)
         {
             var positionLeftAligned = new Position3D(col * _elementSize.Width, ScaleFunction.SqueezeFactor(row) * _elementSize.Height, ScaleFunction.Scale(row));
-            if (row == 0) return positionLeftAligned;
+            if (row == 0 || LeftAligned) return positionLeftAligned;
             var halfWindowSize = _windowSize.Width/2;
             if (halfWindowSize < positionLeftAligned.X) return positionLeftAligned; // Left aligned
             var marginLeft = _elementSize.Width - _elementSize.Width * positionLeftAligned.Scale;
