@@ -4,11 +4,35 @@
     xmlns:s="http://schemas.microsoft.com/surface/2008">
 
     <UserControl.Resources>
+
         <DataTemplate x:Key="FilterMainCriteriaTemplate">
-            <s:SurfaceButton Background="#d5d5d5" >
+            <s:SurfaceButton Style="{DynamicResource FilterMaincriteriaButtonStyle}">
                 <TextBlock Style="{DynamicResource TextStyle}" Text="{Binding Name}" />
             </s:SurfaceButton>
         </DataTemplate>
+
+        <Style x:Key="FilterMaincriteriaButtonStyle" TargetType="s:SurfaceButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type s:SurfaceButton}">
+                        <Grid x:Name="grid" HorizontalAlignment="Center" VerticalAlignment="Center" Height="104" Width="230">
+                            <Rectangle x:Name="rectangle" StrokeThickness="7" Width="240" Height="114" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="#FFFF820A">
+                                <Rectangle.Effect>
+                                    <BlurEffect/>
+                                </Rectangle.Effect>
+                                <Rectangle.Stroke>
+                                    <LinearGradientBrush EndPoint="0.427,0.06" StartPoint="0.578,0.967">
+                                        <GradientStop Color="#FFFE6100" Offset="0.5"/>
+                                        <GradientStop Color="#FFFED7BF" Offset="0.533"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Stroke>
+                            </Rectangle>
+                            <ContentPresenter Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
         <DataTemplate x:Key="FilterSubCriteriaTemplate">
             <s:SurfaceButton Style="{DynamicResource FilterButtonStyle}" CommandParameter="{Binding}" 
@@ -34,9 +58,9 @@
     <Grid>
         <s:SurfaceButton Style="{DynamicResource BackgroundButtonStyle}" Command="{Binding ShowHideFilterCommand}" />
 
-        <Grid>
+        <Grid Margin="10">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="240" />
+                <ColumnDefinition Width="230" />
                 <ColumnDefinition Width="1120"/>
             </Grid.ColumnDefinitions>
 

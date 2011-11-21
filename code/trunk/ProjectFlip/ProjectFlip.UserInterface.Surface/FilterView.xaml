@@ -120,7 +120,7 @@
                           ItemTemplate="{DynamicResource FilterCriteriaTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                           ScrollViewer.VerticalScrollBarVisibility="Disabled" />
         <s:SurfaceButton Style="{StaticResource ButtonStyle}" Grid.Row="2" VerticalAlignment="Top" Command="{Binding ShowHideFilterCommand}" Width="200" Margin="0,10,0,10" >
-            <TextBlock Style="{DynamicResource TextStyle}" Text="Kriterien hinzufügen" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" TextAlignment="Center" />
+            <TextBlock Style="{DynamicResource TextStyle}" Text="Kriterien hinzufügen" FontSize="20" />
         </s:SurfaceButton>
     </Grid>
 </UserControl>
