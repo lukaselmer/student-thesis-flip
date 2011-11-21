@@ -79,7 +79,6 @@ namespace ProjectFlip.UserInterface.Surface.Test
             var projectNotesService = new ProjectNotesServiceMock(5, "Sector");
             var n = projectNotesService.Metadata.Keys.ElementAt(0).Name;
             var target = new OverviewWindowViewModel_Accessor(projectNotesService);
-            target.IsDetailViewVisible = true;
             var filter = new MetadataMock(new MetadataTypeMock() {Name = "Sector"},"Oberkriterium");
 
             target.AddFilter(filter);
@@ -102,6 +101,50 @@ namespace ProjectFlip.UserInterface.Surface.Test
             Assert.IsFalse(target.IsFilterViewVisible);
             target.OnShowFilter(new object());
             Assert.IsTrue(target.IsFilterViewVisible);
+        }
+
+        /// <summary>
+        ///A test that it's not possible to add more than three filters
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
+        public void TryToAddMoreThanThreeElementsToFilterTest()
+        {
+            var projectNotesService = new ProjectNotesServiceMock(5, "Sector");
+            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            var filter1 = new MetadataMock(new MetadataTypeMock() { Name = "Sector" }, "Kriterium 1");
+            var filter2 = new MetadataMock(new MetadataTypeMock() { Name = "Sector" }, "Kriterium 2");
+            var filter3 = new MetadataMock(new MetadataTypeMock() { Name = "Sector" }, "Kriterium 3");
+            var filter4 = new MetadataMock(new MetadataTypeMock() { Name = "Sector" }, "Kriterium 4");
+
+            Assert.AreEqual(0, target.Filters.Cast<IMetadata>().Count());
+            target.AddFilter(filter1);
+            target.AddFilter(filter2);
+            target.AddFilter(filter3);
+            Assert.AreEqual(3, target.Filters.Cast<IMetadata>().Count());
+            target.AddFilter(filter4);
+            Assert.AreEqual(3, target.Filters.Cast<IMetadata>().Count());
+            Assert.AreEqual(filter1, target.Filters.Cast<IMetadata>().ElementAt(0));
+            Assert.AreEqual(filter2, target.Filters.Cast<IMetadata>().ElementAt(1));
+            Assert.AreEqual(filter3, target.Filters.Cast<IMetadata>().ElementAt(2));
+        }
+
+        /// <summary>
+        ///A test that it's not possible to add an filter twice
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
+        public void TryToAddElementTwiceToFilterTest()
+        {
+            var projectNotesService = new ProjectNotesServiceMock(5, "Sector");
+            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            var filter = new MetadataMock(new MetadataTypeMock() { Name = "Sector" }, "Oberkriterium");
+
+            Assert.AreEqual(0, target.Filters.Cast<IMetadata>().Count());
+            target.AddFilter(filter);
+            Assert.AreEqual(1, target.Filters.Cast<IMetadata>().Count());
+            target.AddFilter(filter);
+            Assert.AreEqual(1, target.Filters.Cast<IMetadata>().Count());
         }
 
         /// <summary>
