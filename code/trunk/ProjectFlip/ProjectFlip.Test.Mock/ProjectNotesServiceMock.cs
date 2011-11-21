@@ -11,9 +11,9 @@ namespace ProjectFlip.Test.Mock
 {
     public class ProjectNotesServiceMock : IProjectNotesService
     {
-        public ProjectNotesServiceMock(int count, string o = "")
+        public ProjectNotesServiceMock(int count)
         {
-            ProjectNotes = new List<IProjectNote>(Enumerable.Range(0, count).Select(i => new ProjectNoteMock(o)));
+            ProjectNotes = new List<IProjectNote>(Enumerable.Range(0, count).Select(i => new ProjectNoteMock()));
         }
 
         public List<IProjectNote> ProjectNotes { get; private set; }

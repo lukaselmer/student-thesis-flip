@@ -20,24 +20,13 @@ namespace ProjectFlip.Test.Mock
 
         public ProjectNoteMock() { }
 
-        public ProjectNoteMock(string o)
-        {
-            Sector = new MetadataMock(new MetadataTypeMock {Name = o}, o);
-        }
-
         public int Id { get; set; }
         public string Title { get; set; }
         public string Text { get; set; }
 
         public IDictionary<IMetadataType, ICollection<IMetadata>> Metadata { get; set; }
 
-        public IMetadata Sector { get; set; }
-        public IMetadata Customer { get; set; }
-        public IList<IMetadata> Focus { get; set; }
-        public IList<IMetadata> Services { get; set; }
-        public IList<IMetadata> Technologies { get; set; }
-        public IList<IMetadata> Applications { get; set; }
-        public IList<IMetadata> Tools { get; set; }
+
         public DateTime Published { get; set; }
         public string Filename { get; set; }
         public string FilepathPdf { get; set; }

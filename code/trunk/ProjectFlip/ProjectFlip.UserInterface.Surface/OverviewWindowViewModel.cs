@@ -31,8 +31,10 @@ namespace ProjectFlip.UserInterface.Surface
             Filters = new CollectionView(_filters);
             Criteria  = projectNotesService.Metadata;
             Maincriteria = new CollectionView(Criteria.Keys);
-            Maincriteria.CurrentChanged += OnCurrentMainCriteriaChanged;
-            
+            Maincriteria.MoveCurrentToFirst();
+            SetSubCriteria();
+
+            ShowSubcriteriaCommand = new Command(OnCurrentMainCriteriaChanged);
             ShowDetailsCommand = new Command(OnShowDetail);
             HideDetailsCommand = new Command(o => IsDetailViewVisible = false);
             ShowHideFilterCommand = new Command(OnShowFilter);
@@ -59,10 +61,16 @@ namespace ProjectFlip.UserInterface.Surface
             }
         }
 
-        private void OnCurrentMainCriteriaChanged(object sender, EventArgs e)
+        private void OnCurrentMainCriteriaChanged(object maincriteria)
+        {
+            Maincriteria.MoveCurrentTo(maincriteria);
+            SetSubCriteria();
+        }
+
+        private void SetSubCriteria()
         {
             ICollection<IMetadata> value;
-            Criteria.TryGetValue((IMetadataType) Maincriteria.CurrentItem, out value);
+            Criteria.TryGetValue((IMetadataType)Maincriteria.CurrentItem, out value);
             Subcriteria = new CollectionView(value);
         }
 
@@ -90,6 +98,7 @@ namespace ProjectFlip.UserInterface.Surface
         } }
 
         public ICollectionView ProjectNotes { get; private set; }
+        public ICommand ShowSubcriteriaCommand { get; private set; }
         public ICommand ShowDetailsCommand { get; private set; }
         public ICommand HideDetailsCommand { get; private set; }
         public ICommand ShowHideFilterCommand { get; private set; }
