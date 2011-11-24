@@ -606,3 +606,10 @@ Technologie	XPO2	XPO2
 Technologie	XSL	XSL
 Technologie	Zde Graph	Zde Graph
 Technologie	ZEMAX	ZEMAX
+Sector	Sector	Sector
+Customer	Customer	Customer
+Focus	Focus	Focus
+Services	Services	Services
+Technologies	Technology	Technology
+Applications	Application	Application
+Tools	Tools	Tools
