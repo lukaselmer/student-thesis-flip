@@ -17,16 +17,37 @@
             </StackPanel>
         </DataTemplate>
 
-        <Style x:Key="NavigateButtonStyle" TargetType="{x:Type s:SurfaceButton}">
+        <Style x:Key="NavigateToLeftButtonStyle" TargetType="{x:Type s:SurfaceButton}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type s:SurfaceButton}">
                         <Grid Width="60" Height="120">
-                        	<ed:RegularPolygon Fill="White" Height="50" InnerRadius="1" Margin="-15,35,-25,35" PointCount="3" Stretch="Fill" Width="100" RenderTransformOrigin="0.5,0.5" StrokeThickness="5">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="Common">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(LinearGradientBrush.StartPoint)" Storyboard.TargetName="regularPolygon">
+                                                <EasingPointKeyFrame KeyTime="0:0:0" Value="0.748,0.488"/>
+                                            </PointAnimationUsingKeyFrames>
+                                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(LinearGradientBrush.EndPoint)" Storyboard.TargetName="regularPolygon">
+                                                <EasingPointKeyFrame KeyTime="0:0:0" Value="0.722,0.547"/>
+                                            </PointAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[0].(GradientStop.Offset)" Storyboard.TargetName="regularPolygon">
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[1].(GradientStop.Offset)" Storyboard.TargetName="regularPolygon">
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0.591"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ed:RegularPolygon x:Name="regularPolygon" Fill="White" Height="50" InnerRadius="1" Margin="-15,35,-25,35" PointCount="3" Stretch="Fill" Width="100" RenderTransformOrigin="0.5,0.5" StrokeThickness="5">
                         		<ed:RegularPolygon.Stroke>
-                        			<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        				<GradientStop Color="#FFC7C7C7" Offset="0"/>
-                        				<GradientStop Color="White" Offset="1"/>
+                        			<LinearGradientBrush EndPoint="0.5,0.947" StartPoint="0.5,1.053">
+                        				<GradientStop Color="#FFC7C7C7" Offset="0.5"/>
+                        				<GradientStop Color="White" Offset="0.972"/>
                         			</LinearGradientBrush>
                         		</ed:RegularPolygon.Stroke>
                         		<ed:RegularPolygon.RenderTransform>
@@ -38,6 +59,53 @@
                         			</TransformGroup>
                         		</ed:RegularPolygon.RenderTransform>
                         	</ed:RegularPolygon>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="NavigateToRightButtonStyle" TargetType="{x:Type s:SurfaceButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type s:SurfaceButton}">
+                        <Grid Width="60" Height="120">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="Common">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <Storyboard>
+                                                <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(LinearGradientBrush.StartPoint)" Storyboard.TargetName="regularPolygon">
+                                                    <EasingPointKeyFrame KeyTime="0:0:0" Value="0.634,1.006"/>
+                                                </PointAnimationUsingKeyFrames>
+                                                <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(LinearGradientBrush.EndPoint)" Storyboard.TargetName="regularPolygon">
+                                                    <EasingPointKeyFrame KeyTime="0:0:0" Value="0.634,0.887"/>
+                                                </PointAnimationUsingKeyFrames>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[1].(GradientStop.Offset)" Storyboard.TargetName="regularPolygon">
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0.492"/>
+                                                </DoubleAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ed:RegularPolygon x:Name="regularPolygon" Fill="White" Height="50" InnerRadius="1" Margin="-25,35,-15,35" PointCount="3" Stretch="Fill" Width="100" RenderTransformOrigin="0.5,0.5" StrokeThickness="5">
+                                <ed:RegularPolygon.Stroke>
+                                    <LinearGradientBrush EndPoint="0.689,0.5" StartPoint="0.729,0.411">
+                                        <GradientStop Color="#FFC7C7C7"/>
+                                        <GradientStop Color="White" Offset="0.61"/>
+                                    </LinearGradientBrush>
+                                </ed:RegularPolygon.Stroke>
+                                <ed:RegularPolygon.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="90"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </ed:RegularPolygon.RenderTransform>
+                            </ed:RegularPolygon>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -95,19 +163,16 @@
 
         <Grid x:Name="LayoutRoot">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.2*"/>
-                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="240"/>
                 <ColumnDefinition Width="240"/>
                 <ColumnDefinition Width="{Binding DocumentViewerWidth}"/>
-                <ColumnDefinition Width="70"/>
-                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <s:SurfaceButton Style="{StaticResource NavigateButtonStyle}" VerticalAlignment="Center" Margin="0,0,8,0" Grid.Column="1" x:Name="ToLeftButton" Command="{Binding NavigateToLeftCommand}">
-                <TextBlock Style="{DynamicResource TextStyle}"><Run Text="nach links"/></TextBlock>
+            <s:SurfaceButton Style="{StaticResource NavigateToLeftButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" Grid.Column="0" x:Name="ToLeftButton" Command="{Binding NavigateToLeftCommand}">
             </s:SurfaceButton>
 
-            <Grid Grid.Column="2" VerticalAlignment="Stretch" Background="#e7e7e7">
+            <Grid Grid.Column="1" VerticalAlignment="Stretch" Background="#e7e7e7">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="90"/>
                     <RowDefinition Height="*"/>
@@ -123,7 +188,7 @@
                 <s:SurfaceListBox Margin="10" ScrollViewer.HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Center" Grid.Row="1" ItemsSource="{Binding CurrentProjectNote.Metadata}" ItemTemplate="{DynamicResource MetadataListTemplate}" ItemsPanel="{DynamicResource MetadataListBoxTemplate}" />
             </Grid>
 
-            <DocumentViewer IsManipulationEnabled="True" Grid.Column="3" Document="{Binding CurrentProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}">
+            <DocumentViewer IsManipulationEnabled="True" Grid.Column="2" Document="{Binding CurrentProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="TouchDown" >
                         <ei:CallMethodAction TargetObject="{Binding}" MethodName="OnTouchDown"/>
@@ -132,8 +197,7 @@
             </DocumentViewer> 
           <!--            Width="{Binding DocumentViewerWidth}"-->
 
-            <s:SurfaceButton Style="{StaticResource NavigateButtonStyle}" VerticalAlignment="Center" Margin="8,0,0,0" Grid.Column="4" x:Name="ToRightButton" Command="{Binding NavigateToRightCommand}">
-                <TextBlock Style="{DynamicResource TextStyle}"><Run Text="nach rechts"/></TextBlock>
+            <s:SurfaceButton HorizontalAlignment="Left" Style="{StaticResource NavigateToRightButtonStyle}" VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="3" x:Name="ToRightButton" Command="{Binding NavigateToRightCommand}">
             </s:SurfaceButton>
             
         </Grid>
