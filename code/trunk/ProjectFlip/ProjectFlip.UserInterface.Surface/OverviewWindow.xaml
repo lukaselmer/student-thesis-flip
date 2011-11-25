@@ -11,8 +11,8 @@
     <s:SurfaceWindow.Resources>
 
         <Style x:Key="TextStyle" TargetType="{x:Type TextBlock}">
-            <Setter Property="Margin" Value="3" />
-            <Setter Property="TextWrapping" Value="WrapWithOverflow" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="TextWrapping" Value="Wrap" />
             <Setter Property="FontFamily" Value="AA Zuehlke" />
             <Setter Property="Foreground" Value="Black" />
             <Setter Property="TextTrimming" Value="CharacterEllipsis" />
@@ -73,7 +73,7 @@
                         <Rectangle Width="90" Margin="0,0,10,0"  Height="2" Fill="#ff8204" />
                         <Rectangle Width="90" Margin="10,0,0,0" Height="2" Fill="#ff8204" />
                     </StackPanel>
-                    <TextBlock Style="{DynamicResource TextStyle}" Text="{Binding Title}" Foreground="#ff8204" HorizontalAlignment="Left"/>
+                    <TextBlock Margin="5" Style="{DynamicResource TextStyle}" Text="{Binding Title}" Foreground="#ff8204"/>
                 </StackPanel>
             </s:SurfaceButton>
         </DataTemplate>
@@ -85,6 +85,7 @@
                         <Setter Property="Margin" Value="0" />
                         <Setter Property="Padding" Value="0" />
                         <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="HorizontalAlignment" Value="Left"/>
                     </Style>
                 </WrapPanel.Resources>
             </WrapPanel>
@@ -97,7 +98,7 @@
         	<ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Surface:FilterView Grid.Column="0"/>
+        <Surface:FilterView VerticalAlignment="Center" Grid.Column="0"/>
 
         <s:SurfaceListBox Background="#e6e6e6" Name="listBox" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ProjectNotes}"  
                           ItemTemplate="{StaticResource ProjectNoteButtonTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" />

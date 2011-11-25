@@ -70,7 +70,7 @@
         <DataTemplate x:Key="FilterSubCriteriaTemplate">
             <s:SurfaceButton Style="{DynamicResource FilterButtonStyle}" CommandParameter="{Binding}" 
                              Command="{Binding DataContext.AddFilterCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceListBox}}}" >
-                <TextBlock Style="{DynamicResource TextStyle}" Text="{Binding Description}" />
+                <TextBlock Margin="3" Style="{DynamicResource TextStyle}" Text="{Binding Description}" />
             </s:SurfaceButton>
         </DataTemplate>
 
