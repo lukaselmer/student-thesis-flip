@@ -185,7 +185,7 @@
                     <Rectangle Width="90" Margin="0,0,10,0"  Height="2" Fill="#ff8204" />
                     <Rectangle Width="90" Margin="10,0,0,0" Height="2" Fill="#ff8204" />
                 </StackPanel>
-                <s:SurfaceListBox Margin="10" ScrollViewer.HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Center" Grid.Row="1" ItemsSource="{Binding CurrentProjectNote.Metadata}" ItemTemplate="{DynamicResource MetadataListTemplate}" ItemsPanel="{DynamicResource MetadataListBoxTemplate}" />
+                <s:SurfaceListBox Style="{DynamicResource SurfaceListBoxStyle}" Margin="10" ScrollViewer.HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Center" Grid.Row="1" ItemsSource="{Binding CurrentProjectNote.Metadata}" ItemTemplate="{DynamicResource MetadataListTemplate}" ItemsPanel="{DynamicResource MetadataListBoxTemplate}" />
             </Grid>
 
             <DocumentViewer IsManipulationEnabled="True" Grid.Column="2" Document="{Binding CurrentProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}">
