@@ -24,10 +24,16 @@ namespace ProjectFlip.UserInterface.Surface
         private bool _isFilterViewVisible;
         private CollectionView _subcriteria;
         private ICollectionView _filtersCollectionView;
-
+        private GridLength _documentViewerWidth;
+        private GridLength _leftButtonWidth;
+        private GridLength _rightButtonWidth;
 
         public OverviewWindowViewModel(IProjectNotesService projectNotesService)
         {
+            DocumentViewerWidth = new GridLength(760);
+            LeftButtonWidth = new GridLength(240);
+            RightButtonWidth = new GridLength(1, GridUnitType.Star);
+
             ProjectNotes = new ListCollectionView(projectNotesService.ProjectNotes) {Filter = FilterCallback};
             ProjectNotes.CurrentChanged += OnCurrentProjectNoteChanged; 
             CurrentProjectNote = ((IProjectNote)ProjectNotes.CurrentItem);
@@ -111,7 +117,8 @@ namespace ProjectFlip.UserInterface.Surface
         public ICommand AddFilterCommand { get; private set; }
         public ICommand RemoveFilterCommand { get; private set; }
         public ICommand DeleteButtonCommand { get; set; }
-        public void OnTouchDown(object sender, TouchEventArgs e)
+
+        public void OnTouchUp(object sender, TouchEventArgs e)
         {
 //            if (e.TouchDevice == TouchAction.Move) return;
 
@@ -127,20 +134,47 @@ namespace ProjectFlip.UserInterface.Surface
             //                }
             //Do something
 
-            var d = ((DocumentViewer) sender);
-            var gridLength = new GridLength(Math.Abs(DocumentViewerWidth.Value - 300) < 1?1.5:300, GridUnitType.Star);
-            DocumentViewerWidth = gridLength;
-            d.FitToWidth();
+            bool docViewerIsSmall = (Math.Abs((new GridLength(760)).Value - DocumentViewerWidth.Value) < 1);
+
+            DocumentViewerWidth = docViewerIsSmall ? new GridLength(1, GridUnitType.Star) : new GridLength(760);
+            LeftButtonWidth = docViewerIsSmall ? new GridLength(70) : new GridLength(240);
+            RightButtonWidth = docViewerIsSmall ? new GridLength(70) : new GridLength(1, GridUnitType.Star);
+       
+            ((DocumentViewer) sender).FitToWidth();
         }
 
-        private GridLength _documentViewerWidth = new GridLength(1.5, GridUnitType.Star);
+        public void OnDragMove(object sender, TouchEventArgs e)
+        {
+            Console.WriteLine("------------- DragMove");
+        }
+
         public GridLength DocumentViewerWidth
         {
             get { return _documentViewerWidth; }
-            set
+            private set
             {
                 _documentViewerWidth = value;
                 Notify("DocumentViewerWidth");
+            }
+        }
+
+        public GridLength LeftButtonWidth
+        {
+            get { return _leftButtonWidth; }
+            private set
+            {
+                _leftButtonWidth = value;
+                Notify("LeftButtonWidth");
+            }
+        }
+
+        public GridLength RightButtonWidth
+        {
+            get { return _rightButtonWidth; }
+            private set
+            {
+                _rightButtonWidth = value;
+                Notify("RightButtonWidth");
             }
         }
 
