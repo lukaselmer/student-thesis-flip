@@ -709,7 +709,8 @@
 
         <s:SurfaceListBox Background="#e6e6e6" x:Name="listBox" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ProjectNotes}"  
                           ItemTemplate="{StaticResource ProjectNoteButtonTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" Style="{DynamicResource SurfaceListBoxStyle}" />
-        <Surface:DetailView Grid.Column="1" Visibility="{Binding IsDetailViewVisible, Converter={Converters:BoolToVisibilityConverter}}"/>
+        <Surface:DetailView Grid.Column="1" />
+		<!-- Visibility="{Binding IsDetailViewVisible, Converter={Converters:BoolToVisibilityConverter}}"-->
         <Surface:FilterDetailView Grid.Column="1" Visibility="{Binding IsFilterViewVisible, Converter={Converters:BoolToVisibilityConverter}}"/>
     </Grid>
 </s:SurfaceWindow>

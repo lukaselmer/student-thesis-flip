@@ -8,7 +8,7 @@
              xmlns:ee="http://schemas.microsoft.com/expression/2010/effects" 
              xmlns:ProjectFlip_UserInterface_Surface_Converters="clr-namespace:ProjectFlip.UserInterface.Surface.Converters" 
              xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
-             xmlns:Documents="clr-namespace:System.Windows.Documents;assembly=PresentationUI" x:Name="userControl" mc:Ignorable="d" x:Class="ProjectFlip.UserInterface.Surface.DetailView">
+             xmlns:Documents="clr-namespace:System.Windows.Documents;assembly=PresentationUI" x:Name="userControl" mc:Ignorable="d" x:Class="ProjectFlip.UserInterface.Surface.DetailView" RenderTransformOrigin="0.5,0.5">
 
     <UserControl.Resources>
         <DataTemplate x:Key="MetadataTemplate">
@@ -144,8 +144,79 @@
         </Style>
 
     </UserControl.Resources>
+	<UserControl.RenderTransform>
+		<TransformGroup>
+			<ScaleTransform/>
+			<SkewTransform/>
+			<RotateTransform/>
+			<TranslateTransform/>
+		</TransformGroup>
+	</UserControl.RenderTransform>
 
     <Grid>
+    	<VisualStateManager.CustomVisualStateManager>
+    		<ei:ExtendedVisualStateManager/>
+    	</VisualStateManager.CustomVisualStateManager>
+		<i:Interaction.Behaviors>
+			<ei:DataStateBehavior Binding="{Binding IsDetailViewVisible}" TrueState="Visible" FalseState="Collapsed" Value="true"/>
+		</i:Interaction.Behaviors>
+    	<VisualStateManager.VisualStateGroups>
+    		<VisualStateGroup x:Name="VisibilityStates">
+    			<VisualStateGroup.Transitions>
+    				<VisualTransition From="Collapsed" GeneratedDuration="0" To="Visible">
+    					<Storyboard>
+    						<DoubleAnimation Duration="0:0:0.5" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="userControl"/>
+    						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="userControl">
+    							<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+    						</ObjectAnimationUsingKeyFrames>
+    						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="userControl">
+    							<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+    							<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+    						</DoubleAnimationUsingKeyFrames>
+    						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="userControl">
+    							<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+    							<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+    						</DoubleAnimationUsingKeyFrames>
+    					</Storyboard>
+    				</VisualTransition>
+    				<VisualTransition From="Visible" GeneratedDuration="0" To="Collapsed">
+    					<ei:ExtendedVisualStateManager.TransitionEffect>
+    						<ee:RippleTransitionEffect/>
+    					</ei:ExtendedVisualStateManager.TransitionEffect>
+    					<Storyboard>
+    						<DoubleAnimation Duration="0:0:0.5" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="userControl"/>
+    						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="userControl">
+    							<DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Collapsed}"/>
+    						</ObjectAnimationUsingKeyFrames>
+    						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="userControl">
+    							<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+    						</DoubleAnimationUsingKeyFrames>
+    						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="userControl">
+    							<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+    						</DoubleAnimationUsingKeyFrames>
+    					</Storyboard>
+    				</VisualTransition>
+    				<VisualTransition GeneratedDuration="0" To="Collapsed">
+    					<Storyboard>
+    						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="userControl">
+    							<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}"/>
+    						</ObjectAnimationUsingKeyFrames>
+    					</Storyboard>
+    				</VisualTransition>
+    			</VisualStateGroup.Transitions>
+    			<VisualState x:Name="Visible"/>
+    			<VisualState x:Name="Collapsed">
+    				<Storyboard>
+    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="userControl">
+    						<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}"/>
+    					</ObjectAnimationUsingKeyFrames>
+    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="userControl">
+    						<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+    					</DoubleAnimationUsingKeyFrames>
+    				</Storyboard>
+    			</VisualState>
+    		</VisualStateGroup>
+    	</VisualStateManager.VisualStateGroups>
         <s:SurfaceButton Style="{DynamicResource BackgroundButtonStyle}" Command="{Binding HideDetailsCommand}" />
 
         <Grid x:Name="LayoutRoot">
@@ -173,17 +244,19 @@
                 </StackPanel>
                 <s:SurfaceListBox Style="{DynamicResource SurfaceListBoxStyle}" Margin="10" ScrollViewer.HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Center" Grid.Row="1" ItemsSource="{Binding CurrentProjectNote.Metadata}" ItemTemplate="{DynamicResource MetadataListTemplate}" ItemsPanel="{DynamicResource MetadataListBoxTemplate}" />
             </Grid>
+            <Border Grid.Column="2" Background="White" >
 
-            <DocumentViewer IsManipulationEnabled="True" Grid.Column="2" Document="{Binding CurrentProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}">
-                <i:Interaction.Triggers>
+            	<DocumentViewer IsManipulationEnabled="True" Document="{Binding CurrentProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}">
+            		<i:Interaction.Triggers>
                     
               
-                    <i:EventTrigger EventName="TouchUp" >
-                        <ei:CallMethodAction TargetObject="{Binding}" MethodName="OnTouchUp"/>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
+            			<i:EventTrigger EventName="TouchUp" >
+            				<ei:CallMethodAction TargetObject="{Binding}" MethodName="OnTouchUp"/>
+            			</i:EventTrigger>
+            		</i:Interaction.Triggers>
              
-            </DocumentViewer>
+            	</DocumentViewer>
+            </Border>
 <!--            Property IsScrolling  Determines whether a SurfaceScrollViewer object is being scrolled.-->
             <s:SurfaceButton HorizontalAlignment="Left" Style="{StaticResource NavigateToRightButtonStyle}" VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="3" x:Name="ToRightButton" Command="{Binding NavigateToRightCommand}" />
 
