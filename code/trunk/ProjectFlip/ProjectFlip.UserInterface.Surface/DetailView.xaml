@@ -8,7 +8,8 @@
              xmlns:ee="http://schemas.microsoft.com/expression/2010/effects" 
              xmlns:ProjectFlip_UserInterface_Surface_Converters="clr-namespace:ProjectFlip.UserInterface.Surface.Converters" 
              xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
-             xmlns:Documents="clr-namespace:System.Windows.Documents;assembly=PresentationUI" x:Name="userControl" mc:Ignorable="d" x:Class="ProjectFlip.UserInterface.Surface.DetailView" RenderTransformOrigin="0.5,0.5">
+             xmlns:Documents="clr-namespace:System.Windows.Documents;assembly=PresentationUI" 
+             x:Name="userControl" mc:Ignorable="d" x:Class="ProjectFlip.UserInterface.Surface.DetailView" RenderTransformOrigin="0.5,0.5">
 
     <UserControl.Resources>
         <DataTemplate x:Key="MetadataTemplate">
@@ -137,7 +138,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type DocumentViewer}">
-                        <s:SurfaceScrollViewer HorizontalScrollBarVisibility="Hidden" PanningMode="Both" VerticalScrollBarVisibility="Hidden" IsManipulationEnabled="True" x:Name="PART_ContentHost" CanContentScroll="true" Focusable="{TemplateBinding Focusable}" />
+                        <s:SurfaceScrollViewer HorizontalScrollBarVisibility="Hidden" PanningMode="VerticalOnly" VerticalScrollBarVisibility="Hidden" IsManipulationEnabled="True" x:Name="PART_ContentHost" CanContentScroll="true" Focusable="{TemplateBinding Focusable}" />
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -246,16 +247,17 @@
             </Grid>
             <Border Grid.Column="2" Background="White" >
 
-            	<DocumentViewer IsManipulationEnabled="True" Document="{Binding CurrentProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}">
+            	<DocumentViewer Name="docViewer" IsManipulationEnabled="True" Document="{Binding CurrentProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}">
             		<i:Interaction.Triggers>
-                    
-              
-            			<i:EventTrigger EventName="TouchUp" >
+                        <i:EventTrigger EventName="PreviewTouchUp" >
             				<ei:CallMethodAction TargetObject="{Binding}" MethodName="OnTouchUp"/>
             			</i:EventTrigger>
-            		</i:Interaction.Triggers>
-             
-            	</DocumentViewer>
+                        <i:EventTrigger EventName="PreviewDragOver" >
+                            <ei:CallMethodAction TargetObject="{Binding}" MethodName="OnTouchDown"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
+                </DocumentViewer>
             </Border>
 <!--            Property IsScrolling  Determines whether a SurfaceScrollViewer object is being scrolled.-->
             <s:SurfaceButton HorizontalAlignment="Left" Style="{StaticResource NavigateToRightButtonStyle}" VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="3" x:Name="ToRightButton" Command="{Binding NavigateToRightCommand}" />

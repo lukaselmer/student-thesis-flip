@@ -143,9 +143,9 @@ namespace ProjectFlip.UserInterface.Surface
             ((DocumentViewer) sender).FitToWidth();
         }
 
-        public void OnDragMove(object sender, TouchEventArgs e)
+        public void OnTouchDown(object sender, TouchEventArgs e)
         {
-            Console.WriteLine("------------- DragMove");
+            Console.WriteLine("2------------------------Tab----------------------");
         }
 
         public GridLength DocumentViewerWidth

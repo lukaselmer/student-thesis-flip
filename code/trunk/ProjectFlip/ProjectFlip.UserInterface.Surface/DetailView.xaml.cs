@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Surface.Presentation.Controls;
 
@@ -13,6 +14,7 @@ namespace ProjectFlip.UserInterface.Surface
         public DetailView()
         {
             InitializeComponent();
+            docViewer.FitToHeight();
         }
     }
 }
