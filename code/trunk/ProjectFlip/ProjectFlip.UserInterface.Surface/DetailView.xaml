@@ -133,12 +133,13 @@
                 </StackPanel.Resources>
             </StackPanel>
         </ItemsPanelTemplate>
-
-        <Style x:Key="SurfaceDocumentViewerStyle" BasedOn="{x:Null}" TargetType="{x:Type DocumentViewer}">
+      
+        
+       <Style x:Key="SurfaceDocumentViewerStyle" BasedOn="{x:Null}" TargetType="{x:Type DocumentViewer}">
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type DocumentViewer}">
-                        <s:SurfaceScrollViewer HorizontalScrollBarVisibility="Hidden" PanningMode="VerticalOnly" VerticalScrollBarVisibility="Hidden" IsManipulationEnabled="True" x:Name="PART_ContentHost" CanContentScroll="true" Focusable="{TemplateBinding Focusable}" />
+                    <ControlTemplate TargetType="{x:Type DocumentViewer}"><!--PanningMode="VerticalOnly" -->
+                        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" IsManipulationEnabled="True" x:Name="PART_ContentHost" CanContentScroll="true" Focusable="{TemplateBinding Focusable}" />
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -280,10 +281,10 @@
 
         <Grid x:Name="LayoutRoot">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="{Binding LeftButtonWidth}"/>
-                <ColumnDefinition Width="240"/>
-                <ColumnDefinition Width="{Binding DocumentViewerWidth}"/>
-                <ColumnDefinition Width="{Binding RightButtonWidth}"/>
+                <ColumnDefinition Name="c1" Width="{Binding LeftButtonWidth}"/>
+                <ColumnDefinition Name="c2" Width="240"/>
+                <ColumnDefinition Name="c3" Width="{Binding DocumentViewerWidth}"/>
+                <ColumnDefinition Name="c4" Width="{Binding RightButtonWidth}"/>
             </Grid.ColumnDefinitions>
 
             <s:SurfaceButton Grid.Column="0" Style="{StaticResource NavigateToLeftButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" x:Name="ToPreviousButton" Command="{Binding NavigateToLeftCommand}" />
@@ -330,44 +331,34 @@
             		</TransformGroup>
             	</Border.RenderTransform>
 
-                <DocumentViewer Name="docViewer" IsManipulationEnabled="True" Document="{Binding CurrentProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}" RenderTransformOrigin="0.5,0.5">
-                	<DocumentViewer.RenderTransform>
-                		<TransformGroup>
-                			<ScaleTransform/>
-                			<SkewTransform/>
-                			<RotateTransform/>
-                			<TranslateTransform/>
-                		</TransformGroup>
-                	</DocumentViewer.RenderTransform>
+<!--                <DocumentViewer Name="docViewer" IsManipulationEnabled="True" Document="{Binding CurrentProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}" RenderTransformOrigin="0.5,0.5">-->
+<!--                	-->
+<!--                    <i:Interaction.Triggers>-->
+<!--                        <i:EventTrigger EventName="PreviewTouchUp" >-->
+<!--                            <ei:CallMethodAction TargetObject="{Binding}" MethodName="OnTouchUp"/>-->
+<!--                        </i:EventTrigger>-->
+<!--                        <i:EventTrigger EventName="PreviewDragOver" >-->
+<!--                            <ei:CallMethodAction TargetObject="{Binding}" MethodName="OnTouchDown"/>-->
+<!--                        </i:EventTrigger>-->
+<!--                    </i:Interaction.Triggers>-->
+<!--                </DocumentViewer>-->
+
+                <DocumentViewer Zoom="87" ClipToBounds="True" Name="docViewer" IsManipulationEnabled="True" Document="{Binding CurrentProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}" >
                     <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewTouchUp" >
-                            <ei:CallMethodAction TargetObject="{Binding}" MethodName="OnTouchUp"/>
-                        </i:EventTrigger>
-                        <i:EventTrigger EventName="PreviewDragOver" >
-                            <ei:CallMethodAction TargetObject="{Binding}" MethodName="OnTouchDown"/>
+                        <i:EventTrigger EventName="TouchUp">
+                            <ei:CallMethodAction MethodName="OnTouchUp"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
+                    <i:Interaction.Behaviors>
+                        <ei:TranslateZoomRotateBehavior SupportedGestures="Scale,TranslateY" MaximumScale="1.3" MinimumScale="1" TranslateFriction="0.3" ConstrainToParentBounds="True" />
+                    </i:Interaction.Behaviors>
                 </DocumentViewer>
             </Border>
+          
+            <s:SurfaceButton HorizontalAlignment="Left" Style="{StaticResource NavigateToRightButtonStyle}" VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="3" x:Name="ToRightButton" Command="{Binding NavigateToRightCommand}" />
 
-
-
-            <!--            Property IsScrolling  Determines whether a SurfaceScrollViewer object is being scrolled.-->
             <s:SurfaceButton HorizontalAlignment="Left" Style="{StaticResource NavigateToRightButtonStyle}" VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="3" x:Name="ToNextButton" Command="{Binding NavigateToRightCommand}" />
 
         </Grid>
     </Grid>
 </UserControl>
-
-
-<!--<ToolBar DockPanel.Dock="Bottom">-->
-<!--    <Button Command="NavigationCommands.IncreaseZoom" -->
-<!--                CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"-->
-<!--                Content="Zoom In"/>-->
-<!--    <Button Command="NavigationCommands.DecreaseZoom" -->
-<!--                CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"-->
-<!--                Content="Zoom Out"/>-->
-<!--    <Button Command="DocumentViewer.FitToWidthCommand" -->
-<!--                CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"-->
-<!--                Content="Fit to Width" />-->
-<!--</ToolBar>-->

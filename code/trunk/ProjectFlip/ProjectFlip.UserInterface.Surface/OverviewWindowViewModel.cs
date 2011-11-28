@@ -30,7 +30,7 @@ namespace ProjectFlip.UserInterface.Surface
 
         public OverviewWindowViewModel(IProjectNotesService projectNotesService)
         {
-            DocumentViewerWidth = new GridLength(760);
+            DocumentViewerWidth = new GridLength(705);
             LeftButtonWidth = new GridLength(240);
             RightButtonWidth = new GridLength(1, GridUnitType.Star);
 
@@ -172,19 +172,17 @@ namespace ProjectFlip.UserInterface.Surface
             //                }
             //Do something
 
-            bool docViewerIsSmall = (Math.Abs((new GridLength(760)).Value - DocumentViewerWidth.Value) < 1);
+			Console.WriteLine("------------------------touch----------------------");
+			
+            bool docViewerIsSmall = (Math.Abs((new GridLength(705)).Value - DocumentViewerWidth.Value) < 1);
 
-            DocumentViewerWidth = docViewerIsSmall ? new GridLength(1, GridUnitType.Star) : new GridLength(760);
+            DocumentViewerWidth = docViewerIsSmall ? new GridLength(1, GridUnitType.Star) : new GridLength(705);
             LeftButtonWidth = docViewerIsSmall ? new GridLength(70) : new GridLength(240);
             RightButtonWidth = docViewerIsSmall ? new GridLength(70) : new GridLength(1, GridUnitType.Star);
 
             ((DocumentViewer)sender).FitToWidth();
         }
 
-        public void OnTouchDown(object sender, TouchEventArgs e)
-        {
-            Console.WriteLine("2------------------------Tab----------------------");
-        }
 
         public GridLength DocumentViewerWidth
         {

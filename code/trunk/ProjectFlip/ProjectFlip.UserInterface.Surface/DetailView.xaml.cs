@@ -14,7 +14,6 @@ namespace ProjectFlip.UserInterface.Surface
         public DetailView()
         {
             InitializeComponent();
-            docViewer.FitToHeight();
         }
     }
 }
