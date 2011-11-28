@@ -18,7 +18,7 @@ namespace ProjectFlip.UserInterface.Surface
     public class OverviewWindowViewModel : ViewModelBase
     {
         private IProjectNote _currentProjectNote;
-        
+
         private readonly List<IMetadata> _filters = new List<IMetadata>();
         private bool _isDetailViewVisible;
         private bool _isFilterViewVisible;
@@ -34,11 +34,11 @@ namespace ProjectFlip.UserInterface.Surface
             LeftButtonWidth = new GridLength(240);
             RightButtonWidth = new GridLength(1, GridUnitType.Star);
 
-            ProjectNotes = new ListCollectionView(projectNotesService.ProjectNotes) {Filter = FilterCallback};
-            ProjectNotes.CurrentChanged += OnCurrentProjectNoteChanged; 
-            CurrentProjectNote = ((IProjectNote)ProjectNotes.CurrentItem);
+            ProjectNotes = new CyclicCollectionView(projectNotesService.ProjectNotes) { Filter = FilterCallback };
+            ProjectNotes.MoveCurrentTo(null);
+            ProjectNotes.CurrentChanged += (s, e) => UpdateCurrentProjectNote();
             Filters = new CollectionView(_filters);
-            Criteria  = projectNotesService.Metadata;
+            Criteria = projectNotesService.Metadata;
             Maincriteria = new CollectionView(Criteria.Keys);
             Maincriteria.MoveCurrentToFirst();
             SetSubCriteria();
@@ -47,12 +47,23 @@ namespace ProjectFlip.UserInterface.Surface
             ShowDetailsCommand = new Command(OnShowDetail);
             HideDetailsCommand = new Command(o => IsDetailViewVisible = false);
             ShowHideFilterCommand = new Command(OnShowFilter);
-            
-            NavigateToLeftCommand = new Command(o =>MoveToPrevious()); 
-            NavigateToRightCommand = new Command(o => MoveToNext());
 
-            RemoveFilterCommand = new Command(RemoveFilter); 
+            NavigateToLeftCommand = new Command(o => ProjectNotes.MoveCurrentToPrevious());
+            NavigateToRightCommand = new Command(o => ProjectNotes.MoveCurrentToNext());
+
+            RemoveFilterCommand = new Command(RemoveFilter);
             AddFilterCommand = new Command(AddFilter);
+        }
+
+        private void UpdateCurrentProjectNote()
+        {
+            PreviousProjectNote = ((IProjectNote)ProjectNotes.Previous);
+            CurrentProjectNote = ((IProjectNote)ProjectNotes.CurrentItem);
+            NextProjectNote = ((IProjectNote)ProjectNotes.Next);
+            if (CurrentProjectNote == null) return;
+            PreviousProjectNote.Preload();
+            CurrentProjectNote.Preload();
+            NextProjectNote.Preload();
         }
 
         private void OnShowDetail(object pn)
@@ -65,7 +76,9 @@ namespace ProjectFlip.UserInterface.Surface
         public CollectionView Subcriteria
         {
             get { return _subcriteria; }
-            private set { _subcriteria = value;
+            private set
+            {
+                _subcriteria = value;
                 Notify("Subcriteria");
             }
         }
@@ -91,22 +104,47 @@ namespace ProjectFlip.UserInterface.Surface
         public IProjectNote CurrentProjectNote
         {
             get { return _currentProjectNote; }
-            private set { 
+            private set
+            {
                 _currentProjectNote = value;
                 Notify("CurrentProjectNote");
             }
         }
 
+        public IProjectNote NextProjectNote
+        {
+            get { return _currentProjectNote; }
+            private set
+            {
+                _currentProjectNote = value;
+                Notify("NextProjectNote");
+            }
+        }
+
+        public IProjectNote PreviousProjectNote
+        {
+            get { return _currentProjectNote; }
+            private set
+            {
+                _currentProjectNote = value;
+                Notify("PreviousProjectNote");
+            }
+        }
+
         public IDictionary<IMetadataType, ICollection<IMetadata>> Criteria { get; set; }
 
-        public ICollectionView Filters {
+        public ICollectionView Filters
+        {
             get { return _filtersCollectionView; }
-        private set { _filtersCollectionView = value;
-            ProjectNotes.Refresh();
-            Notify("Filters");
-        } }
+            private set
+            {
+                _filtersCollectionView = value;
+                ProjectNotes.Refresh();
+                Notify("Filters");
+            }
+        }
 
-        public ICollectionView ProjectNotes { get; private set; }
+        public ICyclicCollectionView ProjectNotes { get; private set; }
         public ICommand ShowSubcriteriaCommand { get; private set; }
         public ICommand ShowDetailsCommand { get; private set; }
         public ICommand HideDetailsCommand { get; private set; }
@@ -120,10 +158,10 @@ namespace ProjectFlip.UserInterface.Surface
 
         public void OnTouchUp(object sender, TouchEventArgs e)
         {
-//            if (e.TouchDevice == TouchAction.Move) return;
+            //            if (e.TouchDevice == TouchAction.Move) return;
 
             //            if (e.TouchDevice == TouchAction.Move) return;
-           // var k = e.TouchDevice;
+            // var k = e.TouchDevice;
             //            var l = SurfaceTouchDevice.;
 
             //            bool isFinger = true;
@@ -139,8 +177,8 @@ namespace ProjectFlip.UserInterface.Surface
             DocumentViewerWidth = docViewerIsSmall ? new GridLength(1, GridUnitType.Star) : new GridLength(760);
             LeftButtonWidth = docViewerIsSmall ? new GridLength(70) : new GridLength(240);
             RightButtonWidth = docViewerIsSmall ? new GridLength(70) : new GridLength(1, GridUnitType.Star);
-       
-            ((DocumentViewer) sender).FitToWidth();
+
+            ((DocumentViewer)sender).FitToWidth();
         }
 
         public void OnTouchDown(object sender, TouchEventArgs e)
@@ -217,35 +255,11 @@ namespace ProjectFlip.UserInterface.Surface
             if (IsDetailViewVisible) IsDetailViewVisible = false;
         }
 
-        private void OnCurrentProjectNoteChanged(object sender, EventArgs e)
-        {
-            if (ProjectNotes.IsCurrentAfterLast || ProjectNotes.IsCurrentBeforeFirst) return;
-            CurrentProjectNote = ((IProjectNote) ProjectNotes.CurrentItem);
-        }
-
         private bool FilterCallback(object projectNoteObj)
         {
             if (_filters.Count == 0) return true;
             var projectNote = (IProjectNote)projectNoteObj;
             return _filters.All(f => f.Match(projectNote));
-        }
-
-        private void MoveToNext()
-        {
-            ProjectNotes.MoveCurrentToNext();
-            if (ProjectNotes.IsCurrentAfterLast)
-            {
-                ProjectNotes.MoveCurrentToFirst();
-            }
-        }
-
-        private void MoveToPrevious()
-        {
-            ProjectNotes.MoveCurrentToPrevious();
-            if (ProjectNotes.IsCurrentBeforeFirst)
-            {
-                ProjectNotes.MoveCurrentToLast();
-            }
         }
     }
 }

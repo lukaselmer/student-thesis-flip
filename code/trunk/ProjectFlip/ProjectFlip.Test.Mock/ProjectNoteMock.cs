@@ -38,6 +38,7 @@ namespace ProjectFlip.Test.Mock
         // ReSharper restore UnusedAutoPropertyAccessor.Global
 
         public IDocumentPaginatorSource Document { get { return _document = _document ?? new FixedDocument(); } }
+        public void Preload() { }
 
         #endregion
     }

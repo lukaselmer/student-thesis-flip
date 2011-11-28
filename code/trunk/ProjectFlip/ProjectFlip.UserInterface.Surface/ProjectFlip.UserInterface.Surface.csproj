@@ -69,6 +69,7 @@
     <Compile Include="Command.cs" />
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Converters\ValueConverterBase.cs" />
+    <Compile Include="CyclicCollectionView.cs" />
     <Compile Include="DetailView.xaml.cs">
       <DependentUpon>DetailView.xaml</DependentUpon>
     </Compile>
@@ -78,6 +79,7 @@
     <Compile Include="FilterView.xaml.cs">
       <DependentUpon>FilterView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ICyclicCollectionView.cs" />
     <Compile Include="OverviewWindowViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Page Include="DetailView.xaml">

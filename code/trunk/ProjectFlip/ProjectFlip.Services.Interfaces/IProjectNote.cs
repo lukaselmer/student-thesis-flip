@@ -38,5 +38,7 @@ namespace ProjectFlip.Services.Interfaces
         /// Gets or sets the document.
         /// </summary>
         IDocumentPaginatorSource Document { get; }
+
+        void Preload();
     }
 }

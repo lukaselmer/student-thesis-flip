@@ -81,19 +81,24 @@ namespace ProjectFlip.Services
         private IDocumentPaginatorSource _document;
         private DispatcherTimer _timer;
 
+        public void Preload()
+        {
+            if (_document != null) return;
+            lock (this)
+            {
+                if (_timer != null) return;
+
+                _timer = new DispatcherTimer(TimeSpan.FromMilliseconds(500), DispatcherPriority.Background,
+                    (s, e) => LoadDocument(), Application.Current.Dispatcher);
+                _timer.Start();
+            }
+        }
+
         public IDocumentPaginatorSource Document
         {
             get
             {
-                lock (this)
-                {
-                    if (_document == null && _timer == null)
-                    {
-                        _timer = new DispatcherTimer(TimeSpan.FromMilliseconds(1000), DispatcherPriority.Background,
-                            (s, e) => LoadDocument(), Application.Current.Dispatcher);
-                        _timer.Start();
-                    }
-                }
+                Preload();
                 return _document;
             }
             private set
