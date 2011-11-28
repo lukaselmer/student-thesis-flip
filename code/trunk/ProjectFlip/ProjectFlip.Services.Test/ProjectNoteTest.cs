@@ -3,8 +3,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Windows;
+using System.Windows.Markup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProjectFlip.Test.Mock;
+using ProjectFlip.Services;
 
 #endregion
 
@@ -150,6 +154,104 @@ namespace ProjectFlip.Services.Test
             Assert.AreSame(Metadata.Get(MetadataType.Get("Technologies"), line[7]), target.Metadata[MetadataType.Get("Technologies")].ToList()[0]);
             Assert.AreSame(Metadata.Get(MetadataType.Get("Applications"), line[8]), target.Metadata[MetadataType.Get("Applications")].ToList()[0]);
             Assert.AreSame(Metadata.Get(MetadataType.Get("Tools"), line[9]), target.Metadata[MetadataType.Get("Tools")].ToList()[0]);
+        }
+
+        /// <summary>
+        ///A test for Url
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("ProjectFlip.Services.dll")]
+        public void UrlTest()
+        {
+            ProjectNote_Accessor target = new ProjectNote_Accessor();
+            target.Filename = "bla.pdf";
+            var expected = "http://www.zuehlke.com/uploads/tx_zepublications/bla.pdf";
+            Assert.AreEqual(expected, target.Url);
+        }
+
+        /// <summary>
+        ///A test for the Aggregator
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("ProjectFlip.Services.dll")]
+        public void AggregatorNullTest()
+        {
+            const string filename = "Filename";
+            var line = new List<string>(19)
+                       {
+                           "1", "Title", "Text", "Sector", "Customer", "Focus", "Services", "Technology", "Application",
+                           "Tools", "15.10.2011", "text", "text", filename + ".pdf", "text", "text", "text", "text",
+                           "text"
+                       };
+            var target = new ProjectNote { Line = line };
+            Assert.AreEqual(Convert.ToInt32(line[0]), target.Id);
+            Assert.AreEqual(line[1], target.Title);
+            Assert.AreEqual(line[2], target.Text);
+            Assert.AreEqual(line[3], target.Metadata[MetadataType.Get("Sector")].ToList()[0].Description);
+            Assert.AreEqual(line[4], target.Metadata[MetadataType.Get("Customer")].ToList()[0].Description);
+            Assert.AreEqual(line[5], target.Metadata[MetadataType.Get("Focus")].ToList()[0].Description);
+            Assert.AreEqual(line[6], target.Metadata[MetadataType.Get("Services")].ToList()[0].Description);
+            Assert.AreEqual(line[7], target.Metadata[MetadataType.Get("Technologies")].ToList()[0].Description);
+            Assert.AreEqual(line[8], target.Metadata[MetadataType.Get("Applications")].ToList()[0].Description);
+            Assert.AreEqual(line[9], target.Metadata[MetadataType.Get("Tools")].ToList()[0].Description);
+            Assert.AreEqual(Convert.ToDateTime(line[10]), target.Published);
+            Assert.AreEqual(line[13], target.Filename);
+            Assert.AreEqual((ProjectNote.FilepathFolder + @"\Pdf\" + line[13]), target.FilepathPdf);
+            Assert.AreEqual((ProjectNote.FilepathFolder + @"\Xps\" + filename + ".xps"), target.FilepathXps);
+            Assert.AreEqual((ProjectNote.FilepathFolder + @"\Images\" + filename + ".bmp"), target.FilepathImage);
+
+            Assert.AreSame(Metadata.Get(MetadataType.Get("Sector"), line[3]), target.Metadata[MetadataType.Get("Sector")].ToList()[0]);
+            Assert.AreSame(Metadata.Get(MetadataType.Get("Customer"), line[4]), target.Metadata[MetadataType.Get("Customer")].ToList()[0]);
+            Assert.AreSame(Metadata.Get(MetadataType.Get("Focus"), line[5]), target.Metadata[MetadataType.Get("Focus")].ToList()[0]);
+            Assert.AreSame(Metadata.Get(MetadataType.Get("Services"), line[6]), target.Metadata[MetadataType.Get("Services")].ToList()[0]);
+            Assert.AreSame(Metadata.Get(MetadataType.Get("Technologies"), line[7]), target.Metadata[MetadataType.Get("Technologies")].ToList()[0]);
+            Assert.AreSame(Metadata.Get(MetadataType.Get("Applications"), line[8]), target.Metadata[MetadataType.Get("Applications")].ToList()[0]);
+            Assert.AreSame(Metadata.Get(MetadataType.Get("Tools"), line[9]), target.Metadata[MetadataType.Get("Tools")].ToList()[0]);
+
+        }
+
+
+        private const string XpsPath = @"..\..\..\Resources\Test\Xps\test3.xps";
+
+        /// <summary>
+        ///A test for the XPS
+        ///</summary>
+        [TestMethod]
+        [DeploymentItem("ProjectFlip.Services.dll")]
+        public void XpsLoadingTest()
+        {
+            ProjectNote_Accessor target = new ProjectNote_Accessor();
+            new CultureHelper().RegisterLanguage();
+            target.FilepathXps = XpsPath;
+
+            var t = new Thread(new ThreadStart(() =>
+            {
+                var a = new Application();
+                new CultureHelper().RegisterLanguage();
+                a.Run();
+            }));
+            t.Start();
+            Thread.Sleep(1000);
+
+            Assert.IsNull(target.Document);
+        }
+
+        private const string ImagePath = @"..\..\..\Resources\Test\Images\test.bmp";
+
+        /// <summary>
+        ///A test for the Image
+        ///</summary>
+        [TestMethod]
+        [DeploymentItem("ProjectFlip.Services.dll")]
+        public void ImageLoadingTest()
+        {
+            ProjectNote_Accessor target = new ProjectNote_Accessor();
+            target.FilepathImage = ImagePath;
+            Assert.IsNotNull(target.Image);
+
+
+            target.FilepathImage = "blablabla";
+            Assert.IsNull(target.Image);
         }
     }
 }

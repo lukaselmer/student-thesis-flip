@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Globalization;
-using System.Windows;
+﻿using System.Windows;
 using Microsoft.Practices.Unity;
 using ProjectFlip.Services;
 using ProjectFlip.Services.Interfaces;
@@ -17,38 +15,21 @@ namespace ProjectFlip
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            RegisterLanguage();
-
             var container = new UnityContainer();
             ConfigureContainer(container);
+
+            container.Resolve<ICultureHelper>().RegisterLanguage();
 
             var window = container.Resolve<OverviewWindow>();
             //var window = container.Resolve<MainWindow>();
             window.Show();
         }
 
-        private void RegisterLanguage()
-        {
-            var cultures = new List<CultureInfo>(CultureInfo.GetCultures(CultureTypes.AllCultures));
-            if (cultures.Exists(c => c.Name == "und")) return;
-
-            DoRegistration();
-        }
-
-        private void DoRegistration()
-        {
-            var cib = new CultureAndRegionInfoBuilder("und", CultureAndRegionModifiers.None);
-            var ci = new CultureInfo("en-US");
-            cib.LoadDataFromCultureInfo(ci);
-            var ri = new RegionInfo("US");
-            cib.LoadDataFromRegionInfo(ri);
-            cib.Register();
-        }
-
         private static void ConfigureContainer(IUnityContainer container)
         {
             container.RegisterType<IProjectNotesService, ProjectNotesService>();
             container.RegisterType<IProjectNotesLoader, ProjectNotesLoader>();
+            container.RegisterType<ICultureHelper, CultureHelper>();
         }
     }
 }
