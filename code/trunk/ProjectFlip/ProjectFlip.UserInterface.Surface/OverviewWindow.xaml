@@ -85,7 +85,7 @@
 				</WrapPanel.Resources>
 			</WrapPanel>
 		</ItemsPanelTemplate>
-        
+
 		<!-- ScrollBar Vert Thumb -->
 		<Style x:Key="SurfaceScrollBarThumbStyle"
 			TargetType="{x:Type s:SurfaceThumb}">
@@ -94,16 +94,20 @@
 					<ControlTemplate TargetType="{x:Type s:SurfaceThumb}">
 						<ControlTemplate.Resources>
 							<Storyboard x:Key="Touch">
-								<DoubleAnimation Duration="0:0:0.05"
-									Storyboard.TargetName="Thumb"
-									Storyboard.TargetProperty="Width" 
-									To="16"/>
-								<ThicknessAnimation Duration="0:0:0.05"
-									Storyboard.TargetName="Thumb"
-									Storyboard.TargetProperty="Margin"
-									To="-1,0,-1,0" />
+								<DoubleAnimation Duration="0:0:0.05" Storyboard.TargetName="Thumb" Storyboard.TargetProperty="RadiusX" To="8"/>
+								<DoubleAnimation Duration="0:0:0.05" Storyboard.TargetName="Thumb" Storyboard.TargetProperty="RadiusY" To="8"/>
+								<DoubleAnimation Duration="0:0:0.05" Storyboard.TargetName="Thumb" Storyboard.TargetProperty="Width" To="16"/>
+								<ThicknessAnimation Duration="0:0:0.05" Storyboard.TargetName="Thumb" Storyboard.TargetProperty="Margin" To="-1,0,-1,0" />
 							</Storyboard>
 							<Storyboard x:Key="Release">
+								<DoubleAnimation Duration="0:0:0.05"
+									Storyboard.TargetName="Thumb"
+									Storyboard.TargetProperty="RadiusX" 
+									To="7"/>
+								<DoubleAnimation Duration="0:0:0.05"
+									Storyboard.TargetName="Thumb"
+									Storyboard.TargetProperty="RadiusY" 
+									To="7"/>
 								<DoubleAnimation Duration="0:0:0.1"
 									Storyboard.TargetName="Thumb" 
 									Storyboard.TargetProperty="Width"
@@ -117,12 +121,13 @@
 						<Grid   x:Name="Grid"
 							Background="{TemplateBinding Background}"
 							SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
-							<Rectangle  x:Name="Thumb"
+							<Rectangle  x:Name="Thumb" 
 								Height="Auto"
 								Width="14" 
+										RadiusX="7" RadiusY="7"
 								HorizontalAlignment="Stretch"
 								VerticalAlignment="Stretch"
-								Fill="#4C000000" />
+								Fill="#4C000000" StrokeThickness="0" />
 						</Grid>
 						<ControlTemplate.Triggers>
 							<Trigger Property="s:TouchExtensions.AreAnyInputDevicesCapturedWithin"
@@ -139,13 +144,13 @@
 				</Setter.Value>
 			</Setter>
 		</Style>
-		
-	<!-- ScrollBar -->
+
+		<!-- ScrollBar -->
 		<Style x:Key="SurfaceScrollBarStyle"
 			TargetType="{x:Type s:SurfaceScrollBar}">
 			<Setter Property="Template">
 				<Setter.Value>
-	  <!-- vertical scroll bar -->
+					<!-- vertical scroll bar -->
 					<ControlTemplate TargetType="{x:Type s:SurfaceScrollBar}">
 						<Grid x:Name="GridRoot" Background="{TemplateBinding Background}">
 							<Border x:Name="Track"
@@ -163,7 +168,7 @@
 							</Border>
 						</Grid>
 						<ControlTemplate.Triggers>
-		  <!-- Animates Scrollbar from small to large state -->
+							<!-- Animates Scrollbar from small to large state -->
 							<Trigger Property="IsEnabled"
 								Value="False">
 								<Setter Property="IsEnabled"
@@ -176,7 +181,7 @@
 			</Setter>
 		</Style>
 
-<!-- Listbox ScrollView -->
+		<!-- Listbox ScrollView -->
 		<Style x:Key="SurfaceListBoxScrollViewerStyle"
 			TargetType="{x:Type s:SurfaceScrollViewer}" >
 			<Setter Property="Template">
@@ -254,14 +259,14 @@
 										</Storyboard>
 									</BeginStoryboard>
 								</Trigger.ExitActions>
-							</Trigger> 
+							</Trigger>
 						</ControlTemplate.Triggers>
 					</ControlTemplate>
 				</Setter.Value>
 			</Setter>
 		</Style>
 
-<!-- ListBox -->
+		<!-- ListBox -->
 		<Style x:Key="SurfaceListBoxStyle"  TargetType="{x:Type s:SurfaceListBox}">
 			<Setter Property="Template">
 				<Setter.Value>
