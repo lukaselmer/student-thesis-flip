@@ -1,13 +1,11 @@
 ﻿#region
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media.Imaging;
@@ -22,8 +20,6 @@ namespace ProjectFlip.Services
     public class ProjectNote : NotifierModel, IProjectNote
     {
         public static string FilepathFolder = @"..\..\..\Resources";
-
-        #region IProjectNote Members
 
         public int Id { get; private set; }
         public string Title { get; private set; } // Audit einer IT-Infrastruktur und Organisation
@@ -132,8 +128,6 @@ namespace ProjectFlip.Services
         }
 
         public IAggregator Aggregator { private get; set; }
-
-        #endregion
 
         private void InitStringValues(IList<string> value)
         {
