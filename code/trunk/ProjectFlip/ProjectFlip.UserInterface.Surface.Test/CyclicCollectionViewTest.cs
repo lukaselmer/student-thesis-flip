@@ -1,6 +1,6 @@
 ﻿#region
 
-using System.Collections;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 #endregion
@@ -14,7 +14,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
     [TestClass]
     public class CyclicCollectionViewTest
     {
-        readonly IList _referenceList = new[] { "a", "b", "c", "d", "e" };
+        private readonly IList<string> _referenceList = new[] {"a", "b", "c", "d", "e"};
 
         #region Additional test attributes
 
@@ -54,58 +54,58 @@ namespace ProjectFlip.UserInterface.Surface.Test
         [TestMethod]
         public void MoveCurrentToNextTest()
         {
-            var target = new CyclicCollectionView(_referenceList);
+            var target = new CyclicCollectionView<string>(_referenceList);
             Assert.AreEqual(_referenceList[0], target.CurrentItem);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[1], target.CurrentItem);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[2], target.CurrentItem);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[3], target.CurrentItem);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[4], target.CurrentItem);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
 
             Assert.AreEqual(_referenceList[0], target.CurrentItem);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[1], target.CurrentItem);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[2], target.CurrentItem);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[3], target.CurrentItem);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[4], target.CurrentItem);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
         }
-        
+
         /// <summary>
         ///A test for MoveCurrentToPrevious
         ///</summary>
         [TestMethod]
         public void MoveCurrentToPreviousTest()
         {
-            var target = new CyclicCollectionView(_referenceList);
+            var target = new CyclicCollectionView<string>(_referenceList);
             Assert.AreEqual(_referenceList[0], target.CurrentItem);
-            Assert.IsTrue(target.MoveCurrentToPrevious());
+            target.MoveCurrentToPrevious();
             Assert.AreEqual(_referenceList[4], target.CurrentItem);
-            Assert.IsTrue(target.MoveCurrentToPrevious());
+            target.MoveCurrentToPrevious();
             Assert.AreEqual(_referenceList[3], target.CurrentItem);
-            Assert.IsTrue(target.MoveCurrentToPrevious());
+            target.MoveCurrentToPrevious();
             Assert.AreEqual(_referenceList[2], target.CurrentItem);
-            Assert.IsTrue(target.MoveCurrentToPrevious());
+            target.MoveCurrentToPrevious();
             Assert.AreEqual(_referenceList[1], target.CurrentItem);
-            Assert.IsTrue(target.MoveCurrentToPrevious());
+            target.MoveCurrentToPrevious();
 
             Assert.AreEqual(_referenceList[0], target.CurrentItem);
-            Assert.IsTrue(target.MoveCurrentToPrevious());
+            target.MoveCurrentToPrevious();
             Assert.AreEqual(_referenceList[4], target.CurrentItem);
-            Assert.IsTrue(target.MoveCurrentToPrevious());
+            target.MoveCurrentToPrevious();
             Assert.AreEqual(_referenceList[3], target.CurrentItem);
-            Assert.IsTrue(target.MoveCurrentToPrevious());
+            target.MoveCurrentToPrevious();
             Assert.AreEqual(_referenceList[2], target.CurrentItem);
-            Assert.IsTrue(target.MoveCurrentToPrevious());
+            target.MoveCurrentToPrevious();
             Assert.AreEqual(_referenceList[1], target.CurrentItem);
-            Assert.IsTrue(target.MoveCurrentToPrevious());
+            target.MoveCurrentToPrevious();
         }
 
         /// <summary>
@@ -114,27 +114,27 @@ namespace ProjectFlip.UserInterface.Surface.Test
         [TestMethod]
         public void NextTest()
         {
-            var target = new CyclicCollectionView(_referenceList);
+            var target = new CyclicCollectionView<string>(_referenceList);
             Assert.AreEqual(_referenceList[0], target.CurrentItem);
             Assert.AreEqual(_referenceList[1], target.Next);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[2], target.Next);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[3], target.Next);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[4], target.Next);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
 
             Assert.AreEqual(_referenceList[0], target.Next);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[1], target.Next);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[2], target.Next);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[3], target.Next);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[4], target.Next);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
         }
 
         /// <summary>
@@ -143,31 +143,31 @@ namespace ProjectFlip.UserInterface.Surface.Test
         [TestMethod]
         public void PreviousTest()
         {
-            var target = new CyclicCollectionView(_referenceList);
+            var target = new CyclicCollectionView<string>(_referenceList);
             Assert.AreEqual(_referenceList[0], target.CurrentItem);
             Assert.AreEqual(_referenceList[4], target.Previous);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[0], target.Previous);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[1], target.Previous);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[2], target.Previous);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
 
             Assert.AreEqual(_referenceList[3], target.Previous);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[4], target.Previous);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[0], target.Previous);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[1], target.Previous);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[2], target.Previous);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[3], target.Previous);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[4], target.Previous);
-            Assert.IsTrue(target.MoveCurrentToNext());
+            target.MoveCurrentToNext();
         }
     }
 }

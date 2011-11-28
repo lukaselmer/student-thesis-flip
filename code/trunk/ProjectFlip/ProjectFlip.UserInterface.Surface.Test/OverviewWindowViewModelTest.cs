@@ -60,7 +60,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         {
             var projectNotesService = new ProjectNotesServiceMock(5);
             var target = new OverviewWindowViewModel(projectNotesService);
-            Assert.AreEqual(5, target.ProjectNotes.Cast<IProjectNote>().Count());
+            Assert.AreEqual(5, target.ProjectNotes.Count);
         }
 
 
@@ -78,9 +78,9 @@ namespace ProjectFlip.UserInterface.Surface.Test
             target.AddFilter(filter);
             Assert.IsFalse(target.IsFilterViewVisible);
             Assert.IsFalse(target.IsDetailViewVisible);
-            Assert.AreEqual(0, target.ProjectNotes.Cast<IProjectNote>().Count());
+            Assert.AreEqual(0, target.ProjectNotes.Count);
             target.RemoveFilter(filter);
-            Assert.AreEqual(5, target.ProjectNotes.Cast<IProjectNote>().Count());
+            Assert.AreEqual(5, target.ProjectNotes.Count);
         }
 
 
@@ -170,7 +170,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         {
             IProjectNotesService projectNotesService = new ProjectNotesServiceMock(2);
             var target = new OverviewWindowViewModel_Accessor(projectNotesService);
-            target.ProjectNotes.MoveCurrentToLast();
+            target.ProjectNotes.MoveCurrentToFirst();
             target.ProjectNotes.MoveCurrentToNext();
             Assert.AreEqual(target.CurrentProjectNote, projectNotesService.ProjectNotes.ElementAt(1));
             target.ProjectNotes.MoveCurrentToNext();
@@ -186,7 +186,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         {
             IProjectNotesService projectNotesService = new ProjectNotesServiceMock(2);
             var target = new OverviewWindowViewModel_Accessor(projectNotesService);
-            target.ProjectNotes.MoveCurrentToFirst();
+            target.ProjectNotes.MoveCurrentToLast();
             target.ProjectNotes.MoveCurrentToPrevious();
             Assert.AreEqual(target.CurrentProjectNote, projectNotesService.ProjectNotes.ElementAt(0));
             target.ProjectNotes.MoveCurrentToPrevious();
@@ -204,10 +204,11 @@ namespace ProjectFlip.UserInterface.Surface.Test
             var target = new OverviewWindowViewModel_Accessor(projectNotesService);
             Assert.IsFalse(target.IsDetailViewVisible);
             target.ProjectNotes.MoveCurrentToFirst();
-            target.ProjectNotes.MoveCurrentToNext();
             Assert.AreEqual(projectNotesService.ProjectNotes.ElementAt(0), target.CurrentProjectNote);
-            target.OnShowDetail(projectNotesService.ProjectNotes.ElementAt(0));
-            Assert.AreEqual(projectNotesService.ProjectNotes.ElementAt(1), target.CurrentProjectNote);
+            var pn = projectNotesService.ProjectNotes[1];
+            Assert.AreSame(pn, projectNotesService.ProjectNotes.ElementAt(1));
+            target.OnShowDetail(pn);
+            Assert.AreSame(pn, target.CurrentProjectNote);
             Assert.IsTrue(target.IsDetailViewVisible);
         }
 
@@ -235,7 +236,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
             var target = new OverviewWindowViewModel_Accessor(projectNotesService);
             target.CurrentProjectNote = projectNotesService.ProjectNotes.ElementAt(0);
             Assert.AreEqual(target.CurrentProjectNote, projectNotesService.ProjectNotes.ElementAt(0));
-            target.ProjectNotes.MoveCurrentToLast();
+            target.ProjectNotes.MoveCurrentToFirst();
             target.NavigateToLeftCommand.Execute(null);
             Assert.AreEqual(target.CurrentProjectNote, projectNotesService.ProjectNotes.ElementAt(2));
             target.NavigateToLeftCommand.Execute(null);
