@@ -291,18 +291,18 @@
 
             <Grid Grid.Column="1" VerticalAlignment="Stretch" Background="#E5FFFFFF">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="90"/>
+                    <RowDefinition Height="70"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Label Grid.Row="0" Margin="20" VerticalAlignment="Center">
+                <Label Grid.Row="0" Margin="20,0,20,10" VerticalAlignment="Center">
                     <TextBlock Style="{DynamicResource TextStyle}" Text="Projektdaten" Foreground="#ff820a" FontStretch="Expanded" FontSize="24"/>
                 </Label>
                 <StackPanel Grid.Row="0" Margin="20" VerticalAlignment="Bottom" Orientation="Horizontal">
                     <Rectangle Width="90" Margin="0,0,10,0"  Height="2" Fill="#ff8204" />
                     <Rectangle Width="90" Margin="10,0,0,0" Height="2" Fill="#ff8204" />
                 </StackPanel>
-                <s:SurfaceListBox Style="{DynamicResource SurfaceListBoxStyle}" ScrollViewer.PanningMode="VerticalOnly"  Margin="10" VerticalAlignment="Center" Grid.Row="1" ItemsSource="{Binding CurrentProjectNote.Metadata}" ItemTemplate="{DynamicResource MetadataListTemplate}" ItemsPanel="{DynamicResource MetadataListBoxTemplate}" />
+                <s:SurfaceListBox Style="{DynamicResource SurfaceListBoxStyle}" ScrollViewer.PanningMode="VerticalOnly"  Margin="10,0,10,0" VerticalAlignment="Center" Grid.Row="1" ItemsSource="{Binding CurrentProjectNote.Metadata}" ItemTemplate="{DynamicResource MetadataListTemplate}" ItemsPanel="{DynamicResource MetadataListBoxTemplate}" />
             </Grid>
 
             <Border Grid.Column="2" Background="White" Name="NextDocViewerContainer" RenderTransformOrigin="0.5,0.5">
