@@ -7,8 +7,11 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading;
+using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media.Imaging;
+using System.Windows.Threading;
 using System.Windows.Xps.Packaging;
 using ProjectFlip.Services.Interfaces;
 
@@ -16,7 +19,7 @@ using ProjectFlip.Services.Interfaces;
 
 namespace ProjectFlip.Services
 {
-    public class ProjectNote : IProjectNote
+    public class ProjectNote : NotifierModel, IProjectNote
     {
         public static string FilepathFolder = @"..\..\..\Resources";
 
@@ -75,13 +78,36 @@ namespace ProjectFlip.Services
                 });
         }
 
+        private IDocumentPaginatorSource _document;
+        private DispatcherTimer _timer;
+
         public IDocumentPaginatorSource Document
         {
             get
             {
-                var doc = new XpsDocument(FilepathXps, FileAccess.Read);
-                return doc.GetFixedDocumentSequence();
+                lock (this)
+                {
+                    if (_document == null && _timer == null)
+                    {
+                        _timer = new DispatcherTimer(TimeSpan.FromMilliseconds(1000), DispatcherPriority.Background,
+                            (s, e) => LoadDocument(), Application.Current.Dispatcher);
+                        _timer.Start();
+                    }
+                }
+                return _document;
             }
+            private set
+            {
+                _timer.Stop();
+                _document = value;
+                Notify("Document");
+            }
+        }
+
+        private void LoadDocument()
+        {
+            var doc = new XpsDocument(FilepathXps, FileAccess.Read);
+            Document = doc.GetFixedDocumentSequence();
         }
 
         /// <summary>

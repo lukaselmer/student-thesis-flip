@@ -53,6 +53,7 @@
     <Compile Include="Metadata.cs" />
     <Compile Include="MetadataComparer.cs" />
     <Compile Include="MetadataType.cs" />
+    <Compile Include="NotifierModel.cs" />
     <Compile Include="ProjectNote.cs" />
     <Compile Include="ProjectNotesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,4 +1,5 @@
 using System;
+using System.Windows;
 using Microsoft.Surface;
 using Microsoft.Surface.Presentation.Controls;
 
@@ -16,6 +17,7 @@ namespace ProjectFlip.UserInterface.Surface
         {
             InitializeComponent();
             DataContext = viewModel;
+            //AddHandler(FrameworkElement.MouseDownEvent, (s,e) => {});
         }
     }
 }
