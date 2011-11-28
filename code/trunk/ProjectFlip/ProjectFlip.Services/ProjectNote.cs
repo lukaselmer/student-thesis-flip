@@ -99,7 +99,7 @@ namespace ProjectFlip.Services
             }
             private set
             {
-                _timer.Stop();
+                if(_timer != null) _timer.Stop();
                 _document = value;
                 Notify("Document");
             }

@@ -236,6 +236,21 @@ namespace ProjectFlip.Services.Test
             Assert.IsNull(target.Document);
         }
 
+
+        /// <summary>
+        ///A test for the XPS2
+        ///</summary>
+        [TestMethod]
+        [DeploymentItem("ProjectFlip.Services.dll")]
+        public void Xps2LoadingTest()
+        {
+            ProjectNote_Accessor target = new ProjectNote_Accessor();
+            new CultureHelper().RegisterLanguage();
+            target.FilepathXps = XpsPath;
+            target.LoadDocument();
+            Assert.IsNotNull(target.Document);
+        }
+
         private const string ImagePath = @"..\..\..\Resources\Test\Images\test.bmp";
 
         /// <summary>
