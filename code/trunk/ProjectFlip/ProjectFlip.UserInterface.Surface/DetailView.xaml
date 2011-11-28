@@ -144,30 +144,39 @@
             </Setter>
         </Style>
         <Storyboard x:Key="MoveToNext">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="NextDocViewerContainer">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="NextDocViewerContainer">
-            	<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
-            	<DiscreteObjectKeyFrame KeyTime="0:0:1">
-            		<DiscreteObjectKeyFrame.Value>
-            			<Visibility>Collapsed</Visibility>
-            		</DiscreteObjectKeyFrame.Value>
-            	</DiscreteObjectKeyFrame>
-            </ObjectAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="NextDocViewerContainer">
-            	<EasingDoubleKeyFrame KeyTime="0" Value="69.954"/>
-            	<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="CurrentDocViewerContainer">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="320"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+        	</DoubleAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="CurrentDocViewerContainer">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+        	</DoubleAnimationUsingKeyFrames>
+        	
+        </Storyboard>
+        <Storyboard x:Key="MoveToPrevious">
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="CurrentDocViewerContainer">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="-319"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+        	</DoubleAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="CurrentDocViewerContainer">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+        	</DoubleAnimationUsingKeyFrames>
+        	<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="PreviousDocViewerContainer">
+        		<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}"/>
+        		<DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+        	</ObjectAnimationUsingKeyFrames>
         </Storyboard>
 
     </UserControl.Resources>
     <UserControl.Triggers>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ToNextButton">
-        	<RemoveStoryboard BeginStoryboardName="MoveToNext_BeginStoryboard"/>
-        	<BeginStoryboard x:Name="MoveToNext_BeginStoryboard" Storyboard="{StaticResource MoveToNext}"/>
-        </EventTrigger>
+    	<EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ToNextButton">
+    		<BeginStoryboard Storyboard="{StaticResource MoveToNext}"/>
+    	</EventTrigger>
+    	<EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ToPreviousButton">
+    		<BeginStoryboard x:Name="MoveToPrevious_BeginStoryboard" Storyboard="{StaticResource MoveToPrevious}"/>
+    	</EventTrigger>
     </UserControl.Triggers>
     <UserControl.RenderTransform>
         <TransformGroup>
@@ -252,7 +261,7 @@
                 <ColumnDefinition Width="{Binding RightButtonWidth}"/>
             </Grid.ColumnDefinitions>
 
-            <s:SurfaceButton Grid.Column="0" Style="{StaticResource NavigateToLeftButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" x:Name="ToLeftButton" Command="{Binding NavigateToLeftCommand}" />
+            <s:SurfaceButton Grid.Column="0" Style="{StaticResource NavigateToLeftButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" x:Name="ToPreviousButton" Command="{Binding NavigateToLeftCommand}" />
 
             <Grid Grid.Column="1" VerticalAlignment="Stretch" Background="#E5FFFFFF">
                 <Grid.RowDefinitions>
@@ -270,22 +279,7 @@
                 <s:SurfaceListBox Style="{DynamicResource SurfaceListBoxStyle}" Margin="10" ScrollViewer.HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Center" Grid.Row="1" ItemsSource="{Binding CurrentProjectNote.Metadata}" ItemTemplate="{DynamicResource MetadataListTemplate}" ItemsPanel="{DynamicResource MetadataListBoxTemplate}" />
             </Grid>
 
-            <Border Grid.Column="2" Background="White" >
-
-                <DocumentViewer Name="docViewer" IsManipulationEnabled="True" Document="{Binding CurrentProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewTouchUp" >
-                            <ei:CallMethodAction TargetObject="{Binding}" MethodName="OnTouchUp"/>
-                        </i:EventTrigger>
-                        <i:EventTrigger EventName="PreviewDragOver" >
-                            <ei:CallMethodAction TargetObject="{Binding}" MethodName="OnTouchDown"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </DocumentViewer>
-            </Border>
-
-
-            <Border Grid.Column="2" Background="White" Name="NextDocViewerContainer" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+            <Border Grid.Column="2" Background="White" Name="NextDocViewerContainer" RenderTransformOrigin="0.5,0.5">
             	<Border.RenderTransform>
             		<TransformGroup>
             			<ScaleTransform/>
@@ -297,9 +291,40 @@
                 <DocumentViewer IsManipulationEnabled="True" Document="{Binding NextProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}" />
             </Border>
 
-            <Border Grid.Column="2" Background="Blue" Name="PreviousDocViewerContainer" Visibility="Collapsed">
+            <Border Grid.Column="2" Background="White" Name="PreviousDocViewerContainer">
                 <DocumentViewer IsManipulationEnabled="True" Document="{Binding PreviousProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}" />
             </Border>
+
+            <Border Grid.Column="2" Background="White" Name="CurrentDocViewerContainer" RenderTransformOrigin="0.5,0.5" >
+            	<Border.RenderTransform>
+            		<TransformGroup>
+            			<ScaleTransform/>
+            			<SkewTransform/>
+            			<RotateTransform/>
+            			<TranslateTransform/>
+            		</TransformGroup>
+            	</Border.RenderTransform>
+
+                <DocumentViewer Name="docViewer" IsManipulationEnabled="True" Document="{Binding CurrentProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}" RenderTransformOrigin="0.5,0.5">
+                	<DocumentViewer.RenderTransform>
+                		<TransformGroup>
+                			<ScaleTransform/>
+                			<SkewTransform/>
+                			<RotateTransform/>
+                			<TranslateTransform/>
+                		</TransformGroup>
+                	</DocumentViewer.RenderTransform>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PreviewTouchUp" >
+                            <ei:CallMethodAction TargetObject="{Binding}" MethodName="OnTouchUp"/>
+                        </i:EventTrigger>
+                        <i:EventTrigger EventName="PreviewDragOver" >
+                            <ei:CallMethodAction TargetObject="{Binding}" MethodName="OnTouchDown"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </DocumentViewer>
+            </Border>
+
 
 
             <!--            Property IsScrolling  Determines whether a SurfaceScrollViewer object is being scrolled.-->
