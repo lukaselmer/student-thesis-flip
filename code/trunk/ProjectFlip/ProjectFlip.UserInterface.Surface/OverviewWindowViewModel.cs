@@ -44,13 +44,14 @@ namespace ProjectFlip.UserInterface.Surface
             Maincriteria.MoveCurrentToFirst();
             SetSubCriteria();
 
-            ShowSubcriteriaCommand = new Command(OnCurrentMainCriteriaChanged);
             ShowDetailsCommand = new Command(OnShowDetail);
             HideDetailsCommand = new Command(o => IsDetailViewVisible = false);
-            ShowHideFilterCommand = new Command(OnShowFilter);
 
             NavigateToLeftCommand = new Command(o => ProjectNotes.MoveCurrentToPrevious());
             NavigateToRightCommand = new Command(o => ProjectNotes.MoveCurrentToNext());
+
+            ShowSubcriteriaCommand = new Command(OnCurrentMainCriteriaChanged);
+            ShowHideFilterCommand = new Command(OnShowFilter);
 
             RemoveFilterCommand = new Command(RemoveFilter);
             AddFilterCommand = new Command(AddFilter);

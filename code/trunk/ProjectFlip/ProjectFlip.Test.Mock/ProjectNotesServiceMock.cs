@@ -1,6 +1,5 @@
 ﻿#region
 
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using ProjectFlip.Services.Interfaces;
@@ -16,41 +15,36 @@ namespace ProjectFlip.Test.Mock
             ProjectNotes = new List<IProjectNote>(Enumerable.Range(0, count).Select(i => new ProjectNoteMock()));
         }
 
-        public List<IProjectNote> ProjectNotes { get; private set; }
-
         #region IProjectNotesService Members
 
-        public IDictionary<IMetadataType, ICollection<IMetadata>> Metadata
-        {
-            get
-            {
-                return new Dictionary<IMetadataType, ICollection<IMetadata>>()
-                {
-                    {
-                        new MetadataTypeMock {Name = "Name"}, new List<IMetadata> {
-                           new MetadataMock() {Description = "Description"} 
-                        }
-                    }      
-                };
-            }
-        }
+        public List<IProjectNote> ProjectNotes { get; private set; }
+
+        private IDictionary<IMetadataType, ICollection<IMetadata>> _metadata = new Dictionary<IMetadataType, ICollection<IMetadata>> { { new MetadataTypeMock { Name = "Name" }, new List<IMetadata> { new MetadataMock { Description = "Description" } } } };
+        public IDictionary<IMetadataType, ICollection<IMetadata>> Metadata { get { return _metadata; } set { _metadata = value; } }
 
         #endregion
     }
 
     public class MetadataTypeMock : IMetadataType
     {
+        #region IMetadataType Members
+
         public string Name { get; set; }
+
+        #endregion
     }
 
     public class MetadataMock : IMetadata
     {
         public MetadataMock() { }
+
         public MetadataMock(IMetadataType type, string description)
         {
             Type = type;
             Description = description;
         }
+
+        #region IMetadata Members
 
         public IMetadataType Type { get; set; }
 
@@ -60,5 +54,7 @@ namespace ProjectFlip.Test.Mock
         {
             return false;
         }
+
+        #endregion
     }
 }
