@@ -85,65 +85,14 @@
                 </WrapPanel.Resources>
             </WrapPanel>
         </ItemsPanelTemplate>
-        <!-- Base Grid style for 55 dpi -->
-    	<Style TargetType="{x:Type Control}" x:Key="ControlBaseStyle">
-    		<Setter Property="FocusVisualStyle"	
-    			Value="{x:Null}"/>
-    		<Setter Property="SnapsToDevicePixels"
-    			Value="False"/>
-    		<Setter Property="FontFamily"
-    			Value="Segoe360"/>
-    		<Setter Property="FontWeight"
-    			Value="Normal"/>
-    		<Setter Property="FontSize"
-    			Value="17"/>
-    		<Setter Property="Padding"
-    			Value="6,2,10,10"/>
-    		<Setter Property="MinHeight"
-    			Value="38"/>
-    		<Setter Property="MinWidth"
-    			Value="38"/>
-    		<Setter Property="Margin"
-    			Value="1"/>
-    		<Setter Property="HorizontalContentAlignment"
-    			Value="Left"/>
-    		<Setter Property="VerticalContentAlignment"
-    			Value="Top"/>
-    		<Setter Property="BorderThickness"
-    			Value="2"/>
-    	</Style>
+
+        
         <!-- public section -->
     	<SolidColorBrush x:Key="ControlHitAreaBrush"    
     		Color="#00FFFFFF"/>
-        <!-- Minimum HitArea Base Style for 55 dpi-->
-    	<Style x:Key="SurfaceHitAreaBaseStyle"
-    		TargetType="{x:Type Control}">
-    		<Setter Property="SnapsToDevicePixels"
-    			Value="False"/>
-    		<Setter Property="Background"
-    			Value="{StaticResource ControlHitAreaBrush}"/>
-    		<Setter Property="IsTabStop"
-    			Value="False"/>
-    		<Setter Property="Focusable"
-    			Value="False"/>
-    		<Setter Property="FocusVisualStyle"
-    			Value="{x:Null}"/>
-    		<Setter Property="MinWidth"
-    			Value="40" />
-    		<Setter Property="MinHeight"
-    			Value="40" />
-    	</Style>
+        
     	<Style x:Key="SurfaceVertScrollBarRepeatButton"
     		TargetType="{x:Type s:SurfaceRepeatButton}" >
-    		<Setter Property="Interval"
-    			Value="150" />
-    		<Setter Property="BorderBrush"
-    			Value="{x:Null}" />
-    		<Setter Property="Background"
-    			Value="{StaticResource ControlHitAreaBrush}" />
-    		<Setter Property="OverridesDefaultStyle" Value="true"/>
-    		<Setter Property="Focusable" Value="false"/>
-    		<Setter Property="IsTabStop" Value="false"/>
     		<Setter Property="Template">
     			<Setter.Value>
     				<ControlTemplate TargetType="{x:Type s:SurfaceRepeatButton}">
@@ -151,8 +100,8 @@
     						<Rectangle  HorizontalAlignment="Center" 
     							x:Name="Line"
     							MinWidth="2"
-    							Fill="{DynamicResource {x:Static s:SurfaceColors.TrackBackgroundBrushKey}}"/>
-    					</Grid>
+    							Fill="#26000000"/>
+                        </Grid>
     					<ControlTemplate.Triggers>
     						<Trigger Property="IsEnabled"
     							Value="False">
@@ -167,8 +116,7 @@
     	</Style>
         <!-- ScrollBar Vert Thumb -->
     	<Style x:Key="SurfaceScrollBarThumbStyle"
-    		TargetType="{x:Type s:SurfaceThumb}"
-    		BasedOn="{StaticResource SurfaceHitAreaBaseStyle}">
+    		TargetType="{x:Type s:SurfaceThumb}">
     		<Setter Property="Template">
     			<Setter.Value>
     				<ControlTemplate TargetType="{x:Type s:SurfaceThumb}">
@@ -202,7 +150,7 @@
     							Width="14" 
     							HorizontalAlignment="Stretch"
     							VerticalAlignment="Stretch"
-    							Fill="{DynamicResource {x:Static s:SurfaceColors.ThumbEnabledBrushKey}}" />
+    							Fill="#4C000000" />
     					</Grid>
     					<ControlTemplate.Triggers>
     						<Trigger Property="s:TouchExtensions.AreAnyInputDevicesCapturedWithin"
@@ -225,116 +173,11 @@
     			</Setter.Value>
     		</Setter>
     	</Style>
-        <!-- ScrollBar RepeatButton -->
-    	<Style x:Key="SurfaceHorzScrollBarRepeatButton"
-    		TargetType="{x:Type s:SurfaceRepeatButton}" >
-    		<Setter Property="Interval"
-    			Value="150" />
-    		<Setter Property="BorderBrush"
-    			Value="{x:Null}" />
-    		<Setter Property="Background"
-    			Value="{StaticResource ControlHitAreaBrush}" />
-    		<Setter Property="OverridesDefaultStyle" Value="true"/>
-    		<Setter Property="Focusable" Value="false"/>
-    		<Setter Property="IsTabStop" Value="false"/>
-    		<Setter Property="Template">
-    			<Setter.Value>
-    				<ControlTemplate TargetType="{x:Type s:SurfaceRepeatButton}">
-    					<Grid Height="40" Background="{TemplateBinding Background}">
-    						<Rectangle VerticalAlignment="Center"
-    							x:Name="Line"
-    							MinHeight="2"
-    							Fill="{DynamicResource {x:Static s:SurfaceColors.TrackBackgroundBrushKey}}"/>
-    					</Grid>
-    					<ControlTemplate.Triggers>
-    						<Trigger Property="IsEnabled"
-    							Value="False">
-    							<Setter Property="Fill"   
-    								TargetName="Line"                             
-    								Value="{DynamicResource {x:Static s:SurfaceColors.ThumbDisabledBrushKey}}"/>
-    						</Trigger>
-    					</ControlTemplate.Triggers>
-    				</ControlTemplate>
-    			</Setter.Value>
-    		</Setter>
-    	</Style>
-    	<Style x:Key="SurfaceScrollBarHorizThumbStyle"
-    		TargetType="{x:Type s:SurfaceThumb}"
-    		BasedOn="{StaticResource SurfaceHitAreaBaseStyle}">
-    		<Setter Property="Template">
-    			<Setter.Value>
-    				<ControlTemplate TargetType="{x:Type s:SurfaceThumb}">
-    					<ControlTemplate.Resources>
-          <!-- Vertical orientation -->
-    						<Storyboard x:Key="Touch">
-    							<DoubleAnimation Duration="0:0:0.05"
-    								Storyboard.TargetName="Thumb"
-    								Storyboard.TargetProperty="Height" 
-    								To="16"/>
-    							<ThicknessAnimation Duration="0:0:0.05"
-    								Storyboard.TargetName="Thumb"
-    								Storyboard.TargetProperty="Margin"
-    								To="0,-1,0,-1" />
-    						</Storyboard>
-    						<Storyboard x:Key="Release">
-    							<DoubleAnimation Duration="0:0:0.1"
-    								Storyboard.TargetName="Thumb" 
-    								Storyboard.TargetProperty="Height"
-    								To="14"/>
-    							<ThicknessAnimation Duration="0:0:0.1"
-    								Storyboard.TargetName="Thumb"
-    								Storyboard.TargetProperty="Margin" 
-    								To="0,0,0,0" />
-    						</Storyboard>
-    					</ControlTemplate.Resources>
-    					<Grid x:Name="Grid"
-    						Background="{TemplateBinding Background}"
-    						SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" >
-    						<Rectangle  x:Name="Thumb"
-    							Width="Auto"
-    							Height="14"
-    							HorizontalAlignment="Stretch"
-    							VerticalAlignment="Stretch"  
-    							Fill="{DynamicResource {x:Static s:SurfaceColors.ThumbEnabledBrushKey}}" />
-    					</Grid>
-    					<ControlTemplate.Triggers>
-    						<Trigger Property="s:TouchExtensions.AreAnyInputDevicesCapturedWithin"
-    							Value="True">
-    							<Trigger.EnterActions>
-    								<BeginStoryboard Storyboard="{StaticResource Touch}"/>
-    							</Trigger.EnterActions>
-    							<Trigger.ExitActions>
-    								<BeginStoryboard Storyboard="{StaticResource Release}"/>
-    							</Trigger.ExitActions>
-    						</Trigger>
-    						<Trigger Property="IsEnabled"
-    							Value="False">
-    							<Setter Property="Fill"
-    								TargetName="Thumb"
-    								Value="{DynamicResource {x:Static s:SurfaceColors.ThumbDisabledBrushKey}}"/>
-    						</Trigger>
-    					</ControlTemplate.Triggers>
-    				</ControlTemplate>
-    			</Setter.Value>
-    		</Setter>
-    	</Style>
+        
     <!-- ScrollBar -->
-    	<Style x:Key="SurfaceScrollBarStyle"
-    		TargetType="{x:Type s:SurfaceScrollBar}"
-         >
-    		<Style.Resources>
-    			<System:Double x:Key="{x:Static SystemParameters.VerticalScrollBarButtonHeightKey}">38</System:Double>
-    			<System:Double x:Key="{x:Static SystemParameters.HorizontalScrollBarButtonWidthKey}">38</System:Double>
-    		</Style.Resources>
-    		<Setter Property="Stylus.IsPressAndHoldEnabled"
-    			Value="False"/>
-    		<Setter Property="Stylus.IsFlicksEnabled"
-    			Value="False"/>
-    		<Setter Property="Width"
-    			Value="38"/>
-    		<Setter Property="Height"
-    			Value="Auto"/>
-    		<Setter Property="Template">
+        <Style x:Key="SurfaceScrollBarStyle"
+    		TargetType="{x:Type s:SurfaceScrollBar}">
+            <Setter Property="Template">
     			<Setter.Value>
       <!-- vertical scroll bar -->
     				<ControlTemplate TargetType="{x:Type s:SurfaceScrollBar}">
@@ -380,10 +223,6 @@
     			</Setter.Value>
     		</Setter>
 
-    		<Style.BasedOn>
-    			<StaticResource ResourceKey="SurfaceHitAreaBaseStyle"/>
-    		</Style.BasedOn>
-
     		<Style.Triggers>
     <!-- Horizontal orientation -->
     			<Trigger Property="Orientation"   Value="Horizontal">
@@ -403,19 +242,17 @@
     										<Track.DecreaseRepeatButton>
     											<s:SurfaceRepeatButton x:Name="DecreaseRepeat"
     												Background="{TemplateBinding Background}"
-    												VerticalAlignment="Center"
-    												Style="{StaticResource SurfaceHorzScrollBarRepeatButton}"													
+    												VerticalAlignment="Center"													
     												Command="ScrollBar.PageLeftCommand" />
     										</Track.DecreaseRepeatButton>
     										<Track.IncreaseRepeatButton>
     											<s:SurfaceRepeatButton x:Name="IncreaseRepeat" 
     												Background="{TemplateBinding Background}"
     												VerticalAlignment="Center"
-    												Style="{StaticResource SurfaceHorzScrollBarRepeatButton}"
     												Command="ScrollBar.PageRightCommand"/>
     										</Track.IncreaseRepeatButton>
     										<Track.Thumb>
-    											<s:SurfaceThumb  Style="{StaticResource SurfaceScrollBarHorizThumbStyle}"	
+    											<s:SurfaceThumb	
     												Background="{TemplateBinding Background}"
     												VerticalAlignment="Center" 
     												x:Name="Thumb"/>
@@ -445,104 +282,10 @@
     		</Style.Triggers>
     	</Style>
 
-<!-- ScrollViewerBase -->
-    	<Style x:Key="SurfaceScrollViewerStyle"
-    		TargetType="{x:Type s:SurfaceScrollViewer}">
-    		<Setter Property="Elasticity"
-    			Value="0.4,0.4" />
-    		<Setter Property="ScrollViewer.HorizontalScrollBarVisibility"
-    			Value="Auto" />
-    		<Setter Property="ScrollViewer.VerticalScrollBarVisibility"
-    			Value="Auto" />
-    		<Setter Property="Template">
-    			<Setter.Value>
-    				<ControlTemplate TargetType="{x:Type s:SurfaceScrollViewer}">
-    					<Grid   Background="{TemplateBinding Background}"
-    						HorizontalAlignment="Stretch" 
-    						VerticalAlignment="Stretch">
-    						<Grid.ColumnDefinitions>
-    							<ColumnDefinition Width="*" />
-    							<ColumnDefinition Width="Auto" />
-    						</Grid.ColumnDefinitions>
-    						<Grid.RowDefinitions>
-    							<RowDefinition Height="*" />
-    							<RowDefinition Height="Auto" />
-    						</Grid.RowDefinitions>
-    						<Border x:Name="PART_ElasticBorder"
-    							Background="{TemplateBinding Background}">
-    							<ScrollContentPresenter 
-    								Margin="-1,-1,-1,-1"
-    								Grid.Column="0"
-    								Grid.ColumnSpan="1"
-    								Grid.Row="0"
-    								Grid.RowSpan="1"
-    								Content="{TemplateBinding Content}"
-    								ContentTemplate="{TemplateBinding ContentTemplate}"
-    								CanContentScroll="{TemplateBinding CanContentScroll}"
-    								CanHorizontallyScroll="False"
-    								CanVerticallyScroll="False"
-    								ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
-    						</Border>
-
-    						<s:SurfaceScrollBar Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
-    							x:Name="PART_HorizontalScrollBar"
-    							Grid.Column="0"
-    							Grid.Row="1"
-    							Orientation="Horizontal"
-    							Maximum="{TemplateBinding ScrollableWidth}"
-    							Minimum="0"
-    							Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
-    							AutomationProperties.AutomationId="HorizontalScrollBar"
-    							Height="Auto"
-    							Style="{StaticResource SurfaceScrollBarStyle}"
-    							LargeChange="1"
-    							ViewportSize="{TemplateBinding ViewportWidth}"
-    							ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-    							HorizontalContentAlignment="Stretch"
-    							VerticalContentAlignment="Stretch"
-    							HorizontalAlignment="Stretch"
-    							Foreground="{x:Null}"/>
-    						<s:SurfaceScrollBar Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
-    							x:Name="PART_VerticalScrollBar"                           
-    							Grid.Column="1"
-    							Grid.Row="0"
-    							Orientation="Vertical"
-    							Maximum="{TemplateBinding ScrollableHeight}"
-    							Minimum="0"
-    							Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
-    							AutomationProperties.AutomationId="VerticalScrollBar"
-    							Width="Auto"
-    							Style="{StaticResource SurfaceScrollBarStyle}"
-    							LargeChange="1"
-    							ViewportSize="{TemplateBinding ViewportHeight}"
-    							ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-    							HorizontalContentAlignment="Stretch"
-    							VerticalContentAlignment="Stretch"
-    							HorizontalAlignment="Stretch"
-    							Foreground="{x:Null}"
-    							IsEnabled="True"/>
-    					</Grid>
-    					<ControlTemplate.Triggers>
-    						<Trigger Property="IsEnabled"
-    							Value="False">
-    							<Setter Property="IsEnabled"
-    								TargetName="PART_HorizontalScrollBar"
-    								Value="False" />
-    							<Setter Property="IsEnabled"
-    								TargetName="PART_VerticalScrollBar"
-    								Value="False" />
-                            </Trigger>
-    					</ControlTemplate.Triggers>
-    				</ControlTemplate>
-    			</Setter.Value>
-    		</Setter>
-    	</Style>
-
 <!-- Listbox ScrollView -->
-    	<Style x:Key="SurfaceListBoxScrollViewerStyle"
-    		TargetType="{x:Type s:SurfaceScrollViewer}" 	
-    		BasedOn="{StaticResource SurfaceScrollViewerStyle}">
-    		<Setter Property="Template">
+        <Style x:Key="SurfaceListBoxScrollViewerStyle"
+    		TargetType="{x:Type s:SurfaceScrollViewer}" >
+            <Setter Property="Template">
     			<Setter.Value>
     				<ControlTemplate TargetType="{x:Type s:SurfaceScrollViewer}">
     					<Grid   Background="{DynamicResource {x:Static s:SurfaceColors.ListBoxBackgroundBrushKey}}"
@@ -589,6 +332,8 @@
     							SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
     						<s:SurfaceScrollBar
     							x:Name="PART_VerticalScrollBar"
+                                Visibility="Hidden"
+                                Opacity="0"
     							Grid.Column="0"
     							Grid.Row="0"
     							Orientation="Vertical"
@@ -596,7 +341,7 @@
     							ViewportSize="{TemplateBinding ViewportHeight}"
     							Maximum="{TemplateBinding ScrollableHeight}"
     							Minimum="0"
-    							Background="Pink"
+    							Background="Transparent"
     							Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
     							AutomationProperties.AutomationId="VerticalScrollBar"
     							Width="Auto"                                   
@@ -657,9 +402,8 @@
     	</Style>
 
 <!-- ListBox -->
-    	<Style x:Key="SurfaceListBoxStyle"  TargetType="{x:Type s:SurfaceListBox}"
-    		BasedOn="{StaticResource ControlBaseStyle}">
-    		<Setter Property="Background"
+        <Style x:Key="SurfaceListBoxStyle"  TargetType="{x:Type s:SurfaceListBox}">
+            <Setter Property="Background"
     			Value="{StaticResource ControlHitAreaBrush}" />
     		<Setter Property="ScrollViewer.HorizontalScrollBarVisibility"
     			Value="Hidden" />
