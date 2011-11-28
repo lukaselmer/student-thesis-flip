@@ -23,7 +23,7 @@
                 <Label Background="Transparent" >
                     <TextBlock Style="{DynamicResource TextStyle}" Text="{Binding Key.Name}" />
                 </Label>
-                <ListView Focusable="False" ScrollViewer.CanContentScroll="False" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" ItemsSource="{Binding Value}" ItemsPanel="{DynamicResource MetadataListBoxTemplate}" ItemTemplate="{DynamicResource MetadataTemplate}" />
+                <ItemsControl ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" ItemsSource="{Binding Value}" ItemsPanel="{DynamicResource MetadataListBoxTemplate}" ItemTemplate="{DynamicResource MetadataTemplate}" />
             </StackPanel>
         </DataTemplate>
 
@@ -191,6 +191,7 @@
         			</ControlTemplate>
         		</Setter.Value>
         	</Setter>
+            
         </Style>
 
     </UserControl.Resources>
