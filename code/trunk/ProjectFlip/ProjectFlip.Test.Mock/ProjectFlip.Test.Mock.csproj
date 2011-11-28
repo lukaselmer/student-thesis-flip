@@ -49,6 +49,7 @@
     <Compile Include="ProjectNoteMock.cs" />
     <Compile Include="ProjectNotesServiceMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceProviderMock.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjectFlip.Services.Interfaces\ProjectFlip.Services.Interfaces.csproj">

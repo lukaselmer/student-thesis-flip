@@ -18,7 +18,10 @@ namespace ProjectFlip.Test.Mock
 
         #region IProjectNote Members
 
-        public ProjectNoteMock() { }
+        public ProjectNoteMock()
+        {
+            Metadata = new Dictionary<IMetadataType, ICollection<IMetadata>>();
+        }
 
         public int Id { get; set; }
         public string Title { get; set; }

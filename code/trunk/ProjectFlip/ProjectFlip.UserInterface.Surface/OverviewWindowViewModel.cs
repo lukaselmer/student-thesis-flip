@@ -249,8 +249,7 @@ namespace ProjectFlip.UserInterface.Surface
             _filters.Add((IMetadata)filter);
             Filters.Refresh();
             ProjectNotes.Refresh();
-            IsFilterViewVisible = false;
-            if (IsDetailViewVisible) IsDetailViewVisible = false;
+            IsDetailViewVisible = IsFilterViewVisible = false;
         }
 
         private bool FilterCallback(object projectNoteObj)
