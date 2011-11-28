@@ -1,0 +1,3 @@
+Der Surface soll zudem periodisch (minimal wöchentlich) gereinigt werden, um die Oberflächenverschmutzung infolge der Berührungen zu entfernen.
+
+Das davon abzuleitende XPS-Dokument und ein aus dem XPS-Dokument extrahierter Bildausschnitt werden von der Applikation automatisch erstellt.
