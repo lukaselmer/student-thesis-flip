@@ -169,7 +169,6 @@ namespace ProjectFlip.Services.Test
         ///A test for Url
         ///</summary>
         [TestMethod, DeploymentItem("ProjectFlip.Services.dll")]
-        
         public void UrlTest()
         {
             var target = new ProjectNote_Accessor();
@@ -182,7 +181,6 @@ namespace ProjectFlip.Services.Test
         ///A test for the Aggregator
         ///</summary>
         [TestMethod, DeploymentItem("ProjectFlip.Services.dll")]
-        
         public void AggregatorNullTest()
         {
             const string filename = "Filename";
@@ -229,7 +227,6 @@ namespace ProjectFlip.Services.Test
         ///A test for the XPS
         ///</summary>
         [TestMethod, DeploymentItem("ProjectFlip.Services.dll")]
-        
         public void XpsLoadingTest()
         {
             var target = new ProjectNote_Accessor();
@@ -249,7 +246,6 @@ namespace ProjectFlip.Services.Test
         ///A test for the XPS2
         ///</summary>
         [TestMethod, DeploymentItem("ProjectFlip.Services.dll")]
-        
         public void Xps2LoadingTest()
         {
             var target = new ProjectNote_Accessor();
@@ -263,7 +259,6 @@ namespace ProjectFlip.Services.Test
         ///A test for the Image
         ///</summary>
         [TestMethod, DeploymentItem("ProjectFlip.Services.dll")]
-        
         public void ImageLoadingTest()
         {
             var target = new ProjectNote_Accessor();
