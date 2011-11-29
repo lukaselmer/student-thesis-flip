@@ -36,7 +36,7 @@ using System.Windows;
 
 // Specifies the location in which theme dictionaries are stored for types in an assembly.
 
-[assembly: ThemeInfo(// Specifies the location of system theme-specific resource dictionaries for this project.
+[assembly: ThemeInfo( // Specifies the location of system theme-specific resource dictionaries for this project.
     // The default setting in this project is "None" since this default project does not
     // include these user-defined theme files:
     //     Themes\Aero.NormalColor.xaml

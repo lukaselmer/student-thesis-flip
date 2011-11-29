@@ -64,7 +64,6 @@ namespace ProjectFlip.UserInterface.Surface.Test
         ///A test for Notify
         ///</summary>
         [TestMethod, DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
-        
         public void NotifyTest()
         {
             IProjectNotesService projectNotesService = new ProjectNotesServiceMock(4);
