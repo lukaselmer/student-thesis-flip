@@ -4,7 +4,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using ProjectFlip.Services;
@@ -59,13 +58,7 @@ namespace ProjectFlip.UserInterface.Surface
             }
         }
 
-        public T this[int index]
-        {
-            get
-            {
-                return Count == 0 ? default(T) : Items[(index + Count) % Count];
-            }
-        }
+        public T this[int index] { get { return Count == 0 ? default(T) : Items[(index + Count)%Count]; } }
 
         public int Count { get { return Items.Count; } }
 
@@ -121,7 +114,7 @@ namespace ProjectFlip.UserInterface.Surface
             if (Count == 0) return false;
 
             // ReSharper disable CompareNonConstrainedGenericWithNull
-            if ((!typeof(T).IsValueType) && o == null)
+            if ((!typeof (T).IsValueType) && o == null)
             {
                 CurrentIndex = 0;
                 return true;
@@ -153,14 +146,14 @@ namespace ProjectFlip.UserInterface.Surface
         public void MoveCurrentToNext()
         {
             if (Count == 0) return;
-            CurrentIndex = (CurrentIndex + 1) % Count;
+            CurrentIndex = (CurrentIndex + 1)%Count;
             OnCurrentChanged();
         }
 
         public void MoveCurrentToPrevious()
         {
             if (Count == 0) return;
-            CurrentIndex = (CurrentIndex - 1 + Count) % Count;
+            CurrentIndex = (CurrentIndex - 1 + Count)%Count;
             OnCurrentChanged();
         }
 

@@ -1,40 +1,28 @@
-﻿using ProjectFlip.Test.Mock;
-using ProjectFlip.UserInterface.Surface.Converters;
+﻿#region
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+using ProjectFlip.Test.Mock;
+using ProjectFlip.UserInterface.Surface.Converters;
+
+#endregion
 
 namespace ProjectFlip.UserInterface.Surface.Converter.Test
 {
-    
-    
     /// <summary>
     ///This is a test class for ValueConverterBaseTest and is intended
     ///to contain all ValueConverterBaseTest Unit Tests
     ///</summary>
-    [TestClass()]
+    [TestClass]
     public class ValueConverterBaseTest
     {
-
-
-        private TestContext testContextInstance;
-
         /// <summary>
         ///Gets or sets the test context which provides
         ///information about and functionality for the current test run.
         ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
+        public TestContext TestContext { get; set; }
 
         #region Additional test attributes
+
         // 
         //You can use the following additional attributes as you write your tests:
         //
@@ -62,17 +50,17 @@ namespace ProjectFlip.UserInterface.Surface.Converter.Test
         //{
         //}
         //
-        #endregion
 
+        #endregion
 
         /// <summary>
         ///A test for ProvideValue
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void ProvideValueTest()
         {
-            ValueConverterBase target = new ValueConverterBase();
-            object returnvalue = target.ProvideValue(new ServiceProviderMock());
+            var target = new ValueConverterBase();
+            var returnvalue = target.ProvideValue(new ServiceProviderMock());
             Assert.AreEqual(returnvalue, target);
         }
     }

@@ -1,39 +1,27 @@
-﻿using ProjectFlip.UserInterface.Surface;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿#region
+
 using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+#endregion
 
 namespace ProjectFlip.UserInterface.Surface.Test
 {
-    
-    
     /// <summary>
     ///This is a test class for CommandTest and is intended
     ///to contain all CommandTest Unit Tests
     ///</summary>
-    [TestClass()]
+    [TestClass]
     public class CommandTest
     {
-
-
-        private TestContext testContextInstance;
-
         /// <summary>
         ///Gets or sets the test context which provides
         ///information about and functionality for the current test run.
         ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
+        public TestContext TestContext { get; set; }
 
         #region Additional test attributes
+
         // 
         //You can use the following additional attributes as you write your tests:
         //
@@ -61,33 +49,34 @@ namespace ProjectFlip.UserInterface.Surface.Test
         //{
         //}
         //
+
         #endregion
 
         /// <summary>
         ///A test for CanExecute
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void CanExecuteTest()
         {
             Action<object> execute = o => { };
             Predicate<object> canExecute = o => o != null;
-            Command target = new Command(execute, canExecute);
-            bool actual = target.CanExecute(new object());
+            var target = new Command(execute, canExecute);
+            var actual = target.CanExecute(new object());
             Assert.AreEqual(true, actual);
-            }
+        }
 
         /// <summary>
         ///A test for CanExecute and Execute
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void ExecuteTest()
         {
             var success = false;
             Action<object> execute = o => success = true;
-            Command target = new Command(execute);
-            bool actual = target.CanExecute(new object());
+            var target = new Command(execute);
+            var actual = target.CanExecute(new object());
             Assert.AreEqual(true, actual);
-            object parameter = new object();
+            var parameter = new object();
             target.Execute(parameter);
             Assert.AreEqual(true, success);
         }
@@ -95,11 +84,11 @@ namespace ProjectFlip.UserInterface.Surface.Test
         /// <summary>
         ///A test for RaiseCanExecuteChanged
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void RaiseCanExecuteChangedTest()
         {
             var success = false;
-            var target = new Command((sender) => {});
+            var target = new Command((sender) => { });
             target.CanExecuteChanged += (sender, eventArgs) => success = true;
             target.RaiseCanExecuteChanged();
             Assert.IsTrue(success);

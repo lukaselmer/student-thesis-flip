@@ -1,41 +1,28 @@
-﻿using ProjectFlip.Services.Interfaces;
-using ProjectFlip.Test.Mock;
-using ProjectFlip.UserInterface.Surface;
+﻿#region
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+using ProjectFlip.Services.Interfaces;
+using ProjectFlip.Test.Mock;
+
+#endregion
 
 namespace ProjectFlip.UserInterface.Surface.Test
 {
-    
-    
     /// <summary>
     ///This is a test class for ViewModelBaseTest and is intended
     ///to contain all ViewModelBaseTest Unit Tests
     ///</summary>
-    [TestClass()]
+    [TestClass]
     public class ViewModelBaseTest
     {
-
-
-        private TestContext testContextInstance;
-
         /// <summary>
         ///Gets or sets the test context which provides
         ///information about and functionality for the current test run.
         ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
+        public TestContext TestContext { get; set; }
 
         #region Additional test attributes
+
         // 
         //You can use the following additional attributes as you write your tests:
         //
@@ -63,8 +50,8 @@ namespace ProjectFlip.UserInterface.Surface.Test
         //{
         //}
         //
-        #endregion
 
+        #endregion
 
         internal virtual ViewModelBase_Accessor CreateViewModelBase_Accessor()
         {
@@ -76,8 +63,8 @@ namespace ProjectFlip.UserInterface.Surface.Test
         /// <summary>
         ///A test for Notify
         ///</summary>
-        [TestMethod()]
-        [DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
+        [TestMethod, DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
+        
         public void NotifyTest()
         {
             IProjectNotesService projectNotesService = new ProjectNotesServiceMock(4);

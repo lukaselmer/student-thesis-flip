@@ -1,11 +1,13 @@
-﻿using System.Windows;
-using ProjectFlip.UserInterface.Surface.Converters;
+﻿#region
+
+using System.Windows;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ProjectFlip.UserInterface.Surface.Converters;
+
+#endregion
 
 namespace ProjectFlip.UserInterface.Surface.Converter.Test
 {
-    
-    
     /// <summary>
     ///This is a test class for BoolToVisibilityConverterTest and is intended
     ///to contain all BoolToVisibilityConverterTest Unit Tests

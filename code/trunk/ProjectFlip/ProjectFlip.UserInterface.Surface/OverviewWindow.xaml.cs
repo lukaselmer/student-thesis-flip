@@ -1,7 +1,8 @@
-using System;
-using System.Windows;
-using Microsoft.Surface;
+#region
+
 using Microsoft.Surface.Presentation.Controls;
+
+#endregion
 
 namespace ProjectFlip.UserInterface.Surface
 {

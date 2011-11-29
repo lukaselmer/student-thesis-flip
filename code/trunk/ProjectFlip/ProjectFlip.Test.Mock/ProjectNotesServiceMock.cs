@@ -10,6 +10,15 @@ namespace ProjectFlip.Test.Mock
 {
     public class ProjectNotesServiceMock : IProjectNotesService
     {
+        private IDictionary<IMetadataType, ICollection<IMetadata>> _metadata =
+            new Dictionary<IMetadataType, ICollection<IMetadata>>
+            {
+                {
+                    new MetadataTypeMock {Name = "Name"},
+                    new List<IMetadata> {new MetadataMock {Description = "Description"}}
+                    }
+            };
+
         public ProjectNotesServiceMock(int count)
         {
             ProjectNotes = new List<IProjectNote>(Enumerable.Range(0, count).Select(i => new ProjectNoteMock()));
@@ -19,7 +28,6 @@ namespace ProjectFlip.Test.Mock
 
         public List<IProjectNote> ProjectNotes { get; private set; }
 
-        private IDictionary<IMetadataType, ICollection<IMetadata>> _metadata = new Dictionary<IMetadataType, ICollection<IMetadata>> { { new MetadataTypeMock { Name = "Name" }, new List<IMetadata> { new MetadataMock { Description = "Description" } } } };
         public IDictionary<IMetadataType, ICollection<IMetadata>> Metadata { get { return _metadata; } set { _metadata = value; } }
 
         #endregion
@@ -36,7 +44,7 @@ namespace ProjectFlip.Test.Mock
 
     public class MetadataMock : IMetadata
     {
-        public MetadataMock() { }
+        public MetadataMock() {}
 
         public MetadataMock(IMetadataType type, string description)
         {

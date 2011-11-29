@@ -21,7 +21,7 @@ namespace ProjectFlip.Preparer
         {
             var container = new UnityContainer();
             ConfigureContainer(container);
-            Parallel.Invoke(new ParallelOptions { MaxDegreeOfParallelism = 300 }, Actions(container).ToArray());
+            Parallel.Invoke(new ParallelOptions {MaxDegreeOfParallelism = 300}, Actions(container).ToArray());
         }
 
         private static List<Action> Actions(IUnityContainer container)

@@ -74,7 +74,6 @@ namespace ProjectFlip.Converter.Test
         ///A test for RequirementsNotOk -> Missing Adobe Reader
         ///</summary>
         [TestMethod, DeploymentItem("ProjectFlip.Converter.Pdf.exe")]
-        
         public void TestRequirementsNotOkTestMissingAdobeReader()
         {
             var target = new PdfConverter_Accessor {AcrobatLocation = InvalidPath};
@@ -85,7 +84,6 @@ namespace ProjectFlip.Converter.Test
         ///A test for RequirementsNotOk -> Invalid From Path
         ///</summary>
         [TestMethod, DeploymentItem("ProjectFlip.Converter.Pdf.exe")]
-        
         public void TestRequirementsNotOkTestInvalidFromPath()
         {
             var target = new PdfConverter_Accessor();
@@ -96,7 +94,6 @@ namespace ProjectFlip.Converter.Test
         ///A test for RequirementsNotOk -> Invalid To Path
         ///</summary>
         [TestMethod, DeploymentItem("ProjectFlip.Converter.Pdf.exe")]
-        
         public void TestRequirementsNotOkTestInvalidToPath()
         {
             var target = new PdfConverter_Accessor();
@@ -107,7 +104,6 @@ namespace ProjectFlip.Converter.Test
         ///A test for RequirementsOk
         ///</summary>
         [TestMethod, DeploymentItem("ProjectFlip.Converter.Pdf.exe")]
-        
         public void TestRequirementsOk()
         {
             var target = new PdfConverter_Accessor();
