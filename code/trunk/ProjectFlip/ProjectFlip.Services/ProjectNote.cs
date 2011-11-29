@@ -20,6 +20,11 @@ namespace ProjectFlip.Services
     public class ProjectNote : NotifierModel, IProjectNote
     {
         public static string FilepathFolder = @"..\..\..\Resources";
+        private IDocumentPaginatorSource _document;
+        private DispatcherTimer _timer;
+        public IAggregator Aggregator { private get; set; }
+
+        #region IProjectNote Members
 
         public int Id { get; private set; }
         public string Title { get; private set; } // Audit einer IT-Infrastruktur und Organisation
@@ -32,7 +37,6 @@ namespace ProjectFlip.Services
         public string FilepathPdf { get; private set; }
         public string FilepathXps { get; private set; }
         public string FilepathImage { get; private set; }
-
 
         public string Url { get { return "http://www.zuehlke.com/uploads/tx_zepublications/" + Filename; } }
 
@@ -50,33 +54,6 @@ namespace ProjectFlip.Services
             }
         }
 
-        private void InitMetadata(IList<string> value)
-        {
-            Metadata = new Dictionary<IMetadataType, ICollection<IMetadata>>();
-            AddToMetadata("Sector", value[3]);
-            AddToMetadata("Customer", value[4]);
-            AddToMetadata("Focus", value[5]);
-            AddToMetadata("Services", value[6]);
-            AddToMetadata("Technologies", value[7]);
-            AddToMetadata("Applications", value[8]);
-            AddToMetadata("Tools", value[9]);
-        }
-
-        private void AddToMetadata(string metadataType, string line)
-        {
-            var metadataList = SharepointStringDeserializer.Deserialize(line, MetadataType.Get(metadataType));
-            if (Aggregator == null) Aggregator = new Aggregator();
-            var aggregatedList = metadataList.Select(Aggregator.AggregateMetadata).ToList();
-            aggregatedList.ForEach(m =>
-                {
-                    if (!Metadata.ContainsKey(m.Type)) Metadata[m.Type] = new SortedSet<IMetadata>(new MetadataComparer());
-                    Metadata[m.Type].Add(m);
-                });
-        }
-
-        private IDocumentPaginatorSource _document;
-        private DispatcherTimer _timer;
-
         public void Preload()
         {
             if (_document != null) return;
@@ -84,7 +61,8 @@ namespace ProjectFlip.Services
             {
                 if (_timer != null) return;
 
-                var dispatcher = Application.Current == null ? Dispatcher.CurrentDispatcher : Application.Current.Dispatcher;
+                var dispatcher = Application.Current == null
+                    ? Dispatcher.CurrentDispatcher : Application.Current.Dispatcher;
 
                 _timer = new DispatcherTimer(TimeSpan.FromMilliseconds(500), DispatcherPriority.Background,
                     (s, e) => LoadDocument(), dispatcher);
@@ -107,12 +85,6 @@ namespace ProjectFlip.Services
             }
         }
 
-        private void LoadDocument()
-        {
-            var doc = new XpsDocument(FilepathXps, FileAccess.Read);
-            Document = doc.GetFixedDocumentSequence();
-        }
-
         /// <summary>
         /// Gets or sets the image.
         /// </summary>
@@ -129,7 +101,37 @@ namespace ProjectFlip.Services
             }
         }
 
-        public IAggregator Aggregator { private get; set; }
+        #endregion
+
+        private void InitMetadata(IList<string> value)
+        {
+            Metadata = new Dictionary<IMetadataType, ICollection<IMetadata>>();
+            AddToMetadata("Sector", value[3]);
+            AddToMetadata("Customer", value[4]);
+            AddToMetadata("Focus", value[5]);
+            AddToMetadata("Services", value[6]);
+            AddToMetadata("Technologies", value[7]);
+            AddToMetadata("Applications", value[8]);
+            AddToMetadata("Tools", value[9]);
+        }
+
+        private void AddToMetadata(string metadataType, string line)
+        {
+            var metadataList = SharepointStringDeserializer.Deserialize(line, MetadataType.Get(metadataType));
+            if (Aggregator == null) Aggregator = new Aggregator();
+            var aggregatedList = metadataList.Select(Aggregator.AggregateMetadata).ToList();
+            aggregatedList.ForEach(m =>
+                                   {
+                                       if (!Metadata.ContainsKey(m.Type)) Metadata[m.Type] = new SortedSet<IMetadata>(new MetadataComparer());
+                                       Metadata[m.Type].Add(m);
+                                   });
+        }
+
+        private void LoadDocument()
+        {
+            var doc = new XpsDocument(FilepathXps, FileAccess.Read);
+            Document = doc.GetFixedDocumentSequence();
+        }
 
         private void InitStringValues(IList<string> value)
         {

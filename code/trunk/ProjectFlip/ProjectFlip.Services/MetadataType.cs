@@ -1,6 +1,10 @@
+#region
+
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using ProjectFlip.Services.Interfaces;
+
+#endregion
 
 namespace ProjectFlip.Services
 {
@@ -8,12 +12,16 @@ namespace ProjectFlip.Services
     {
         private static readonly Dictionary<string, MetadataType> MetadataTypes = new Dictionary<string, MetadataType>();
 
-        public string Name { get; private set; }
-
         private MetadataType(string name)
         {
             Name = name;
         }
+
+        #region IMetadataType Members
+
+        public string Name { get; private set; }
+
+        #endregion
 
         [MethodImpl(MethodImplOptions.Synchronized)]
         public static MetadataType Get(string name)

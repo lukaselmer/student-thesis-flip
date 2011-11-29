@@ -1,10 +1,14 @@
-﻿using System.Windows;
+﻿#region
+
+using System.Windows;
 using Microsoft.Practices.Unity;
 using ProjectFlip.Services;
 using ProjectFlip.Services.Interfaces;
 using ProjectFlip.Services.Loader;
 using ProjectFlip.Services.Loader.Interfaces;
 using ProjectFlip.UserInterface.Surface;
+
+#endregion
 
 namespace ProjectFlip
 {
@@ -21,7 +25,6 @@ namespace ProjectFlip
             container.Resolve<ICultureHelper>().RegisterLanguage();
 
             var window = container.Resolve<OverviewWindow>();
-            //var window = container.Resolve<MainWindow>();
             window.Show();
         }
 

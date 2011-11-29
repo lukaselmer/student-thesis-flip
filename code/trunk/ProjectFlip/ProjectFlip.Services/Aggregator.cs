@@ -1,3 +1,5 @@
+#region
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -5,14 +7,24 @@ using System.IO;
 using System.Linq;
 using ProjectFlip.Services.Interfaces;
 
+#endregion
+
 namespace ProjectFlip.Services
 {
     public class Aggregator : IAggregator
     {
         private const string Separator = "\t";
         private const string MappingFilePath = @"..\..\..\Resources\mapping.txt";
-        Dictionary<string, IMetadata> _mapping = new Dictionary<string, IMetadata>();
-        private readonly string[] _header = new[] { "Kategorie", "Mapping nach", "Mapping von 1", "Mapping von 2", "Mapping von 3", "usw. ..." };
+
+        private readonly string[] _header = new[]
+                                            {
+                                                "Kategorie", "Mapping nach", "Mapping von 1", "Mapping von 2",
+                                                "Mapping von 3", "usw. ..."
+                                            };
+
+        private Dictionary<string, IMetadata> _mapping = new Dictionary<string, IMetadata>();
+
+        #region IAggregator Members
 
         public void LoadMapping()
         {
@@ -26,7 +38,7 @@ namespace ProjectFlip.Services
                 {
                     var line = handle.ReadLine();
                     Debug.Assert(line != null, "line != null");
-                    var elements = line.Split(new[] { Separator.ToCharArray()[0] });
+                    var elements = line.Split(new[] {Separator.ToCharArray()[0]});
                     if (elements.Length < 2) continue;
                     var category = elements[0];
                     var mapTo = elements[1];
@@ -39,27 +51,35 @@ namespace ProjectFlip.Services
         public void SaveMapping()
         {
             var reverseMapping = ReverseMapping();
-            var lines = new List<List<string>> { _header.ToList() };
+            var lines = new List<List<string>> {_header.ToList()};
             reverseMapping.Keys.ToList().ForEach(metadata =>
-            {
-                var line = new List<string> { metadata.Type.Name, metadata.Description };
-                line.AddRange(reverseMapping[metadata]);
-                lines.Add(line);
-            });
+                                                 {
+                                                     var line = new List<string>
+                                                                {metadata.Type.Name, metadata.Description};
+                                                     line.AddRange(reverseMapping[metadata]);
+                                                     lines.Add(line);
+                                                 });
 
             WriteFile(lines);
-
         }
+
+        public IMetadata AggregateMetadata(IMetadata metadata)
+        {
+            if (!_mapping.ContainsKey(metadata.Description)) _mapping[metadata.Description] = metadata;
+            return _mapping[metadata.Description];
+        }
+
+        #endregion
 
         private Dictionary<IMetadata, List<string>> ReverseMapping()
         {
             var reverseMapping = new Dictionary<IMetadata, List<string>>();
             _mapping.Keys.ToList().ForEach(mappingFrom =>
-                {
-                    var metadata = _mapping[mappingFrom];
-                    if (!reverseMapping.ContainsKey(metadata)) reverseMapping[metadata] = new List<string>();
-                    reverseMapping[metadata].Add(mappingFrom);
-                });
+                                           {
+                                               var metadata = _mapping[mappingFrom];
+                                               if (!reverseMapping.ContainsKey(metadata)) reverseMapping[metadata] = new List<string>();
+                                               reverseMapping[metadata].Add(mappingFrom);
+                                           });
             return reverseMapping;
         }
 
@@ -69,12 +89,6 @@ namespace ProjectFlip.Services
             {
                 lines.ForEach(line => handle.WriteLine(String.Join(Separator, line)));
             }
-        }
-
-        public IMetadata AggregateMetadata(IMetadata metadata)
-        {
-            if (!_mapping.ContainsKey(metadata.Description)) _mapping[metadata.Description] = metadata;
-            return _mapping[metadata.Description];
         }
     }
 }

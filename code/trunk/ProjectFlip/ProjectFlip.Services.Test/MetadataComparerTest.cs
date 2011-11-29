@@ -1,13 +1,12 @@
-﻿using ProjectFlip.Services;
+﻿#region
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using ProjectFlip.Services.Interfaces;
 using ProjectFlip.Test.Mock;
+
+#endregion
 
 namespace ProjectFlip.Services.Test
 {
-    
-    
     /// <summary>
     ///This is a test class for MetadataComparerTest and is intended
     ///to contain all MetadataComparerTest Unit Tests
@@ -16,6 +15,7 @@ namespace ProjectFlip.Services.Test
     public class MetadataComparerTest
     {
         #region Additional test attributes
+
         // 
         //You can use the following additional attributes as you write your tests:
         //
@@ -43,8 +43,8 @@ namespace ProjectFlip.Services.Test
         //{
         //}
         //
-        #endregion
 
+        #endregion
 
         /// <summary>
         ///A test for Compare
@@ -53,20 +53,20 @@ namespace ProjectFlip.Services.Test
         public void CompareTest()
         {
             var target = new MetadataComparer();
-            
-            Assert.AreEqual(0, target.Compare(Metadata.Get(new MetadataTypeMock(), "aaa"),
-                Metadata.Get(new MetadataTypeMock(), "aaa")));
-            Assert.AreEqual(-1, target.Compare(Metadata.Get(new MetadataTypeMock(), "aaa"),
-                Metadata.Get(new MetadataTypeMock(), "bbb")));
-            Assert.AreEqual(1, target.Compare(Metadata.Get(new MetadataTypeMock(), "bbb"),
-                Metadata.Get(new MetadataTypeMock(), "aaa")));
 
-            Assert.AreEqual(0, target.Compare(Metadata.Get(new MetadataTypeMock(), "AAA"),
-                Metadata.Get(new MetadataTypeMock(), "aaa")));
-            Assert.AreEqual(-1, target.Compare(Metadata.Get(new MetadataTypeMock(), "AAA"),
-                Metadata.Get(new MetadataTypeMock(), "bbb")));
-            Assert.AreEqual(1, target.Compare(Metadata.Get(new MetadataTypeMock(), "BBB"),
-                Metadata.Get(new MetadataTypeMock(), "aaa")));
+            Assert.AreEqual(0,
+                target.Compare(Metadata.Get(new MetadataTypeMock(), "aaa"), Metadata.Get(new MetadataTypeMock(), "aaa")));
+            Assert.AreEqual(-1,
+                target.Compare(Metadata.Get(new MetadataTypeMock(), "aaa"), Metadata.Get(new MetadataTypeMock(), "bbb")));
+            Assert.AreEqual(1,
+                target.Compare(Metadata.Get(new MetadataTypeMock(), "bbb"), Metadata.Get(new MetadataTypeMock(), "aaa")));
+
+            Assert.AreEqual(0,
+                target.Compare(Metadata.Get(new MetadataTypeMock(), "AAA"), Metadata.Get(new MetadataTypeMock(), "aaa")));
+            Assert.AreEqual(-1,
+                target.Compare(Metadata.Get(new MetadataTypeMock(), "AAA"), Metadata.Get(new MetadataTypeMock(), "bbb")));
+            Assert.AreEqual(1,
+                target.Compare(Metadata.Get(new MetadataTypeMock(), "BBB"), Metadata.Get(new MetadataTypeMock(), "aaa")));
         }
     }
 }

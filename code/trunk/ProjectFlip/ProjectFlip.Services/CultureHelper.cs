@@ -1,10 +1,16 @@
+#region
+
 using System.Collections.Generic;
 using System.Globalization;
+
+#endregion
 
 namespace ProjectFlip.Services
 {
     public class CultureHelper : ICultureHelper
     {
+        #region ICultureHelper Members
+
         public void RegisterLanguage()
         {
             var cultures = new List<CultureInfo>(CultureInfo.GetCultures(CultureTypes.AllCultures));
@@ -12,6 +18,8 @@ namespace ProjectFlip.Services
 
             DoRegistration();
         }
+
+        #endregion
 
         private void DoRegistration()
         {
