@@ -25,7 +25,9 @@ namespace ProjectFlip.UserInterface.Surface
             CurrentIndex = 0;
         }
 
+        // ReSharper disable MemberCanBePrivate.Global
         public IList<T> Items
+        // ReSharper restore MemberCanBePrivate.Global
         {
             get { return _items; }
             set
@@ -35,7 +37,9 @@ namespace ProjectFlip.UserInterface.Surface
             }
         }
 
+        // ReSharper disable MemberCanBePrivate.Global
         public int CurrentIndex
+        // ReSharper restore MemberCanBePrivate.Global
         {
             get { return _currentIndex; }
             private set
@@ -58,7 +62,9 @@ namespace ProjectFlip.UserInterface.Surface
             }
         }
 
-        public T this[int index] { get { return Count == 0 ? default(T) : Items[(index + Count)%Count]; } }
+        // ReSharper disable MemberCanBePrivate.Global
+        public T this[int index] { get { return Count == 0 ? default(T) : Items[(index + Count) % Count]; } }
+        // ReSharper restore MemberCanBePrivate.Global
 
         public int Count { get { return Items.Count; } }
 
@@ -114,7 +120,7 @@ namespace ProjectFlip.UserInterface.Surface
             if (Count == 0) return false;
 
             // ReSharper disable CompareNonConstrainedGenericWithNull
-            if ((!typeof (T).IsValueType) && o == null)
+            if ((!typeof(T).IsValueType) && o == null)
             {
                 CurrentIndex = 0;
                 return true;
@@ -146,14 +152,14 @@ namespace ProjectFlip.UserInterface.Surface
         public void MoveCurrentToNext()
         {
             if (Count == 0) return;
-            CurrentIndex = (CurrentIndex + 1)%Count;
+            CurrentIndex = (CurrentIndex + 1) % Count;
             OnCurrentChanged();
         }
 
         public void MoveCurrentToPrevious()
         {
             if (Count == 0) return;
-            CurrentIndex = (CurrentIndex - 1 + Count)%Count;
+            CurrentIndex = (CurrentIndex - 1 + Count) % Count;
             OnCurrentChanged();
         }
 

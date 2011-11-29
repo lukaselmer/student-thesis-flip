@@ -173,7 +173,7 @@ namespace ProjectFlip.Services.Test
         {
             var target = new ProjectNote_Accessor();
             target.Filename = "bla.pdf";
-            var expected = "http://www.zuehlke.com/uploads/tx_zepublications/bla.pdf";
+            const string expected = "http://www.zuehlke.com/uploads/tx_zepublications/bla.pdf";
             Assert.AreEqual(expected, target.Url);
         }
 

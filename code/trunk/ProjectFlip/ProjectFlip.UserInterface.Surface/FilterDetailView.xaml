@@ -101,7 +101,7 @@
     </UserControl.Resources>
 
     <Grid>
-        <s:SurfaceButton Style="{DynamicResource BackgroundButtonStyle}" Command="{Binding ShowHideFilterCommand}" />
+        <s:SurfaceButton Style="{DynamicResource BackgroundButtonStyle}" Command="{Binding ToggleFilterCommand}" />
 
         <Grid>
             <Grid.ColumnDefinitions>

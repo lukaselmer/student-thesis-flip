@@ -16,6 +16,12 @@ namespace ProjectFlip.UserInterface.Surface
 {
     public class OverviewWindowViewModel : ViewModelBase
     {
+        // Resharper is not able to analize the xaml file correctly, therefore
+        // it supposes to make the members private.
+
+        // ReSharper disable MemberCanBePrivate.Global
+        // ReSharper disable UnusedMember.Global
+        // ReSharper disable UnusedAutoPropertyAccessor.Global
         private readonly List<IMetadata> _filters = new List<IMetadata>();
         private IProjectNote _currentProjectNote;
         private GridLength _documentViewerWidth;
@@ -34,8 +40,7 @@ namespace ProjectFlip.UserInterface.Surface
             LeftButtonWidth = new GridLength(240);
             RightButtonWidth = new GridLength(1, GridUnitType.Star);
 
-            ProjectNotes = new CyclicCollectionView<IProjectNote>(projectNotesService.ProjectNotes)
-                           {Filter = FilterCallback};
+            ProjectNotes = new CyclicCollectionView<IProjectNote>(projectNotesService.ProjectNotes) { Filter = FilterCallback };
             ProjectNotes.MoveCurrentTo(null);
             ProjectNotes.CurrentChanged += UpdateCurrentProjectNote;
             Filters = new CollectionView(_filters);
@@ -51,7 +56,7 @@ namespace ProjectFlip.UserInterface.Surface
             NavigateToRightCommand = new Command(o => ProjectNotes.MoveCurrentToNext());
 
             ShowSubcriteriaCommand = new Command(OnCurrentMainCriteriaChanged);
-            ShowHideFilterCommand = new Command(OnShowFilter);
+            ToggleFilterCommand = new Command(OnShowFilter);
 
             RemoveFilterCommand = new Command(RemoveFilter);
             AddFilterCommand = new Command(AddFilter);
@@ -116,13 +121,11 @@ namespace ProjectFlip.UserInterface.Surface
         public ICommand ShowSubcriteriaCommand { get; private set; }
         public ICommand ShowDetailsCommand { get; private set; }
         public ICommand HideDetailsCommand { get; private set; }
-        public ICommand ShowHideFilterCommand { get; private set; }
-        public ICommand HideFilterCommand { get; private set; }
+        public ICommand ToggleFilterCommand { get; private set; }
         public Command NavigateToLeftCommand { get; private set; }
         public Command NavigateToRightCommand { get; private set; }
         public ICommand AddFilterCommand { get; private set; }
         public ICommand RemoveFilterCommand { get; private set; }
-        public ICommand DeleteButtonCommand { get; set; }
 
         public GridLength DocumentViewerWidth
         {
@@ -190,7 +193,7 @@ namespace ProjectFlip.UserInterface.Surface
         {
             if (obj != null)
             {
-                var pn = (IProjectNote) obj;
+                var pn = (IProjectNote)obj;
                 ProjectNotes.MoveCurrentTo(pn);
                 CurrentProjectNote = pn;
             }
@@ -210,7 +213,7 @@ namespace ProjectFlip.UserInterface.Surface
         private void SetSubCriteria()
         {
             ICollection<IMetadata> value;
-            Criteria.TryGetValue((IMetadataType) Maincriteria.CurrentItem, out value);
+            Criteria.TryGetValue((IMetadataType)Maincriteria.CurrentItem, out value);
             Subcriteria = new CollectionView(value);
         }
 
@@ -219,7 +222,9 @@ namespace ProjectFlip.UserInterface.Surface
             IsFilterViewVisible = !IsFilterViewVisible;
         }
 
+        // ReSharper disable UnusedParameter.Global
         public void OnTouchUp(object sender, TouchEventArgs e)
+        // ReSharper restore UnusedParameter.Global
         {
             //            if (e.TouchDevice == TouchAction.Move) return;
 
@@ -235,7 +240,7 @@ namespace ProjectFlip.UserInterface.Surface
             //                }
             //Do something
 
-            Console.WriteLine("------------------------touch----------------------");
+            Console.WriteLine(@"------------------------touch----------------------");
 
             var docViewerIsSmall = (Math.Abs((new GridLength(705)).Value - DocumentViewerWidth.Value) < 1);
 
@@ -243,12 +248,12 @@ namespace ProjectFlip.UserInterface.Surface
             LeftButtonWidth = docViewerIsSmall ? new GridLength(70) : new GridLength(240);
             RightButtonWidth = docViewerIsSmall ? new GridLength(70) : new GridLength(1, GridUnitType.Star);
 
-            ((DocumentViewer) sender).FitToWidth();
+            ((DocumentViewer)sender).FitToWidth();
         }
 
         private void RemoveFilter(object filter)
         {
-            _filters.Remove((IMetadata) filter);
+            _filters.Remove((IMetadata)filter);
             Filters.Refresh();
             ProjectNotes.Refresh();
             IsFilterViewVisible = false;
@@ -258,7 +263,7 @@ namespace ProjectFlip.UserInterface.Surface
         private void AddFilter(object filter)
         {
             if (_filters.Contains(filter) || _filters.Count == 3) return;
-            _filters.Add((IMetadata) filter);
+            _filters.Add((IMetadata)filter);
             Filters.Refresh();
             ProjectNotes.Refresh();
             IsDetailViewVisible = IsFilterViewVisible = false;
@@ -267,8 +272,11 @@ namespace ProjectFlip.UserInterface.Surface
         private bool FilterCallback(object projectNoteObj)
         {
             if (_filters.Count == 0) return true;
-            var projectNote = (IProjectNote) projectNoteObj;
+            var projectNote = (IProjectNote)projectNoteObj;
             return _filters.All(f => f.Match(projectNote));
         }
+        // ReSharper restore UnusedMember.Global
+        // ReSharper restore UnusedAutoPropertyAccessor.Global
+        // ReSharper restore MemberCanBePrivate.Global
     }
 }

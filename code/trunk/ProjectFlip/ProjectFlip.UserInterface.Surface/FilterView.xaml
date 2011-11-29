@@ -119,7 +119,7 @@
         <s:SurfaceListBox Background="Transparent" VerticalContentAlignment="Bottom" Foreground="Transparent" Grid.Row="1" ItemsSource="{Binding Filters}" 
                           ItemTemplate="{DynamicResource FilterCriteriaTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                           ScrollViewer.VerticalScrollBarVisibility="Disabled" />
-        <s:SurfaceButton Style="{StaticResource ButtonStyle}" Grid.Row="2" VerticalAlignment="Top" Command="{Binding ShowHideFilterCommand}" Width="200" Margin="0,10,0,10" >
+        <s:SurfaceButton Style="{StaticResource ButtonStyle}" Grid.Row="2" VerticalAlignment="Top" Command="{Binding ToggleFilterCommand}" Width="200" Margin="0,10,0,10" >
             <TextBlock Margin="3" Style="{DynamicResource TextStyle}" Text="Kriterien hinzufügen" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" TextAlignment="Center" />
         </s:SurfaceButton>
     </Grid>

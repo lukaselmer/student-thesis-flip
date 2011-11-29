@@ -54,7 +54,7 @@ namespace ProjectFlip.Test.Mock
 
         #region IMetadata Members
 
-        public IMetadataType Type { get; set; }
+        public IMetadataType Type { get; private set; }
 
         public string Description { get; set; }
 
