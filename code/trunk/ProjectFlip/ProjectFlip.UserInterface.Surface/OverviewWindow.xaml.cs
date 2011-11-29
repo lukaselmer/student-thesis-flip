@@ -9,7 +9,7 @@ namespace ProjectFlip.UserInterface.Surface
     /// <summary>
     /// Interaction logic for OverviewWindow.xaml
     /// </summary>
-    public partial class OverviewWindow : SurfaceWindow
+    public partial class OverviewWindow
     {
         /// <summary>
         /// Default constructor.

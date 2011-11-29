@@ -79,7 +79,6 @@
     <Compile Include="FilterView.xaml.cs">
       <DependentUpon>FilterView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ICyclicCollectionView.cs" />
     <Compile Include="OverviewWindowViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Page Include="DetailView.xaml">
