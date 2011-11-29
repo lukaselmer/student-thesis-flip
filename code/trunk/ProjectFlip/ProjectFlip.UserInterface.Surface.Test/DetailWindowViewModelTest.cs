@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿/*using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProjectFlip.Test.Mock;
 using ProjectFlip.UserInterface.Surface;
 using System;
@@ -9,10 +9,10 @@ using System.Collections.Generic;
 
 namespace ProjectFlip.UserInterface.Surface.Test
 {
-/// <summary>
-///This is a test class for DetailWindowViewModelTest and is intended
-///to contain all DetailWindowViewModelTest Unit Tests
-///</summary>
+    /// <summary>
+    ///This is a test class for DetailWindowViewModelTest and is intended
+    ///to contain all DetailWindowViewModelTest Unit Tests
+    ///</summary>
     [TestClass()]
     public class DetailWindowViewModelTest
     {
@@ -121,3 +121,4 @@ namespace ProjectFlip.UserInterface.Surface.Test
         //}
     }
 }
+*/

@@ -2,6 +2,7 @@
 
 using System;
 using System.IO;
+using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProjectFlip.Test.Mock;
 
@@ -79,6 +80,7 @@ namespace ProjectFlip.Preparer.Test
             Assert.IsTrue(new ImageExtractorProcessor().Process(pn));
             Assert.IsTrue(File.Exists(TempImagePath));
             Assert.AreEqual(File.ReadAllText(ImagePath), File.ReadAllText(TempImagePath));
+            Thread.Sleep(1000);
         }
 
         /// <summary>

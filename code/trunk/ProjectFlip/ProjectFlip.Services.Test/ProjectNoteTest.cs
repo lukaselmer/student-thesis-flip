@@ -251,7 +251,7 @@ namespace ProjectFlip.Services.Test
             Assert.IsNotNull(target.Document);
         }
 
-        private const string ImagePath = @"..\..\..\Resources\Test\Images\test.bmp";
+        private const string ImagePath = @"..\..\..\Resources\Test\Images\test3.bmp";
 
         /// <summary>
         ///A test for the Image
