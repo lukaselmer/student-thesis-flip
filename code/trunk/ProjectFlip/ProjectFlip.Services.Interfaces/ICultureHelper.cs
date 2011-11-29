@@ -1,4 +1,4 @@
-namespace ProjectFlip.Services
+namespace ProjectFlip.Services.Interfaces
 {
     public interface ICultureHelper
     {

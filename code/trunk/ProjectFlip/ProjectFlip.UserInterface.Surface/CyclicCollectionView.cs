@@ -12,7 +12,9 @@ using ProjectFlip.Services;
 
 namespace ProjectFlip.UserInterface.Surface
 {
+    // ReSharper disable ClassWithVirtualMembersNeverInherited.Global
     public class CyclicCollectionView<T> : NotifierModel, IEnumerable<T>, INotifyCollectionChanged
+    // ReSharper restore ClassWithVirtualMembersNeverInherited.Global
     {
         private int _currentIndex;
         private Predicate<T> _filter;

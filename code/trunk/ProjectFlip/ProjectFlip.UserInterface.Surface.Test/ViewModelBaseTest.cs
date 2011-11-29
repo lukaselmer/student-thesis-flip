@@ -15,12 +15,6 @@ namespace ProjectFlip.UserInterface.Surface.Test
     [TestClass]
     public class ViewModelBaseTest
     {
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext { get; set; }
-
         #region Additional test attributes
 
         // 
@@ -52,13 +46,6 @@ namespace ProjectFlip.UserInterface.Surface.Test
         //
 
         #endregion
-
-        internal virtual ViewModelBase_Accessor CreateViewModelBase_Accessor()
-        {
-            // TODO: Instantiate an appropriate concrete class.
-            ViewModelBase_Accessor target = null;
-            return target;
-        }
 
         /// <summary>
         ///A test for Notify

@@ -9,7 +9,7 @@ namespace ProjectFlip.UserInterface.Surface
     /// <summary>
     /// Interaction logic for DetailWindow.xaml
     /// </summary>
-    public partial class DetailView : UserControl
+    public partial class DetailView
     {
         public DetailView()
         {
