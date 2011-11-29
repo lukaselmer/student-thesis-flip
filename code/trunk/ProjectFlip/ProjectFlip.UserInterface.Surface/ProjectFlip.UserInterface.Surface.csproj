@@ -69,7 +69,6 @@
     <Compile Include="Command.cs" />
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Converters\ValueConverterBase.cs" />
-    <Compile Include="CyclicCollectionView.cs" />
     <Compile Include="DetailView.xaml.cs">
       <DependentUpon>DetailView.xaml</DependentUpon>
     </Compile>

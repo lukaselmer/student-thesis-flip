@@ -2,6 +2,8 @@
 
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ProjectFlip.Services;
+using ProjectFlip.Services.Interfaces;
 
 #endregion
 
@@ -54,7 +56,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         [TestMethod]
         public void MoveCurrentToNextTest()
         {
-            var target = new CyclicCollectionView<string>(_referenceList);
+            ICyclicCollectionView<string> target = new CyclicCollectionView<string>(_referenceList);
             Assert.AreEqual(_referenceList[0], target.CurrentItem);
             target.MoveCurrentToNext();
             Assert.AreEqual(_referenceList[1], target.CurrentItem);
@@ -84,7 +86,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         [TestMethod]
         public void MoveCurrentToPreviousTest()
         {
-            var target = new CyclicCollectionView<string>(_referenceList);
+            ICyclicCollectionView<string> target = new CyclicCollectionView<string>(_referenceList);
             Assert.AreEqual(_referenceList[0], target.CurrentItem);
             target.MoveCurrentToPrevious();
             Assert.AreEqual(_referenceList[4], target.CurrentItem);
@@ -114,7 +116,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         [TestMethod]
         public void NextTest()
         {
-            var target = new CyclicCollectionView<string>(_referenceList);
+            ICyclicCollectionView<string> target = new CyclicCollectionView<string>(_referenceList);
             Assert.AreEqual(_referenceList[0], target.CurrentItem);
             Assert.AreEqual(_referenceList[1], target.Next);
             target.MoveCurrentToNext();
@@ -143,7 +145,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         [TestMethod]
         public void PreviousTest()
         {
-            var target = new CyclicCollectionView<string>(_referenceList);
+            ICyclicCollectionView<string> target = new CyclicCollectionView<string>(_referenceList);
             Assert.AreEqual(_referenceList[0], target.CurrentItem);
             Assert.AreEqual(_referenceList[4], target.Previous);
             target.MoveCurrentToNext();

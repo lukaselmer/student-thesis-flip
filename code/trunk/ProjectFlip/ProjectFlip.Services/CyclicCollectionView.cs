@@ -6,15 +6,14 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Linq;
-using ProjectFlip.Services;
+using ProjectFlip.Services.Interfaces;
 
 #endregion
 
-namespace ProjectFlip.UserInterface.Surface
+namespace ProjectFlip.Services
 {
     // ReSharper disable ClassWithVirtualMembersNeverInherited.Global
-    public class CyclicCollectionView<T> : NotifierModel, IEnumerable<T>, INotifyCollectionChanged
-    // ReSharper restore ClassWithVirtualMembersNeverInherited.Global
+    public class CyclicCollectionView<T> : NotifierModel, ICyclicCollectionView<T> // ReSharper restore ClassWithVirtualMembersNeverInherited.Global
     {
         private int _currentIndex;
         private Predicate<T> _filter;

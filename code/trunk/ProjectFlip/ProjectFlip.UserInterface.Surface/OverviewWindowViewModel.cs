@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using ProjectFlip.Services;
 using ProjectFlip.Services.Interfaces;
 
 #endregion
@@ -117,7 +118,7 @@ namespace ProjectFlip.UserInterface.Surface
             }
         }
 
-        public CyclicCollectionView<IProjectNote> ProjectNotes { get; private set; }
+        public ICyclicCollectionView<IProjectNote> ProjectNotes { get; private set; }
         public ICommand ShowSubcriteriaCommand { get; private set; }
         public ICommand ShowDetailsCommand { get; private set; }
         public ICommand HideDetailsCommand { get; private set; }

@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="IAggregator.cs" />
     <Compile Include="ICultureHelper.cs" />
+    <Compile Include="ICyclicCollectionView.cs" />
     <Compile Include="IMetadata.cs" />
     <Compile Include="IMetadataType.cs" />
     <Compile Include="IProjectNote.cs" />

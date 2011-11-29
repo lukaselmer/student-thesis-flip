@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Aggregator.cs" />
     <Compile Include="CultureHelper.cs" />
+    <Compile Include="CyclicCollectionView.cs" />
     <Compile Include="Metadata.cs" />
     <Compile Include="MetadataComparer.cs" />
     <Compile Include="MetadataType.cs" />
