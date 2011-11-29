@@ -1,5 +1,3 @@
-using ProjectFlip.Services.Interfaces;
-
 namespace ProjectFlip.Services.Interfaces
 {
     public interface IAggregator
