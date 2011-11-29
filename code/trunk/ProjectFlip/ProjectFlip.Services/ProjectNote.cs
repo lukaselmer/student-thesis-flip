@@ -84,8 +84,10 @@ namespace ProjectFlip.Services
             {
                 if (_timer != null) return;
 
+                var dispatcher = Application.Current == null ? Dispatcher.CurrentDispatcher : Application.Current.Dispatcher;
+
                 _timer = new DispatcherTimer(TimeSpan.FromMilliseconds(500), DispatcherPriority.Background,
-                    (s, e) => LoadDocument(), Application.Current.Dispatcher);
+                    (s, e) => LoadDocument(), dispatcher);
                 _timer.Start();
             }
         }
@@ -99,7 +101,7 @@ namespace ProjectFlip.Services
             }
             private set
             {
-                if(_timer != null) _timer.Stop();
+                if (_timer != null) _timer.Stop();
                 _document = value;
                 Notify("Document");
             }

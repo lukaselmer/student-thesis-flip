@@ -40,8 +40,8 @@ namespace ProjectFlip.Preparer.Test
         {
             Cleanup();
             File.ReadLines(ImagePath);
-            Array.ForEach(new[] {PdfPath, XpsPath, ImagePath}, path => Assert.IsTrue(File.Exists(path)));
-            Array.ForEach(new[] {TempPdfPath, TempXpsPath, TempImagePath, InvalidPath},
+            Array.ForEach(new[] { PdfPath, XpsPath, ImagePath }, path => Assert.IsTrue(File.Exists(path)));
+            Array.ForEach(new[] { TempPdfPath, TempXpsPath, TempImagePath, InvalidPath },
                 path => Assert.IsFalse(File.Exists(path)));
         }
 
@@ -54,7 +54,7 @@ namespace ProjectFlip.Preparer.Test
 
         private static void Cleanup()
         {
-            Array.ForEach(new[] {InvalidPath, TempPdfPath, TempXpsPath, TempImagePath},
+            Array.ForEach(new[] { InvalidPath, TempPdfPath, TempXpsPath, TempImagePath },
                 path => { if (File.Exists(path)) File.Delete(path); });
         }
 
@@ -76,11 +76,10 @@ namespace ProjectFlip.Preparer.Test
         [TestMethod, DeploymentItem("ProjectFlip.Preparer.exe")]
         public void ExtractImageTest()
         {
-            var pn = new ProjectNoteMock {FilepathXps = XpsPath, FilepathImage = TempImagePath};
+            var pn = new ProjectNoteMock { FilepathXps = XpsPath, FilepathImage = TempImagePath };
             Assert.IsTrue(new ImageExtractorProcessor().Process(pn));
             Assert.IsTrue(File.Exists(TempImagePath));
             Assert.AreEqual(File.ReadAllText(ImagePath), File.ReadAllText(TempImagePath));
-            Thread.Sleep(1000);
         }
 
         /// <summary>
@@ -89,7 +88,7 @@ namespace ProjectFlip.Preparer.Test
         [TestMethod, DeploymentItem("ProjectFlip.Preparer.exe")]
         public void ExtractImageInvalidPathTest()
         {
-            var pn = new ProjectNoteMock {FilepathXps = TempXpsPath, FilepathImage = TempImagePath};
+            var pn = new ProjectNoteMock { FilepathXps = TempXpsPath, FilepathImage = TempImagePath };
             Assert.IsFalse(new ImageExtractorProcessor().Process(pn));
         }
 
@@ -99,7 +98,7 @@ namespace ProjectFlip.Preparer.Test
         [TestMethod, DeploymentItem("ProjectFlip.Preparer.exe")]
         public void ExtractImageInvalidImagePathTest()
         {
-            var pn = new ProjectNoteMock {FilepathXps = XpsPath, FilepathImage = ImagePath};
+            var pn = new ProjectNoteMock { FilepathXps = XpsPath, FilepathImage = ImagePath };
             Assert.IsFalse(new ImageExtractorProcessor().Process(pn));
         }
     }

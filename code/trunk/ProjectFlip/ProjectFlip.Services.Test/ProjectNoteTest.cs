@@ -2,10 +2,12 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Markup;
+using System.Windows.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProjectFlip.Test.Mock;
 using ProjectFlip.Services;
@@ -224,18 +226,14 @@ namespace ProjectFlip.Services.Test
             new CultureHelper().RegisterLanguage();
             target.FilepathXps = XpsPath;
 
-            var t = new Thread(new ThreadStart(() =>
-            {
-                var a = new Application();
-                new CultureHelper().RegisterLanguage();
-                a.Run();
-            }));
-            t.Start();
-            Thread.Sleep(1000);
+            Assert.IsNull(target.Document);
+            Dispatcher.ExitAllFrames();
+            Thread.SpinWait(19999);
 
             Assert.IsNull(target.Document);
+            Assert.IsInstanceOfType(target, typeof(INotifyPropertyChanged));
+            // Test the async loading and INotifyPropertyChanged... e.g. with DispatcherHelper
         }
-
 
         /// <summary>
         ///A test for the XPS2
