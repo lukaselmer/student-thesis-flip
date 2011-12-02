@@ -321,7 +321,6 @@
 
 		<Surface:FilterView VerticalAlignment="Center" Grid.Column="0"/>
 
-		<!--<s:SurfaceButton Style="{DynamicResource AddSurfaceButtonStyle}" BorderThickness="0" Margin="0"/>-->
 		<s:SurfaceListBox Background="#e6e6e6" x:Name="listBox" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ProjectNotes}"  
 						  ItemTemplate="{StaticResource ProjectNoteButtonTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" Style="{DynamicResource SurfaceListBoxStyle}" />
 		<Surface:DetailView Grid.Column="1" />

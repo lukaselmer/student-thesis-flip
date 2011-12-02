@@ -279,6 +279,27 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+
+        <Grid Margin="20" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top" Opacity="0.5">
+            <Rectangle Height="6" Width="40" Fill="Black" RenderTransformOrigin="0.5,0.5">
+            	<Rectangle.RenderTransform>
+            		<TransformGroup>
+            			<ScaleTransform/>
+            			<SkewTransform/>
+            			<RotateTransform Angle="-45"/>
+            			<TranslateTransform/>
+            		</TransformGroup>
+            	</Rectangle.RenderTransform></Rectangle>
+            <Rectangle Height="6" Width="40" Fill="Black" RenderTransformOrigin="0.5,0.5" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            	<Rectangle.RenderTransform>
+            		<TransformGroup>
+            			<ScaleTransform/>
+            			<SkewTransform/>
+            			<RotateTransform Angle="45"/>
+            			<TranslateTransform/>
+            		</TransformGroup>
+            	</Rectangle.RenderTransform></Rectangle>
+        </Grid>
         <s:SurfaceButton Style="{DynamicResource BackgroundButtonStyle}" Command="{Binding HideDetailsCommand}" Margin="1" />
 
         <Grid x:Name="LayoutRoot">
@@ -361,7 +382,6 @@
             </Border>
 
             <s:SurfaceButton HorizontalAlignment="Left" Style="{StaticResource NavigateToRightButtonStyle}" VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="3" x:Name="ToRightButton" Command="{Binding NavigateToRightCommand}" />
-
             <s:SurfaceButton HorizontalAlignment="Left" Style="{StaticResource NavigateToRightButtonStyle}" VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="3" x:Name="ToNextButton" Command="{Binding NavigateToRightCommand}" />
 
         </Grid>
