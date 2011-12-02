@@ -42,6 +42,7 @@ namespace ProjectFlip.UserInterface.Surface
             RightButtonWidth = new GridLength(1, GridUnitType.Star);
 
             ProjectNotes = new CyclicCollectionView<IProjectNote>(projectNotesService.ProjectNotes) { Filter = FilterCallback };
+            TotalProjectNotes = ProjectNotes.Count;
             ProjectNotes.MoveCurrentTo(null);
             ProjectNotes.CurrentChanged += UpdateCurrentProjectNote;
             Filters = new CollectionView(_filters);
@@ -62,6 +63,8 @@ namespace ProjectFlip.UserInterface.Surface
             RemoveFilterCommand = new Command(RemoveFilter);
             AddFilterCommand = new Command(AddFilter);
         }
+
+        public int TotalProjectNotes { get; private set; }
 
         public CollectionView Maincriteria { get; private set; }
 

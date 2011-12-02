@@ -32,9 +32,9 @@
                                         <BlurEffect/>
                                     </Rectangle.Effect>
                                     <Rectangle.Stroke>
-                                        <LinearGradientBrush EndPoint="0.41,0.075" StartPoint="0.595,0.952">
-                                            <GradientStop Color="#8b8b8b" Offset="0.49"/>
-                                            <GradientStop Color="#ffffff" Offset="0.531"/>
+                                        <LinearGradientBrush EndPoint="0.403,0.081" StartPoint="0.602,0.946">
+                                            <GradientStop Color="#8b8b8b" Offset="0.502"/>
+                                            <GradientStop Color="#ffffff" Offset="0.527"/>
                                         </LinearGradientBrush>
                                     </Rectangle.Stroke>
                                 </Rectangle>
@@ -68,14 +68,14 @@
         </DataTemplate>
 
         <DataTemplate x:Key="FilterSubCriteriaTemplate">
-            <s:SurfaceButton Style="{DynamicResource FilterButtonStyle}" CommandParameter="{Binding}" 
+            <s:SurfaceButton Margin="10" Style="{DynamicResource FilterButtonStyle}" CommandParameter="{Binding}" 
                              Command="{Binding DataContext.AddFilterCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceListBox}}}" >
                 <TextBlock Margin="3" Style="{DynamicResource TextStyle}" Text="{Binding Description}" />
             </s:SurfaceButton>
         </DataTemplate>
 
         <ItemsPanelTemplate x:Key="SubcriteriaItemPanelTemplate">
-            <WrapPanel Margin="10" Background="White">
+            <WrapPanel Margin="10">
                 <WrapPanel.Resources>
                     <Style TargetType="s:SurfaceListBoxItem">
                         <Setter Property="Margin" Value="0" />
@@ -110,7 +110,7 @@
             </Grid.ColumnDefinitions>
             <s:SurfaceListBox Name="MaincriteriaListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="0" ItemsSource="{Binding Maincriteria}" 
                               ItemTemplate="{DynamicResource FilterMainCriteriaTemplate}" ItemsPanel="{DynamicResource MaincriteriaItemPanelTemplate}" />
-            <s:SurfaceListBox BorderBrush="#d5d5d5" BorderThickness="10" Height="{Binding ElementName=MaincriteriaListBox, Path=ActualHeight}" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Subcriteria}" 
+            <s:SurfaceListBox Style="{DynamicResource SurfaceListBoxStyle}" BorderBrush="#d5d5d5" BorderThickness="10" Height="{Binding ElementName=MaincriteriaListBox, Path=ActualHeight}" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Subcriteria}" 
                               ItemTemplate="{StaticResource FilterSubCriteriaTemplate}" Background="White" ItemsPanel="{DynamicResource SubcriteriaItemPanelTemplate}" />
         </Grid>
     </Grid>
