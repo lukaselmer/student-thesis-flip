@@ -75,6 +75,22 @@
             </Setter>
         </Style>
 
+        <Style x:Key="NavigateToLeftHiddenButtonStyle" TargetType="{x:Type s:SurfaceButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type s:SurfaceButton}">
+                        <ed:RegularPolygon x:Name="regularPolygon" Fill="Transparent" Height="80" InnerRadius="1" Margin="-45,35,-45,35" PointCount="3" Stretch="Fill" Width="160" RenderTransformOrigin="0.5,0.5">
+                            <ed:RegularPolygon.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="-90" />
+                                </TransformGroup>
+                            </ed:RegularPolygon.RenderTransform>
+                        </ed:RegularPolygon>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style x:Key="NavigateToRightButtonStyle" TargetType="{x:Type s:SurfaceButton}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -117,6 +133,22 @@
                                 </ed:RegularPolygon.RenderTransform>
                             </ed:RegularPolygon>
                         </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="NavigateToRightHiddenButtonStyle" TargetType="{x:Type s:SurfaceButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type s:SurfaceButton}">
+                        <ed:RegularPolygon x:Name="regularPolygon" Fill="Transparent" Height="80" InnerRadius="1" Margin="-40,35,-25,35" PointCount="3" Stretch="Fill" Width="160" RenderTransformOrigin="0.5,0.5" StrokeThickness="5">
+                            <ed:RegularPolygon.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="90" />
+                                </TransformGroup>
+                            </ed:RegularPolygon.RenderTransform>
+                        </ed:RegularPolygon>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -200,10 +232,16 @@
     </UserControl.Resources>
     <UserControl.Triggers>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ToNextButton">
-            <BeginStoryboard Storyboard="{StaticResource MoveToNext}"/>
+            <BeginStoryboard Storyboard="{StaticResource MoveToNext}" />
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ToNextHiddenButton">
+            <BeginStoryboard Storyboard="{StaticResource MoveToNext}" />
         </EventTrigger>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ToPreviousButton">
-            <BeginStoryboard x:Name="MoveToPrevious_BeginStoryboard" Storyboard="{StaticResource MoveToPrevious}"/>
+            <BeginStoryboard Storyboard="{StaticResource MoveToPrevious}" />
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ToPreviousHiddenButton">
+            <BeginStoryboard x:Name="MoveToPrevious_BeginStoryboard" Storyboard="{StaticResource MoveToPrevious}" />
         </EventTrigger>
     </UserControl.Triggers>
     <UserControl.RenderTransform>
@@ -304,12 +342,13 @@
 
         <Grid x:Name="LayoutRoot">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Name="c1" Width="1*"/>
-                <ColumnDefinition Name="c2" Width="240"/>
-                <ColumnDefinition Name="c3" Width="{Binding DocumentViewerWidth}"/>
-                <ColumnDefinition Name="c4" Width="1*"/>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="240" />
+                <ColumnDefinition Width="{Binding DocumentViewerWidth}" />
+                <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
 
+            <s:SurfaceButton Grid.Column="0" Style="{StaticResource NavigateToLeftHiddenButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Center" x:Name="ToPreviousHiddenButton" Command="{Binding NavigateToLeftCommand}" />
             <s:SurfaceButton Grid.Column="0" Style="{StaticResource NavigateToLeftButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" x:Name="ToPreviousButton" Command="{Binding NavigateToLeftCommand}" />
 
             <!--<s:SurfaceButton Grid.Column="0" CommandParameter="{Binding ElementName= docViewer}" Command="{Binding DocumentManipulatorCommand}" Content="XX XX"/>-->
@@ -381,8 +420,29 @@
                 </DocumentViewer>
             </Border>
 
-            <s:SurfaceButton HorizontalAlignment="Left" Style="{StaticResource NavigateToRightButtonStyle}" VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="3" x:Name="ToRightButton" Command="{Binding NavigateToRightCommand}" />
-            <s:SurfaceButton HorizontalAlignment="Left" Style="{StaticResource NavigateToRightButtonStyle}" VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="3" x:Name="ToNextButton" Command="{Binding NavigateToRightCommand}" />
+            <s:SurfaceButton HorizontalAlignment="Left" Style="{DynamicResource NavigateToRightHiddenButtonStyle}" VerticalAlignment="Center" Grid.Column="3" x:Name="ToNextHiddenButton" Command="{Binding NavigateToRightCommand}" />
+            <s:SurfaceButton HorizontalAlignment="Left" Style="{DynamicResource NavigateToRightButtonStyle}" VerticalAlignment="Center" Grid.Column="3" x:Name="ToNextButton" Margin="10,0,0,0" />
+
+            <!--<s:SurfaceButton HorizontalAlignment="Left"  VerticalAlignment="Center"  Grid.Column="3" x:Name="ToNextButton" Command="{Binding NavigateToRightCommand}" >
+                <Grid>
+                    <ed:RegularPolygon x:Name="regularPolygon" Fill="Red" Height="80" InnerRadius="1" Margin="-40,35,-15,35" PointCount="3" Stretch="Fill" Width="160" RenderTransformOrigin="0.5,0.5">
+                        <ed:RegularPolygon.RenderTransform>
+                            <TransformGroup>
+                                <RotateTransform Angle="90" />
+                            </TransformGroup>
+                        </ed:RegularPolygon.RenderTransform>
+                    </ed:RegularPolygon>
+                    <s:SurfaceButton HorizontalAlignment="Left" Style="{DynamicResource NavigateToRightButtonStyle}" VerticalAlignment="Center" Grid.Column="3" Margin="10,0,0,0" />
+                </Grid>
+            </s:SurfaceButton>-->
+            <!--<Grid>
+        <Grid.CommandBindings>
+          <CommandBinding Command="{Binding NavigateToRightCommand}"></CommandBinding>
+        </Grid.CommandBindings>
+        <s:SurfaceButton Style="{StaticResource NavigateToRightHiddenButtonStyle}" />
+        <s:SurfaceButton Style="{StaticResource NavigateToRightButtonStyle}" HorizontalAlignment="Left"
+                         Margin="10,0,0,0" />
+      </Grid>-->
 
         </Grid>
     </Grid>
