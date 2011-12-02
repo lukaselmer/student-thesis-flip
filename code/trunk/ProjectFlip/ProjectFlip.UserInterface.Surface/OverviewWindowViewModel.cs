@@ -266,7 +266,11 @@ namespace ProjectFlip.UserInterface.Surface
 
         private void AddFilter(object filter)
         {
-            if (_filters.Contains(filter) || _filters.Count == 3) return;
+            if (_filters.Contains(filter) || _filters.Count == 3)
+            {
+                Filters.Refresh();
+                return;
+            }
             _filters.Add((IMetadata)filter);
             Filters.Refresh();
             ProjectNotes.Refresh();
