@@ -114,6 +114,7 @@ namespace ProjectFlip.Services
         private void OnCollectionChanged()
         {
             if (CollectionChanged != null) CollectionChanged(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+            Notify("Count");
         }
 
         public bool MoveCurrentTo(T o)
