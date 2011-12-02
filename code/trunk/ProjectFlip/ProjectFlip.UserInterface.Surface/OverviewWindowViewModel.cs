@@ -29,17 +29,14 @@ namespace ProjectFlip.UserInterface.Surface
         private ICollectionView _filtersCollectionView;
         private bool _isDetailViewVisible;
         private bool _isFilterViewVisible;
-        private GridLength _leftButtonWidth;
         private IProjectNote _nextProjectNote;
         private IProjectNote _previousProjectNote;
-        private GridLength _rightButtonWidth;
         private CollectionView _subcriteria;
+        private bool Rrrrrr;
 
         public OverviewWindowViewModel(IProjectNotesService projectNotesService)
         {
-            DocumentViewerWidth = new GridLength(705);
-            LeftButtonWidth = new GridLength(240);
-            RightButtonWidth = new GridLength(1, GridUnitType.Star);
+            DocumentViewerWidth = new GridLength(10, GridUnitType.Star);
 
             ProjectNotes = new CyclicCollectionView<IProjectNote>(projectNotesService.ProjectNotes) { Filter = FilterCallback };
             TotalProjectNotes = ProjectNotes.Count;
@@ -62,6 +59,30 @@ namespace ProjectFlip.UserInterface.Surface
 
             RemoveFilterCommand = new Command(RemoveFilter);
             AddFilterCommand = new Command(AddFilter);
+            Rrrrrr = true;
+            DocumentManipulatorCommand = new Command(o =>
+            {
+                DocumentViewerWidth = new GridLength(10, GridUnitType.Star);
+                Console.WriteLine(o);
+                DocumentViewer v = (DocumentViewer)o;
+                Console.WriteLine(v.ActualWidth);
+                if (Rrrrrr)
+                {
+                    DocumentViewerWidth = new GridLength(10, GridUnitType.Star);
+                    v.FitToWidth();
+                }
+                else
+                {
+                    v.FitToHeight();
+                    DocumentViewerWidth = new GridLength(600);
+                    DocumentViewerWidth = new GridLength(v.ExtentWidth);
+                }
+
+                Rrrrrr = !Rrrrrr;
+
+                //v.DocumentScrollInfo.
+                Console.WriteLine(v.ActualHeight);
+            });
         }
 
         public int TotalProjectNotes { get; private set; }
@@ -130,6 +151,7 @@ namespace ProjectFlip.UserInterface.Surface
         public Command NavigateToRightCommand { get; private set; }
         public ICommand AddFilterCommand { get; private set; }
         public ICommand RemoveFilterCommand { get; private set; }
+        public ICommand DocumentManipulatorCommand { get; private set; }
 
         public GridLength DocumentViewerWidth
         {
@@ -138,26 +160,6 @@ namespace ProjectFlip.UserInterface.Surface
             {
                 _documentViewerWidth = value;
                 Notify("DocumentViewerWidth");
-            }
-        }
-
-        public GridLength LeftButtonWidth
-        {
-            get { return _leftButtonWidth; }
-            private set
-            {
-                _leftButtonWidth = value;
-                Notify("LeftButtonWidth");
-            }
-        }
-
-        public GridLength RightButtonWidth
-        {
-            get { return _rightButtonWidth; }
-            private set
-            {
-                _rightButtonWidth = value;
-                Notify("RightButtonWidth");
             }
         }
 
@@ -246,13 +248,12 @@ namespace ProjectFlip.UserInterface.Surface
 
             Console.WriteLine(@"------------------------touch----------------------");
 
-            var docViewerIsSmall = (Math.Abs((new GridLength(705)).Value - DocumentViewerWidth.Value) < 1);
+            /*var docViewerIsSmall = (Math.Abs((new GridLength(705)).Value - DocumentViewerWidth.Value) < 1);
 
-            DocumentViewerWidth = docViewerIsSmall ? new GridLength(1, GridUnitType.Star) : new GridLength(705);
-            LeftButtonWidth = docViewerIsSmall ? new GridLength(70) : new GridLength(240);
-            RightButtonWidth = docViewerIsSmall ? new GridLength(70) : new GridLength(1, GridUnitType.Star);
+            DocumentViewerWidth = docViewerIsSmall
+                ? new GridLength(10, GridUnitType.Star) : new GridLength(5, GridUnitType.Star);
 
-            ((DocumentViewer)sender).FitToWidth();
+            ((DocumentViewer)sender).FitToWidth();*/
         }
 
         private void RemoveFilter(object filter)
