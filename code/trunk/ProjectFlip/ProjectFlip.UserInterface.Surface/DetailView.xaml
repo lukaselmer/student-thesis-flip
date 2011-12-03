@@ -228,6 +228,64 @@
             </Setter>
 
         </Style>
+        <Style TargetType="{x:Type Control}" x:Key="ControlBaseStyle">
+        	<Setter Property="FocusVisualStyle"	
+        		Value="{x:Null}"/>
+        	<Setter Property="SnapsToDevicePixels"
+        		Value="False"/>
+        	<Setter Property="FontFamily"
+        		Value="Segoe360"/>
+        	<Setter Property="FontWeight"
+        		Value="Normal"/>
+        	<Setter Property="FontSize"
+        		Value="17"/>
+        	<Setter Property="Padding"
+        		Value="6,2,10,10"/>
+        	<Setter Property="MinHeight"
+        		Value="38"/>
+        	<Setter Property="MinWidth"
+        		Value="38"/>
+        	<Setter Property="Margin"
+        		Value="1"/>
+        	<Setter Property="HorizontalContentAlignment"
+        		Value="Left"/>
+        	<Setter Property="VerticalContentAlignment"
+        		Value="Top"/>
+        	<Setter Property="BorderThickness"
+        		Value="2"/>
+        </Style>
+        <Style x:Key="SurfaceButtonTransparentStyle" TargetType="{x:Type s:SurfaceButton}"  BasedOn="{StaticResource ControlBaseStyle}">
+        	<Setter Property="IsTabStop"
+        		Value="False" />
+        	<Setter Property="Focusable"
+        		Value="True" />
+        	<Setter Property="Background"
+        		Value="{DynamicResource {x:Static s:SurfaceColors.ButtonBackgroundBrushKey}}" />
+        	<Setter Property="Foreground"
+        		Value="{DynamicResource {x:Static s:SurfaceColors.ButtonForegroundBrushKey}}" />
+        	<Setter Property="Template">
+        		<Setter.Value>
+        			<ControlTemplate TargetType="{x:Type s:SurfaceButton}">
+        				<Grid x:Name="Grid"
+        					SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+        					<Rectangle  x:Name="ButtonBody"
+        						Fill ="{TemplateBinding Background}"
+        						SnapsToDevicePixels ="{TemplateBinding SnapsToDevicePixels}"/>
+        					<Rectangle  x:Name="PressOverlay"
+        						Opacity="0"
+        						Fill ="{DynamicResource {x:Static s:SurfaceColors.ButtonBackgroundPressedBrushKey}}" 							             
+        						SnapsToDevicePixels ="{TemplateBinding SnapsToDevicePixels}"/>
+        					<ContentPresenter  x:Name="Content"
+        						Margin="{TemplateBinding Padding}"  
+        						HorizontalAlignment="Right"		                                                                           
+        						VerticalAlignment="Top"
+        						SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+        				</Grid>
+
+        			</ControlTemplate>
+        		</Setter.Value>
+        	</Setter>
+        </Style>
 
     </UserControl.Resources>
     <UserControl.Triggers>
@@ -318,27 +376,41 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-        <Grid Margin="20" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top" Opacity="0.5">
-            <Rectangle Height="6" Width="40" Fill="Black" RenderTransformOrigin="0.5,0.5">
-            	<Rectangle.RenderTransform>
-            		<TransformGroup>
-            			<ScaleTransform/>
-            			<SkewTransform/>
-            			<RotateTransform Angle="-45"/>
-            			<TranslateTransform/>
-            		</TransformGroup>
-            	</Rectangle.RenderTransform></Rectangle>
-            <Rectangle Height="6" Width="40" Fill="Black" RenderTransformOrigin="0.5,0.5" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-            	<Rectangle.RenderTransform>
-            		<TransformGroup>
-            			<ScaleTransform/>
-            			<SkewTransform/>
-            			<RotateTransform Angle="45"/>
-            			<TranslateTransform/>
-            		</TransformGroup>
-            	</Rectangle.RenderTransform></Rectangle>
-        </Grid>
-        <s:SurfaceButton Style="{DynamicResource BackgroundButtonStyle}" Command="{Binding HideDetailsCommand}" Margin="1" />
+        <s:SurfaceButton Style="{DynamicResource BackgroundButtonStyle}" Command="{Binding HideDetailsCommand}" Margin="1" >
+            <s:SurfaceButton Background="Transparent" Command="{Binding HideDetailsCommand}" Style="{DynamicResource SurfaceButtonTransparentStyle}">
+                <Grid Margin="20" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <Rectangle Height="6" Width="40" Fill="White" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <TransformGroup>
+                                <RotateTransform Angle="-45"/>
+                            </TransformGroup>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                    <Rectangle Height="6" Width="40" Fill="White" RenderTransformOrigin="0.5,0.5" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Rectangle.RenderTransform>
+                            <TransformGroup>
+                                <RotateTransform Angle="45"/>
+                            </TransformGroup>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                    <Rectangle Height="6" Width="40" Fill="Black" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <TransformGroup>
+                                <RotateTransform Angle="-45"/>
+                            </TransformGroup>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                    <Rectangle Height="6" Width="40" Fill="Black" RenderTransformOrigin="0.5,0.5" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Rectangle.RenderTransform>
+                            <TransformGroup>
+                                <RotateTransform Angle="45"/>
+                            </TransformGroup>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                </Grid>
+            </s:SurfaceButton>
+        </s:SurfaceButton>
+       
 
         <Grid x:Name="LayoutRoot">
             <Grid.ColumnDefinitions>
@@ -421,7 +493,7 @@
             </Border>
 
             <s:SurfaceButton HorizontalAlignment="Left" Style="{DynamicResource NavigateToRightHiddenButtonStyle}" VerticalAlignment="Center" Grid.Column="3" x:Name="ToNextHiddenButton" Command="{Binding NavigateToRightCommand}" />
-            <s:SurfaceButton HorizontalAlignment="Left" Style="{DynamicResource NavigateToRightButtonStyle}" VerticalAlignment="Center" Grid.Column="3" x:Name="ToNextButton" Margin="10,0,0,0" />
+            <s:SurfaceButton HorizontalAlignment="Left" Style="{DynamicResource NavigateToRightButtonStyle}" VerticalAlignment="Center" Grid.Column="3" x:Name="ToNextButton" Margin="10,0,0,0" Command="{Binding NavigateToRightCommand}"/>
 
             <!--<s:SurfaceButton HorizontalAlignment="Left"  VerticalAlignment="Center"  Grid.Column="3" x:Name="ToNextButton" Command="{Binding NavigateToRightCommand}" >
                 <Grid>
