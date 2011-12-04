@@ -317,29 +317,6 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-
-        <Grid Margin="20" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top">
-            <Rectangle Height="6" Width="40" Fill="Black" RenderTransformOrigin="0.5,0.5">
-                <Rectangle.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-45"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Rectangle.RenderTransform>
-            </Rectangle>
-            <Rectangle Height="6" Width="40" Fill="Black" RenderTransformOrigin="0.5,0.5" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Rectangle.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="45"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Rectangle.RenderTransform>
-            </Rectangle>
-        </Grid>
         <s:SurfaceButton Style="{DynamicResource BackgroundButtonStyle}" Command="{Binding HideDetailsCommand}" Margin="1" />
 
 

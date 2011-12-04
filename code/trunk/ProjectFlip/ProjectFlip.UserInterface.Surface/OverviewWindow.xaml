@@ -14,7 +14,37 @@
 		</Style>
 
 		<Style x:Key="BackgroundButtonStyle" TargetType="{x:Type s:SurfaceButton}">
-			<Setter Property="Background" Value="#AA000000" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type s:SurfaceButton}">
+                        <Grid>
+                            <Rectangle Fill="#AA000000"/>
+                                    <Grid Margin="20" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Rectangle Height="6" Width="40" Fill="Black" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-45"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Height="6" Width="40" Fill="Black" RenderTransformOrigin="0.5,0.5" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="45"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+        </Grid>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
 		</Style>
 
 		<Style x:Key="FilterButtonStyle" TargetType="{x:Type s:SurfaceButton}">
