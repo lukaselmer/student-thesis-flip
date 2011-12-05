@@ -298,7 +298,8 @@
 
 		<!-- ListBox -->
 		<Style x:Key="SurfaceListBoxStyle"  TargetType="{x:Type s:SurfaceListBox}">
-			<Setter Property="Template">
+            <Setter Property="Surface:ScrollToTopBehavior.ScrollToTop" Value="True" />
+		    <Setter Property="Template">
 				<Setter.Value>
 					<ControlTemplate TargetType="{x:Type s:SurfaceListBox}">
 						<Grid  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" >
@@ -351,7 +352,7 @@
 
 		<Surface:FilterView VerticalAlignment="Center" Grid.Column="0"/>
 
-		<s:SurfaceListBox Background="#e6e6e6" x:Name="listBox" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ProjectNotes}"  
+       <s:SurfaceListBox Background="#e6e6e6" x:Name="listBox" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ProjectNotes}"  
 						  ItemTemplate="{StaticResource ProjectNoteButtonTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" Style="{DynamicResource SurfaceListBoxStyle}" />
 		<Surface:DetailView Grid.Column="1" />
 		<!-- Visibility="{Binding IsDetailViewVisible, Converter={Converters:BoolToVisibilityConverter}}"-->

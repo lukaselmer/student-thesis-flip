@@ -79,6 +79,7 @@
       <DependentUpon>FilterView.xaml</DependentUpon>
     </Compile>
     <Compile Include="OverviewWindowViewModel.cs" />
+    <Compile Include="ScrollToTopBehavior.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Page Include="DetailView.xaml">
       <SubType>Designer</SubType>
