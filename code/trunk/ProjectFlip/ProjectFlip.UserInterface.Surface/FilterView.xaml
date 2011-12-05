@@ -11,8 +11,8 @@
 		<DataTemplate x:Key="FilterCriteriaTemplate">
             <s:SurfaceButton Style="{DynamicResource AddSurfaceButtonStyle}" Margin="5,0,5,0" CommandParameter="{Binding}" 
 							 Command="{Binding DataContext.RemoveFilterCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceListBox}}}" >
-				<TextBlock Style="{DynamicResource TextStyle}" Text="{Binding Description}" VerticalAlignment="Center" HorizontalAlignment="Left" />
-			</s:SurfaceButton>
+                <TextBlock Margin="14,3,13,3" Style="{DynamicResource TextStyle}" Text="{Binding Description}" />
+            </s:SurfaceButton>
 		</DataTemplate>
 
         <Style x:Key="AddSurfaceButtonStyle" TargetType="{x:Type s:SurfaceButton}">
@@ -35,6 +35,30 @@
                                     <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
                                     <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
                                     <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="textBlock">
+                                	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                	<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="textBlock">
+                                	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                	<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="border">
+                                	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                	<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="border">
+                                	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                	<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="rectangle1">
+                                	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                	<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="rectangle1">
+                                	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                	<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
                                 </DoubleAnimationUsingKeyFrames>
                             </Storyboard>
                         </ControlTemplate.Resources>
@@ -74,11 +98,58 @@
                                     </LinearGradientBrush>
                                 </Border.BorderBrush>
                             </Border>
+                            <Rectangle x:Name="rectangle1" Height="34" RadiusX="10" RadiusY="10" Width="34" Fill="#FFFF820A" Margin="0" HorizontalAlignment="Right" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                            	<Rectangle.RenderTransform>
+                            		<TransformGroup>
+                            			<ScaleTransform/>
+                            			<SkewTransform/>
+                            			<RotateTransform/>
+                            			<TranslateTransform/>
+                            		</TransformGroup>
+                            	</Rectangle.RenderTransform>
+                            	<Rectangle.Stroke>
+                            		<LinearGradientBrush EndPoint="0.845,0.824" StartPoint="0.155,0.176">
+                            			<GradientStop Color="#FFFED7BF" Offset="0.448"/>
+                            			<GradientStop Color="#FFFE6100" Offset="0.566"/>
+                            		</LinearGradientBrush>
+                            	</Rectangle.Stroke>
+                            	<Rectangle.Effect>
+                            		<DropShadowEffect Direction="310" Opacity="0.25" BlurRadius="3" ShadowDepth="1"/>
+                            	</Rectangle.Effect>
+                            </Rectangle>
+                            <Border x:Name="border" BorderThickness="1" Height="32" Width="32" CornerRadius="8" Margin="0,1,1,0" HorizontalAlignment="Right" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                            	<Border.RenderTransform>
+                            		<TransformGroup>
+                            			<ScaleTransform/>
+                            			<SkewTransform/>
+                            			<RotateTransform/>
+                            			<TranslateTransform/>
+                            		</TransformGroup>
+                            	</Border.RenderTransform>
+                            	<Border.Effect>
+                            		<BlurEffect/>
+                            	</Border.Effect>
+                            	<Border.BorderBrush>
+                            		<LinearGradientBrush EndPoint="0.153,0.174" StartPoint="0.847,0.826">
+                            			<GradientStop Color="#FFFE6100" Offset="0.448"/>
+                            			<GradientStop Color="#FFFED7BF" Offset="0.566"/>
+                            		</LinearGradientBrush>
+                            	</Border.BorderBrush>
+                            </Border>
+                            <TextBlock x:Name="textBlock" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Width="12" Height="60" Margin="0,-10,11,0" FontFamily="AA Zuehlke" FontSize="24" RenderTransformOrigin="0.5,0.5">
+                            	<TextBlock.RenderTransform>
+                            		<TransformGroup>
+                            			<ScaleTransform/>
+                            			<SkewTransform/>
+                            			<RotateTransform/>
+                            			<TranslateTransform/>
+                            		</TransformGroup>
+                            	</TextBlock.RenderTransform><Run Language="de-ch" Text="_"/></TextBlock>
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <EventTrigger RoutedEvent="FrameworkElement.Loaded" SourceName="grid">
-                                <BeginStoryboard x:Name="OnLoaded_BeginStoryboard" Storyboard="{StaticResource Glow}"/>
+                            	<BeginStoryboard Storyboard="{StaticResource Glow}"/>
                             </EventTrigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
