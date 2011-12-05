@@ -14,37 +14,37 @@
 		</Style>
 
 		<Style x:Key="BackgroundButtonStyle" TargetType="{x:Type s:SurfaceButton}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type s:SurfaceButton}">
-                        <Grid>
-                            <Rectangle Fill="#AA000000"/>
-                                    <Grid Margin="20" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top">
-            <Rectangle Height="6" Width="40" Fill="Black" RenderTransformOrigin="0.5,0.5">
-                <Rectangle.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-45"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Rectangle.RenderTransform>
-            </Rectangle>
-            <Rectangle Height="6" Width="40" Fill="Black" RenderTransformOrigin="0.5,0.5" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Rectangle.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="45"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Rectangle.RenderTransform>
-            </Rectangle>
-        </Grid>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type s:SurfaceButton}">
+						<Grid>
+							<Rectangle Fill="#AA000000"/>
+									<Grid Margin="20" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top">
+			<Rectangle Height="6" Width="40" Fill="Black" RenderTransformOrigin="0.5,0.5">
+				<Rectangle.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform Angle="-45"/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Rectangle.RenderTransform>
+			</Rectangle>
+			<Rectangle Height="6" Width="40" Fill="Black" RenderTransformOrigin="0.5,0.5" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+				<Rectangle.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform Angle="45"/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Rectangle.RenderTransform>
+			</Rectangle>
+		</Grid>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
 		</Style>
 
 		<Style x:Key="FilterButtonStyle" TargetType="{x:Type s:SurfaceButton}">
@@ -98,7 +98,7 @@
 						<Rectangle Width="90" Margin="0,0,10,0"  Height="2" Fill="#ff8204" />
 						<Rectangle Width="90" Margin="10,0,0,0" Height="2" Fill="#ff8204" />
 					</StackPanel>
-					<TextBlock Margin="5" Style="{DynamicResource TextStyle}" Text="{Binding Title}" Foreground="#ff8204"/>
+					<TextBlock Height="60" Margin="5" Style="{DynamicResource TextStyle}" Text="{Binding Title}" Foreground="#ff8204"/>
 				</StackPanel>
 			</s:SurfaceButton>
 		</DataTemplate>
