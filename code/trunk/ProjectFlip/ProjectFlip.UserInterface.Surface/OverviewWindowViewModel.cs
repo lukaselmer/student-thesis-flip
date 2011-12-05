@@ -32,7 +32,18 @@ namespace ProjectFlip.UserInterface.Surface
         private IProjectNote _nextProjectNote;
         private IProjectNote _previousProjectNote;
         private CollectionView _subcriteria;
-        public bool ReadModeActive { get; set; }
+        private bool _readModeActive;
+        public bool ReadModeActive
+        {
+            get { return _readModeActive; }
+            set
+            {
+                _readModeActive = value;
+                Notify("ReadModeActive");
+                if (ZoomInCommand != null) ZoomInCommand.RaiseCanExecuteChanged();
+                if (ZoomOutCommand != null) ZoomOutCommand.RaiseCanExecuteChanged();
+            }
+        }
 
         public OverviewWindowViewModel(IProjectNotesService projectNotesService)
         {
@@ -62,7 +73,31 @@ namespace ProjectFlip.UserInterface.Surface
             NormalModeWidth = new GridLength(700);
             ReadModeWidth = new GridLength(10, GridUnitType.Star);
             DocumentViewerWidth = NormalModeWidth;
-            ToggleReadModeCommand = new Command(ToogleReadMode);
+
+            ZoomInCommand = new Command(ToogleReadMode, o => ReadModeActive);
+            ZoomOutCommand = new Command(ToogleReadMode, o => !ReadModeActive);
+        }
+
+        private Command _zoomOutCommand;
+        public Command ZoomOutCommand
+        {
+            get { return _zoomOutCommand; }
+            set
+            {
+                _zoomOutCommand = value;
+                Notify("ZoomOutCommand");
+            }
+        }
+
+        private Command _zoomInCommand;
+        public Command ZoomInCommand
+        {
+            get { return _zoomInCommand; }
+            set
+            {
+                _zoomInCommand = value;
+                Notify("ZoomInCommand");
+            }
         }
 
         private void OnHideDetail(object o)
@@ -81,7 +116,7 @@ namespace ProjectFlip.UserInterface.Surface
 
         private void ToogleReadMode(object o)
         {
-            var v = (DocumentViewer)o;
+            //var v = (DocumentViewer)o;
             DocumentViewerWidth = ReadModeActive ? NormalModeWidth : ReadModeWidth;
             ReadModeActive = !ReadModeActive;
             /*if (ReadModeActive)
@@ -98,7 +133,7 @@ namespace ProjectFlip.UserInterface.Surface
                 //v.FitToWidth();
             }*/
 
-            v.FitToWidth();
+            //v.FitToWidth();
 
             //v.DocumentScrollInfo.
             //Console.WriteLine(v.ActualHeight);
@@ -170,7 +205,6 @@ namespace ProjectFlip.UserInterface.Surface
         public Command NavigateToRightCommand { get; private set; }
         public ICommand AddFilterCommand { get; private set; }
         public ICommand RemoveFilterCommand { get; private set; }
-        public ICommand ToggleReadModeCommand { get; private set; }
 
         public GridLength DocumentViewerWidth
         {

@@ -81,6 +81,12 @@
     <Compile Include="OverviewWindowViewModel.cs" />
     <Compile Include="ScrollToTopBehavior.cs" />
     <Compile Include="ViewModelBase.cs" />
+    <Compile Include="ZoomInIcon.xaml.cs">
+      <DependentUpon>ZoomInIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ZoomOutIcon.xaml.cs">
+      <DependentUpon>ZoomOutIcon.xaml</DependentUpon>
+    </Compile>
     <Page Include="DetailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -101,6 +107,14 @@
       <DependentUpon>OverviewWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ZoomInIcon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ZoomOutIcon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

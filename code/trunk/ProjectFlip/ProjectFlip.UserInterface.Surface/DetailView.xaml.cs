@@ -17,12 +17,6 @@ namespace ProjectFlip.UserInterface.Surface
             InitializeComponent();
         }
 
-        private void CurrentDocViewerContainer_TouchMove(object sender, System.Windows.Input.TouchEventArgs e)
-        {
-            var om = ((OverviewWindowViewModel)DataContext);
-            if (!om.ReadModeActive) om.ToggleReadModeCommand.Execute(docViewer);
-        }
-
         private void CurrentDocViewerContainer_SizeChanged(object sender, System.Windows.SizeChangedEventArgs e)
         {
             docViewer.FitToWidth();
@@ -30,4 +24,5 @@ namespace ProjectFlip.UserInterface.Surface
             NextDocViewer.Width = docViewer.Width;
         }
     }
+
 }

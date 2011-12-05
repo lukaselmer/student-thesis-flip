@@ -20,7 +20,7 @@
 
         <DataTemplate x:Key="MetadataListTemplate">
             <StackPanel>
-                <Label Background="Transparent" >
+                <Label Background="Transparent">
                     <TextBlock Style="{DynamicResource TextStyle}" Text="{Binding Key.Name}" />
                 </Label>
                 <ItemsControl ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" ItemsSource="{Binding Value}" ItemsPanel="{DynamicResource MetadataListBoxTemplate}" ItemTemplate="{DynamicResource MetadataTemplate}" />
@@ -308,7 +308,7 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <s:SurfaceButton Style="{DynamicResource BackgroundButtonStyle}" Command="{Binding HideDetailsCommand}" Margin="1" />
+        <s:SurfaceButton Style="{DynamicResource DetailViewBackgroundButtonStyle}" Command="{Binding HideDetailsCommand}" Margin="1" />
 
 
 
@@ -354,8 +354,7 @@
                 <DocumentViewer Name="PreviousDocViewer" IsManipulationEnabled="True" Document="{Binding PreviousProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}" />
             </Border>
 
-            <Border Grid.Column="2" Background="White" Name="CurrentDocViewerContainer" RenderTransformOrigin="0.5,0.5" 
-                    SizeChanged="CurrentDocViewerContainer_SizeChanged">
+            <Border Grid.Column="2" Background="White" Name="CurrentDocViewerContainer" RenderTransformOrigin="0.5,0.5" SizeChanged="CurrentDocViewerContainer_SizeChanged">
                 <Border.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -378,9 +377,8 @@
                 <!--                </DocumentViewer>-->
 
                 <!-- //ClipToBounds="True" -->
-                <DocumentViewer IsManipulationEnabled="True" Name="docViewer" 
-                                Document="{Binding CurrentProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}"
-                                ScrollViewer.CanContentScroll="True" TouchLeave="CurrentDocViewerContainer_TouchMove">
+                <DocumentViewer IsManipulationEnabled="True" Name="docViewer" ScrollViewer.CanContentScroll="True"
+                                Document="{Binding CurrentProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}">
                     <!--Zoom="87" <i:Interaction.Triggers>
                         <i:EventTrigger EventName="TouchUp">
                             <ei:CallMethodAction MethodName="OnTouchUp"/>
