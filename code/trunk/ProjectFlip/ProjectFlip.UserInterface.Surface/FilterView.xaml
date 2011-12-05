@@ -5,7 +5,7 @@
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:s="clr-namespace:Microsoft.Surface.Presentation.Controls;assembly=Microsoft.Surface.Presentation"
 			 mc:Ignorable="d" 
-			 d:DesignHeight="540" d:DesignWidth="240">
+			 d:DesignHeight="540" d:DesignWidth="236">
 
 	<UserControl.Resources>
 		<DataTemplate x:Key="FilterCriteriaTemplate">

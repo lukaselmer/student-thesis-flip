@@ -345,7 +345,7 @@
 
 	<Grid>
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="240" />
+			<ColumnDefinition Width="236" />
 			<ColumnDefinition Width="*" />
 		</Grid.ColumnDefinitions>
 
