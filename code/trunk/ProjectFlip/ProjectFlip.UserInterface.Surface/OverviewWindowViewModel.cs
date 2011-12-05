@@ -277,6 +277,9 @@ namespace ProjectFlip.UserInterface.Surface
 
         private void RemoveFilter(object filter)
         {
+            ReadModeActive = false;
+            DocumentViewerWidth = NormalModeWidth;
+
             _filters.Remove((IMetadata)filter);
             Filters.Refresh();
             ProjectNotes.Refresh();
@@ -295,6 +298,10 @@ namespace ProjectFlip.UserInterface.Surface
             Filters.Refresh();
             ProjectNotes.Refresh();
             IsDetailViewVisible = IsFilterViewVisible = false;
+
+            ReadModeActive = false;
+            DocumentViewerWidth = NormalModeWidth;
+
         }
 
         private bool FilterCallback(object projectNoteObj)
