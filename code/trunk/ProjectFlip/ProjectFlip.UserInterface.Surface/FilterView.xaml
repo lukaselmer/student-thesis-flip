@@ -9,155 +9,169 @@
 
 	<UserControl.Resources>
 		<DataTemplate x:Key="FilterCriteriaTemplate">
-            <s:SurfaceButton Style="{DynamicResource AddSurfaceButtonStyle}" Margin="5,0,5,0" CommandParameter="{Binding}" 
+			<s:SurfaceButton Style="{DynamicResource AddedFilterButtonStyle}" Margin="5,0,5,0" CommandParameter="{Binding}" 
 							 Command="{Binding DataContext.RemoveFilterCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceListBox}}}" >
-                <TextBlock Margin="14,3,13,3" Style="{DynamicResource TextStyle}" Text="{Binding Description}" />
-            </s:SurfaceButton>
+				<TextBlock Margin="14,3,13,3" Style="{DynamicResource TextStyle}" Text="{Binding Description}" />
+			</s:SurfaceButton>
 		</DataTemplate>
+		
+		<Style x:Key="SlotButtonStyle" TargetType="{x:Type s:SurfaceButton}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type s:SurfaceButton}">
+						<Rectangle Margin="0,9,0,9" Height="80" Fill="#f9f9f9" RadiusX="10" RadiusY="10" Width="200">
+							<Rectangle.Effect>
+								<DropShadowEffect Direction="135" Opacity="0.25" BlurRadius="3" ShadowDepth="3"/>
+							</Rectangle.Effect>
+						</Rectangle>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
 
-        <Style x:Key="AddSurfaceButtonStyle" TargetType="{x:Type s:SurfaceButton}">
-            <Setter Property="Height" Value="100"/>
-            <Setter Property="Width" Value="220"/>
-            <Setter Property="Margin" Value="10" />
-            <Setter Property="Padding" Value="0" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type s:SurfaceButton}">
-                        <ControlTemplate.Resources>
-                            <Storyboard x:Key="Glow">
-                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="rectangle">
-                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
-                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Visible}"/>
-                                    <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Hidden}"/>
-                                </ObjectAnimationUsingKeyFrames>
-                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle">
-                                    <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                                    <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
-                                    <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
-                                    <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
-                                </DoubleAnimationUsingKeyFrames>
-                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="textBlock">
-                                	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                                	<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
-                                </DoubleAnimationUsingKeyFrames>
-                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="textBlock">
-                                	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                                	<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
-                                </DoubleAnimationUsingKeyFrames>
-                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="border">
-                                	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                                	<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
-                                </DoubleAnimationUsingKeyFrames>
-                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="border">
-                                	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                                	<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
-                                </DoubleAnimationUsingKeyFrames>
-                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="rectangle1">
-                                	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                                	<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
-                                </DoubleAnimationUsingKeyFrames>
-                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="rectangle1">
-                                	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                                	<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
-                                </DoubleAnimationUsingKeyFrames>
-                            </Storyboard>
-                        </ControlTemplate.Resources>
-                        <Grid x:Name="grid" RenderTransformOrigin="0.5,0.5" Margin="0">
-                            <Grid.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Grid.RenderTransform>
-                            <Rectangle x:Name="rectangle" Height="90" RadiusX="10" RadiusY="10" Width="210" Fill="#FFFF820A" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="{x:Null}" Visibility="Hidden">
-                                <Rectangle.Effect>
-                                    <BlurEffect Radius="10"/>
-                                </Rectangle.Effect>
-                            </Rectangle>
-                            <Rectangle Height="80" RadiusX="10" RadiusY="10" Width="200" Fill="#FFFFD869">
-                                <Rectangle.Stroke>
-                                    <LinearGradientBrush EndPoint="0.571,0.968" StartPoint="0.429,0.032">
-                                        <GradientStop Color="#FFFFF1C8" Offset="0.448"/>
-                                        <GradientStop Color="#FFF0BC4F" Offset="0.566"/>
-                                    </LinearGradientBrush>
-                                </Rectangle.Stroke>
-                                <Rectangle.Effect>
-                                    <DropShadowEffect Direction="310" Opacity="0.25" BlurRadius="3" ShadowDepth="1"/>
-                                </Rectangle.Effect>
-                            </Rectangle>
-                            <Border BorderThickness="2" Height="78" Width="200" CornerRadius="10">
-                                <Border.Effect>
-                                    <BlurEffect/>
-                                </Border.Effect>
-                                <Border.BorderBrush>
-                                    <LinearGradientBrush EndPoint="0.433,0.029" StartPoint="0.567,0.971">
-                                        <GradientStop Color="#FFF0BC4F" Offset="0.448"/>
-                                        <GradientStop Color="#FFFFF1C8" Offset="0.566"/>
-                                    </LinearGradientBrush>
-                                </Border.BorderBrush>
-                            </Border>
-                            <Rectangle x:Name="rectangle1" Height="34" RadiusX="10" RadiusY="10" Width="34" Fill="#FFFF820A" Margin="0" HorizontalAlignment="Right" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
-                            	<Rectangle.RenderTransform>
-                            		<TransformGroup>
-                            			<ScaleTransform/>
-                            			<SkewTransform/>
-                            			<RotateTransform/>
-                            			<TranslateTransform/>
-                            		</TransformGroup>
-                            	</Rectangle.RenderTransform>
-                            	<Rectangle.Stroke>
-                            		<LinearGradientBrush EndPoint="0.845,0.824" StartPoint="0.155,0.176">
-                            			<GradientStop Color="#FFFED7BF" Offset="0.448"/>
-                            			<GradientStop Color="#FFFE6100" Offset="0.566"/>
-                            		</LinearGradientBrush>
-                            	</Rectangle.Stroke>
-                            	<Rectangle.Effect>
-                            		<DropShadowEffect Direction="310" Opacity="0.25" BlurRadius="3" ShadowDepth="1"/>
-                            	</Rectangle.Effect>
-                            </Rectangle>
-                            <Border x:Name="border" BorderThickness="1" Height="32" Width="32" CornerRadius="8" Margin="0,1,1,0" HorizontalAlignment="Right" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
-                            	<Border.RenderTransform>
-                            		<TransformGroup>
-                            			<ScaleTransform/>
-                            			<SkewTransform/>
-                            			<RotateTransform/>
-                            			<TranslateTransform/>
-                            		</TransformGroup>
-                            	</Border.RenderTransform>
-                            	<Border.Effect>
-                            		<BlurEffect/>
-                            	</Border.Effect>
-                            	<Border.BorderBrush>
-                            		<LinearGradientBrush EndPoint="0.153,0.174" StartPoint="0.847,0.826">
-                            			<GradientStop Color="#FFFE6100" Offset="0.448"/>
-                            			<GradientStop Color="#FFFED7BF" Offset="0.566"/>
-                            		</LinearGradientBrush>
-                            	</Border.BorderBrush>
-                            </Border>
-                            <TextBlock x:Name="textBlock" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Width="12" Height="60" Margin="0,-10,11,0" FontFamily="AA Zuehlke" FontSize="24" RenderTransformOrigin="0.5,0.5">
-                            	<TextBlock.RenderTransform>
-                            		<TransformGroup>
-                            			<ScaleTransform/>
-                            			<SkewTransform/>
-                            			<RotateTransform/>
-                            			<TranslateTransform/>
-                            		</TransformGroup>
-                            	</TextBlock.RenderTransform><Run Language="de-ch" Text="_"/></TextBlock>
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <EventTrigger RoutedEvent="FrameworkElement.Loaded" SourceName="grid">
-                            	<BeginStoryboard Storyboard="{StaticResource Glow}"/>
-                            </EventTrigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+		<Style x:Key="AddedFilterButtonStyle" TargetType="{x:Type s:SurfaceButton}">
+			<Setter Property="Height" Value="100"/>
+			<Setter Property="Width" Value="220"/>
+			<Setter Property="Margin" Value="10" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type s:SurfaceButton}">
+						<ControlTemplate.Resources>
+							<Storyboard x:Key="Glow">
+								<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="rectangle">
+									<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+									<DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Visible}"/>
+									<DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Hidden}"/>
+								</ObjectAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle">
+									<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+									<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+									<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+									<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="textBlock">
+									<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+									<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="textBlock">
+									<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+									<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="border">
+									<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+									<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="border">
+									<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+									<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="rectangle1">
+									<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+									<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="rectangle1">
+									<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+									<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+						</ControlTemplate.Resources>
+						<Grid x:Name="grid" RenderTransformOrigin="0.5,0.5" Margin="0">
+							<Grid.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Grid.RenderTransform>
+							<Rectangle x:Name="rectangle" Height="90" RadiusX="10" RadiusY="10" Width="210" Fill="#FFFF820A" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="{x:Null}" Visibility="Hidden">
+								<Rectangle.Effect>
+									<BlurEffect Radius="10"/>
+								</Rectangle.Effect>
+							</Rectangle>
+							<Rectangle Height="80" RadiusX="10" RadiusY="10" Width="200" Fill="#FFFFD869">
+								<Rectangle.Stroke>
+									<LinearGradientBrush EndPoint="0.571,0.968" StartPoint="0.429,0.032">
+										<GradientStop Color="#FFFFF1C8" Offset="0.448"/>
+										<GradientStop Color="#FFF0BC4F" Offset="0.566"/>
+									</LinearGradientBrush>
+								</Rectangle.Stroke>
+								<Rectangle.Effect>
+									<DropShadowEffect Direction="310" Opacity="0.25" BlurRadius="3" ShadowDepth="1"/>
+								</Rectangle.Effect>
+							</Rectangle>
+							<Border BorderThickness="2" Height="78" Width="200" CornerRadius="10">
+								<Border.Effect>
+									<BlurEffect/>
+								</Border.Effect>
+								<Border.BorderBrush>
+									<LinearGradientBrush EndPoint="0.433,0.029" StartPoint="0.567,0.971">
+										<GradientStop Color="#FFF0BC4F" Offset="0.448"/>
+										<GradientStop Color="#FFFFF1C8" Offset="0.566"/>
+									</LinearGradientBrush>
+								</Border.BorderBrush>
+							</Border>
+							<Rectangle x:Name="rectangle1" Height="34" RadiusX="10" RadiusY="10" Width="34" Fill="#FFFF820A" Margin="0" HorizontalAlignment="Right" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+								<Rectangle.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform/>
+										<SkewTransform/>
+										<RotateTransform/>
+										<TranslateTransform/>
+									</TransformGroup>
+								</Rectangle.RenderTransform>
+								<Rectangle.Stroke>
+									<LinearGradientBrush EndPoint="0.845,0.824" StartPoint="0.155,0.176">
+										<GradientStop Color="#FFFED7BF" Offset="0.448"/>
+										<GradientStop Color="#FFFE6100" Offset="0.566"/>
+									</LinearGradientBrush>
+								</Rectangle.Stroke>
+								<Rectangle.Effect>
+									<DropShadowEffect Direction="310" Opacity="0.25" BlurRadius="3" ShadowDepth="1"/>
+								</Rectangle.Effect>
+							</Rectangle>
+							<Border x:Name="border" BorderThickness="1" Height="32" Width="32" CornerRadius="8" Margin="0,1,1,0" HorizontalAlignment="Right" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+								<Border.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform/>
+										<SkewTransform/>
+										<RotateTransform/>
+										<TranslateTransform/>
+									</TransformGroup>
+								</Border.RenderTransform>
+								<Border.Effect>
+									<BlurEffect/>
+								</Border.Effect>
+								<Border.BorderBrush>
+									<LinearGradientBrush EndPoint="0.153,0.174" StartPoint="0.847,0.826">
+										<GradientStop Color="#FFFE6100" Offset="0.448"/>
+										<GradientStop Color="#FFFED7BF" Offset="0.566"/>
+									</LinearGradientBrush>
+								</Border.BorderBrush>
+							</Border>
+							<TextBlock x:Name="textBlock" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Width="12" Height="60" Margin="0,-10,11,0" FontFamily="AA Zuehlke" FontSize="24" RenderTransformOrigin="0.5,0.5">
+								<TextBlock.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform/>
+										<SkewTransform/>
+										<RotateTransform/>
+										<TranslateTransform/>
+									</TransformGroup>
+								</TextBlock.RenderTransform><Run Language="de-ch" Text="_"/></TextBlock>
+							<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<EventTrigger RoutedEvent="FrameworkElement.Loaded" SourceName="grid">
+								<BeginStoryboard Storyboard="{StaticResource Glow}"/>
+							</EventTrigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
 
-        <Style x:Key="ButtonStyle" TargetType="s:SurfaceButton">
+		<Style x:Key="ButtonStyle" TargetType="s:SurfaceButton">
 			<Setter Property="Template">
 				<Setter.Value>
 					<ControlTemplate TargetType="{x:Type s:SurfaceButton}">
@@ -232,19 +246,19 @@
 			<RowDefinition Height="80"/>
 		</Grid.RowDefinitions>
 		<StackPanel Margin="20,0,20,0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <Label>
-                <TextBlock  Style="{DynamicResource TextStyle}" Text="{Binding ProjectNotes.Count}"  FontSize="18"/>
-            </Label>
-            <Label>
-                <TextBlock  Style="{DynamicResource TextStyle}" Text="von"  FontSize="18"/>
-            </Label>
-            <Label>
-                <TextBlock  Style="{DynamicResource TextStyle}" Text="{Binding TotalProjectNotes}"  FontSize="18"/>
+			<Label>
+				<TextBlock  Style="{DynamicResource TextStyle}" Text="{Binding ProjectNotes.Count}"  FontSize="18"/>
 			</Label>
-            <Label>
-                <TextBlock  Style="{DynamicResource TextStyle}" Text="Projekten"  FontSize="18"/>
-            </Label>
-        </StackPanel>
+			<Label>
+				<TextBlock  Style="{DynamicResource TextStyle}" Text="von"  FontSize="18"/>
+			</Label>
+			<Label>
+				<TextBlock  Style="{DynamicResource TextStyle}" Text="{Binding TotalProjectNotes}"  FontSize="18"/>
+			</Label>
+			<Label>
+				<TextBlock  Style="{DynamicResource TextStyle}" Text="Projekten"  FontSize="18"/>
+			</Label>
+		</StackPanel>
 		<StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center">
 			<Rectangle Width="90" Margin="0,0,10,0"  Height="2" Fill="#ff8204" />
 			<Rectangle Width="90" Margin="10,0,0,0" Height="2" Fill="#ff8204" />
@@ -257,26 +271,15 @@
 			<Rectangle Width="90" Margin="10,0,0,0" Height="2" Fill="#ff8204" />
 		</StackPanel>
 		<StackPanel Margin="0,10,0,10" Background="White" Grid.Row="2">
-			<Rectangle Margin="0,10,0,10" Height="80" Fill="#f9f9f9" RadiusX="10" RadiusY="10" Width="200">
-				<Rectangle.Effect>
-					<DropShadowEffect Direction="135" Opacity="0.25" BlurRadius="3" ShadowDepth="3"/>
-				</Rectangle.Effect>
-			</Rectangle>
-			<Rectangle Margin="0,10,0,10" Height="80" Fill="#f9f9f9" RadiusX="10" RadiusY="10" Width="200">
-				<Rectangle.Effect>
-					<DropShadowEffect Direction="135" Opacity="0.25" BlurRadius="3" ShadowDepth="3"/>
-				</Rectangle.Effect>
-			</Rectangle>
-			<Rectangle Margin="0,10,0,10" Height="80" Fill="#f9f9f9" RadiusX="10" RadiusY="10" Width="200">
-				<Rectangle.Effect>
-					<DropShadowEffect Direction="135" Opacity="0.25" BlurRadius="3" ShadowDepth="3"/>
-				</Rectangle.Effect>
-			</Rectangle>
+			<s:SurfaceButton Style="{StaticResource SlotButtonStyle}" Command="{Binding ToggleFilterCommand}"/>
+			<s:SurfaceButton Style="{StaticResource SlotButtonStyle}" Command="{Binding ToggleFilterCommand}"/>
+			<s:SurfaceButton Style="{StaticResource SlotButtonStyle}" Command="{Binding ToggleFilterCommand}"/>
 		</StackPanel>
-		<s:SurfaceListBox Margin="0,10,0,10" Background="Transparent" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" Foreground="Transparent" Grid.Row="2" ItemsSource="{Binding Filters}" 
+		<s:SurfaceListBox Margin="0,10,0,10" Background="Transparent" MinHeight="10" VerticalContentAlignment="Bottom" VerticalAlignment="Top" HorizontalContentAlignment="Center" Foreground="Transparent" Grid.Row="2" ItemsSource="{Binding Filters}" 
 						  ItemTemplate="{DynamicResource FilterCriteriaTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-						  ScrollViewer.VerticalScrollBarVisibility="Disabled" />
-        <s:SurfaceButton Style="{StaticResource ButtonStyle}" Grid.Row="3" VerticalAlignment="Top" Command="{Binding ToggleFilterCommand}" Width="200" Margin="0" >
+						  ScrollViewer.VerticalScrollBarVisibility="Disabled">
+		</s:SurfaceListBox>
+		<s:SurfaceButton Style="{StaticResource ButtonStyle}" Grid.Row="3" VerticalAlignment="Top" Command="{Binding ToggleFilterCommand}" Width="200" Margin="0" >
 			<TextBlock Margin="3" Style="{DynamicResource TextStyle}" Text="Kriterien hinzufügen" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" TextAlignment="Center" />
 		</s:SurfaceButton>
 	</Grid>
