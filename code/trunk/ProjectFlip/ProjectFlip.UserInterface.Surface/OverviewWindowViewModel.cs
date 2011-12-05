@@ -32,12 +32,10 @@ namespace ProjectFlip.UserInterface.Surface
         private IProjectNote _nextProjectNote;
         private IProjectNote _previousProjectNote;
         private CollectionView _subcriteria;
-        private bool Rrrrrr;
+        public bool ReadModeActive { get; set; }
 
         public OverviewWindowViewModel(IProjectNotesService projectNotesService)
         {
-            DocumentViewerWidth = new GridLength(10, GridUnitType.Star);
-
             ProjectNotes = new CyclicCollectionView<IProjectNote>(projectNotesService.ProjectNotes) { Filter = FilterCallback };
             TotalProjectNotes = ProjectNotes.Count;
             ProjectNotes.MoveCurrentTo(null);
@@ -49,7 +47,7 @@ namespace ProjectFlip.UserInterface.Surface
             SetSubCriteria();
 
             ShowDetailsCommand = new Command(OnShowDetail);
-            HideDetailsCommand = new Command(o => IsDetailViewVisible = false);
+            HideDetailsCommand = new Command(OnHideDetail);
 
             NavigateToLeftCommand = new Command(o => ProjectNotes.MoveCurrentToPrevious());
             NavigateToRightCommand = new Command(o => ProjectNotes.MoveCurrentToNext());
@@ -59,30 +57,51 @@ namespace ProjectFlip.UserInterface.Surface
 
             RemoveFilterCommand = new Command(RemoveFilter);
             AddFilterCommand = new Command(AddFilter);
-            Rrrrrr = true;
-            DocumentManipulatorCommand = new Command(o =>
+
+            ReadModeActive = false;
+            NormalModeWidth = new GridLength(700);
+            ReadModeWidth = new GridLength(10, GridUnitType.Star);
+            DocumentViewerWidth = NormalModeWidth;
+            ToggleReadModeCommand = new Command(ToogleReadMode);
+        }
+
+        private void OnHideDetail(object o)
+        {
+            if (ReadModeActive)
+            {
+                ReadModeActive = false;
+                DocumentViewerWidth = NormalModeWidth;
+                return;
+            }
+            IsDetailViewVisible = false;
+        }
+
+        private GridLength NormalModeWidth { get; set; }
+        private GridLength ReadModeWidth { get; set; }
+
+        private void ToogleReadMode(object o)
+        {
+            var v = (DocumentViewer)o;
+            DocumentViewerWidth = ReadModeActive ? NormalModeWidth : ReadModeWidth;
+            ReadModeActive = !ReadModeActive;
+            /*if (ReadModeActive)
+            {
+                //v.FitToHeight();
+                //Console.WriteLine(v);
+                DocumentViewerWidth = new GridLength(600);
+                //DocumentViewerWidth = new GridLength(v.ExtentWidth);
+                //DocumentViewerWidth = new GridLength(v.ExtentWidth);
+            }
+            else
             {
                 DocumentViewerWidth = new GridLength(10, GridUnitType.Star);
-                Console.WriteLine(o);
-                DocumentViewer v = (DocumentViewer)o;
-                Console.WriteLine(v.ActualWidth);
-                if (Rrrrrr)
-                {
-                    DocumentViewerWidth = new GridLength(10, GridUnitType.Star);
-                    v.FitToWidth();
-                }
-                else
-                {
-                    v.FitToHeight();
-                    DocumentViewerWidth = new GridLength(600);
-                    DocumentViewerWidth = new GridLength(v.ExtentWidth);
-                }
+                //v.FitToWidth();
+            }*/
 
-                Rrrrrr = !Rrrrrr;
+            v.FitToWidth();
 
-                //v.DocumentScrollInfo.
-                Console.WriteLine(v.ActualHeight);
-            });
+            //v.DocumentScrollInfo.
+            //Console.WriteLine(v.ActualHeight);
         }
 
         public int TotalProjectNotes { get; private set; }
@@ -151,7 +170,7 @@ namespace ProjectFlip.UserInterface.Surface
         public Command NavigateToRightCommand { get; private set; }
         public ICommand AddFilterCommand { get; private set; }
         public ICommand RemoveFilterCommand { get; private set; }
-        public ICommand DocumentManipulatorCommand { get; private set; }
+        public ICommand ToggleReadModeCommand { get; private set; }
 
         public GridLength DocumentViewerWidth
         {
