@@ -393,27 +393,6 @@
 
             <s:SurfaceButton HorizontalAlignment="Left" Style="{DynamicResource NavigateToRightButtonStyle}" VerticalAlignment="Center" Grid.Column="3" x:Name="ToNextButton" Margin="0" Command="{Binding NavigateToRightCommand}"/>
 
-            <!--<s:SurfaceButton HorizontalAlignment="Left"  VerticalAlignment="Center"  Grid.Column="3" x:Name="ToNextButton" Command="{Binding NavigateToRightCommand}" >
-                <Grid>
-                    <ed:RegularPolygon x:Name="regularPolygon" Fill="Red" Height="80" InnerRadius="1" Margin="-40,35,-15,35" PointCount="3" Stretch="Fill" Width="160" RenderTransformOrigin="0.5,0.5">
-                        <ed:RegularPolygon.RenderTransform>
-                            <TransformGroup>
-                                <RotateTransform Angle="90" />
-                            </TransformGroup>
-                        </ed:RegularPolygon.RenderTransform>
-                    </ed:RegularPolygon>
-                    <s:SurfaceButton HorizontalAlignment="Left" Style="{DynamicResource NavigateToRightButtonStyle}" VerticalAlignment="Center" Grid.Column="3" Margin="10,0,0,0" />
-                </Grid>
-            </s:SurfaceButton>-->
-            <!--<Grid>
-        <Grid.CommandBindings>
-          <CommandBinding Command="{Binding NavigateToRightCommand}"></CommandBinding>
-        </Grid.CommandBindings>
-        <s:SurfaceButton Style="{StaticResource NavigateToRightHiddenButtonStyle}" />
-        <s:SurfaceButton Style="{StaticResource NavigateToRightButtonStyle}" HorizontalAlignment="Left"
-                         Margin="10,0,0,0" />
-      </Grid>-->
-
         </Grid>
     </Grid>
 </UserControl>
