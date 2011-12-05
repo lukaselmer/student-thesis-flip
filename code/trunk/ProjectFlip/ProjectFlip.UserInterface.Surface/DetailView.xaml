@@ -320,7 +320,7 @@
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
 
-            <s:SurfaceButton Grid.Column="0" Style="{StaticResource NavigateToLeftButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" x:Name="ToPreviousButton" Command="{Binding NavigateToLeftCommand}" />
+            <s:SurfaceButton Grid.Column="0" Style="{StaticResource NavigateToLeftButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" x:Name="ToPreviousButton" Command="{Binding NavigateToLeftCommand}" />
 
             <!--<s:SurfaceButton Grid.Column="0" CommandParameter="{Binding ElementName= docViewer}" Command="{Binding DocumentManipulatorCommand}" Content="XX XX"/>-->
 
