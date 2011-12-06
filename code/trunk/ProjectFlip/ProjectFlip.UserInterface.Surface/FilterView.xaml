@@ -229,14 +229,22 @@
 				</StackPanel.Resources>
 			</StackPanel>
 		</ItemsPanelTemplate>
-		<Storyboard x:Key="Storyboard1"/>
+		<Storyboard x:Key="onChanged">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="textBlock">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="textBlock">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
 
 	</UserControl.Resources>
-	<UserControl.Triggers>
-		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
-			<BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
-		</EventTrigger>
-	</UserControl.Triggers>
 
 	<Grid Margin="0">
 		<Grid.RowDefinitions>
@@ -245,9 +253,23 @@
 			<RowDefinition Height="320"/>
 			<RowDefinition Height="80"/>
 		</Grid.RowDefinitions>
-		<StackPanel Margin="20,0,20,0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
-			<Label>
-				<TextBlock  Style="{DynamicResource TextStyle}" Text="{Binding ProjectNotes.Count}"  FontSize="18"/>
+		<StackPanel Margin="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+			<Label Margin="20,0,0,0">
+                <TextBlock HorizontalAlignment="Left" x:Name="textBlock"  Style="{DynamicResource TextStyle}" Text="{Binding ProjectNotes.Count, NotifyOnTargetUpdated=True}"  FontSize="18" RenderTransformOrigin="0.5,0.5">
+                	<TextBlock.RenderTransform>
+                		<TransformGroup>
+                			<ScaleTransform/>
+                			<SkewTransform/>
+                			<RotateTransform/>
+                			<TranslateTransform/>
+                		</TransformGroup>
+                	</TextBlock.RenderTransform>
+                    <TextBlock.Triggers>
+<EventTrigger RoutedEvent="Binding.TargetUpdated">
+<BeginStoryboard Storyboard="{StaticResource onChanged}"/>
+</EventTrigger>
+</TextBlock.Triggers>
+                </TextBlock>
 			</Label>
 			<Label>
 				<TextBlock  Style="{DynamicResource TextStyle}" Text="von"  FontSize="18"/>
