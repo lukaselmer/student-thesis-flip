@@ -102,13 +102,9 @@ namespace ProjectFlip.UserInterface.Surface
 
         private void OnHideDetail(object o)
         {
-            if (ReadModeActive)
-            {
-                ReadModeActive = false;
-                DocumentViewerWidth = NormalModeWidth;
-                return;
-            }
             IsDetailViewVisible = false;
+            ReadModeActive = false;
+            DocumentViewerWidth = NormalModeWidth;
         }
 
         private GridLength NormalModeWidth { get; set; }
