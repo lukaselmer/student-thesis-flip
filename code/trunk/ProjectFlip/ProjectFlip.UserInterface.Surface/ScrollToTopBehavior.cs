@@ -60,7 +60,7 @@ namespace ProjectFlip.UserInterface.Surface
                                        {
                                            ScrollViewer scrollViewer = GetVisualChild<ScrollViewer>(itemsControl);
                                            scrollViewer.ScrollToTop();
-                                           itemsControl.ItemContainerGenerator.ItemsChanged += itemsChangedEventHandler;
+                                           if (itemsControl != null) itemsControl.ItemContainerGenerator.ItemsChanged -= itemsChangedEventHandler;
                                        };
 
             //if (itemsControl != null) itemsControl.ItemContainerGenerator.StatusChanged += eventHandler;
