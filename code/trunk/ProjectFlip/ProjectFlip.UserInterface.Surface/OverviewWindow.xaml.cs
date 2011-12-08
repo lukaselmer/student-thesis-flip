@@ -1,9 +1,3 @@
-#region
-
-using Microsoft.Surface.Presentation.Controls;
-
-#endregion
-
 namespace ProjectFlip.UserInterface.Surface
 {
     /// <summary>

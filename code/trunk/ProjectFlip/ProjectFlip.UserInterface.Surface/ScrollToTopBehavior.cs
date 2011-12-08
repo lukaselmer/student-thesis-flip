@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -31,7 +27,7 @@ namespace ProjectFlip.UserInterface.Surface
         }
         private static void OnScrollToTopPropertyChanged(DependencyObject dpo, DependencyPropertyChangedEventArgs e)
         {
-            ItemsControl itemsControl = dpo as ItemsControl;
+            var itemsControl = dpo as ItemsControl;
             if (itemsControl != null)
             {
                 DependencyPropertyDescriptor dependencyPropertyDescriptor =
@@ -45,11 +41,11 @@ namespace ProjectFlip.UserInterface.Surface
         }
         static void ItemsSourceChanged(object sender, EventArgs e)
         {
-            ItemsControl itemsControl = sender as ItemsControl;
+            var itemsControl = sender as ItemsControl;
             ItemsChangedEventHandler itemsChangedEventHandler = null;
             itemsChangedEventHandler = delegate
                                        {
-                                           ScrollViewer scrollViewer = GetVisualChild<ScrollViewer>(itemsControl);
+                                           var scrollViewer = GetVisualChild<ScrollViewer>(itemsControl);
                                            scrollViewer.ScrollToTop();
                                            if (itemsControl != null) itemsControl.ItemContainerGenerator.ItemsChanged -= itemsChangedEventHandler;
                                        };
@@ -61,9 +57,9 @@ namespace ProjectFlip.UserInterface.Surface
         {
             T child = default(T);
             int numVisuals = VisualTreeHelper.GetChildrenCount(parent);
-            for (int i = 0; i < numVisuals; i++)
+            for (var i = 0; i < numVisuals; i++)
             {
-                Visual v = (Visual)VisualTreeHelper.GetChild(parent, i);
+                var v = (Visual)VisualTreeHelper.GetChild(parent, i);
                 child = v as T;
                 if (child == null)
                     child = GetVisualChild<T>(v);
