@@ -31,14 +31,11 @@ namespace ProjectFlip.UserInterface.Surface
         private ICollectionView _subcriteria;
         private bool _isDetailViewVisible;
         private bool _isFilterViewVisible;
-        private IProjectNote _nextProjectNote;
-        private IProjectNote _previousProjectNote;
         private bool _readModeActive;
 
         public OverviewWindowViewModel(IProjectNotesService projectNotesService)
         {
-            ProjectNotes = new CyclicCollectionView<IProjectNote>(projectNotesService.ProjectNotes)
-                           {Filter = FilterCallback};
+            ProjectNotes = new CyclicCollectionView<IProjectNote>(projectNotesService.ProjectNotes) { Filter = FilterCallback };
             TotalProjectNotes = ProjectNotes.Count;
             ProjectNotes.MoveCurrentTo(null);
             ProjectNotes.CurrentChanged += UpdateCurrentProjectNote;
@@ -73,8 +70,19 @@ namespace ProjectFlip.UserInterface.Surface
             {
                 _readModeActive = value;
                 Notify("ReadModeActive");
+                DocumentViewerWidth = ReadModeActive ? _readModeWidth : _normalModeWidth;
                 if (ZoomInCommand != null) ZoomInCommand.RaiseCanExecuteChanged();
                 if (ZoomOutCommand != null) ZoomOutCommand.RaiseCanExecuteChanged();
+            }
+        }
+
+        public GridLength DocumentViewerWidth
+        {
+            get { return _documentViewerWidth; }
+            private set
+            {
+                _documentViewerWidth = value;
+                Notify("DocumentViewerWidth");
             }
         }
 
@@ -99,26 +107,6 @@ namespace ProjectFlip.UserInterface.Surface
             {
                 _currentProjectNote = value;
                 Notify("CurrentProjectNote");
-            }
-        }
-
-        public IProjectNote NextProjectNote
-        {
-            get { return _nextProjectNote; }
-            private set
-            {
-                _nextProjectNote = value;
-                Notify("NextProjectNote");
-            }
-        }
-
-        public IProjectNote PreviousProjectNote
-        {
-            get { return _previousProjectNote; }
-            private set
-            {
-                _previousProjectNote = value;
-                Notify("PreviousProjectNote");
             }
         }
 
@@ -147,16 +135,6 @@ namespace ProjectFlip.UserInterface.Surface
         public Command ZoomOutCommand { get; private set; }
         public Command ZoomInCommand { get; private set; }
 
-        public GridLength DocumentViewerWidth
-        {
-            get { return _documentViewerWidth; }
-            private set
-            {
-                _documentViewerWidth = value;
-                Notify("DocumentViewerWidth");
-            }
-        }
-
         public bool IsDetailViewVisible
         {
             get { return _isDetailViewVisible; }
@@ -181,31 +159,24 @@ namespace ProjectFlip.UserInterface.Surface
         {
             IsDetailViewVisible = false;
             ReadModeActive = false;
-            DocumentViewerWidth = _normalModeWidth;
         }
 
         private void ToogleReadMode(object o)
         {
-            DocumentViewerWidth = ReadModeActive ? _normalModeWidth : _readModeWidth;
             ReadModeActive = !ReadModeActive;
         }
 
         private void UpdateCurrentProjectNote(object sender, EventArgs eventArgs)
         {
-            PreviousProjectNote = ProjectNotes.Previous;
             CurrentProjectNote = ProjectNotes.CurrentItem;
-            NextProjectNote = ProjectNotes.Next;
-            if (CurrentProjectNote == null) return;
-            PreviousProjectNote.Preload();
-            CurrentProjectNote.Preload();
-            NextProjectNote.Preload();
+            if (CurrentProjectNote != null) CurrentProjectNote.Preload();
         }
 
         private void OnShowDetail(object obj)
         {
             if (obj != null)
             {
-                var pn = (IProjectNote) obj;
+                var pn = (IProjectNote)obj;
                 ProjectNotes.MoveCurrentTo(pn);
                 CurrentProjectNote = pn;
             }
@@ -222,7 +193,7 @@ namespace ProjectFlip.UserInterface.Surface
         private void SetSubCriteria()
         {
             ICollection<IMetadata> value;
-            Criteria.TryGetValue((IMetadataType) Maincriteria.CurrentItem, out value);
+            Criteria.TryGetValue((IMetadataType)Maincriteria.CurrentItem, out value);
             Subcriteria = new CollectionView(value);
         }
 
@@ -233,14 +204,10 @@ namespace ProjectFlip.UserInterface.Surface
 
         private void RemoveFilter(object filter)
         {
-            ReadModeActive = false;
-            DocumentViewerWidth = _normalModeWidth;
-
-            _filters.Remove((IMetadata) filter);
+            _filters.Remove((IMetadata)filter);
             Filters.Refresh();
             ProjectNotes.Refresh();
-            IsFilterViewVisible = false;
-            IsDetailViewVisible = false;
+            IsFilterViewVisible = ReadModeActive = IsDetailViewVisible = false;
         }
 
         private void AddFilter(object filter)
@@ -250,19 +217,18 @@ namespace ProjectFlip.UserInterface.Surface
                 Filters.Refresh();
                 return;
             }
-            _filters.Add((IMetadata) filter);
+            _filters.Add((IMetadata)filter);
             Filters.Refresh();
             ProjectNotes.Refresh();
             IsDetailViewVisible = IsFilterViewVisible = false;
 
             ReadModeActive = false;
-            DocumentViewerWidth = _normalModeWidth;
         }
 
         private bool FilterCallback(object projectNoteObj)
         {
             if (_filters.Count == 0) return true;
-            var projectNote = (IProjectNote) projectNoteObj;
+            var projectNote = (IProjectNote)projectNoteObj;
             return _filters.All(f => f.Match(projectNote));
         }
 
