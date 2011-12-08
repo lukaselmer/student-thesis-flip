@@ -23,15 +23,17 @@ namespace ProjectFlip.UserInterface.Surface
         // ReSharper disable UnusedMember.Global
         // ReSharper disable UnusedAutoPropertyAccessor.Global
         private readonly List<IMetadata> _filters = new List<IMetadata>();
-        private IProjectNote _currentProjectNote;
+        private readonly GridLength _normalModeWidth = new GridLength(2.75, GridUnitType.Star);
+        private readonly GridLength _readModeWidth = new GridLength(10, GridUnitType.Star);
         private GridLength _documentViewerWidth;
+        private IProjectNote _currentProjectNote;
         private ICollectionView _filtersCollectionView;
+        private ICollectionView _subcriteria;
         private bool _isDetailViewVisible;
         private bool _isFilterViewVisible;
         private IProjectNote _nextProjectNote;
         private IProjectNote _previousProjectNote;
         private bool _readModeActive;
-        private CollectionView _subcriteria;
 
         public OverviewWindowViewModel(IProjectNotesService projectNotesService)
         {
@@ -58,7 +60,6 @@ namespace ProjectFlip.UserInterface.Surface
             RemoveFilterCommand = new Command(RemoveFilter);
             AddFilterCommand = new Command(AddFilter);
 
-            ReadModeActive = false;
             DocumentViewerWidth = _normalModeWidth;
 
             ZoomInCommand = new Command(ToogleReadMode, o => ReadModeActive);
@@ -77,14 +78,11 @@ namespace ProjectFlip.UserInterface.Surface
             }
         }
 
-        private readonly GridLength _normalModeWidth = new GridLength(2.75, GridUnitType.Star);
-        private readonly GridLength _readModeWidth = new GridLength(10, GridUnitType.Star);
-
         public int TotalProjectNotes { get; private set; }
 
-        public CollectionView Maincriteria { get; private set; }
+        public ICollectionView Maincriteria { get; private set; }
 
-        public CollectionView Subcriteria
+        public ICollectionView Subcriteria
         {
             get { return _subcriteria; }
             private set
