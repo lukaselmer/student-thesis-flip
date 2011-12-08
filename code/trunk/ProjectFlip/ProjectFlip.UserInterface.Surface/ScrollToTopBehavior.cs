@@ -47,15 +47,6 @@ namespace ProjectFlip.UserInterface.Surface
         {
             ItemsControl itemsControl = sender as ItemsControl;
             ItemsChangedEventHandler itemsChangedEventHandler = null;
-
-            //EventHandler eventHandler = null;
-            //eventHandler = delegate
-            //               {
-            //                   if (itemsControl.ItemContainerGenerator.Status != GeneratorStatus.ContainersGenerated) return;
-            //                   ScrollViewer scrollViewer = GetVisualChild<ScrollViewer>(itemsControl) as ScrollViewer;
-            //                   scrollViewer.ScrollToTop();
-            //                   itemsControl.ItemContainerGenerator.StatusChanged -= eventHandler;
-            //               };
             itemsChangedEventHandler = delegate
                                        {
                                            ScrollViewer scrollViewer = GetVisualChild<ScrollViewer>(itemsControl);
@@ -63,7 +54,6 @@ namespace ProjectFlip.UserInterface.Surface
                                            if (itemsControl != null) itemsControl.ItemContainerGenerator.ItemsChanged -= itemsChangedEventHandler;
                                        };
 
-            //if (itemsControl != null) itemsControl.ItemContainerGenerator.StatusChanged += eventHandler;
             if (itemsControl != null) itemsControl.ItemContainerGenerator.ItemsChanged += itemsChangedEventHandler;
         }
 
