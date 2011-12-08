@@ -430,6 +430,82 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style TargetType="{x:Type Control}" x:Key="ControlBaseStyle">
+        	<Setter Property="FocusVisualStyle"	
+        		Value="{x:Null}"/>
+        	<Setter Property="SnapsToDevicePixels"
+        		Value="False"/>
+        	<Setter Property="FontFamily"
+        		Value="Segoe360"/>
+        	<Setter Property="FontWeight"
+        		Value="Normal"/>
+        	<Setter Property="FontSize"
+        		Value="17"/>
+        	<Setter Property="Padding"
+        		Value="6,2,10,10"/>
+        	<Setter Property="MinHeight"
+        		Value="38"/>
+        	<Setter Property="MinWidth"
+        		Value="38"/>
+        	<Setter Property="Margin"
+        		Value="1"/>
+        	<Setter Property="HorizontalContentAlignment"
+        		Value="Left"/>
+        	<Setter Property="VerticalContentAlignment"
+        		Value="Top"/>
+        	<Setter Property="BorderThickness"
+        		Value="2"/>
+        </Style>
+        <Style x:Key="AboutButtonStyle"
+        	TargetType="{x:Type s:SurfaceButton}">
+        	<Setter Property="Template">
+        		<Setter.Value>
+        			<ControlTemplate TargetType="{x:Type s:SurfaceButton}">
+                    <Grid x:Name="Grid"
+        					SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Width="50" Height="50">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="Common">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse">
+                                            <EasingColorKeyFrame KeyTime="0" Value="Gainsboro"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="ellipse1">
+                                            <EasingColorKeyFrame KeyTime="0" Value="#FFE9E9E9"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="ellipse1">
+                                            <EasingColorKeyFrame KeyTime="0" Value="#FFCECECE"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.Opacity)" Storyboard.TargetName="ellipse1">
+                                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Ellipse x:Name="ellipse1">
+                            <Ellipse.Fill>
+                                <LinearGradientBrush EndPoint="0.188,0.109" StartPoint="0.812,0.891">
+                                    <GradientStop Color="#FFD4D4D4" Offset="0.059"/>
+                                    <GradientStop Color="#FFF1F1F1" Offset="0.905"/>
+                                </LinearGradientBrush>
+                            </Ellipse.Fill>
+                            <Ellipse.Effect>
+                                <DropShadowEffect BlurRadius="3" Direction="310" Opacity="0.25" ShadowDepth="1"/>
+                            </Ellipse.Effect>
+                        </Ellipse>
+                        <Ellipse x:Name="ellipse" Fill="#FFE6E6E6" Width="44" Height="44">
+                            <Ellipse.Effect>
+                                <BlurEffect Radius="3"/>
+                            </Ellipse.Effect>
+                        </Ellipse>
+                            <TextBlock Style="{DynamicResource TextStyle}" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="AA Zuehlke" FontSize="25" HorizontalAlignment="Center" Foreground="White" Text="i"></TextBlock>
+                    </Grid>
+                </ControlTemplate>
+        		</Setter.Value>
+        	</Setter>
+        </Style>
     </s:SurfaceWindow.Resources>
 
     <Grid>
@@ -439,6 +515,7 @@
         </Grid.ColumnDefinitions>
 
         <Surface:FilterView VerticalAlignment="Center" Grid.Column="0"/>
+        <s:SurfaceButton Command="{Binding ToggleInfoCommand}" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20" Height="50" Width="50" Style="{DynamicResource AboutButtonStyle}"></s:SurfaceButton>
 
         <s:SurfaceListBox Background="#e6e6e6" x:Name="listBox" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ProjectNotes}"  
 						  ItemTemplate="{StaticResource ProjectNoteButtonTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" Style="{DynamicResource SurfaceListBoxStyle}" />

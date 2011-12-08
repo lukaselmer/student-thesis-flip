@@ -31,12 +31,12 @@ namespace ProjectFlip.UserInterface.Surface
         private bool _isDetailViewVisible;
         private bool _isFilterViewVisible;
         private bool _readModeActive;
+        private bool _isInfoViewVisible;
         private ICollectionView _subcriteria;
 
         public OverviewWindowViewModel(IProjectNotesService projectNotesService)
         {
-            ProjectNotes = new CyclicCollectionView<IProjectNote>(projectNotesService.ProjectNotes)
-                           {Filter = FilterCallback};
+            ProjectNotes = new CyclicCollectionView<IProjectNote>(projectNotesService.ProjectNotes) { Filter = FilterCallback };
             TotalProjectNotes = ProjectNotes.Count;
             ProjectNotes.MoveCurrentTo(null);
             ProjectNotes.CurrentChanged += UpdateCurrentProjectNote;
@@ -62,6 +62,8 @@ namespace ProjectFlip.UserInterface.Surface
 
             ZoomInCommand = new Command(ToogleReadMode, o => !ReadModeActive);
             ZoomOutCommand = new Command(ToogleReadMode, o => ReadModeActive);
+
+            ToggleInfoCommand = new Command(o => InfoViewVisible = !InfoViewVisible);
         }
 
         public bool ReadModeActive
@@ -74,6 +76,16 @@ namespace ProjectFlip.UserInterface.Surface
                 DocumentViewerWidth = ReadModeActive ? _readModeWidth : _normalModeWidth;
                 if (ZoomInCommand != null) ZoomInCommand.RaiseCanExecuteChanged();
                 if (ZoomOutCommand != null) ZoomOutCommand.RaiseCanExecuteChanged();
+            }
+        }
+
+        public bool InfoViewVisible
+        {
+            get { return _isInfoViewVisible; }
+            set
+            {
+                _isInfoViewVisible = value;
+                Notify("IsInfoViewVisible");
             }
         }
 
@@ -135,6 +147,7 @@ namespace ProjectFlip.UserInterface.Surface
         public ICommand RemoveFilterCommand { get; private set; }
         public Command ZoomOutCommand { get; private set; }
         public Command ZoomInCommand { get; private set; }
+        public ICommand ToggleInfoCommand { get; private set; }
 
         public bool IsDetailViewVisible
         {
@@ -177,7 +190,7 @@ namespace ProjectFlip.UserInterface.Surface
         {
             if (obj != null)
             {
-                var pn = (IProjectNote) obj;
+                var pn = (IProjectNote)obj;
                 ProjectNotes.MoveCurrentTo(pn);
                 CurrentProjectNote = pn;
             }
@@ -194,7 +207,7 @@ namespace ProjectFlip.UserInterface.Surface
         private void SetSubCriteria()
         {
             ICollection<IMetadata> value;
-            Criteria.TryGetValue((IMetadataType) Maincriteria.CurrentItem, out value);
+            Criteria.TryGetValue((IMetadataType)Maincriteria.CurrentItem, out value);
             Subcriteria = new CollectionView(value);
         }
 
@@ -205,7 +218,7 @@ namespace ProjectFlip.UserInterface.Surface
 
         private void RemoveFilter(object filter)
         {
-            _filters.Remove((IMetadata) filter);
+            _filters.Remove((IMetadata)filter);
             Filters.Refresh();
             ProjectNotes.Refresh();
             IsFilterViewVisible = ReadModeActive = IsDetailViewVisible = false;
@@ -218,7 +231,7 @@ namespace ProjectFlip.UserInterface.Surface
                 Filters.Refresh();
                 return;
             }
-            _filters.Add((IMetadata) filter);
+            _filters.Add((IMetadata)filter);
             Filters.Refresh();
             ProjectNotes.Refresh();
             IsDetailViewVisible = IsFilterViewVisible = false;
@@ -229,7 +242,7 @@ namespace ProjectFlip.UserInterface.Surface
         private bool FilterCallback(object projectNoteObj)
         {
             if (_filters.Count == 0) return true;
-            var projectNote = (IProjectNote) projectNoteObj;
+            var projectNote = (IProjectNote)projectNoteObj;
             return _filters.All(f => f.Match(projectNote));
         }
 
