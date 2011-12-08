@@ -85,7 +85,7 @@ namespace ProjectFlip.UserInterface.Surface
             set
             {
                 _isInfoViewVisible = value;
-                Notify("IsInfoViewVisible");
+                Notify("InfoViewVisible");
             }
         }
 

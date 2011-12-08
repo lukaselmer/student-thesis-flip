@@ -78,7 +78,7 @@
                                     </Rectangle.RenderTransform>
                                 </Rectangle>
                             </Grid>
-                            
+
                             <Grid>
                                 <Grid Margin="20 80" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top">
                                     <s:SurfaceButton Background="Transparent" Padding="0" Margin="0" Command="{Binding ZoomInCommand}" Style="{DynamicResource TransparentBackgroundButton}">
@@ -522,5 +522,32 @@
         <Surface:DetailView Grid.Column="1" />
         <!-- Visibility="{Binding IsDetailViewVisible, Converter={Converters:BoolToVisibilityConverter}}"-->
         <Surface:FilterDetailView Grid.Column="1" Visibility="{Binding IsFilterViewVisible, Converter={Converters:BoolToVisibilityConverter}}"/>
+
+        <Grid Grid.Column="0" Grid.ColumnSpan="2" Visibility="{Binding InfoViewVisible, Converter={Converters:BoolToVisibilityConverter}}">
+            <Border Background="#aa000000" TextBlock.TextAlignment="Center">
+                <Border TextBlock.TextAlignment="Left" Margin="200 100" Padding="100 50" Background="#ccffffff" TextBlock.Foreground="Black">
+                    <StackPanel>
+                        <TextBlock TextWrapping="Wrap" FontSize="20" Margin="0 0 0 10">
+                            Lorem ipsum
+                        </TextBlock>
+                        <TextBlock TextWrapping="Wrap">
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                        </TextBlock>
+                    </StackPanel>
+                </Border>
+            </Border>
+          <s:SurfaceButton Background="Transparent" Command="{Binding ToggleInfoCommand}"></s:SurfaceButton>
+          <s:ScatterView>
+                <s:ScatterViewItem>
+                    <Surface:Gravatar Email="cheidt@hsr.ch" PersonName="Christina Heidt" />
+                </s:ScatterViewItem>
+                <s:ScatterViewItem>
+                    <Surface:Gravatar Email="dtreichl@hsr.ch" PersonName="Delia Treichler" />
+                </s:ScatterViewItem>
+                <s:ScatterViewItem>
+                    <Surface:Gravatar Email="lelmer@hsr.ch" PersonName="Lukas Elmer" />
+                </s:ScatterViewItem>
+            </s:ScatterView>
+        </Grid>
     </Grid>
 </s:SurfaceWindow>

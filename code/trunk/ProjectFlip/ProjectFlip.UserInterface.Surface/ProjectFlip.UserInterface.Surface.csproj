@@ -78,6 +78,9 @@
     <Compile Include="FilterView.xaml.cs">
       <DependentUpon>FilterView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Gravatar.xaml.cs">
+      <DependentUpon>Gravatar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="OverviewWindowViewModel.cs" />
     <Compile Include="ScrollToTopBehavior.cs" />
     <Compile Include="ViewModelBase.cs" />
@@ -98,6 +101,10 @@
     <Page Include="FilterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gravatar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="OverviewWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

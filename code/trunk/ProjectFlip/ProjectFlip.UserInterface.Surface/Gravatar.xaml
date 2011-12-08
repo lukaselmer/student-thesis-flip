@@ -1,0 +1,8 @@
+<UserControl x:Class="ProjectFlip.UserInterface.Surface.Gravatar"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StackPanel>
+        <Image Name="GravatarImage" x:FieldModifier="private" Width="150" Height="150"></Image>
+        <Label Name="GravatarName" x:FieldModifier="private"></Label>
+    </StackPanel>
+</UserControl>
