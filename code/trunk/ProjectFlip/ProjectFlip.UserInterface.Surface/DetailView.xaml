@@ -70,14 +70,14 @@
                                 </ed:RegularPolygon.RenderTransform>
                             </ed:RegularPolygon>
                             <ed:RegularPolygon x:Name="regularPolygon_Copy" Fill="Transparent" Height="64.5" InnerRadius="1" Margin="-17.25,0,-32.75,37" PointCount="3" Stretch="Fill" Width="Auto" RenderTransformOrigin="0.5,0.5" StrokeThickness="5" Stroke="Transparent" VerticalAlignment="Bottom">
-                            	<ed:RegularPolygon.RenderTransform>
-                            		<TransformGroup>
-                            			<ScaleTransform/>
-                            			<SkewTransform/>
-                            			<RotateTransform Angle="-90"/>
-                            			<TranslateTransform/>
-                            		</TransformGroup>
-                            	</ed:RegularPolygon.RenderTransform>
+                                <ed:RegularPolygon.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="-90"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </ed:RegularPolygon.RenderTransform>
                             </ed:RegularPolygon>
                         </Grid>
                     </ControlTemplate>
@@ -89,63 +89,63 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type s:SurfaceButton}">
-                    	<Grid Width="80" Height="140" RenderTransformOrigin="0.5,0.5">
-                    		<Grid.RenderTransform>
-                    			<TransformGroup>
-                    				<ScaleTransform ScaleY="1" ScaleX="-1"/>
-                    				<SkewTransform AngleY="0" AngleX="0"/>
-                    				<RotateTransform Angle="0"/>
-                    				<TranslateTransform/>
-                    			</TransformGroup>
-                    		</Grid.RenderTransform>
-                    		<VisualStateManager.VisualStateGroups>
-                    			<VisualStateGroup x:Name="Common">
-                    				<VisualState x:Name="Normal"/>
-                    				<VisualState x:Name="Pressed">
-                    					<Storyboard>
-                    						<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(LinearGradientBrush.StartPoint)" Storyboard.TargetName="regularPolygon">
-                    							<EasingPointKeyFrame KeyTime="0:0:0" Value="0.748,0.488"/>
-                    						</PointAnimationUsingKeyFrames>
-                    						<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(LinearGradientBrush.EndPoint)" Storyboard.TargetName="regularPolygon">
-                    							<EasingPointKeyFrame KeyTime="0:0:0" Value="0.722,0.547"/>
-                    						</PointAnimationUsingKeyFrames>
-                    						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[0].(GradientStop.Offset)" Storyboard.TargetName="regularPolygon">
-                    							<EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
-                    						</DoubleAnimationUsingKeyFrames>
-                    						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[1].(GradientStop.Offset)" Storyboard.TargetName="regularPolygon">
-                    							<EasingDoubleKeyFrame KeyTime="0:0:0" Value="0.591"/>
-                    						</DoubleAnimationUsingKeyFrames>
-                    					</Storyboard>
-                    				</VisualState>
-                    			</VisualStateGroup>
-                    		</VisualStateManager.VisualStateGroups>
-                    		<ed:RegularPolygon x:Name="regularPolygon" Fill="White" Height="50" InnerRadius="1" Margin="-0.25,45,-19.75,45" PointCount="3" Stretch="Fill" Width="100" RenderTransformOrigin="0.5,0.5" StrokeThickness="5">
-                    			<ed:RegularPolygon.Stroke>
-                    				<LinearGradientBrush EndPoint="0.41,0.71" StartPoint="0.166,0.167">
-                    					<GradientStop Color="#FFC7C7C7" Offset="0.491"/>
-                    					<GradientStop Color="White" Offset="0.574"/>
-                    				</LinearGradientBrush>
-                    			</ed:RegularPolygon.Stroke>
-                    			<ed:RegularPolygon.RenderTransform>
-                    				<TransformGroup>
-                    					<ScaleTransform/>
-                    					<SkewTransform/>
-                    					<RotateTransform Angle="-90"/>
-                    					<TranslateTransform/>
-                    				</TransformGroup>
-                    			</ed:RegularPolygon.RenderTransform>
-                    		</ed:RegularPolygon>
-                    		<ed:RegularPolygon x:Name="regularPolygon_Copy" Fill="Transparent" Height="64.5" InnerRadius="1" Margin="-17.25,0,-32.75,37" PointCount="3" Stretch="Fill" Width="Auto" RenderTransformOrigin="0.5,0.5" StrokeThickness="5" Stroke="Transparent" VerticalAlignment="Bottom">
-                    			<ed:RegularPolygon.RenderTransform>
-                    				<TransformGroup>
-                    					<ScaleTransform/>
-                    					<SkewTransform/>
-                    					<RotateTransform Angle="-90"/>
-                    					<TranslateTransform/>
-                    				</TransformGroup>
-                    			</ed:RegularPolygon.RenderTransform>
-                    		</ed:RegularPolygon>
-                    	</Grid>
+                        <Grid Width="80" Height="140" RenderTransformOrigin="0.5,0.5">
+                            <Grid.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                                    <SkewTransform AngleY="0" AngleX="0"/>
+                                    <RotateTransform Angle="0"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Grid.RenderTransform>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="Common">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(LinearGradientBrush.StartPoint)" Storyboard.TargetName="regularPolygon">
+                                                <EasingPointKeyFrame KeyTime="0:0:0" Value="0.748,0.488"/>
+                                            </PointAnimationUsingKeyFrames>
+                                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(LinearGradientBrush.EndPoint)" Storyboard.TargetName="regularPolygon">
+                                                <EasingPointKeyFrame KeyTime="0:0:0" Value="0.722,0.547"/>
+                                            </PointAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[0].(GradientStop.Offset)" Storyboard.TargetName="regularPolygon">
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[1].(GradientStop.Offset)" Storyboard.TargetName="regularPolygon">
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0.591"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ed:RegularPolygon x:Name="regularPolygon" Fill="White" Height="50" InnerRadius="1" Margin="-0.25,45,-19.75,45" PointCount="3" Stretch="Fill" Width="100" RenderTransformOrigin="0.5,0.5" StrokeThickness="5">
+                                <ed:RegularPolygon.Stroke>
+                                    <LinearGradientBrush EndPoint="0.41,0.71" StartPoint="0.166,0.167">
+                                        <GradientStop Color="#FFC7C7C7" Offset="0.491"/>
+                                        <GradientStop Color="White" Offset="0.574"/>
+                                    </LinearGradientBrush>
+                                </ed:RegularPolygon.Stroke>
+                                <ed:RegularPolygon.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="-90"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </ed:RegularPolygon.RenderTransform>
+                            </ed:RegularPolygon>
+                            <ed:RegularPolygon x:Name="regularPolygon_Copy" Fill="Transparent" Height="64.5" InnerRadius="1" Margin="-17.25,0,-32.75,37" PointCount="3" Stretch="Fill" Width="Auto" RenderTransformOrigin="0.5,0.5" StrokeThickness="5" Stroke="Transparent" VerticalAlignment="Bottom">
+                                <ed:RegularPolygon.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="-90"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </ed:RegularPolygon.RenderTransform>
+                            </ed:RegularPolygon>
+                        </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -175,7 +175,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
         <Storyboard x:Key="MoveToNext">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="CurrentDocViewerContainer">
                 <EasingDoubleKeyFrame KeyTime="0" Value="320"/>
@@ -186,7 +186,7 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-        
+
         <Storyboard x:Key="MoveToPrevious">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="CurrentDocViewerContainer">
                 <EasingDoubleKeyFrame KeyTime="0" Value="-319"/>
@@ -196,10 +196,6 @@
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="PreviousDocViewerContainer">
-                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
         </Storyboard>
 
         <Style x:Key="ListBoxStyle" TargetType="{x:Type ListBox}">
@@ -225,8 +221,8 @@
                 </Setter.Value>
             </Setter>
         </Style>
-    </UserControl.Resources> 
-    
+    </UserControl.Resources>
+
     <UserControl.Triggers>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ToNextButton">
             <BeginStoryboard Storyboard="{StaticResource MoveToNext}" />
@@ -310,7 +306,7 @@
         </VisualStateManager.VisualStateGroups>
 
         <s:SurfaceButton Style="{DynamicResource DetailViewBackgroundButtonStyle}" Command="{Binding HideDetailsCommand}" Margin="1" >
-    
+
         </s:SurfaceButton>
 
 
@@ -340,23 +336,9 @@
                 <s:SurfaceListBox Style="{DynamicResource SurfaceListBoxStyle}" ScrollViewer.PanningMode="VerticalOnly"  Margin="10,0,10,0" VerticalAlignment="Center" Grid.Row="1" ItemsSource="{Binding CurrentProjectNote.Metadata}" ItemTemplate="{DynamicResource MetadataListTemplate}" ItemsPanel="{DynamicResource MetadataListBoxTemplate}" />
             </Grid>
 
-            <Border Grid.Column="2" Background="White" Name="NextDocViewerContainer" RenderTransformOrigin="0.5,0.5">
-                <Border.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Border.RenderTransform>
-                <DocumentViewer Name="NextDocViewer" IsManipulationEnabled="True" Document="{Binding NextProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}" />
-            </Border>
+            <Border Grid.Column="2" Background="White"/>
 
-            <Border Grid.Column="2" Background="White" Name="PreviousDocViewerContainer">
-                <DocumentViewer Name="PreviousDocViewer" IsManipulationEnabled="True" Document="{Binding PreviousProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}" />
-            </Border>
-
-            <Border Grid.Column="2" Background="White" Name="CurrentDocViewerContainer" RenderTransformOrigin="0.5,0.5" SizeChanged="CurrentDocViewerContainer_SizeChanged">
+            <Border Grid.Column="2" Background="White" Name="CurrentDocViewerContainer" RenderTransformOrigin="0.5,0.5" SizeChanged="CurrentDocViewerContainerSizeChanged">
                 <Border.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -366,35 +348,11 @@
                     </TransformGroup>
                 </Border.RenderTransform>
 
-                <!--                <DocumentViewer Name="docViewer" IsManipulationEnabled="True" Document="{Binding CurrentProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}" RenderTransformOrigin="0.5,0.5">-->
-                <!--                	-->
-                <!--                    <i:Interaction.Triggers>-->
-                <!--                        <i:EventTrigger EventName="PreviewTouchUp" >-->
-                <!--                            <ei:CallMethodAction TargetObject="{Binding}" MethodName="OnTouchUp"/>-->
-                <!--                        </i:EventTrigger>-->
-                <!--                        <i:EventTrigger EventName="PreviewDragOver" >-->
-                <!--                            <ei:CallMethodAction TargetObject="{Binding}" MethodName="OnTouchDown"/>-->
-                <!--                        </i:EventTrigger>-->
-                <!--                    </i:Interaction.Triggers>-->
-                <!--                </DocumentViewer>-->
-
-                <!-- //ClipToBounds="True" -->
                 <DocumentViewer IsManipulationEnabled="True" Name="docViewer" ScrollViewer.CanContentScroll="True"
                                 Document="{Binding CurrentProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}">
-                    <!--Zoom="87" <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="TouchUp">
-                            <ei:CallMethodAction MethodName="OnTouchUp"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>-->
-                    <!--<i:Interaction.Behaviors>
-                        <ei:TranslateZoomRotateBehavior SupportedGestures="Scale,TranslateY" MaximumScale="1.3" MinimumScale="1" TranslateFriction="0.3" ConstrainToParentBounds="True" />
-                    </i:Interaction.Behaviors>-->
                 </DocumentViewer>
             </Border>
 
-            <!--<s:SurfaceButton Grid.Column="2" CommandParameter="{Binding ElementName= docViewer}" Command="{Binding ToggleReadModeCommand}"
-                             Content="" Background="Transparent" Style="{x:Null}"/>-->
-            
             <s:SurfaceButton HorizontalAlignment="Left" Style="{DynamicResource NavigateToRightButtonStyle}" VerticalAlignment="Center" Grid.Column="3" x:Name="ToNextButton" Margin="0" Command="{Binding NavigateToRightCommand}" />
 
         </Grid>

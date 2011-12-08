@@ -1,9 +1,9 @@
 ﻿#region
 
-using System;
-using System.Windows.Controls;
+using System.Windows;
 
 #endregion
+
 
 namespace ProjectFlip.UserInterface.Surface
 {
@@ -17,11 +17,9 @@ namespace ProjectFlip.UserInterface.Surface
             InitializeComponent();
         }
 
-        private void CurrentDocViewerContainer_SizeChanged(object sender, System.Windows.SizeChangedEventArgs e)
+        private void CurrentDocViewerContainerSizeChanged(object sender, SizeChangedEventArgs e)
         {
             docViewer.FitToWidth();
-            PreviousDocViewer.Width = docViewer.Width;
-            NextDocViewer.Width = docViewer.Width;
         }
     }
 
