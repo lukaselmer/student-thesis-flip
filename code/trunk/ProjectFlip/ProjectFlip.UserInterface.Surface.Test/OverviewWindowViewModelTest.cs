@@ -5,6 +5,8 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProjectFlip.Services.Interfaces;
 using ProjectFlip.Test.Mock;
+using ProjectFlip.UserInterface.Surface;
+using System;
 
 #endregion
 
@@ -223,6 +225,30 @@ namespace ProjectFlip.UserInterface.Surface.Test
             var c = target.Maincriteria.Cast<IMetadataType>().ElementAt(0);
             target.OnCurrentMainCriteriaChanged(c);
             Assert.AreEqual(target.Subcriteria.Cast<IMetadata>().ElementAt(0).Description, metadataSector.Description);
+        }
+
+        /// <summary>
+        ///A test for OverviewWindowViewModel Constructor
+        ///</summary>
+        [TestMethod, DeploymentItem("ProjectFlip.UserInterface.Surface.dll")]
+        public void OverviewWindowViewModelConstructorTest()
+        {
+            var projectNotesService = new ProjectNotesServiceMock(5);
+            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            Assert.AreEqual(false, target.ReadModeActive);
+            Assert.AreEqual(target._normalModeWidth, target.DocumentViewerWidth);
+            Assert.AreEqual(false, target.ZoomOutCommand.CanExecute(null));
+            Assert.AreEqual(true, target.ZoomInCommand.CanExecute(null));
+            target.ZoomInCommand.Execute(null);
+            Assert.AreEqual(true, target.ReadModeActive);
+            Assert.AreEqual(target._readModeWidth, target.DocumentViewerWidth);
+            Assert.AreEqual(false, target.ZoomInCommand.CanExecute(null));
+            Assert.AreEqual(true, target.ZoomOutCommand.CanExecute(null));
+            target.ZoomOutCommand.Execute(null);
+            Assert.AreEqual(false, target.ReadModeActive);
+            Assert.AreEqual(target._normalModeWidth, target.DocumentViewerWidth);
+            Assert.AreEqual(true, target.ZoomInCommand.CanExecute(null));
+            Assert.AreEqual(false, target.ZoomOutCommand.CanExecute(null));
         }
     }
 }

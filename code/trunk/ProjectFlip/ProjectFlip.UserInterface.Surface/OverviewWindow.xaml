@@ -81,12 +81,12 @@
                             
                             <Grid>
                                 <Grid Margin="20 80" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top">
-                                    <s:SurfaceButton Background="Transparent" Padding="0" Margin="0" Command="{Binding ZoomOutCommand}" Style="{DynamicResource TransparentBackgroundButton}">
+                                    <s:SurfaceButton Background="Transparent" Padding="0" Margin="0" Command="{Binding ZoomInCommand}" Style="{DynamicResource TransparentBackgroundButton}">
                                         <Surface:ZoomInIcon></Surface:ZoomInIcon>
                                     </s:SurfaceButton>
                                 </Grid>
                                 <Grid Margin="20 140" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top">
-                                    <s:SurfaceButton Background="Transparent" Padding="0" Margin="0" Command="{Binding ZoomInCommand}" Style="{DynamicResource TransparentBackgroundButton}">
+                                    <s:SurfaceButton Background="Transparent" Padding="0" Margin="0" Command="{Binding ZoomOutCommand}" Style="{DynamicResource TransparentBackgroundButton}">
                                         <Surface:ZoomOutIcon></Surface:ZoomOutIcon>
                                     </s:SurfaceButton>
                                 </Grid>
