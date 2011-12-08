@@ -1,0 +1,615 @@
+Kategorie	Mapping nach	Mapping von 1	Mapping von 2	Mapping von 3	usw. ...
+Anwendung	Agile Methoden	Agile Methoden	Extreme Programming
+Technologie	zentrale Datenverwaltung		zentrale Datenverwaltung
+Anwendung	Automation Systems	Automation Systems
+Anwendung	Bahntechnik	Bahntechnik
+Anwendung	Client Infrastructure	Client Infrastructure
+Anwendung	Control Systems	Control Systems
+Anwendung	E-Commerce	E-Commerce
+Anwendung	Electronic Payments	Electronic Payments
+Anwendung	Embedded Systems	Embedded Systems
+Anwendung	Enterprise Resource Planning	Enterprise Resource Planning
+Anwendung	Information Management	Information Management
+Anwendung	Information Systems	Information Systems
+Anwendung	Innovation Management	Innovation Management
+Anwendung	Laboratory software	Laboratory software
+Anwendung	Machine Control Systems	Machine Control Systems
+Anwendung	Measuring Systems	Measuring Systems
+Anwendung	Migration	Migration
+Anwendung	Mobile Computing	Mobile Computing
+Anwendung	Noch nicht definiert	Noch nicht definiert
+Anwendung	PDM / PLM	PDM / PLM
+Anwendung	Product Testing	Product Testing
+Anwendung	Rich Client Application	Rich Client Application
+Anwendung	Rich Internet Applications	Rich Internet Applications
+Anwendung	Sensors/Signal Processing	Sensors/Signal Processing
+Fokus	Management Consulting	Management Consulting
+Fokus	Product Innovation	Product Innovation
+Fokus	Software Solutions	Software Solutions
+Kunde	?	?
+Kunde	@Rating	@Rating
+Kunde	Aareal	Aareal
+Kunde	ABB	ABB
+Kunde	Abraxas	Abraxas
+Kunde	Acutronic	Acutronic
+Kunde	affilinet	affilinet
+Kunde	AfU	AfU
+Kunde	Agfa	Agfa
+Kunde	Alphasem	Alphasem
+Kunde	Alstom	Alstom
+Kunde	Ammann	Ammann
+Kunde	Apag	Apag
+Kunde	Ascom	Ascom
+Kunde	Ascom/Neopost	Ascom/Neopost
+Kunde	ASTRA	ASTRA
+Kunde	atraxis	atraxis
+Kunde	Avaloq	Avaloq
+Kunde	AxAir	AxAir
+Kunde	Axpo	Axpo
+Kunde	B. Braun	B. Braun
+Kunde	Basler Versicherungen	Basler Versicherungen
+Kunde	BBT/RVK	BBT/RVK
+Kunde	Belimo	Belimo
+Kunde	Berchtold	Berchtold
+Kunde	Bernina	Bernina
+Kunde	Betty Bossi	Betty Bossi
+Kunde	Bibliotheca	Bibliotheca
+Kunde	Bionas	Bionas
+Kunde	BKW FMB Energie AG	BKW FMB Energie AG
+Kunde	Bluewin	Bluewin
+Kunde	Bosch	Bosch
+Kunde	Braun	Braun
+Kunde	Brita	Brita
+Kunde	British Airways	British Airways
+Kunde	bsquare	bsquare
+Kunde	Bucher	Bucher
+Kunde	BVK	BVK
+Kunde	Bystronic	Bystronic
+Kunde	Chemspeed	Chemspeed
+Kunde	Clariant	Clariant
+Kunde	Cochlear Acoustics	Cochlear Acoustics
+Kunde	Comsys	Comsys
+Kunde	Corris Fundraising	Corris Fundraising
+Kunde	CS	CS
+Kunde	CSFS	CSFS
+Kunde	CSS	CSS
+Kunde	Dacuda	Dacuda
+Kunde	Daetwyler	Daetwyler
+Kunde	Darby Group	Darby Group
+Kunde	Datacon	Datacon
+Kunde	De Sede	De Sede
+Kunde	Delta Energy Systems	Delta Energy Systems
+Kunde	DG Bank	DG Bank
+Kunde	Diebold	Diebold
+Kunde	Dornier	Dornier
+Kunde	Dreyfus	Dreyfus
+Kunde	DSwiss	DSwiss
+Kunde	Duagon	Duagon
+Kunde	DVAG	DVAG
+Kunde	DZ Bank	DZ Bank
+Kunde	Egro	Egro
+Kunde	EJPD	EJPD
+Kunde	Encontrol	Encontrol
+Kunde	Enermet	Enermet
+Kunde	ep2	ep2
+Kunde	Erdgas Zürich	Erdgas Zürich
+Kunde	ESEC	ESEC
+Kunde	ETH	ETH
+Kunde	etrans	etrans
+Kunde	Europay	Europay
+Kunde	FIFA	FIFA
+Kunde	Finanzdepartement Basel	Finanzdepartement Basel
+Kunde	Five Informatik	Five Informatik
+Kunde	GE Money Bank	GE Money Bank
+Kunde	Geberit	Geberit
+Kunde	Geneva Logistics Group	Geneva Logistics Group
+Kunde	Georg Fischer Piping Systems	Georg Fischer Piping Systems
+Kunde	GETEC	GETEC
+Kunde	Giesecke & Devrient	Giesecke & Devrient
+Kunde	Gretag	Gretag
+Kunde	Grundig	Grundig
+Kunde	Hamilton	Hamilton
+Kunde	Häni-Prolectron AG	Häni-Prolectron AG
+Kunde	Hapimag	Hapimag
+Kunde	Haufe-Lexware	Haufe-Lexware
+Kunde	Hekatron	Hekatron
+Kunde	Heptagon	Heptagon
+Kunde	Hochbaudepartement Stadt Zürich	Hochbaudepartement Stadt Zürich
+Kunde	Homag Holzbearbeitungssysteme	Homag Holzbearbeitungssysteme
+Kunde	Hunkeler	Hunkeler
+Kunde	HYPO Capital Management AG	HYPO Capital Management AG
+Kunde	HypoVereinsbank	HypoVereinsbank
+Kunde	IBS	IBS
+Kunde	Imaging Solutions	Imaging Solutions
+Kunde	in-Luft	in-Luft
+Kunde	Inficon	Inficon
+Kunde	inNet	inNet
+Kunde	Innovation Group	Innovation Group
+Kunde	Intamin	Intamin
+Kunde	internal project	internal project
+Kunde	Ismatec	Ismatec
+Kunde	Ista	Ista
+Kunde	Ivoclar	Ivoclar
+Kunde	IWB	IWB
+Kunde	Jakob Müller	Jakob Müller
+Kunde	Jaquet	Jaquet
+Kunde	Kardex	Kardex
+Kunde	Kern	Kern
+Kunde	Komax	Komax
+Kunde	Kuhn Rikon	Kuhn Rikon
+Kunde	Kuoni	Kuoni
+Kunde	Leica Microsystems	Leica Microsystems
+Kunde	Lenze	Lenze
+Kunde	LGT / Informationobjects	LGT / Informationobjects
+Kunde	Liebherr	Liebherr
+Kunde	Louis Lang	Louis Lang
+Kunde	M & G	M & G
+Kunde	Marquardt	Marquardt
+Kunde	maxonmotor	maxonmotor
+Kunde	Medela	Medela
+Kunde	Metrohm	Metrohm
+Kunde	mivune	mivune
+Kunde	Nespresso	Nespresso
+Kunde	Netstal	Netstal
+Kunde	NeuroPie	NeuroPie
+Kunde	neutral	neutral
+Kunde	Novartis	Novartis
+Kunde	NZZ	NZZ
+Kunde	Oertli	Oertli
+Kunde	Optrel	Optrel
+Kunde	Orange	Orange
+Kunde	PAckSys Global	PAckSys Global
+Kunde	Pantec Biosolutions AG	Pantec Biosolutions AG
+Kunde	PEKA	PEKA
+Kunde	Pendragon	Pendragon
+Kunde	Philips	Philips
+Kunde	Phonak	Phonak
+Kunde	PlanetHome	PlanetHome
+Kunde	Post	Post
+Kunde	Postfinance	Postfinance
+Kunde	Postlogistics	Postlogistics
+Kunde	Prionics	Prionics
+Kunde	Provinzial (WPV)	Provinzial (WPV)
+Kunde	PSI	PSI
+Kunde	Raiffeisen	Raiffeisen
+Kunde	Reiner SCT	Reiner SCT
+Kunde	RhB	RhB
+Kunde	Roche Diagnostics	Roche Diagnostics
+Kunde	RUAG	RUAG
+Kunde	Sagem Orga	Sagem Orga
+Kunde	Sauter	Sauter
+Kunde	SBB	SBB
+Kunde	SBB/ÖBB	SBB/ÖBB
+Kunde	Schindler	Schindler
+Kunde	Schneider Electric	Schneider Electric
+Kunde	Schweizer Zoll	Schweizer Zoll
+Kunde	SCM	SCM
+Kunde	SE	SE
+Kunde	Securiton	Securiton
+Kunde	Sensile	Sensile
+Kunde	Shell	Shell
+Kunde	SHKB	SHKB
+Kunde	SIC/SAIT	SIC/SAIT
+Kunde	SIE	SIE
+Kunde	Siemens	Siemens
+Kunde	Siemens VDO	Siemens VDO
+Kunde	Siemens VDO/ Continental	Siemens VDO/ Continental
+Kunde	SIS	SIS
+Kunde	SIX	SIX
+Kunde	Skandia	Skandia
+Kunde	Skyguide	Skyguide
+Kunde	SpinX-Technologies	SpinX-Technologies
+Kunde	Stadt Zürich (OIZ)	Stadt Zürich (OIZ)
+Kunde	suva	suva
+Kunde	Swissair Group	Swissair Group
+Kunde	Swisscard AECS	Swisscard AECS
+Kunde	Swisscom	Swisscom
+Kunde	SwissLife	SwissLife
+Kunde	Swissport	Swissport
+Kunde	Syngenta	Syngenta
+Kunde	Tecan	Tecan
+Kunde	Telekurs	Telekurs
+Kunde	Thermoplan	Thermoplan
+Kunde	Thyssen	Thyssen
+Kunde	Tornos	Tornos
+Kunde	UBS	UBS
+Kunde	UCL	UCL
+Kunde	Unaxis	Unaxis
+Kunde	Uni Zürich	Uni Zürich
+Kunde	Unique	Unique
+Kunde	Unitek	Unitek
+Kunde	Varian	Varian
+Kunde	VBZ	VBZ
+Kunde	Vectronix	Vectronix
+Kunde	Viessman	Viessman
+Kunde	Vitrashop	Vitrashop
+Kunde	Vodafone	Vodafone
+Kunde	VR AG	VR AG
+Kunde	Weidmann	Weidmann
+Kunde	Winterthur	Winterthur
+Kunde	Wyler	Wyler
+Kunde	Zehnder	Zehnder
+Kunde	Zeptosens	Zeptosens
+Kunde	ZHT Treuhand	ZHT Treuhand
+Kunde	ZKB	ZKB
+Kunde	Zürich Financial Services	Zürich Financial Services
+Kunde	Zürich Versicherung	Zürich Versicherung
+Kunde	ZVV & VBZ	ZVV & VBZ
+Sektor	Automotive	Automotive
+Sektor	Banking & Financial Services	Banking & Financial Services	Banking & Financial services
+Sektor	Devices & Apparatus	Devices & Apparatus
+Sektor	Energie und Wasser	Energy & Water
+Sektor	Versicherungen	Insurance
+Sektor	Machinery & Plants	Machinery & Plants
+Sektor	Measuring	Measuring
+Sektor	Medical & Laboratory Devices	Medical & Laboratory Devices
+Sektor	Others	Others
+Sektor	Pharma & Biotech	Pharma & Biotech
+Sektor	Public Sector	Public Sector
+Sektor	Steering & Control	Steering & Control
+Sektor	SW Products & Services	SW Products & Services
+Sektor	Telecommunications	Telecommunications
+Sektor	Trade & Wholesale Trade	Trade & Wholesale Trade
+Sektor	Transportation & Logistics	Transportation & Logistics
+Services	Bespoke Solutions	Bespoke Solutions
+Services	Building Prototypes	Building Prototypes
+Services	Business Modelling	Business Modelling
+Services	Business Opportunities	Business Opportunities
+Services	Business Process Management	Business Process Management
+Services	Change Management	Change Management
+Services	Consulting	Consulting	Technology Consulting	Technology Consultation
+Services	Design Methods	Design Methods
+Services	Development	Development	Development support	Software Development Process	Product development	Product Development Process	Organisation development
+Services	Energy Efficiency & EcoDesign	Energy Efficiency & EcoDesign
+Services	Innovation technology	Innovation technology
+Services	Integration	Integration	Integration Solutions
+Services	IT Strategy & Enterprise Architecture	IT Strategy & Enterprise Architecture
+Services	Methodology	Methodology
+Services	Platform & Module strategies	Platform & Module strategies
+Services	Product innovation	Product innovation
+Services	Production cost reduction	Production cost reduction
+Services	Project management	Project management
+Services	Quality assurance	Quality assurance
+Services	Requirements Engineering	Requirements Engineering
+Services	Security	Security
+Services	Service-oriented Architectures	Service-oriented Architectures
+Services	Simulation & Calculation	Simulation & Calculation
+Services	Software solutions	Software solutions
+Services	Team Training	Team Training
+Services	Technology Expertise	Technology Expertise
+Services	Testing	Testing	Software-Testing	Test Engineering
+Services	Usability	Usability
+Services	ZAAF	ZAAF
+Services	ZAFIR	ZAFIR
+Technologie	.NET	.NET	.NET Coaching	.NET Framework	NET	B2B mit .NET	Visual Studio .NET	vb.net	MS .NET Framework	VB.NET
+Technologie	ABC Analyse	ABC Analyse	ABC-Analyse
+Technologie	ActiveState Perl	ActiveState Perl
+Technologie	ActiveX	ActiveX
+Technologie	ADO.NET	ADO.NET	ADO
+Technologie	Adobe Flex	Adobe Flex
+Technologie	Agile Methods	Agile Methods
+Technologie	Agilo	Agilo
+Technologie	Ajax	Ajax	AJAX
+Technologie	Alpha OpenVMS	Alpha OpenVMS
+Technologie	Altera	Altera	Alterra FPGA
+Technologie	Altium	Altium	Altium Designer
+Technologie	Anbindung Vodafone Life (Chat Plattform)	Anbindung Vodafone Life (Chat Plattform)
+Technologie	AndroMDA	AndroMDA
+Technologie	ANSYS	ANSYS
+Technologie	Antriebstechnik	Antriebstechnik
+Technologie	Apache	Apache	Apache Axis	Apache Axis 2	Apache ServiceMix	Apache tomcat
+Technologie	Architektur	Architektur
+Technologie	ARM9	ARM9
+Technologie	Artisan	Artisan
+Technologie	ASP	ASP	ASP .NET
+Technologie	AUS	AUS
+Technologie	Axapta	Axapta
+Technologie	Barcode4J	Barcode4J
+Technologie	BEA	BEA	BEAWebLogic
+Technologie	Benutzerorientiertes Design	Benutzerorientiertes Design
+Technologie	Beratung Managementsystem	Beratung Managementsystem
+Technologie	BizTalk	BizTalk
+Technologie	BlazeDS	BlazeDS
+Technologie	Bluetooth	Bluetooth
+Technologie	BPMN	BPMN
+Technologie	Broadband Delphi	Broadband Delphi
+Technologie	Business Case	Business Case
+Technologie	Business Modeling	Business Modeling
+Technologie	C#	C#
+Technologie	C++	C++	Boost	boost	cppunit	Crypto++	Rhapsody in C++
+Technologie	CAD - ProE	CAD - ProE
+Technologie	CAN Bus	CAN Bus
+Technologie	CAN Interface	CAN Interface
+Technologie	Case Tools	Case Tools
+Technologie	Cash-Terminal	Cash-Terminal
+Technologie	CMM Level 3	CMM Level 3
+Technologie	Coaching	Coaching
+Technologie	Codesoft	Codesoft
+Technologie	CodeWright	CodeWright
+Technologie	COHERENCE	COHERENCE
+Technologie	COM/DNA	COM/DNA
+Technologie	Commerce Server	Commerce Server
+Technologie	CompactRio	CompactRio
+Technologie	CORBA	CORBA
+Technologie	CRM-System	CRM-System
+Technologie	Crossover-Engineering	Crossover-Engineering
+Technologie	CruiseControl	CruiseControl
+Technologie	CRYSTAL	CRYSTAL
+Technologie	Crystal Reports	Crystal Reports
+Technologie	Data Junction	Data Junction
+Technologie	DataMan	DataMan
+Technologie	DB2	DB2
+Technologie	DBUnit	DBUnit
+Technologie	Derby	Derby
+Technologie	DevExpress Layout Control	DevExpress Layout Control
+Technologie	Digital Engineering	Digital Engineering
+Technologie	Dimensionierungswerkzeug	Dimensionierungswerkzeug
+Technologie	DirectX	DirectX
+Technologie	DIS	DIS
+Technologie	DSP	DSP
+Technologie	e-Tender	e-Tender
+Technologie	EAI	EAI
+Technologie	EasyRide	EasyRide
+Technologie	Eclipse	Eclipse	Eclipse CDT
+Technologie	Embedded	Embedded	embedded Linux für Videokonferenzen	Mobile Lösungen
+Technologie	EMV	EMV
+Technologie	Energy Efficiency	Energy Efficiency
+Technologie	Enterprise Application	Enterprise Application
+Technologie	Enterprise Architect	Enterprise Architect
+Technologie	Enterprise Modeling	Enterprise Modeling
+Technologie	EntityBeans	EntityBeans	EJB
+Technologie	Entw. Bedien- und Steuerungssoftware	Entw. Bedien- und Steuerungssoftware
+Technologie	Entwicklung Gateway	Entwicklung Gateway
+Technologie	Entwicklungsprozess RUP	Entwicklungsprozess RUP
+Technologie	Erfassung der Fahrdaten der Passagiere	Erfassung der Fahrdaten der Passagiere
+Technologie	erste ortsungebundene Dosierung auf dem Markt	erste ortsungebundene Dosierung auf dem Markt
+Technologie	Ethereal	Ethereal
+Technologie	Expression Blend	Expression Blend
+Technologie	Extrem Optimizations	Extrem Optimizations
+Technologie	Facelets	Facelets
+Technologie	FDA	FDA
+Technologie	Fehlerbehebung	Fehlerbehebung
+Technologie	Feinmechanik	Feinmechanik
+Technologie	FEM Analyse	FEM Analyse
+Technologie	FieldLink Prototype	FieldLink Prototype
+Technologie	FireWire	FireWire
+Technologie	Fit	Fit
+Technologie	Fixpoint Blockset	Fixpoint Blockset
+Technologie	Fixpreis	Fixpreis
+Technologie	Flow Simulation (Solid Works)	Flow Simulation (Solid Works)
+Technologie	FMEA	FMEA
+Technologie	FPGA	FPGA
+Technologie	FRED	FRED
+Technologie	Front-/Backoffice-Systeme	Front-/Backoffice-Systeme
+Technologie	Functional Specs	Functional Specs
+Technologie	Funktionskostenanalyse	Funktionskostenanalyse
+Technologie	Gigasoft ProEssentials	Gigasoft ProEssentials
+Technologie	Goldfire	Goldfire
+Technologie	GOOP	GOOP
+Technologie	GU-Auftrag A-Z	GU-Auftrag A-Z
+Technologie	GxP	GxP
+Technologie	HDL-Designer	HDL-Designer
+Technologie	HTML	HTML
+Technologie	IAR Embedded Workbench	IAR Embedded Workbench
+Technologie	IBM Websphere	IBM Websphere	IBM WebSphere MQ	IBM Websphere MQ
+Technologie	IIS	IIS
+Technologie	Infragistics	Infragistics
+Technologie	Innovations- und Technologiemanagement	Innovations- und Technologiemanagement
+Technologie	Integration Acquirer System in die ep2 Umgebung	Integration Acquirer System in die ep2 Umgebung
+Technologie	internes Camp	internes Camp	internes Camp LabView
+Technologie	Internetapplikation für Management-Kennzahlen	Internetapplikation für Management-Kennzahlen
+Technologie	IONA Artix	IONA Artix
+Technologie	iText	iText
+Technologie	ITIL	ITIL
+Technologie	Ivy	Ivy
+Technologie	Java	Java	Java EE	Java Enterprise Edition	Java SE	Java Standard Edition	Java Servlet	Java-Servlets	Java Swing	Ant	Hibernate	GWT	Tomcat	Tamcat	JUnit	JUnitEE	JSF	JSP	JBoss	JBos	JBuilder	JDBC	Lgo4J	Log4J	Struts	Spring	J2EE	J2SE
+Technologie	Java Script	Java Script
+Technologie	JAX-WS	JAX-WS
+Technologie	JAXB	JAXB
+Technologie	Jenkins	Jenkins	Hudson
+Technologie	JGroups	JGroups
+Technologie	JMS	JMS
+Technologie	Jython/Python	Jython/Python	Jyton
+Technologie	KDevelop	KDevelop
+Technologie	Konzept	Konzept
+Technologie	Konzeptstudie	Konzeptstudie
+Technologie	Koogra	Koogra
+Technologie	Kostenreduktion	Kostenreduktion
+Technologie	Laborautomation	Laborautomation
+Technologie	LabVIEW	LabVIEW	LabVIEW FPGA
+Technologie	LDAP	LDAP
+Technologie	LINT	LINT
+Technologie	Lint	Lint
+Technologie	Linux	Linux
+Technologie	Log4Net	Log4Net
+Technologie	Macrovision InstallShield	Macrovision InstallShield
+Technologie	MaCs	MaCs
+Technologie	Magicdraw UML	Magicdraw UML	Magic Draw	MagicDraw
+Technologie	Mantis	Mantis
+Technologie	Mathcad	Mathcad	MathCAC	MathCad
+Technologie	Matlab	Matlab
+Technologie	Maven	Maven
+Technologie	MAX+	MAX+
+Technologie	Microprocessors	Microprocessors	Microprocessors/FPGA
+Technologie	Mikrotechnik	Mikrotechnik
+Technologie	Model-Based Design	Model-Based Design
+Technologie	Modellierung: Artisan	Modellierung: Artisan
+Technologie	ModelSim	ModelSim
+Technologie	Moldflow Plastic Advisor	Moldflow Plastic Advisor
+Technologie	MQ	MQ
+Technologie	MS Access	MS Access
+Technologie	MS Excel	MS Excel
+Technologie	MS Project	MS Project
+Technologie	MS SourceSafe	MS SourceSafe
+Technologie	MS SQL	MS SQL
+Technologie	MS Team System	MS Team System
+Technologie	MS Visual Source Safe	MS Visual Source Safe
+Technologie	MS Word	MS Word
+Technologie	MSYS/PEP	MSYS/PEP
+Technologie	MTM-Prokon	MTM-Prokon
+Technologie	MTM-UAS	MTM-UAS
+Technologie	MySQL	MySQL
+Technologie	Nachweis von Antikörper	Nachweis von Antikörper
+Technologie	nAnt	nAnt
+Technologie	nDoc	nDoc
+Technologie	NetAdvant	NetAdvant
+Technologie	neutrale Expertise	neutrale Expertise
+Technologie	Nexus	Nexus
+Technologie	nUnit	nUnit
+Technologie	OE	OE
+Technologie	OLE	OLE
+Technologie	OO	OO
+Technologie	openArchitectureWare	openArchitectureWare
+Technologie	OptiCad	OptiCad
+Technologie	Optics	Optics
+Technologie	Optimierung ERP	Optimierung ERP	optimierung ERP	Optimierung Organisation
+Technologie	Oracle	Oracle
+Technologie	Orcad	Orcad	OrCad
+Technologie	Organisationsentw.	Organisationsentw.
+Technologie	Palm OS	Palm OS
+Technologie	Patent Werkzeug-wechsel und 4-Nadelkopf	Patent Werkzeug-wechsel und 4-Nadelkopf
+Technologie	Patterns	Patterns
+Technologie	PCI-Express	PCI-Express
+Technologie	PDM/PLM-System	PDM/PLM-System
+Technologie	PEP	PEP
+Technologie	Perforce	Perforce
+Technologie	Perl	Perl
+Technologie	PHP	PHP
+Technologie	PKI	PKI
+Technologie	Plastics Technology	Plastics Technology
+Technologie	PorE	PorE
+Technologie	Postgres	Postgres
+Technologie	Präzisionspositionierung	Präzisionspositionierung
+Technologie	Pre Engineered Modules	Pre Engineered Modules
+Technologie	Pro/Mechanica (FEM)	Pro/Mechanica (FEM)
+Technologie	Problemanalyse	Problemanalyse
+Technologie	Produktion	Produktion	Produktion IT
+Technologie	Produktplattform	Produktplattform
+Technologie	ProEngineer	ProEngineer	PROEngineer	ProEngineer WF4	Pro Engineer	Pro/E
+Technologie	Projekt- und Prozessmanagement Coaching	Projekt- und Prozessmanagement Coaching
+Technologie	Projektleitung Informatik	Projektleitung Informatik
+Technologie	Projektmanagement	Projektmanagement
+Technologie	Prozessmanagement	Prozessmanagement
+Technologie	Purify	Purify
+Technologie	Python	Python	python	Python und Boost
+Technologie	QF-Test	QF-Test
+Technologie	QMBridge	QMBridge
+Technologie	Quartus	Quartus
+Technologie	Quartz	Quartz
+Technologie	Quast	Quast
+Technologie	Rational ClearCase	Rational ClearCase
+Technologie	Rational ClearQuest	Rational ClearQuest	RationalClearQuest
+Technologie	Rational Method Composer (RMC)	Rational Method Composer (RMC)
+Technologie	Rational Robot	Rational Robot
+Technologie	Rational Rose	Rational Rose
+Technologie	Rational Software Architect	Rational Software Architect
+Technologie	Rational Test Manager	Rational Test Manager
+Technologie	RCS	RCS
+Technologie	Real-Time and Embedded Software	Real-Time and Embedded Software
+Technologie	Realisierung	Realisierung
+Technologie	Realtime Workshop	Realtime Workshop
+Technologie	Reengineering Steuerungssoftware	Reengineering Steuerungssoftware
+Technologie	Requisite Pro	Requisite Pro	RequisitePro
+Technologie	Retrospectives	Retrospectives
+Technologie	Review	Review
+Technologie	RFID	RFID
+Technologie	Rhapsody	Rhapsody
+Technologie	Risikominimierung	Risikominimierung
+Technologie	Risk Management Change Management	Risk Management Change Management
+Technologie	Robot	Robot
+Technologie	RogueWave	RogueWave
+Technologie	RTOS	RTOS
+Technologie	Ruby on Rails	Ruby on Rails	Ruby
+Technologie	RUP	RUP
+Technologie	SAP	SAP
+Technologie	Schulung	Schulung
+Technologie	Sciopta RIOS	Sciopta RIOS
+Technologie	SCONS	SCONS
+Technologie	Scrum	Scrum
+Technologie	SEI/CMM	SEI/CMM
+Technologie	Select	Select
+Technologie	Sensorik	Sensorik
+Technologie	Server	Server
+Technologie	SessionBeans	SessionBeans
+Technologie	SGI	SGI
+Technologie	Sicherstellung Realisierung der Anwendung	Sicherstellung Realisierung der Anwendung
+Technologie	Silverlight	Silverlight
+Technologie	Simulink	Simulink
+Technologie	Smart Clients	Smart Clients
+Technologie	Smoke Test	Smoke Test	Smoketest
+Technologie	Sniff	Sniff
+Technologie	SOAP	SOAP
+Technologie	SoapUI	SoapUI
+Technologie	Software Ergonomie	Software Ergonomie
+Technologie	Solaris	Solaris
+Technologie	SolidWorks	SolidWorks	Solid Works
+Technologie	Sotograph	Sotograph
+Technologie	SourceGear Vault	SourceGear Vault
+Technologie	Spezifikation der neuen Bancomat Generation	Spezifikation der neuen Bancomat Generation
+Technologie	Spezifikation der neuen Postomat Generation	Spezifikation der neuen Postomat Generation
+Technologie	SPR Knowledge Base	SPR Knowledge Base
+Technologie	Spritzguss	Spritzguss
+Technologie	SQL-Server	SQL-Server	SQL Server Intergration Services
+Technologie	SSOSicherheitsarchitektur	SSOSicherheitsarchitektur
+Technologie	Stateflow	Stateflow
+Technologie	Stellantrieb	Stellantrieb
+Technologie	Strategie	Strategie
+Technologie	STREAM	STREAM
+Technologie	Studie Connectivity	Studie Connectivity
+Technologie	Subversion	Subversion
+Technologie	Sun Solaris	Sun Solaris
+Technologie	SW Analyse Tools	SW Analyse Tools
+Technologie	SW-Architektur	SW-Architektur
+Technologie	SW-Expertise	SW-Expertise
+Technologie	Syncfusion	Syncfusion
+Technologie	Systems Engineering	Systems Engineering
+Technologie	Team Enabling	Team Enabling
+Technologie	Team Foundation Server	Team Foundation Server	Team Foundation Server Infragistics
+Technologie	Technology Evaluation	Technology Evaluation
+Technologie	TFS	TFS
+Technologie	ThreadX	ThreadX
+Technologie	TIBCO	TIBCO	TIBCO RV
+Technologie	TimeWinner	TimeWinner
+Technologie	Together	Together
+Technologie	TogetherCC	TogetherCC
+Technologie	TogetherJ	TogetherJ
+Technologie	Trac	Trac	trac
+Technologie	Train/EAI	Train/EAI
+Technologie	Treo 600	Treo 600
+Technologie	Tuxedo	Tuxedo
+Technologie	UBS MAP	UBS MAP
+Technologie	UML	UML
+Technologie	Usability Engineering	Usability Engineering
+Technologie	V-Modell	V-Modell
+Technologie	VBA	VBA
+Technologie	VDI Wärmeatlas	VDI Wärmeatlas
+Technologie	VHDL	VHDL
+Technologie	Virtualisierung	Virtualisierung
+Technologie	VisiBroker	VisiBroker
+Technologie	Visual Studio	Visual Studio	Visual SourceSafe	Visual Source Safe	Visual Studio Team System	VisualStudio.	MS Visual Studio
+Technologie	VxWorks	VxWorks
+Technologie	Web 2.0	Web 2.0
+Technologie	Webservices	Webservices	Web Services
+Technologie	Websphere	Websphere	Websphere MQ
+Technologie	WebTest	WebTest
+Technologie	Windows	Windows
+Technologie	Windows CE	Windows CE
+Technologie	Windows Mobile	Windows Mobile
+Technologie	Windows Share Point Services	Windows Share Point Services
+Technologie	WinForms	WinForms
+Technologie	Wireless	Wireless
+Technologie	Wirkungsnetzanalyse	Wirkungsnetzanalyse
+Technologie	WML	WML
+Technologie	WPF	WPF
+Technologie	XML	XML
+Technologie	XPO2	XPO2
+Technologie	XSL	XSL
+Technologie	Zde Graph	Zde Graph
+Technologie	ZEMAX	ZEMAX
+Sector	Sector	Sector
+Customer	Customer	Customer
+Focus	Focus	Focus
+Services	Services	Services
+Technologies	Technology	Technology
+Applications	Application	Application
+Tools	Tools	Tools
