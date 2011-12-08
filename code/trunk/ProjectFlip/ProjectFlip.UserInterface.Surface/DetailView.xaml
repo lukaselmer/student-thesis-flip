@@ -348,7 +348,7 @@
                     </TransformGroup>
                 </Border.RenderTransform>
 
-                <DocumentViewer IsManipulationEnabled="True" Name="docViewer" ScrollViewer.CanContentScroll="True"
+                <DocumentViewer IsManipulationEnabled="True" Name="DocViewer" ScrollViewer.CanContentScroll="True"
                                 Document="{Binding CurrentProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}">
                 </DocumentViewer>
             </Border>

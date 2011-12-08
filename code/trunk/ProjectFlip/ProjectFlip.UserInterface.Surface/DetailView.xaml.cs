@@ -19,7 +19,7 @@ namespace ProjectFlip.UserInterface.Surface
 
         private void CurrentDocViewerContainerSizeChanged(object sender, SizeChangedEventArgs e)
         {
-            docViewer.FitToWidth();
+            DocViewer.FitToWidth();
         }
     }
 
