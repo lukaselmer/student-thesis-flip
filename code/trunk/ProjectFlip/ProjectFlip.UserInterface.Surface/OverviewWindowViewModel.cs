@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 using ProjectFlip.Services;
@@ -31,23 +30,13 @@ namespace ProjectFlip.UserInterface.Surface
         private bool _isFilterViewVisible;
         private IProjectNote _nextProjectNote;
         private IProjectNote _previousProjectNote;
-        private CollectionView _subcriteria;
         private bool _readModeActive;
-        public bool ReadModeActive
-        {
-            get { return _readModeActive; }
-            set
-            {
-                _readModeActive = value;
-                Notify("ReadModeActive");
-                if (ZoomInCommand != null) ZoomInCommand.RaiseCanExecuteChanged();
-                if (ZoomOutCommand != null) ZoomOutCommand.RaiseCanExecuteChanged();
-            }
-        }
+        private CollectionView _subcriteria;
 
         public OverviewWindowViewModel(IProjectNotesService projectNotesService)
         {
-            ProjectNotes = new CyclicCollectionView<IProjectNote>(projectNotesService.ProjectNotes) { Filter = FilterCallback };
+            ProjectNotes = new CyclicCollectionView<IProjectNote>(projectNotesService.ProjectNotes)
+                           {Filter = FilterCallback};
             TotalProjectNotes = ProjectNotes.Count;
             ProjectNotes.MoveCurrentTo(null);
             ProjectNotes.CurrentChanged += UpdateCurrentProjectNote;
@@ -70,70 +59,26 @@ namespace ProjectFlip.UserInterface.Surface
             AddFilterCommand = new Command(AddFilter);
 
             ReadModeActive = false;
-            NormalModeWidth = new GridLength(700);
-            ReadModeWidth = new GridLength(10, GridUnitType.Star);
-            DocumentViewerWidth = NormalModeWidth;
+            DocumentViewerWidth = _normalModeWidth;
 
             ZoomInCommand = new Command(ToogleReadMode, o => ReadModeActive);
             ZoomOutCommand = new Command(ToogleReadMode, o => !ReadModeActive);
         }
 
-        private Command _zoomOutCommand;
-        public Command ZoomOutCommand
+        public bool ReadModeActive
         {
-            get { return _zoomOutCommand; }
+            get { return _readModeActive; }
             set
             {
-                _zoomOutCommand = value;
-                Notify("ZoomOutCommand");
+                _readModeActive = value;
+                Notify("ReadModeActive");
+                if (ZoomInCommand != null) ZoomInCommand.RaiseCanExecuteChanged();
+                if (ZoomOutCommand != null) ZoomOutCommand.RaiseCanExecuteChanged();
             }
         }
 
-        private Command _zoomInCommand;
-        public Command ZoomInCommand
-        {
-            get { return _zoomInCommand; }
-            set
-            {
-                _zoomInCommand = value;
-                Notify("ZoomInCommand");
-            }
-        }
-
-        private void OnHideDetail(object o)
-        {
-            IsDetailViewVisible = false;
-            ReadModeActive = false;
-            DocumentViewerWidth = NormalModeWidth;
-        }
-
-        private GridLength NormalModeWidth { get; set; }
-        private GridLength ReadModeWidth { get; set; }
-
-        private void ToogleReadMode(object o)
-        {
-            //var v = (DocumentViewer)o;
-            DocumentViewerWidth = ReadModeActive ? NormalModeWidth : ReadModeWidth;
-            ReadModeActive = !ReadModeActive;
-            /*if (ReadModeActive)
-            {
-                //v.FitToHeight();
-                //Console.WriteLine(v);
-                DocumentViewerWidth = new GridLength(600);
-                //DocumentViewerWidth = new GridLength(v.ExtentWidth);
-                //DocumentViewerWidth = new GridLength(v.ExtentWidth);
-            }
-            else
-            {
-                DocumentViewerWidth = new GridLength(10, GridUnitType.Star);
-                //v.FitToWidth();
-            }*/
-
-            //v.FitToWidth();
-
-            //v.DocumentScrollInfo.
-            //Console.WriteLine(v.ActualHeight);
-        }
+        private readonly GridLength _normalModeWidth = new GridLength(2.75, GridUnitType.Star);
+        private readonly GridLength _readModeWidth = new GridLength(10, GridUnitType.Star);
 
         public int TotalProjectNotes { get; private set; }
 
@@ -197,10 +142,12 @@ namespace ProjectFlip.UserInterface.Surface
         public ICommand ShowDetailsCommand { get; private set; }
         public ICommand HideDetailsCommand { get; private set; }
         public ICommand ToggleFilterCommand { get; private set; }
-        public Command NavigateToLeftCommand { get; private set; }
-        public Command NavigateToRightCommand { get; private set; }
+        public ICommand NavigateToLeftCommand { get; private set; }
+        public ICommand NavigateToRightCommand { get; private set; }
         public ICommand AddFilterCommand { get; private set; }
         public ICommand RemoveFilterCommand { get; private set; }
+        public Command ZoomOutCommand { get; private set; }
+        public Command ZoomInCommand { get; private set; }
 
         public GridLength DocumentViewerWidth
         {
@@ -232,9 +179,21 @@ namespace ProjectFlip.UserInterface.Surface
             }
         }
 
+        private void OnHideDetail(object o)
+        {
+            IsDetailViewVisible = false;
+            ReadModeActive = false;
+            DocumentViewerWidth = _normalModeWidth;
+        }
+
+        private void ToogleReadMode(object o)
+        {
+            DocumentViewerWidth = ReadModeActive ? _normalModeWidth : _readModeWidth;
+            ReadModeActive = !ReadModeActive;
+        }
+
         private void UpdateCurrentProjectNote(object sender, EventArgs eventArgs)
         {
-            //Notify("ProjectNotes");
             PreviousProjectNote = ProjectNotes.Previous;
             CurrentProjectNote = ProjectNotes.CurrentItem;
             NextProjectNote = ProjectNotes.Next;
@@ -248,13 +207,10 @@ namespace ProjectFlip.UserInterface.Surface
         {
             if (obj != null)
             {
-                var pn = (IProjectNote)obj;
+                var pn = (IProjectNote) obj;
                 ProjectNotes.MoveCurrentTo(pn);
                 CurrentProjectNote = pn;
             }
-            //PreviousProjectNote = ProjectNotes.Previous;
-            //CurrentProjectNote = ProjectNotes.CurrentItem;
-            //NextProjectNote = ProjectNotes.Next;
             UpdateCurrentProjectNote(null, null);
             IsDetailViewVisible = CurrentProjectNote != null;
         }
@@ -268,7 +224,7 @@ namespace ProjectFlip.UserInterface.Surface
         private void SetSubCriteria()
         {
             ICollection<IMetadata> value;
-            Criteria.TryGetValue((IMetadataType)Maincriteria.CurrentItem, out value);
+            Criteria.TryGetValue((IMetadataType) Maincriteria.CurrentItem, out value);
             Subcriteria = new CollectionView(value);
         }
 
@@ -277,40 +233,12 @@ namespace ProjectFlip.UserInterface.Surface
             IsFilterViewVisible = !IsFilterViewVisible;
         }
 
-        // ReSharper disable UnusedParameter.Global
-        public void OnTouchUp(object sender, TouchEventArgs e)
-        // ReSharper restore UnusedParameter.Global
-        {
-            //            if (e.TouchDevice == TouchAction.Move) return;
-
-            //            if (e.TouchDevice == TouchAction.Move) return;
-            // var k = e.TouchDevice;
-            //            var l = SurfaceTouchDevice.;
-
-            //            bool isFinger = true;
-            //            SurfaceTouchDevice device = e.TouchDevice as SurfaceTouchDevice;
-            //            if (device != null)
-            //                {
-            //                isFinger = device.Contact.IsFingerRecognized;
-            //                }
-            //Do something
-
-            Console.WriteLine(@"------------------------touch----------------------");
-
-            /*var docViewerIsSmall = (Math.Abs((new GridLength(705)).Value - DocumentViewerWidth.Value) < 1);
-
-            DocumentViewerWidth = docViewerIsSmall
-                ? new GridLength(10, GridUnitType.Star) : new GridLength(5, GridUnitType.Star);
-
-            ((DocumentViewer)sender).FitToWidth();*/
-        }
-
         private void RemoveFilter(object filter)
         {
             ReadModeActive = false;
-            DocumentViewerWidth = NormalModeWidth;
+            DocumentViewerWidth = _normalModeWidth;
 
-            _filters.Remove((IMetadata)filter);
+            _filters.Remove((IMetadata) filter);
             Filters.Refresh();
             ProjectNotes.Refresh();
             IsFilterViewVisible = false;
@@ -324,22 +252,22 @@ namespace ProjectFlip.UserInterface.Surface
                 Filters.Refresh();
                 return;
             }
-            _filters.Add((IMetadata)filter);
+            _filters.Add((IMetadata) filter);
             Filters.Refresh();
             ProjectNotes.Refresh();
             IsDetailViewVisible = IsFilterViewVisible = false;
 
             ReadModeActive = false;
-            DocumentViewerWidth = NormalModeWidth;
-
+            DocumentViewerWidth = _normalModeWidth;
         }
 
         private bool FilterCallback(object projectNoteObj)
         {
             if (_filters.Count == 0) return true;
-            var projectNote = (IProjectNote)projectNoteObj;
+            var projectNote = (IProjectNote) projectNoteObj;
             return _filters.All(f => f.Match(projectNote));
         }
+
         // ReSharper restore UnusedMember.Global
         // ReSharper restore UnusedAutoPropertyAccessor.Global
         // ReSharper restore MemberCanBePrivate.Global
