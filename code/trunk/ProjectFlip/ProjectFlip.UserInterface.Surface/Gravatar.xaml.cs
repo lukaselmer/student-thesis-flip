@@ -18,8 +18,7 @@ namespace ProjectFlip.UserInterface.Surface
             set
             {
                 if (value == null || !(value is string)) return;
-                var name = (string) value;
-                GravatarName.Content = name;
+                GravatarName.Content = value;
             }
         }
 
@@ -30,6 +29,15 @@ namespace ProjectFlip.UserInterface.Surface
                 if (value == null || !(value is string)) return;
                 var url = string.Format("http://www.gravatar.com/avatar/{0}?s=150", Md5Hash(value));
                 GravatarImage.Source = new BitmapImage(new Uri(url, UriKind.Absolute));
+            }
+        }
+
+        public object Role
+        {
+            set
+            {
+                if (value == null || !(value is string)) return;
+                //GravatarRole.Content = value;
             }
         }
 

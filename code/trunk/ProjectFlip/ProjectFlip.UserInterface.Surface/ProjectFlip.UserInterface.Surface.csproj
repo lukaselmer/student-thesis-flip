@@ -81,6 +81,9 @@
     <Compile Include="Gravatar.xaml.cs">
       <DependentUpon>Gravatar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InfoView.xaml.cs">
+      <DependentUpon>InfoView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="OverviewWindowViewModel.cs" />
     <Compile Include="ScrollToTopBehavior.cs" />
     <Compile Include="ViewModelBase.cs" />
@@ -103,6 +106,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Gravatar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InfoView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
