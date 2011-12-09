@@ -19,7 +19,7 @@
                             Vision
                     </TextBlock>
                     <TextBlock TextWrapping="Wrap" FontSize="18" Margin="0, 0, 0, 10" Style="{DynamicResource TextStyle}">
-                            Die Zühlke Engineering AG hat es sich zur Aufgabe gemacht, ihren Kunden in dieser Zeit die Firma und ihre bisher ausgeführten Projekte näher zu bringen.
+                            Die Zühlke Engineering AG hat es sich zur Aufgabe gemacht, ihren Kunden die Firma und ihre bisher ausgeführten Projekte näher zu bringen.
                             Durch die Präsentation einzelner Projekte kann sich der wartende Kunde ein besseres Bild über die Tätigkeiten der Firma machen. Er erfährt beispielsweise, in welchen Themenbereichen die Zühlke Engineering AG schon gearbeitet hat oder mit welchen Partnern sie dies tat. Dadurch könnten auch Anregungen für eine zusätzliche Zusammenarbeit entstehen.
                     </TextBlock>
                     <TextBlock TextWrapping="Wrap" FontSize="18" Margin="0, 0, 0, 10" Style="{DynamicResource TextStyle}">
