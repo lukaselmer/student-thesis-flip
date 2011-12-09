@@ -302,7 +302,7 @@
 						  ScrollViewer.VerticalScrollBarVisibility="Disabled">
 		</s:SurfaceListBox>
 		<s:SurfaceButton Style="{StaticResource ButtonStyle}" Grid.Row="3" VerticalAlignment="Top" Command="{Binding ToggleFilterCommand}" Width="200" Margin="0" >
-			<TextBlock Margin="3" Style="{DynamicResource TextStyle}" Text="Kriterien hinzufügen" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" TextAlignment="Center" />
+			<TextBlock Margin="3" Style="{DynamicResource TextStyle}" Foreground="White" Text="Kriterien hinzufügen" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" TextAlignment="Center" />
 		</s:SurfaceButton>
 	</Grid>
 </UserControl>
