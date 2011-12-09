@@ -13,7 +13,7 @@
                             Informationen zum Project Flip 2.0
                     </TextBlock>
                     <TextBlock TextWrapping="Wrap" FontSize="18" Margin="0, 0, 0, 10" Style="{DynamicResource TextStyle}">
-                            Project Flip 2.0 entstand im Rahmen einer Studienarbeit der Hochschule für Technik Rapperswil.
+                            Project Flip 2.0 entstand im Rahmen einer Studienarbeit der Hochschule für Technik Rapperswil im Herbstsemester 2011.
                     </TextBlock>
                     <TextBlock TextWrapping="Wrap" FontSize="24" FontWeight="Bold" Margin="0, 0, 0, 10" Style="{DynamicResource TextStyle}">
                             Vision
