@@ -66,6 +66,9 @@
     <Reference Include="Microsoft.Surface.Presentation.Generic" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Command.cs" />
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Converters\ValueConverterBase.cs" />
@@ -81,9 +84,6 @@
     <Compile Include="Gravatar.xaml.cs">
       <DependentUpon>Gravatar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="InfoView.xaml.cs">
-      <DependentUpon>InfoView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="OverviewWindowViewModel.cs" />
     <Compile Include="ScrollToTopBehavior.cs" />
     <Compile Include="ViewModelBase.cs" />
@@ -93,6 +93,10 @@
     <Compile Include="ZoomOutIcon.xaml.cs">
       <DependentUpon>ZoomOutIcon.xaml</DependentUpon>
     </Compile>
+    <Page Include="AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DetailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -106,10 +110,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Gravatar.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="InfoView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

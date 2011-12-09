@@ -3,328 +3,328 @@
     Title="Project Flip 2.0"
     Background="White">
 
-    <s:SurfaceWindow.Resources>
+	<s:SurfaceWindow.Resources>
 
-        <Style x:Key="TextStyle" TargetType="{x:Type TextBlock}">
-            <Setter Property="Margin" Value="0" />
-            <Setter Property="TextWrapping" Value="Wrap" />
-            <Setter Property="FontFamily" Value="AA Zuehlke" />
-            <Setter Property="Foreground" Value="Black" />
-            <Setter Property="TextTrimming" Value="CharacterEllipsis" />
-        </Style>
+		<Style x:Key="TextStyle" TargetType="{x:Type TextBlock}">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="TextWrapping" Value="Wrap" />
+			<Setter Property="FontFamily" Value="AA Zuehlke" />
+			<Setter Property="Foreground" Value="Black" />
+			<Setter Property="TextTrimming" Value="CharacterEllipsis" />
+		</Style>
 
-        <Style x:Key="TransparentBackgroundButton" TargetType="{x:Type s:SurfaceButton}" BasedOn="{x:Null}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type s:SurfaceButton}">
+		<Style x:Key="TransparentBackgroundButton" TargetType="{x:Type s:SurfaceButton}" BasedOn="{x:Null}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type s:SurfaceButton}">
 
-                        <Grid x:Name="Grid">
-                            <Border x:Name="Border" Background="{TemplateBinding Background}"
-                           BorderBrush="{TemplateBinding BorderBrush}"
-                           BorderThickness="{TemplateBinding BorderThickness}"
-                           Padding="{TemplateBinding Padding}"/>
+						<Grid x:Name="Grid">
+							<Border x:Name="Border" Background="{TemplateBinding Background}"
+						   BorderBrush="{TemplateBinding BorderBrush}"
+						   BorderThickness="{TemplateBinding BorderThickness}"
+						   Padding="{TemplateBinding Padding}"/>
 
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                    Margin="{TemplateBinding Padding}"
-                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                    RecognizesAccessKey="True"/>
-                        </Grid>
+							<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+									Margin="{TemplateBinding Padding}"
+									VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+									RecognizesAccessKey="True"/>
+						</Grid>
 
-                        <!--Each state sets a brush on the Border in the template -->
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsKeyboardFocused" Value="true">
-                                <Setter Property="BorderBrush" Value="{DynamicResource DefaultedBorderBrush}" TargetName="Border"/>
-                            </Trigger>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" Value="{DynamicResource MouseOverBrush}" TargetName="Border"/>
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" Value="{DynamicResource PressedBrush}" TargetName="Border"/>
-                                <Setter Property="BorderBrush" Value="{DynamicResource PressedBorderBrush}" TargetName="Border"/>
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="true"/>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Border"/>
-                                <Setter Property="BorderBrush" Value="{DynamicResource DisabledBorderBrush}" TargetName="Border"/>
-                                <Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
-                                <Setter Property="Opacity" Value="0.4"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+						<!--Each state sets a brush on the Border in the template -->
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsKeyboardFocused" Value="true">
+								<Setter Property="BorderBrush" Value="{DynamicResource DefaultedBorderBrush}" TargetName="Border"/>
+							</Trigger>
+							<Trigger Property="IsMouseOver" Value="true">
+								<Setter Property="Background" Value="{DynamicResource MouseOverBrush}" TargetName="Border"/>
+							</Trigger>
+							<Trigger Property="IsPressed" Value="true">
+								<Setter Property="Background" Value="{DynamicResource PressedBrush}" TargetName="Border"/>
+								<Setter Property="BorderBrush" Value="{DynamicResource PressedBorderBrush}" TargetName="Border"/>
+							</Trigger>
+							<Trigger Property="IsEnabled" Value="true"/>
+							<Trigger Property="IsEnabled" Value="false">
+								<Setter Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Border"/>
+								<Setter Property="BorderBrush" Value="{DynamicResource DisabledBorderBrush}" TargetName="Border"/>
+								<Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
+								<Setter Property="Opacity" Value="0.4"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
 
-        <Style x:Key="DetailViewBackgroundButtonStyle" TargetType="{x:Type s:SurfaceButton}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type s:SurfaceButton}">
-                        <Grid>
-                            <Rectangle Fill="#AA000000"/>
+		<Style x:Key="DetailViewBackgroundButtonStyle" TargetType="{x:Type s:SurfaceButton}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type s:SurfaceButton}">
+						<Grid>
+							<Rectangle Fill="#AA000000"/>
 
-                            <Grid Margin="20" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top">
-                                <Rectangle Height="6" Width="40" Fill="White" RenderTransformOrigin="0.5,0.5">
-                                    <Rectangle.RenderTransform>
-                                        <TransformGroup>
-                                            <RotateTransform Angle="-45"/>
-                                        </TransformGroup>
-                                    </Rectangle.RenderTransform>
-                                </Rectangle>
-                                <Rectangle Height="6" Width="40" Fill="White" RenderTransformOrigin="0.5,0.5" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <Rectangle.RenderTransform>
-                                        <TransformGroup>
-                                            <RotateTransform Angle="45"/>
-                                        </TransformGroup>
-                                    </Rectangle.RenderTransform>
-                                </Rectangle>
-                            </Grid>
+							<Grid Margin="20" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top">
+								<Rectangle Height="6" Width="40" Fill="White" RenderTransformOrigin="0.5,0.5">
+									<Rectangle.RenderTransform>
+										<TransformGroup>
+											<RotateTransform Angle="-45"/>
+										</TransformGroup>
+									</Rectangle.RenderTransform>
+								</Rectangle>
+								<Rectangle Height="6" Width="40" Fill="White" RenderTransformOrigin="0.5,0.5" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+									<Rectangle.RenderTransform>
+										<TransformGroup>
+											<RotateTransform Angle="45"/>
+										</TransformGroup>
+									</Rectangle.RenderTransform>
+								</Rectangle>
+							</Grid>
 
-                            <Grid>
-                                <Grid Margin="20 80" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top">
-                                    <s:SurfaceButton Background="Transparent" Padding="0" Margin="0" Command="{Binding ZoomInCommand}" Style="{DynamicResource TransparentBackgroundButton}">
-                                        <Surface:ZoomInIcon></Surface:ZoomInIcon>
-                                    </s:SurfaceButton>
-                                </Grid>
-                                <Grid Margin="20 140" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top">
-                                    <s:SurfaceButton Background="Transparent" Padding="0" Margin="0" Command="{Binding ZoomOutCommand}" Style="{DynamicResource TransparentBackgroundButton}">
-                                        <Surface:ZoomOutIcon></Surface:ZoomOutIcon>
-                                    </s:SurfaceButton>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-
-        <Style x:Key="BackgroundButtonStyle" TargetType="{x:Type s:SurfaceButton}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type s:SurfaceButton}">
-                        <Grid>
-                            <Rectangle Fill="#AA000000"/>
-
-                            <Grid Margin="20" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top">
-                                <Rectangle Height="6" Width="40" Fill="White" RenderTransformOrigin="0.5,0.5">
-                                    <Rectangle.RenderTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform/>
-                                            <SkewTransform/>
-                                            <RotateTransform Angle="-45"/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </Rectangle.RenderTransform>
-                                </Rectangle>
-                                <Rectangle Height="6" Width="40" Fill="White" RenderTransformOrigin="0.5,0.5" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <Rectangle.RenderTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform/>
-                                            <SkewTransform/>
-                                            <RotateTransform Angle="45"/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </Rectangle.RenderTransform>
-                                </Rectangle>
-                            </Grid>
-
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+							<Grid>
+								<Grid Margin="20 80" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top">
+									<s:SurfaceButton Background="Transparent" Padding="0" Margin="0" Command="{Binding ZoomInCommand}" Style="{DynamicResource TransparentBackgroundButton}">
+										<Surface:ZoomInIcon></Surface:ZoomInIcon>
+									</s:SurfaceButton>
+								</Grid>
+								<Grid Margin="20 140" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top">
+									<s:SurfaceButton Background="Transparent" Padding="0" Margin="0" Command="{Binding ZoomOutCommand}" Style="{DynamicResource TransparentBackgroundButton}">
+										<Surface:ZoomOutIcon></Surface:ZoomOutIcon>
+									</s:SurfaceButton>
+								</Grid>
+							</Grid>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
 
 
-        <Style x:Key="FilterButtonStyle" TargetType="{x:Type s:SurfaceButton}">
-            <Setter Property="Height" Value="80"/>
-            <Setter Property="Width" Value="200"/>
-            <Setter Property="Margin" Value="10" />
-            <Setter Property="Padding" Value="0" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type s:SurfaceButton}">
-                        <Grid>
-                            <Rectangle Height="80" RadiusX="10" RadiusY="10" Width="200" Fill="#FFFFD869">
-                                <Rectangle.Stroke>
-                                    <LinearGradientBrush EndPoint="0.571,0.968" StartPoint="0.429,0.032">
-                                        <GradientStop Color="#FFFFF1C8" Offset="0.448"/>
-                                        <GradientStop Color="#FFF0BC4F" Offset="0.566"/>
-                                    </LinearGradientBrush>
-                                </Rectangle.Stroke>
-                                <Rectangle.Effect>
-                                    <DropShadowEffect Direction="310" Opacity="0.25" BlurRadius="3" ShadowDepth="1"/>
-                                </Rectangle.Effect>
-                            </Rectangle>
-                            <Border BorderThickness="2" Height="78" Width="200" CornerRadius="10">
-                                <Border.Effect>
-                                    <BlurEffect/>
-                                </Border.Effect>
-                                <Border.BorderBrush>
-                                    <LinearGradientBrush EndPoint="0.433,0.029" StartPoint="0.567,0.971">
-                                        <GradientStop Color="#FFF0BC4F" Offset="0.448"/>
-                                        <GradientStop Color="#FFFFF1C8" Offset="0.566"/>
-                                    </LinearGradientBrush>
-                                </Border.BorderBrush>
-                            </Border>
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+		<Style x:Key="BackgroundButtonStyle" TargetType="{x:Type s:SurfaceButton}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type s:SurfaceButton}">
+						<Grid>
+							<Rectangle Fill="#AA000000"/>
 
-        <DataTemplate x:Key="ProjectNoteButtonTemplate">
-            <s:SurfaceButton Margin="10" Background="White" Width="220" Height="280" CommandParameter="{Binding}"
+							<Grid Margin="20" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top">
+								<Rectangle Height="6" Width="40" Fill="White" RenderTransformOrigin="0.5,0.5">
+									<Rectangle.RenderTransform>
+										<TransformGroup>
+											<ScaleTransform/>
+											<SkewTransform/>
+											<RotateTransform Angle="-45"/>
+											<TranslateTransform/>
+										</TransformGroup>
+									</Rectangle.RenderTransform>
+								</Rectangle>
+								<Rectangle Height="6" Width="40" Fill="White" RenderTransformOrigin="0.5,0.5" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+									<Rectangle.RenderTransform>
+										<TransformGroup>
+											<ScaleTransform/>
+											<SkewTransform/>
+											<RotateTransform Angle="45"/>
+											<TranslateTransform/>
+										</TransformGroup>
+									</Rectangle.RenderTransform>
+								</Rectangle>
+							</Grid>
+
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+
+		<Style x:Key="FilterButtonStyle" TargetType="{x:Type s:SurfaceButton}">
+			<Setter Property="Height" Value="80"/>
+			<Setter Property="Width" Value="200"/>
+			<Setter Property="Margin" Value="10" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type s:SurfaceButton}">
+						<Grid>
+							<Rectangle Height="80" RadiusX="10" RadiusY="10" Width="200" Fill="#FFFFD869">
+								<Rectangle.Stroke>
+									<LinearGradientBrush EndPoint="0.571,0.968" StartPoint="0.429,0.032">
+										<GradientStop Color="#FFFFF1C8" Offset="0.448"/>
+										<GradientStop Color="#FFF0BC4F" Offset="0.566"/>
+									</LinearGradientBrush>
+								</Rectangle.Stroke>
+								<Rectangle.Effect>
+									<DropShadowEffect Direction="310" Opacity="0.25" BlurRadius="3" ShadowDepth="1"/>
+								</Rectangle.Effect>
+							</Rectangle>
+							<Border BorderThickness="2" Height="78" Width="200" CornerRadius="10">
+								<Border.Effect>
+									<BlurEffect/>
+								</Border.Effect>
+								<Border.BorderBrush>
+									<LinearGradientBrush EndPoint="0.433,0.029" StartPoint="0.567,0.971">
+										<GradientStop Color="#FFF0BC4F" Offset="0.448"/>
+										<GradientStop Color="#FFFFF1C8" Offset="0.566"/>
+									</LinearGradientBrush>
+								</Border.BorderBrush>
+							</Border>
+							<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+		<DataTemplate x:Key="ProjectNoteButtonTemplate">
+			<s:SurfaceButton Margin="10" Background="White" Width="220" Height="280" CommandParameter="{Binding}"
                 Command="{Binding DataContext.ShowDetailsCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceWindow}}}">
 
-                <s:SurfaceButton.Effect>
-                    <DropShadowEffect Direction="310" Opacity="0.25"/>
-                </s:SurfaceButton.Effect>
-                <StackPanel Margin="10" Orientation="Vertical"  HorizontalAlignment="Center">
-                    <Image Source="{Binding Image}" HorizontalAlignment="Center"/>
-                    <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 0">
-                        <Rectangle Width="90" Margin="0,0,10,0"  Height="2" Fill="#ff8204" />
-                        <Rectangle Width="90" Margin="10,0,0,0" Height="2" Fill="#ff8204" />
-                    </StackPanel>
-                    <TextBlock Height="60" Margin="5" Style="{DynamicResource TextStyle}" Text="{Binding Title}" Foreground="#ff8204"/>
-                </StackPanel>
-            </s:SurfaceButton>
-        </DataTemplate>
+				<s:SurfaceButton.Effect>
+					<DropShadowEffect Direction="310" Opacity="0.25"/>
+				</s:SurfaceButton.Effect>
+				<StackPanel Margin="10" Orientation="Vertical"  HorizontalAlignment="Center">
+					<Image Source="{Binding Image}" HorizontalAlignment="Center"/>
+					<StackPanel Orientation="Horizontal" Margin="0, 10, 0, 0">
+						<Rectangle Width="90" Margin="0,0,10,0"  Height="2" Fill="#ff8204" />
+						<Rectangle Width="90" Margin="10,0,0,0" Height="2" Fill="#ff8204" />
+					</StackPanel>
+					<TextBlock Height="60" Margin="5" Style="{DynamicResource TextStyle}" Text="{Binding Title}" Foreground="#ff8204"/>
+				</StackPanel>
+			</s:SurfaceButton>
+		</DataTemplate>
 
-        <ItemsPanelTemplate x:Key="ItemPanelTemplate">
-            <WrapPanel Margin="0">
-                <WrapPanel.Resources>
-                    <Style TargetType="{x:Type s:SurfaceListBoxItem}">
-                        <Setter Property="Margin" Value="0" />
-                        <Setter Property="Padding" Value="0" />
-                        <Setter Property="Background" Value="Transparent" />
-                        <Setter Property="HorizontalAlignment" Value="Left"/>
-                    </Style>
-                </WrapPanel.Resources>
-            </WrapPanel>
-        </ItemsPanelTemplate>
+		<ItemsPanelTemplate x:Key="ItemPanelTemplate">
+			<WrapPanel Margin="0">
+				<WrapPanel.Resources>
+					<Style TargetType="{x:Type s:SurfaceListBoxItem}">
+						<Setter Property="Margin" Value="0" />
+						<Setter Property="Padding" Value="0" />
+						<Setter Property="Background" Value="Transparent" />
+						<Setter Property="HorizontalAlignment" Value="Left"/>
+					</Style>
+				</WrapPanel.Resources>
+			</WrapPanel>
+		</ItemsPanelTemplate>
 
-        <!-- ScrollBar Vert Thumb -->
-        <Style x:Key="SurfaceScrollBarThumbStyle"
+		<!-- ScrollBar Vert Thumb -->
+		<Style x:Key="SurfaceScrollBarThumbStyle"
             TargetType="{x:Type s:SurfaceThumb}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type s:SurfaceThumb}">
-                        <ControlTemplate.Resources>
-                            <Storyboard x:Key="Touch">
-                                <DoubleAnimation Duration="0:0:0.05" Storyboard.TargetName="Thumb" Storyboard.TargetProperty="RadiusX" To="8"/>
-                                <DoubleAnimation Duration="0:0:0.05" Storyboard.TargetName="Thumb" Storyboard.TargetProperty="RadiusY" To="8"/>
-                                <DoubleAnimation Duration="0:0:0.05" Storyboard.TargetName="Thumb" Storyboard.TargetProperty="Width" To="16"/>
-                                <ThicknessAnimation Duration="0:0:0.05" Storyboard.TargetName="Thumb" Storyboard.TargetProperty="Margin" To="-1,0,-1,0" />
-                            </Storyboard>
-                            <Storyboard x:Key="Release">
-                                <DoubleAnimation Duration="0:0:0.05"
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type s:SurfaceThumb}">
+						<ControlTemplate.Resources>
+							<Storyboard x:Key="Touch">
+								<DoubleAnimation Duration="0:0:0.05" Storyboard.TargetName="Thumb" Storyboard.TargetProperty="RadiusX" To="8"/>
+								<DoubleAnimation Duration="0:0:0.05" Storyboard.TargetName="Thumb" Storyboard.TargetProperty="RadiusY" To="8"/>
+								<DoubleAnimation Duration="0:0:0.05" Storyboard.TargetName="Thumb" Storyboard.TargetProperty="Width" To="16"/>
+								<ThicknessAnimation Duration="0:0:0.05" Storyboard.TargetName="Thumb" Storyboard.TargetProperty="Margin" To="-1,0,-1,0" />
+							</Storyboard>
+							<Storyboard x:Key="Release">
+								<DoubleAnimation Duration="0:0:0.05"
                                     Storyboard.TargetName="Thumb"
                                     Storyboard.TargetProperty="RadiusX" 
                                     To="7"/>
-                                <DoubleAnimation Duration="0:0:0.05"
+								<DoubleAnimation Duration="0:0:0.05"
                                     Storyboard.TargetName="Thumb"
                                     Storyboard.TargetProperty="RadiusY" 
                                     To="7"/>
-                                <DoubleAnimation Duration="0:0:0.1"
+								<DoubleAnimation Duration="0:0:0.1"
                                     Storyboard.TargetName="Thumb" 
                                     Storyboard.TargetProperty="Width"
                                     To="14"/>
-                                <ThicknessAnimation Duration="0:0:0.1"
+								<ThicknessAnimation Duration="0:0:0.1"
                                     Storyboard.TargetName="Thumb"
                                     Storyboard.TargetProperty="Margin" 
                                     To="0,0,0,0" />
-                            </Storyboard>
-                        </ControlTemplate.Resources>
-                        <Grid   x:Name="Grid"
+							</Storyboard>
+						</ControlTemplate.Resources>
+						<Grid   x:Name="Grid"
                             Background="{TemplateBinding Background}"
                             SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
-                            <Rectangle  x:Name="Thumb" 
+							<Rectangle  x:Name="Thumb" 
                                 Height="Auto"
                                 Width="14" 
                                         RadiusX="7" RadiusY="7"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Fill="#4C000000" StrokeThickness="0" />
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="s:TouchExtensions.AreAnyInputDevicesCapturedWithin"
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="s:TouchExtensions.AreAnyInputDevicesCapturedWithin"
                                 Value="True">
-                                <Trigger.EnterActions>
-                                    <BeginStoryboard Storyboard="{StaticResource Touch}"/>
-                                </Trigger.EnterActions>
-                                <Trigger.ExitActions>
-                                    <BeginStoryboard Storyboard="{StaticResource Release}"/>
-                                </Trigger.ExitActions>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+								<Trigger.EnterActions>
+									<BeginStoryboard Storyboard="{StaticResource Touch}"/>
+								</Trigger.EnterActions>
+								<Trigger.ExitActions>
+									<BeginStoryboard Storyboard="{StaticResource Release}"/>
+								</Trigger.ExitActions>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
 
-        <!-- ScrollBar -->
-        <Style x:Key="SurfaceScrollBarStyle"
+		<!-- ScrollBar -->
+		<Style x:Key="SurfaceScrollBarStyle"
             TargetType="{x:Type s:SurfaceScrollBar}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <!-- vertical scroll bar -->
-                    <ControlTemplate TargetType="{x:Type s:SurfaceScrollBar}">
-                        <Grid x:Name="GridRoot" Background="{TemplateBinding Background}">
-                            <Border x:Name="Track"
+			<Setter Property="Template">
+				<Setter.Value>
+					<!-- vertical scroll bar -->
+					<ControlTemplate TargetType="{x:Type s:SurfaceScrollBar}">
+						<Grid x:Name="GridRoot" Background="{TemplateBinding Background}">
+							<Border x:Name="Track"
                                 VerticalAlignment="Stretch"
                                 HorizontalAlignment="Stretch">
-                                <Track x:Name="PART_Track"
+								<Track x:Name="PART_Track"
                                     IsDirectionReversed="True">
-                                    <Track.Thumb>
-                                        <s:SurfaceThumb  Style="{StaticResource SurfaceScrollBarThumbStyle}"
+									<Track.Thumb>
+										<s:SurfaceThumb  Style="{StaticResource SurfaceScrollBarThumbStyle}"
                                             Background="{TemplateBinding Background}"
                                             HorizontalAlignment="Center" 
                                             x:Name="Thumb"/>
-                                    </Track.Thumb>
-                                </Track>
-                            </Border>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <!-- Animates Scrollbar from small to large state -->
-                            <Trigger Property="IsEnabled"
+									</Track.Thumb>
+								</Track>
+							</Border>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<!-- Animates Scrollbar from small to large state -->
+							<Trigger Property="IsEnabled"
                                 Value="False">
-                                <Setter Property="IsEnabled"
+								<Setter Property="IsEnabled"
                                     TargetName="PART_Track"
                                     Value="False"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
 
-        <!-- Listbox ScrollView -->
-        <Style x:Key="SurfaceListBoxScrollViewerStyle"
+		<!-- Listbox ScrollView -->
+		<Style x:Key="SurfaceListBoxScrollViewerStyle"
             TargetType="{x:Type s:SurfaceScrollViewer}" >
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type s:SurfaceScrollViewer}">
-                        <Grid   Background="{DynamicResource {x:Static s:SurfaceColors.ListBoxBackgroundBrushKey}}"
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type s:SurfaceScrollViewer}">
+						<Grid   Background="{DynamicResource {x:Static s:SurfaceColors.ListBoxBackgroundBrushKey}}"
                             HorizontalAlignment="Stretch"
                             Margin="{TemplateBinding BorderThickness}"
                             VerticalAlignment="Stretch"
                             SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Border x:Name="PART_ElasticBorder"
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+							<Border x:Name="PART_ElasticBorder"
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                 BorderBrush="Transparent"
                                 Background="{TemplateBinding Background}">
-                                <ScrollContentPresenter Margin="{TemplateBinding Padding}"
+								<ScrollContentPresenter Margin="{TemplateBinding Padding}"
                                     Content="{TemplateBinding Content}"
                                     ContentTemplate="{TemplateBinding ContentTemplate}"
                                     CanContentScroll="{TemplateBinding CanContentScroll}"
                                     CanHorizontallyScroll="False"
                                     SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                            </Border>
-                            <s:SurfaceScrollBar x:Name="PART_VerticalScrollBar"
+							</Border>
+							<s:SurfaceScrollBar x:Name="PART_VerticalScrollBar"
                                 Visibility="Hidden"
                                 Opacity="0"
                                 Grid.Column="0"
@@ -341,64 +341,64 @@
                                 LargeChange="1"
                                 ClipToBounds="True"
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsEnabled"
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsEnabled"
                                 Value="False">
-                                <Setter Property="IsEnabled"
+								<Setter Property="IsEnabled"
                                     TargetName="PART_VerticalScrollBar"
                                     Value="False"/>
-                                <Setter Property="BorderBrush"
+								<Setter Property="BorderBrush"
                                     TargetName="PART_ElasticBorder"
                                     Value="{DynamicResource {x:Static s:SurfaceColors.ControlBorderDisabledBrushKey}}"/>
-                            </Trigger>
-                            <Trigger Property="s:TouchExtensions.AreAnyInputDevicesCapturedWithin"
+							</Trigger>
+							<Trigger Property="s:TouchExtensions.AreAnyInputDevicesCapturedWithin"
                                 Value="True">
-                                <Trigger.EnterActions>
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="PART_VerticalScrollBar">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <DoubleAnimation Duration="0:0:1" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PART_VerticalScrollBar"/>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </Trigger.EnterActions>
-                                <Trigger.ExitActions>
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="PART_VerticalScrollBar">
-                                                <DiscreteObjectKeyFrame KeyTime="0:0:1.5" Value="{x:Static Visibility.Hidden}"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PART_VerticalScrollBar">
-                                                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
-                                                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0"/>
-                                            </DoubleAnimationUsingKeyFrames>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </Trigger.ExitActions>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+								<Trigger.EnterActions>
+									<BeginStoryboard>
+										<Storyboard>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="PART_VerticalScrollBar">
+												<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+											</ObjectAnimationUsingKeyFrames>
+											<DoubleAnimation Duration="0:0:1" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PART_VerticalScrollBar"/>
+										</Storyboard>
+									</BeginStoryboard>
+								</Trigger.EnterActions>
+								<Trigger.ExitActions>
+									<BeginStoryboard>
+										<Storyboard>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="PART_VerticalScrollBar">
+												<DiscreteObjectKeyFrame KeyTime="0:0:1.5" Value="{x:Static Visibility.Hidden}"/>
+											</ObjectAnimationUsingKeyFrames>
+											<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PART_VerticalScrollBar">
+												<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+												<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0"/>
+											</DoubleAnimationUsingKeyFrames>
+										</Storyboard>
+									</BeginStoryboard>
+								</Trigger.ExitActions>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
 
-        <!-- ListBox -->
-        <Style x:Key="SurfaceListBoxStyle"  TargetType="{x:Type s:SurfaceListBox}">
-            <Setter Property="Surface:ScrollToTopBehavior.ScrollToTop" Value="True" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type s:SurfaceListBox}">
-                        <Grid  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" >
-                            <VisualStateManager.VisualStateGroups>
-                                <VisualStateGroup x:Name="ValidationStates">
-                                    <VisualState x:Name="Valid"/>
-                                    <VisualState x:Name="InvalidFocused"/>
-                                    <VisualState x:Name="InvalidUnfocused"/>
-                                </VisualStateGroup>
-                            </VisualStateManager.VisualStateGroups>
-                            <s:SurfaceScrollViewer
+		<!-- ListBox -->
+		<Style x:Key="SurfaceListBoxStyle"  TargetType="{x:Type s:SurfaceListBox}">
+			<Setter Property="Surface:ScrollToTopBehavior.ScrollToTop" Value="True" />
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type s:SurfaceListBox}">
+						<Grid  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" >
+							<VisualStateManager.VisualStateGroups>
+								<VisualStateGroup x:Name="ValidationStates">
+									<VisualState x:Name="Valid"/>
+									<VisualState x:Name="InvalidFocused"/>
+									<VisualState x:Name="InvalidUnfocused"/>
+								</VisualStateGroup>
+							</VisualStateManager.VisualStateGroups>
+							<s:SurfaceScrollViewer
                                 Style="{StaticResource SurfaceListBoxScrollViewerStyle}"
                                 HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                 VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
@@ -411,118 +411,66 @@
                                 MinWidth="{TemplateBinding MinWidth}"
                                 x:Name="scrollViewer"
                                 Elasticity="{TemplateBinding s:SurfaceScrollViewer.Elasticity}">
-                                <ItemsPresenter ClipToBounds="False"
+								<ItemsPresenter ClipToBounds="False"
                                     MinHeight="{TemplateBinding MinHeight}"
                                     MinWidth="{TemplateBinding MinWidth}"/>
-                            </s:SurfaceScrollViewer>
-                            <Border x:Name="Border"
+							</s:SurfaceScrollViewer>
+							<Border x:Name="Border"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}" />
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsGrouping"
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsGrouping"
                                 Value="True">
-                                <Setter Property="ScrollViewer.CanContentScroll"
+								<Setter Property="ScrollViewer.CanContentScroll"
                                     Value="False" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style TargetType="{x:Type Control}" x:Key="ControlBaseStyle">
-            <Setter Property="FocusVisualStyle"	
-                Value="{x:Null}"/>
-            <Setter Property="SnapsToDevicePixels"
-                Value="False"/>
-            <Setter Property="FontFamily"
-                Value="Segoe360"/>
-            <Setter Property="FontWeight"
-                Value="Normal"/>
-            <Setter Property="FontSize"
-                Value="17"/>
-            <Setter Property="Padding"
-                Value="6,2,10,10"/>
-            <Setter Property="MinHeight"
-                Value="38"/>
-            <Setter Property="MinWidth"
-                Value="38"/>
-            <Setter Property="Margin"
-                Value="1"/>
-            <Setter Property="HorizontalContentAlignment"
-                Value="Left"/>
-            <Setter Property="VerticalContentAlignment"
-                Value="Top"/>
-            <Setter Property="BorderThickness"
-                Value="2"/>
-        </Style>
-        <Style x:Key="AboutButtonStyle"
-            TargetType="{x:Type s:SurfaceButton}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type s:SurfaceButton}">
-                    <Grid x:Name="Grid"
-                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Width="50" Height="50">
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup x:Name="Common">
-                                <VisualState x:Name="Normal"/>
-                                <VisualState x:Name="Pressed">
-                                    <Storyboard>
-                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse">
-                                            <EasingColorKeyFrame KeyTime="0" Value="Gainsboro"/>
-                                        </ColorAnimationUsingKeyFrames>
-                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="ellipse1">
-                                            <EasingColorKeyFrame KeyTime="0" Value="#FFE9E9E9"/>
-                                        </ColorAnimationUsingKeyFrames>
-                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="ellipse1">
-                                            <EasingColorKeyFrame KeyTime="0" Value="#FFCECECE"/>
-                                        </ColorAnimationUsingKeyFrames>
-                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.Opacity)" Storyboard.TargetName="ellipse1">
-                                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                                            </DoubleAnimationUsingKeyFrames>
-                                        </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
-                        <Ellipse x:Name="ellipse1">
-                            <Ellipse.Fill>
-                                <LinearGradientBrush EndPoint="0.188,0.109" StartPoint="0.812,0.891">
-                                    <GradientStop Color="#FFD4D4D4" Offset="0.059"/>
-                                    <GradientStop Color="#FFF1F1F1" Offset="0.905"/>
-                                </LinearGradientBrush>
-                            </Ellipse.Fill>
-                            <Ellipse.Effect>
-                                <DropShadowEffect BlurRadius="3" Direction="310" Opacity="0.25" ShadowDepth="1"/>
-                            </Ellipse.Effect>
-                        </Ellipse>
-                        <Ellipse x:Name="ellipse" Fill="#FFE6E6E6" Width="44" Height="44">
-                            <Ellipse.Effect>
-                                <BlurEffect Radius="3"/>
-                            </Ellipse.Effect>
-                        </Ellipse>
-                            <TextBlock Style="{DynamicResource TextStyle}" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="AA Zuehlke" FontSize="25" HorizontalAlignment="Center" Foreground="White" Text="i"></TextBlock>
-                    </Grid>
-                </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </s:SurfaceWindow.Resources>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style TargetType="{x:Type Control}" x:Key="ControlBaseStyle">
+			<Setter Property="FocusVisualStyle"	
+				Value="{x:Null}"/>
+			<Setter Property="SnapsToDevicePixels"
+				Value="False"/>
+			<Setter Property="FontFamily"
+				Value="Segoe360"/>
+			<Setter Property="FontWeight"
+				Value="Normal"/>
+			<Setter Property="FontSize"
+				Value="17"/>
+			<Setter Property="Padding"
+				Value="6,2,10,10"/>
+			<Setter Property="MinHeight"
+				Value="38"/>
+			<Setter Property="MinWidth"
+				Value="38"/>
+			<Setter Property="Margin"
+				Value="1"/>
+			<Setter Property="HorizontalContentAlignment"
+				Value="Left"/>
+			<Setter Property="VerticalContentAlignment"
+				Value="Top"/>
+			<Setter Property="BorderThickness"
+				Value="2"/>
+		</Style>
+	</s:SurfaceWindow.Resources>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="236" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="236" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
 
-        <Surface:FilterView VerticalAlignment="Center" Grid.Column="0"/>
-        <s:SurfaceButton Command="{Binding ToggleInfoCommand}" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20" Height="50" Width="50" Style="{DynamicResource AboutButtonStyle}"></s:SurfaceButton>
+		<Surface:FilterView Grid.Column="0"/>
 
-        <s:SurfaceListBox Background="#e6e6e6" x:Name="listBox" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ProjectNotes}"  
+		<s:SurfaceListBox Background="#e6e6e6" x:Name="listBox" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ProjectNotes}"  
                           ItemTemplate="{StaticResource ProjectNoteButtonTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" Style="{DynamicResource SurfaceListBoxStyle}" />
-        <Surface:DetailView Grid.Column="1" />
-        <!-- Visibility="{Binding IsDetailViewVisible, Converter={Converters:BoolToVisibilityConverter}}"-->
-        <Surface:FilterDetailView Grid.Column="1" Visibility="{Binding IsFilterViewVisible, Converter={Converters:BoolToVisibilityConverter}}"/>
+		<Surface:DetailView Grid.Column="1" />
+		<Surface:FilterDetailView Grid.Column="1" Visibility="{Binding IsFilterViewVisible, Converter={Converters:BoolToVisibilityConverter}}"/>
 
-        <Surface:InfoView Grid.Column="0" Grid.ColumnSpan="2" />
-    </Grid>
+        <Surface:AboutView Grid.Column="0" Grid.ColumnSpan="2" Visibility="{Binding InfoViewVisible, Converter={Converters:BoolToVisibilityConverter}}" />
+	</Grid>
 </s:SurfaceWindow>

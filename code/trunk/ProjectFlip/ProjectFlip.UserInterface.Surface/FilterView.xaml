@@ -4,11 +4,62 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:s="clr-namespace:Microsoft.Surface.Presentation.Controls;assembly=Microsoft.Surface.Presentation"
-			 mc:Ignorable="d" 
-			 d:DesignHeight="540" d:DesignWidth="236">
+			 mc:Ignorable="d" d:DesignWidth="236">
 
 	<UserControl.Resources>
-		<DataTemplate x:Key="FilterCriteriaTemplate">
+
+        <Style x:Key="AboutButtonStyle"
+			TargetType="{x:Type s:SurfaceButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type s:SurfaceButton}">
+                        <Grid x:Name="Grid"
+							SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Width="50" Height="50">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="Common">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse">
+                                                <EasingColorKeyFrame KeyTime="0" Value="Gainsboro"/>
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="ellipse1">
+                                                <EasingColorKeyFrame KeyTime="0" Value="#FFE9E9E9"/>
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="ellipse1">
+                                                <EasingColorKeyFrame KeyTime="0" Value="#FFCECECE"/>
+                                            </ColorAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.Opacity)" Storyboard.TargetName="ellipse1">
+                                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Ellipse x:Name="ellipse1">
+                                <Ellipse.Fill>
+                                    <LinearGradientBrush EndPoint="0.188,0.109" StartPoint="0.812,0.891">
+                                        <GradientStop Color="#FFD4D4D4" Offset="0.059"/>
+                                        <GradientStop Color="#FFF1F1F1" Offset="0.905"/>
+                                    </LinearGradientBrush>
+                                </Ellipse.Fill>
+                                <Ellipse.Effect>
+                                    <DropShadowEffect BlurRadius="3" Direction="310" Opacity="0.25" ShadowDepth="1"/>
+                                </Ellipse.Effect>
+                            </Ellipse>
+                            <Ellipse x:Name="ellipse" Fill="#FFE6E6E6" Width="44" Height="44">
+                                <Ellipse.Effect>
+                                    <BlurEffect Radius="3"/>
+                                </Ellipse.Effect>
+                            </Ellipse>
+                            <TextBlock Style="{DynamicResource TextStyle}" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="AA Zuehlke" FontSize="25" HorizontalAlignment="Center" Foreground="White" Text="i"></TextBlock>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <DataTemplate x:Key="FilterCriteriaTemplate">
 			<s:SurfaceButton Style="{DynamicResource AddedFilterButtonStyle}" Margin="5,0,5,0" CommandParameter="{Binding}" 
 							 Command="{Binding DataContext.RemoveFilterCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceListBox}}}" >
 				<TextBlock Margin="14,3,13,3" Style="{DynamicResource TextStyle}" Text="{Binding Description}" />
@@ -246,7 +297,8 @@
 
 	</UserControl.Resources>
 
-	<Grid Margin="0">
+    <Grid VerticalAlignment="Stretch">
+	<Grid Margin="0" VerticalAlignment="Center">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="50"/>
 			<RowDefinition Height="90"/>
@@ -305,4 +357,6 @@
 			<TextBlock Margin="3" Style="{DynamicResource TextStyle}" Foreground="White" Text="Kriterien hinzufügen" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" TextAlignment="Center" />
 		</s:SurfaceButton>
 	</Grid>
+        <s:SurfaceButton Command="{Binding ToggleInfoCommand}" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20" Height="50" Width="50" Style="{DynamicResource AboutButtonStyle}"></s:SurfaceButton>
+    </Grid>
 </UserControl>

@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="ProjectFlip.UserInterface.Surface.AboutView"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:s="clr-namespace:Microsoft.Surface.Presentation.Controls;assembly=Microsoft.Surface.Presentation"
+			 xmlns:Surface="clr-namespace:ProjectFlip.UserInterface.Surface" mc:Ignorable="d">
+	<Grid>
+		<Border Background="#aa000000" TextBlock.TextAlignment="Center">
+			<Border TextBlock.TextAlignment="Left" Margin="200 100" Padding="100 50" Background="#ccffffff" TextBlock.Foreground="Black">
+				<StackPanel>
+					<TextBlock TextWrapping="Wrap" FontSize="28" Margin="0 0 0 10" Style="{DynamicResource TextStyle}">
+							Informationen zum Project Flip 2.0
+					</TextBlock>
+					<TextBlock TextWrapping="Wrap" FontSize="18" Margin="0, 0, 0, 10" Style="{DynamicResource TextStyle}">
+							Project Flip 2.0 entstand im Rahmen einer Studienarbeit der Hochschule für Technik Rapperswil.
+					</TextBlock>
+					<TextBlock TextWrapping="Wrap" FontSize="24" Margin="0, 0, 0, 10" Style="{DynamicResource TextStyle}">
+							Vision
+					</TextBlock>
+					<TextBlock TextWrapping="Wrap" FontSize="18" Margin="0, 0, 0, 10" Style="{DynamicResource TextStyle}">
+							Die Zühlke Engineering AG hat es sich zur Aufgabe gemacht, ihren Kunden in dieser Zeit die Firma und ihre bisher ausgeführten Projekte näher zu bringen.
+							Durch die Präsentation einzelner Projekte kann sich der wartende Kunde ein besseres Bild über die Tätigkeiten der Firma machen. Er erfährt beispielsweise, in welchen Themenbereichen die Zühlke Engineering AG schon gearbeitet hat oder mit welchen Partnern sie dies tat. Dadurch könnten auch Anregungen für eine zusätzliche Zusammenarbeit entstehen.
+					</TextBlock>
+					<TextBlock TextWrapping="Wrap" FontSize="18" Margin="0, 0, 0, 10" Style="{DynamicResource TextStyle}">
+							Die Zühlke Engineering AG hat ihre Stärken unter anderem im Bereich des Produkt- und Software-Engineerings. Durch Project Flip 2.0 kann sie ihre Expertise in diesem Gebiet bestens unter Beweis stellen. Der Microsoft Surface 2, welcher zur Realisierung einer progressiven Lösung für die bestehende Problematik eingesetzt wird, zeigt, dass die Firma innovativ und bezüglich Technologien auf dem neusten Stand ist. Zudem bietet das Endprodukt eine interaktive und originelle Möglichkeit, Kunden einerseits über die Zühlke Engineering AG zu informieren und andererseits zu unterhalten. Es wird möglich sein, während einer kurzen Wartezeit einfach und auf spielerische Weise Wissen zu sammeln – dies dank intuitiver und unproblematischer Bedienung des Gerätes.
+					</TextBlock>
+					<TextBlock TextWrapping="Wrap" FontSize="24" Margin="0, 0, 0, 10" Style="{DynamicResource TextStyle}">
+							Team
+					</TextBlock>
+					<TextBlock TextWrapping="Wrap" FontSize="18" Margin="0, 0, 0, 10" Style="{DynamicResource TextStyle}">
+							Das Team bestand aus den Mitgliedern Lukas Elmer, Christina Heidt und Delia Treichler. Betreut wurden sie von Prof. Dr. Markus Stolze der Hochschule für Technik Rapperswil und Christian Moser und Marco Balzarini der Zühlke Engineering AG.
+					</TextBlock>
+				</StackPanel>
+			</Border>
+		</Border>
+		<s:SurfaceButton Background="Transparent" Command="{Binding ToggleInfoCommand}"></s:SurfaceButton>
+		<s:ScatterView>
+			<s:ScatterViewItem>
+				<Surface:Gravatar Email="cheidt@hsr.ch" PersonName="Christina Heidt" />
+			</s:ScatterViewItem>
+			<s:ScatterViewItem>
+				<Surface:Gravatar Email="dtreichl@hsr.ch" PersonName="Delia Treichler" />
+			</s:ScatterViewItem>
+			<s:ScatterViewItem>
+				<Surface:Gravatar Email="lelmer@hsr.ch" PersonName="Lukas Elmer" />
+			</s:ScatterViewItem>
+		</s:ScatterView>
+	</Grid>
+</UserControl>
