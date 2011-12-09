@@ -101,14 +101,6 @@
 									<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
 									<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
 								</DoubleAnimationUsingKeyFrames>
-								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="textBlock">
-									<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-									<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
-								</DoubleAnimationUsingKeyFrames>
-								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="textBlock">
-									<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-									<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
-								</DoubleAnimationUsingKeyFrames>
 								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="border">
 									<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
 									<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
@@ -122,6 +114,14 @@
 									<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
 								</DoubleAnimationUsingKeyFrames>
 								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="rectangle1">
+									<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+									<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="rectangle2">
+									<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+									<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="rectangle2">
 									<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
 									<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
 								</DoubleAnimationUsingKeyFrames>
@@ -201,16 +201,17 @@
 									</LinearGradientBrush>
 								</Border.BorderBrush>
 							</Border>
-							<TextBlock x:Name="textBlock" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Width="12" Height="60" Margin="0,-10,11,0" FontFamily="AA Zuehlke" FontSize="24" RenderTransformOrigin="0.5,0.5">
-								<TextBlock.RenderTransform>
+							<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+							<Rectangle x:Name="rectangle2" Fill="White" HorizontalAlignment="Right" RadiusY="0" Width="16" Stroke="{x:Null}" Height="2" VerticalAlignment="Top" Margin="0,16,9,0" RenderTransformOrigin="0.5,0.5">
+								<Rectangle.RenderTransform>
 									<TransformGroup>
 										<ScaleTransform/>
 										<SkewTransform/>
 										<RotateTransform/>
 										<TranslateTransform/>
 									</TransformGroup>
-								</TextBlock.RenderTransform><Run Language="de-ch" Text="_"/></TextBlock>
-							<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+								</Rectangle.RenderTransform>
+							</Rectangle>
 						</Grid>
 						<ControlTemplate.Triggers>
 							<EventTrigger RoutedEvent="FrameworkElement.Loaded" SourceName="grid">
