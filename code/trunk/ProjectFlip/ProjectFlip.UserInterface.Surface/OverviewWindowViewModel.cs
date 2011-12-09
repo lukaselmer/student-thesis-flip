@@ -49,8 +49,8 @@ namespace ProjectFlip.UserInterface.Surface
             ShowDetailsCommand = new Command(OnShowDetail);
             HideDetailsCommand = new Command(OnHideDetail);
 
-            NavigateToLeftCommand = new Command(o => ProjectNotes.MoveCurrentToPrevious());
-            NavigateToRightCommand = new Command(o => ProjectNotes.MoveCurrentToNext());
+            NavigateToLeftCommand = new Command(NavigateToLeft);
+            NavigateToRightCommand = new Command(NavigateToRight);
 
             ShowSubcriteriaCommand = new Command(OnCurrentMainCriteriaChanged);
             ToggleFilterCommand = new Command(OnShowFilter);
@@ -64,6 +64,24 @@ namespace ProjectFlip.UserInterface.Surface
             ZoomOutCommand = new Command(ToogleReadMode, o => ReadModeActive);
 
             ToggleInfoCommand = new Command(o => InfoViewVisible = !InfoViewVisible);
+        }
+
+        private void NavigateToRight(object obj)
+        {
+            ProjectNotes.MoveCurrentToNext();
+            PreloadSideProjectNotes();
+        }
+
+        private void NavigateToLeft(object obj)
+        {
+            ProjectNotes.MoveCurrentToPrevious();
+            PreloadSideProjectNotes();
+        }
+
+        private void PreloadSideProjectNotes()
+        {
+            ProjectNotes.Next.Preload();
+            ProjectNotes.Previous.Preload();
         }
 
         public bool ReadModeActive
