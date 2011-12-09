@@ -4,6 +4,6 @@
              xmlns:s="clr-namespace:Microsoft.Surface.Presentation.Controls;assembly=Microsoft.Surface.Presentation">
         <StackPanel>
             <Image Name="GravatarImage" x:FieldModifier="private" Width="150" Height="150"></Image>
-            <Label Name="GravatarName" FontSize="18" x:FieldModifier="private"></Label>
+            <Label Name="GravatarName" FontSize="18" FontFamily="AA Zuehlke" x:FieldModifier="private"></Label>
         </StackPanel>
 </UserControl>
