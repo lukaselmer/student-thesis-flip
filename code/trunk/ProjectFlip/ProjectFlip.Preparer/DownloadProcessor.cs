@@ -20,6 +20,14 @@ namespace ProjectFlip.Preparer
 
         #endregion
 
+        /// <summary>
+        /// Downloads the specified project note.
+        /// A loop is nessessary to find the existing version of the project note on the server
+        /// Version count ranges between 0 and 09
+        /// </summary>
+        /// <param name="projectNote">The project note.</param>
+        /// <param name="i">version number</param>
+        /// <returns></returns>
         private bool Download(IProjectNote projectNote, int i = 0)
         {
             try

@@ -54,6 +54,12 @@ namespace ProjectFlip.Converter.Pdf
             return true;
         }
 
+        /// <summary>
+        /// Executes the specified command. If the process doesn't finish in the given time it'll be terminated
+        /// </summary>
+        /// <param name="exe">The file to be executed.</param>
+        /// <param name="args">The arguments</param>
+        /// <returns></returns>
         private bool ExecCommand(string exe, string args)
         {
             Console.WriteLine("Executing '" + exe + " " + args);

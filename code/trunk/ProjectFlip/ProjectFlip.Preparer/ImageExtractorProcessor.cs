@@ -49,7 +49,7 @@ namespace ProjectFlip.Preparer
             }
             finally
             {
-                // Memory Leak in .NET FrameworkBug!? See http://stackoverflow.com/questions/218681/opening-xps-document-in-net-causes-a-memory-leak
+                // Memory Leak in .NET FrameworkBug? See http://stackoverflow.com/questions/218681/opening-xps-document-in-net-causes-a-memory-leak
                 // Workaround:
                 // Executes: ContextLayoutManager.From(Dispatcher.CurrentDispatcher).UpdateLayout();
                 var presentationCoreAssembly = Assembly.GetAssembly(typeof (UIElement));
