@@ -1,4 +1,4 @@
-namespace ProjectFlip.UserInterface.Surface
+namespace ProjectFlip.UserInterface.Surface.Views
 {
     public partial class ZoomInIcon
     {

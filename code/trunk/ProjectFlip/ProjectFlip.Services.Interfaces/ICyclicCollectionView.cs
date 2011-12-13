@@ -40,6 +40,11 @@ namespace ProjectFlip.Services.Interfaces
         int Count { get; }
 
         /// <summary>
+        /// Gets the number of items.
+        /// </summary>
+        int OriginalCount { get; }
+
+        /// <summary>
         /// Gets the current item.
         /// </summary>
         T CurrentItem { get; }

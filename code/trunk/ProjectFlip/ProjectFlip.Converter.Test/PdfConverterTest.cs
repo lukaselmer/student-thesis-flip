@@ -111,17 +111,24 @@ namespace ProjectFlip.Converter.Test
         }
 
         /// <summary>
-        ///A test for Convert
+        /// This test will test the Converter. It includes testing your XPS printer and your Adobe PDF reader.
+        /// 
+        /// However, this test may fail because of a timeout, and the PDF reader may be closed by force. The
+        /// Adobe Reader also happens to not start correctly sometimes. In other words, this test is not stable.
+        /// In case the Adobe Reader is beeing shut down by force, it may happen that some temporary files remain
+        ///  on the system and multiple tests will fail  the next time. If that happens, you probably need to
+        /// restart your computer (sorry about that!).
+        /// 
+        /// This test can be enabled / disabled by modifying the app.config file of this test project. Just set
+        /// "RunPdfConverterTests" to True / False.
         ///</summary>
         [TestMethod]
         public void ConvertTest()
         {
-            // ReSharper disable ConditionIsAlwaysTrueOrFalse
             if (!RunPdfConverterTests) return;
-            // ReSharper restore ConditionIsAlwaysTrueOrFalse
             // ReSharper disable CSharpWarnings::CS0162
             // ReSharper disable HeuristicUnreachableCode
-            PdfConverter.SecondsToWait = 4;
+            PdfConverter.SecondsToWait = 15;
             var target = new PdfConverter();
             var expected = target.Convert(PdfPath, TempXpsPath);
             Assert.AreEqual(true, expected);

@@ -23,6 +23,9 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
         // ReSharper disable MemberCanBePrivate.Global
         // ReSharper disable UnusedMember.Global
         // ReSharper disable UnusedAutoPropertyAccessor.Global
+
+        #region Declarations
+
         private readonly List<IMetadata> _filters = new List<IMetadata>();
         private readonly GridLength _normalModeWidth = new GridLength(2.75, GridUnitType.Star);
         private readonly GridLength _readModeWidth = new GridLength(10, GridUnitType.Star);
@@ -35,12 +38,14 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
         private bool _readModeActive;
         private ICollectionView _subcriteria;
 
+        #endregion
+
+        #region Constructor
+
+
         public OverviewWindowViewModel(IProjectNotesService projectNotesService)
         {
-            ProjectNotes = new CyclicCollectionView<IProjectNote>(projectNotesService.ProjectNotes)
-                           {Filter = FilterCallback};
-            TotalProjectNotes = ProjectNotes.Count;
-            ProjectNotes.MoveCurrentTo(null);
+            ProjectNotes = new CyclicCollectionView<IProjectNote>(projectNotesService.ProjectNotes) { Filter = FilterCallback };
             ProjectNotes.CurrentChanged += UpdateCurrentProjectNote;
             Filters = new CollectionView(_filters);
             Criteria = projectNotesService.Metadata;
@@ -48,25 +53,32 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
             Maincriteria.MoveCurrentToFirst();
             SetSubCriteria();
 
-            ShowDetailsCommand = new Command(OnShowDetail);
-            HideDetailsCommand = new Command(OnHideDetail);
-
-            NavigateToLeftCommand = new Command(NavigateToLeft);
-            NavigateToRightCommand = new Command(NavigateToRight);
-
-            ShowSubcriteriaCommand = new Command(OnCurrentMainCriteriaChanged);
-            ToggleFilterCommand = new Command(OnShowFilter);
-
-            RemoveFilterCommand = new Command(RemoveFilter);
-            AddFilterCommand = new Command(AddFilter);
-
             DocumentViewerWidth = _normalModeWidth;
 
-            ZoomInCommand = new Command(ToogleReadMode, o => !ReadModeActive);
-            ZoomOutCommand = new Command(ToogleReadMode, o => ReadModeActive);
-
-            ToggleInfoCommand = new Command(o => InfoViewVisible = !InfoViewVisible);
+            InitCommands();
         }
+
+        #endregion
+
+        #region Properties
+
+
+        public ICollectionView Maincriteria { get; private set; }
+
+        public IDictionary<IMetadataType, ICollection<IMetadata>> Criteria { get; set; }
+
+        public ICyclicCollectionView<IProjectNote> ProjectNotes { get; private set; }
+        public ICommand ShowSubcriteriaCommand { get; private set; }
+        public ICommand ShowDetailsCommand { get; private set; }
+        public ICommand HideDetailsCommand { get; private set; }
+        public ICommand ToggleFilterCommand { get; private set; }
+        public ICommand NavigateToLeftCommand { get; private set; }
+        public ICommand NavigateToRightCommand { get; private set; }
+        public ICommand AddFilterCommand { get; private set; }
+        public ICommand RemoveFilterCommand { get; private set; }
+        public Command ZoomOutCommand { get; private set; }
+        public Command ZoomInCommand { get; private set; }
+        public ICommand ToggleInfoCommand { get; private set; }
 
         public bool ReadModeActive
         {
@@ -101,10 +113,6 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
             }
         }
 
-        public int TotalProjectNotes { get; private set; }
-
-        public ICollectionView Maincriteria { get; private set; }
-
         public ICollectionView Subcriteria
         {
             get { return _subcriteria; }
@@ -125,7 +133,6 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
             }
         }
 
-        public IDictionary<IMetadataType, ICollection<IMetadata>> Criteria { get; set; }
 
         public ICollectionView Filters
         {
@@ -137,19 +144,6 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
                 Notify("Filters");
             }
         }
-
-        public ICyclicCollectionView<IProjectNote> ProjectNotes { get; private set; }
-        public ICommand ShowSubcriteriaCommand { get; private set; }
-        public ICommand ShowDetailsCommand { get; private set; }
-        public ICommand HideDetailsCommand { get; private set; }
-        public ICommand ToggleFilterCommand { get; private set; }
-        public ICommand NavigateToLeftCommand { get; private set; }
-        public ICommand NavigateToRightCommand { get; private set; }
-        public ICommand AddFilterCommand { get; private set; }
-        public ICommand RemoveFilterCommand { get; private set; }
-        public Command ZoomOutCommand { get; private set; }
-        public Command ZoomInCommand { get; private set; }
-        public ICommand ToggleInfoCommand { get; private set; }
 
         public bool IsDetailViewVisible
         {
@@ -171,13 +165,37 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
             }
         }
 
-        private void NavigateToRight(object obj)
+        #endregion
+
+        #region Other
+
+        private void InitCommands()
+        {
+            ShowDetailsCommand = new Command(OnShowDetail);
+            HideDetailsCommand = new Command(OnHideDetail);
+
+            NavigateToLeftCommand = new Command(OnNavigateToLeft);
+            NavigateToRightCommand = new Command(OnNavigateToRight);
+
+            ShowSubcriteriaCommand = new Command(OnShowSubcriteria);
+            ToggleFilterCommand = new Command(OnToggleFilter);
+
+            RemoveFilterCommand = new Command(RemoveFilter);
+            AddFilterCommand = new Command(AddFilter);
+
+            ZoomInCommand = new Command(ToogleReadMode, o => !ReadModeActive);
+            ZoomOutCommand = new Command(ToogleReadMode, o => ReadModeActive);
+
+            ToggleInfoCommand = new Command(o => InfoViewVisible = !InfoViewVisible);
+        }
+
+        private void OnNavigateToRight(object obj)
         {
             ProjectNotes.MoveCurrentToNext();
             PreloadSideProjectNotes();
         }
 
-        private void NavigateToLeft(object obj)
+        private void OnNavigateToLeft(object obj)
         {
             ProjectNotes.MoveCurrentToPrevious();
             PreloadSideProjectNotes();
@@ -210,7 +228,7 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
         {
             if (obj != null)
             {
-                var pn = (IProjectNote) obj;
+                var pn = (IProjectNote)obj;
                 ProjectNotes.MoveCurrentTo(pn);
                 CurrentProjectNote = pn;
             }
@@ -218,7 +236,7 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
             IsDetailViewVisible = CurrentProjectNote != null;
         }
 
-        private void OnCurrentMainCriteriaChanged(object maincriteria)
+        private void OnShowSubcriteria(object maincriteria)
         {
             Maincriteria.MoveCurrentTo(maincriteria);
             SetSubCriteria();
@@ -227,18 +245,18 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
         private void SetSubCriteria()
         {
             ICollection<IMetadata> value;
-            Criteria.TryGetValue((IMetadataType) Maincriteria.CurrentItem, out value);
+            Criteria.TryGetValue((IMetadataType)Maincriteria.CurrentItem, out value);
             Subcriteria = new CollectionView(value);
         }
 
-        private void OnShowFilter(object o)
+        private void OnToggleFilter(object o)
         {
             IsFilterViewVisible = !IsFilterViewVisible;
         }
 
         private void RemoveFilter(object filter)
         {
-            _filters.Remove((IMetadata) filter);
+            _filters.Remove((IMetadata)filter);
             Filters.Refresh();
             ProjectNotes.Refresh();
             IsFilterViewVisible = ReadModeActive = IsDetailViewVisible = false;
@@ -251,7 +269,7 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
                 Filters.Refresh();
                 return;
             }
-            _filters.Add((IMetadata) filter);
+            _filters.Add((IMetadata)filter);
             Filters.Refresh();
             ProjectNotes.Refresh();
             IsDetailViewVisible = IsFilterViewVisible = false;
@@ -262,12 +280,10 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
         private bool FilterCallback(object projectNoteObj)
         {
             if (_filters.Count == 0) return true;
-            var projectNote = (IProjectNote) projectNoteObj;
+            var projectNote = (IProjectNote)projectNoteObj;
             return _filters.All(f => f.Match(projectNote));
         }
 
-        // ReSharper restore UnusedMember.Global
-        // ReSharper restore UnusedAutoPropertyAccessor.Global
-        // ReSharper restore MemberCanBePrivate.Global
+        #endregion
     }
 }

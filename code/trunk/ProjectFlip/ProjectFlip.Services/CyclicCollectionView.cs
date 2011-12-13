@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Linq;
+using System.Windows.Controls;
 using ProjectFlip.Services.Interfaces;
 
 #endregion
@@ -70,9 +71,10 @@ namespace ProjectFlip.Services
             }
         }
 
-        public T this[int index] { get { return Count == 0 ? default(T) : Items[(index + Count)%Count]; } }
+        public T this[int index] { get { return Count == 0 ? default(T) : Items[(index + Count) % Count]; } }
 
         public int Count { get { return Items.Count; } }
+        public int OriginalCount { get { return OriginalItems.Count; } }
 
         public T CurrentItem { get { return this[CurrentIndex]; } }
 
@@ -109,7 +111,7 @@ namespace ProjectFlip.Services
             if (Count == 0) return false;
 
             // ReSharper disable CompareNonConstrainedGenericWithNull
-            if ((!typeof (T).IsValueType) && o == null)
+            if ((!typeof(T).IsValueType) && o == null)
             {
                 CurrentIndex = 0;
                 return true;
@@ -141,14 +143,14 @@ namespace ProjectFlip.Services
         public void MoveCurrentToNext()
         {
             if (Count == 0) return;
-            CurrentIndex = (CurrentIndex + 1)%Count;
+            CurrentIndex = (CurrentIndex + 1) % Count;
             OnCurrentChanged();
         }
 
         public void MoveCurrentToPrevious()
         {
             if (Count == 0) return;
-            CurrentIndex = (CurrentIndex - 1 + Count)%Count;
+            CurrentIndex = (CurrentIndex - 1 + Count) % Count;
             OnCurrentChanged();
         }
 

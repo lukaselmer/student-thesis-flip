@@ -4,7 +4,7 @@ using System.Windows;
 
 #endregion
 
-namespace ProjectFlip.UserInterface.Surface
+namespace ProjectFlip.UserInterface.Surface.Views
 {
     /// <summary>
     /// Interaction logic for DetailWindow.xaml

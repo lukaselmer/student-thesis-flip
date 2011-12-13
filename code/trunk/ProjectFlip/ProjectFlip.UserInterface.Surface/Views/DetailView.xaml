@@ -9,7 +9,11 @@
              xmlns:ProjectFlip_UserInterface_Surface_Converters="clr-namespace:ProjectFlip.UserInterface.Surface.Converters" 
              xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
              xmlns:Documents="clr-namespace:System.Windows.Documents;assembly=PresentationUI"
-             xmlns:Surface="clr-namespace:ProjectFlip.UserInterface.Surface" x:Name="userControl" mc:Ignorable="d" x:Class="ProjectFlip.UserInterface.Surface.DetailView" RenderTransformOrigin="0.5,0.5">
+             xmlns:Surface="clr-namespace:ProjectFlip.UserInterface.Surface"
+             x:Name="userControl"
+             mc:Ignorable="d"
+             x:Class="ProjectFlip.UserInterface.Surface.Views.DetailView"
+             RenderTransformOrigin="0.5,0.5">
 
     <UserControl.Resources>
         <DataTemplate x:Key="MetadataTemplate">

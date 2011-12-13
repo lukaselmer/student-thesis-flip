@@ -74,7 +74,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
             var projectNotesService = new ProjectNotesServiceMock(5);
             var target = new OverviewWindowViewModel_Accessor(projectNotesService);
             Assert.IsFalse(target.IsFilterViewVisible);
-            target.OnShowFilter(new object());
+            target.OnToggleFilter(new object());
             Assert.IsTrue(target.IsFilterViewVisible);
         }
 
@@ -222,7 +222,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
             target.ShowSubcriteriaCommand.Execute(metadataTypeCustomer);
 
             var c = target.Maincriteria.Cast<IMetadataType>().ElementAt(0);
-            target.OnCurrentMainCriteriaChanged(c);
+            target.OnShowSubcriteria(c);
             Assert.AreEqual(target.Subcriteria.Cast<IMetadata>().ElementAt(0).Description, metadataSector.Description);
         }
 
