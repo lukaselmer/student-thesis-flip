@@ -94,7 +94,7 @@
     <Node Id="(@5 @41 @124 Member=(Name=set_Culture OverloadingParameters=[(@142 Namespace=System.Globalization Type=CultureInfo)]))" Category="CodeSchema_Method" CodeSchemaProperty_IsInternal="True" CodeSchemaProperty_IsSpecialName="True" Label="set_Culture" />
     <Node Id="(@5 @41 @124 Member=get_Culture)" Category="CodeSchema_Method" CodeSchemaProperty_IsInternal="True" CodeSchemaProperty_IsSpecialName="True" Label="get_Culture" />
     <Node Id="(@7 @23 @114 @303)" Category="CodeSchema_Method" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsSpecialName="True" Label="static PdfConverter" />
-    <Node Id="@10" Category="Category9" CodeSchemaProperty_StrongName="ProjectFlip.Services.Loader, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" FilePath="$(VsSolution)\ProjectFlip.Importer\bin\Debug\ProjectFlip.Services.Loader.dll" Group="Collapsed" Label="ProjectFlip.Services.Loader.dll" />
+    <Node Id="@10" Category="Category9" CodeSchemaProperty_StrongName="ProjectFlip.Services.Loader, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" FilePath="$(761b0f94-e5e6-43ef-8f1b-475afbde6be0.OutputPath)" Group="Collapsed" Label="ProjectFlip.Services.Loader.dll" />
     <Node Id="@101" Category="CodeSchema_Interface" CodeSchemaProperty_IsPublic="True" Group="Expanded" Label="IProjectNotesLoader" />
     <Node Id="@102" Category="CodeSchema_Interface" CodeSchemaProperty_IsPublic="True" Group="Expanded" Label="IProjectNotesService" />
     <Node Id="@104" Category="CodeSchema_Class" CodeSchemaProperty_IsPublic="True" Group="Collapsed" Label="Metadata" />
@@ -175,8 +175,8 @@
     <Node Id="@197" Category="CodeSchema_Method" CodeSchemaProperty_IsCompilerGenerated="True" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsSpecialName="True" Label="set_ToggleInfoCommand" />
     <Node Id="@198" Category="CodeSchema_Method" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="ConverterProcessor" />
     <Node Id="@199" Category="CodeSchema_Method" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsSpecialName="True" Label="set_Document" />
-    <Node Id="@2" Category="Category9" CodeSchemaProperty_StrongName="ProjectFlip, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" FilePath="$(3cc55c3f-3524-43f6-b7dd-5f3b3d591459.OutputPath)" Group="Collapsed" Label="ProjectFlip.exe" />
-    <Node Id="@20" Category="CodeSchema_Namespace" Group="Collapsed" Label="ProjectFlip" />
+    <Node Id="@2" Category="Category9" CodeSchemaProperty_StrongName="ProjectFlip, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" FilePath="$(3cc55c3f-3524-43f6-b7dd-5f3b3d591459.OutputPath)" Group="Expanded" Label="ProjectFlip.exe" />
+    <Node Id="@20" Category="CodeSchema_Namespace" Group="Expanded" Label="ProjectFlip" />
     <Node Id="@201" Category="CodeSchema_Method" CodeSchemaProperty_IsCompilerGenerated="True" CodeSchemaProperty_IsPrivate="True" Label="&lt;.ctor&gt;b__3" />
     <Node Id="@202" Category="CodeSchema_Method" CodeSchemaProperty_IsCompilerGenerated="True" CodeSchemaProperty_IsPrivate="True" Label="&lt;AddToMetadata&gt;b__3" />
     <Node Id="@203" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="&lt;FilterCallback&gt;b__7" />
@@ -252,7 +252,7 @@
     <Node Id="@277" Category="CodeSchema_Method" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="Command" />
     <Node Id="@278" Category="CodeSchema_Method" CodeSchemaProperty_IsPrivate="True" Label="OnScrollToTopPropertyChanged" />
     <Node Id="@279" Category="CodeSchema_Method" CodeSchemaProperty_IsCompilerGenerated="True" CodeSchemaProperty_IsPrivate="True" Label="&lt;Preload&gt;b__1" />
-    <Node Id="@28" Category="CodeSchema_Namespace" Group="Collapsed" Label="ProjectFlip.Properties" />
+    <Node Id="@28" Category="CodeSchema_Namespace" Group="Expanded" Label="ProjectFlip.Properties" />
     <Node Id="@280" Category="CodeSchema_Method" CodeSchemaProperty_IsPrivate="True" Label="ItemsSourceChanged" />
     <Node Id="@281" Category="CodeSchema_Method" CodeSchemaProperty_IsPrivate="True" Label="UpdateCurrentProjectNote" />
     <Node Id="@282" Category="CodeSchema_Method" CodeSchemaProperty_IsPrivate="True" Label="XpsToTempImage" />
@@ -351,7 +351,7 @@
     <Node Id="@377" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="get_Next" />
     <Node Id="@378" Category="CodeSchema_Method" CodeSchemaProperty_IsCompilerGenerated="True" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsSpecialName="True" Label="get_OriginalItems" />
     <Node Id="@379" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="get_Previous" />
-    <Node Id="@38" Category="CodeSchema_Namespace" Group="Collapsed" Label="ProjectFlip.UserInterface.Surface" />
+    <Node Id="@38" Category="CodeSchema_Namespace" Group="Expanded" Label="ProjectFlip.UserInterface.Surface" />
     <Node Id="@380" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="get_ProjectNotes" />
     <Node Id="@381" Category="CodeSchema_Method" CodeSchemaProperty_IsCompilerGenerated="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="get_ProjectNotes" />
     <Node Id="@382" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="get_ReadModeActive" />
@@ -371,8 +371,8 @@
     <Node Id="@397" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="InitializeComponent" />
     <Node Id="@398" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="InitializeComponent" />
     <Node Id="@399" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="InitializeComponent" />
-    <Node Id="@4" Category="Category9" CodeSchemaProperty_StrongName="ProjectFlip.Preparer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" FilePath="$(13d14388-0e29-4911-816e-cef9fffee4c7.OutputPath)" Group="Expanded" Label="ProjectFlip.Preparer.exe" />
-    <Node Id="@40" Category="CodeSchema_Namespace" Group="Collapsed" Label="ProjectFlip.UserInterface.Surface.Converters" />
+    <Node Id="@4" Category="Category9" CodeSchemaProperty_StrongName="ProjectFlip.Preparer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" FilePath="$(13d14388-0e29-4911-816e-cef9fffee4c7.OutputPath)" Group="Collapsed" Label="ProjectFlip.Preparer.exe" />
+    <Node Id="@40" Category="CodeSchema_Namespace" Group="Expanded" Label="ProjectFlip.UserInterface.Surface.Converters" />
     <Node Id="@400" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="InitializeComponent" />
     <Node Id="@401" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="InitializeComponent" />
     <Node Id="@402" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="InitializeComponent" />
@@ -424,7 +424,7 @@
     <Node Id="@74" Category="CodeSchema_Class" CodeSchemaProperty_IsPrivate="True" Group="Collapsed" Label="ConverterProcessor" />
     <Node Id="@76" Category="CodeSchema_Class" CodeSchemaProperty_IsPublic="True" Group="Collapsed" Label="CultureHelper" />
     <Node Id="@78" Category="CodeSchema_Class" CodeSchemaProperty_IsGeneratedCode="True" CodeSchemaProperty_IsPublic="True" Group="Collapsed" Label="DetailView" />
-    <Node Id="@8" Category="Category9" CodeSchemaProperty_StrongName="ProjectFlip.Converter.Pdf, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" FilePath="$(VsSolution)\PDFConverter\bin\Debug\ProjectFlip.Converter.Pdf.dll" Group="Collapsed" Label="ProjectFlip.Converter.Pdf.dll" />
+    <Node Id="@8" Category="Category9" CodeSchemaProperty_StrongName="ProjectFlip.Converter.Pdf, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" FilePath="$(2c982c06-ffdc-4b54-a05e-26fc606ff552.OutputPath)" Group="Collapsed" Label="ProjectFlip.Converter.Pdf.dll" />
     <Node Id="@80" Category="CodeSchema_Class" CodeSchemaProperty_IsPrivate="True" Group="Collapsed" Label="DownloadProcessor" />
     <Node Id="@82" Category="CodeSchema_Class" CodeSchemaProperty_IsGeneratedCode="True" CodeSchemaProperty_IsPublic="True" Group="Collapsed" Label="FilterDetailView" />
     <Node Id="@84" Category="CodeSchema_Class" CodeSchemaProperty_IsGeneratedCode="True" CodeSchemaProperty_IsPublic="True" Group="Collapsed" Label="FilterView" />
@@ -1375,9 +1375,9 @@
     <Alias n="4" Id="(@3)" />
     <Alias n="5" Uri="Assembly=$(5de0aebd-753d-4f52-a062-75bc6de1fb23.OutputPathUri)" />
     <Alias n="6" Id="(@5)" />
-    <Alias n="7" Uri="Assembly=$(VsSolutionUri)/PDFConverter/bin/Debug/ProjectFlip.Converter.Pdf.dll" />
+    <Alias n="7" Uri="Assembly=$(2c982c06-ffdc-4b54-a05e-26fc606ff552.OutputPathUri)" />
     <Alias n="8" Id="(@7)" />
-    <Alias n="9" Uri="Assembly=$(VsSolutionUri)/ProjectFlip.Importer/bin/Debug/ProjectFlip.Services.Loader.dll" />
+    <Alias n="9" Uri="Assembly=$(761b0f94-e5e6-43ef-8f1b-475afbde6be0.OutputPathUri)" />
     <Alias n="10" Id="(@9)" />
     <Alias n="11" Uri="Assembly=$(c478fce9-01de-49e0-915d-68a1b6b556f2.OutputPathUri)" />
     <Alias n="12" Id="(@11)" />
@@ -1798,10 +1798,14 @@
   <Paths>
     <Path Id="13d14388-0e29-4911-816e-cef9fffee4c7.OutputPath" Value="D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.Preparer\bin\Debug\ProjectFlip.Preparer.exe" />
     <Path Id="13d14388-0e29-4911-816e-cef9fffee4c7.OutputPathUri" Value="file:///D:/flip_svn.elmermx.ch/code/trunk/ProjectFlip/ProjectFlip.Preparer/bin/Debug/ProjectFlip.Preparer.exe" />
+    <Path Id="2c982c06-ffdc-4b54-a05e-26fc606ff552.OutputPath" Value="D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\PDFConverter\bin\Debug\ProjectFlip.Converter.Pdf.dll" />
+    <Path Id="2c982c06-ffdc-4b54-a05e-26fc606ff552.OutputPathUri" Value="file:///D:/flip_svn.elmermx.ch/code/trunk/ProjectFlip/PDFConverter/bin/Debug/ProjectFlip.Converter.Pdf.dll" />
     <Path Id="3cc55c3f-3524-43f6-b7dd-5f3b3d591459.OutputPath" Value="D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip\bin\Debug\ProjectFlip.exe" />
     <Path Id="3cc55c3f-3524-43f6-b7dd-5f3b3d591459.OutputPathUri" Value="file:///D:/flip_svn.elmermx.ch/code/trunk/ProjectFlip/ProjectFlip/bin/Debug/ProjectFlip.exe" />
     <Path Id="5de0aebd-753d-4f52-a062-75bc6de1fb23.OutputPath" Value="D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.UserInterface.Surface\bin\Debug\ProjectFlip.UserInterface.Surface.dll" />
     <Path Id="5de0aebd-753d-4f52-a062-75bc6de1fb23.OutputPathUri" Value="file:///D:/flip_svn.elmermx.ch/code/trunk/ProjectFlip/ProjectFlip.UserInterface.Surface/bin/Debug/ProjectFlip.UserInterface.Surface.dll" />
+    <Path Id="761b0f94-e5e6-43ef-8f1b-475afbde6be0.OutputPath" Value="D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.Importer\bin\Debug\ProjectFlip.Services.Loader.dll" />
+    <Path Id="761b0f94-e5e6-43ef-8f1b-475afbde6be0.OutputPathUri" Value="file:///D:/flip_svn.elmermx.ch/code/trunk/ProjectFlip/ProjectFlip.Importer/bin/Debug/ProjectFlip.Services.Loader.dll" />
     <Path Id="902c8f58-4ca9-4d16-aa01-c897ff205111.OutputPath" Value="D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.Services\bin\Debug\ProjectFlip.Services.dll" />
     <Path Id="902c8f58-4ca9-4d16-aa01-c897ff205111.OutputPathUri" Value="file:///D:/flip_svn.elmermx.ch/code/trunk/ProjectFlip/ProjectFlip.Services/bin/Debug/ProjectFlip.Services.dll" />
     <Path Id="c478fce9-01de-49e0-915d-68a1b6b556f2.OutputPath" Value="D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.Services.Loader.Interfaces\bin\Debug\ProjectFlip.Services.Loader.Interfaces.dll" />
@@ -1811,7 +1815,6 @@
     <Path Id="ebefd9be-f2f4-402f-9c36-a8433cefe327.OutputPath" Value="D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.Services.Interfaces\bin\Debug\ProjectFlip.Services.Interfaces.dll" />
     <Path Id="ebefd9be-f2f4-402f-9c36-a8433cefe327.OutputPathUri" Value="file:///D:/flip_svn.elmermx.ch/code/trunk/ProjectFlip/ProjectFlip.Services.Interfaces/bin/Debug/ProjectFlip.Services.Interfaces.dll" />
     <Path Id="SystemRootUri" Value="file:///C:/Windows" />
-    <Path Id="VsSolution" Value="D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip" />
     <Path Id="VsSolutionUri" Value="file:///D:/flip_svn.elmermx.ch/code/trunk/ProjectFlip" />
   </Paths>
 </DirectedGraph>
