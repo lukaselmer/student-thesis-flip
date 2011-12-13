@@ -8,7 +8,7 @@ namespace ProjectFlip.Test.Mock
 {
     public class AggregatorMock : IAggregator
     {
-        #region IAggregator Members
+        #region Other
 
         public void LoadMapping() {}
         public void SaveMapping() {}

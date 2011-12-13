@@ -19,7 +19,7 @@ namespace ProjectFlip.Preparer
 {
     internal class ImageExtractorProcessor : IProcessor
     {
-        #region IProcessor Members
+        #region Other
 
         public bool Process(IProjectNote projectNote)
         {
@@ -33,8 +33,6 @@ namespace ProjectFlip.Preparer
 
             return true;
         }
-
-        #endregion
 
         private static bool ExtractImage(string xpsPath, string imagePath)
         {
@@ -107,5 +105,7 @@ namespace ProjectFlip.Preparer
                 bmpCrop.Save(imagePath);
             }
         }
+
+        #endregion
     }
 }

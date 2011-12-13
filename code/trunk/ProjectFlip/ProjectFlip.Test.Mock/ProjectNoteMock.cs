@@ -12,16 +12,24 @@ namespace ProjectFlip.Test.Mock
 {
     public class ProjectNoteMock : IProjectNote
     {
+        #region Declarations
+
         private IDocumentPaginatorSource _document;
 
-        // ReSharper disable UnusedAutoPropertyAccessor.Global
+        #endregion
+
+        #region Constructor
 
         public ProjectNoteMock()
         {
             Metadata = new Dictionary<IMetadataType, ICollection<IMetadata>>();
         }
 
-        #region IProjectNote Members
+        #endregion
+
+        #region Properties
+
+        // ReSharper disable UnusedAutoPropertyAccessor.Global
 
         public int Id { get; set; }
         public string Title { get; set; }
@@ -37,9 +45,14 @@ namespace ProjectFlip.Test.Mock
         public string Url { get; set; }
         public IList<string> Line { get; set; }
         public BitmapImage Image { get; set; }
-        // ReSharper restore UnusedAutoPropertyAccessor.Global
 
         public IDocumentPaginatorSource Document { get { return _document = _document ?? new FixedDocument(); } }
+        // ReSharper restore UnusedAutoPropertyAccessor.Global
+
+        #endregion
+
+        #region Other
+
         public void Preload() {}
 
         #endregion

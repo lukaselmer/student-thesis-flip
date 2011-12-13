@@ -20,7 +20,13 @@ namespace ProjectFlip.Preparer
 {
     internal static class Program
     {
+        #region Declarations
+
         private static readonly ILog Logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
+        #endregion
+
+        #region Other
 
         private static void Main()
         {
@@ -74,5 +80,7 @@ namespace ProjectFlip.Preparer
             container.RegisterType<IProjectNote, ProjectNote>();
             container.RegisterType<IProjectNotesLoader, ProjectNotesLoader>();
         }
+
+        #endregion
     }
 }

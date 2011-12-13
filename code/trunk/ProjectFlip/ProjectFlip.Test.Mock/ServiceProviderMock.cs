@@ -8,12 +8,9 @@ namespace ProjectFlip.Test.Mock
 {
     public class ServiceProviderMock : IServiceProvider
     {
-        #region IServiceProvider Members
+        #region Other
 
-        public object GetService(Type serviceType)
-        {
-            throw new NotImplementedException();
-        }
+        public object GetService(Type serviceType) { return null; }
 
         #endregion
     }

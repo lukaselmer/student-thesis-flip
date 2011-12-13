@@ -11,14 +11,12 @@ namespace ProjectFlip.Preparer
 {
     internal class DownloadProcessor : IProcessor
     {
-        #region IProcessor Members
+        #region Other
 
         public bool Process(IProjectNote projectNote)
         {
             return File.Exists(projectNote.FilepathPdf) || Download(projectNote);
         }
-
-        #endregion
 
         /// <summary>
         /// Downloads the specified project note.
@@ -43,5 +41,7 @@ namespace ProjectFlip.Preparer
                 return i < 9 && Download(projectNote, i + 1);
             }
         }
+
+        #endregion
     }
 }
