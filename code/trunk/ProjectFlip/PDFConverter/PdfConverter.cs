@@ -13,18 +13,41 @@ namespace ProjectFlip.Converter.Pdf
 {
     public class PdfConverter : IConverter
     {
+        #region Declarations
+
+        /// <summary>
+        /// The seconds to wait until the acrobat reader process is forced to quit.
+        /// </summary>
         public static int SecondsToWait = 30;
+
         private static readonly ILog Logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
+        #endregion
+
+        #region Constructor
 
         public PdfConverter()
         {
             AcrobatLocation = Settings.Default["AcrobatLocation"] as string;
         }
 
-        #region IConverter Members
+        #endregion
+
+        #region Properties
 
         public string AcrobatLocation { get; set; }
 
+        #endregion
+
+        #region Other
+
+        /// <summary>
+        /// Converts a pdf file to an XPS file
+        /// </summary>
+        /// <param name="from">Location of the pdf file</param>
+        /// <param name="to">Location of the xps file</param>
+        /// <returns></returns>
+        /// <remarks></remarks>
         public bool Convert(string from, string to)
         {
             if (!RequirementsOk(from, to)) return false;
@@ -35,8 +58,6 @@ namespace ProjectFlip.Converter.Pdf
             else Logger.Error("XPS could not be generated: Timeout!");
             return true;
         }
-
-        #endregion
 
         /// <summary>
         /// Checks if the requirements to convert a PFD to a XPS are ok.
@@ -84,5 +105,7 @@ namespace ProjectFlip.Converter.Pdf
             }
             return res;
         }
+
+        #endregion
     }
 }
