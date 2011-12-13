@@ -66,66 +66,66 @@
     <Reference Include="Microsoft.Surface.Presentation.Generic" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutView.xaml.cs">
+    <Compile Include="Views\AboutView.xaml.cs">
       <DependentUpon>AboutView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Command.cs" />
+    <Compile Include="Helpers\Command.cs" />
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Converters\ValueConverterBase.cs" />
-    <Compile Include="DetailView.xaml.cs">
+    <Compile Include="Views\DetailView.xaml.cs">
       <DependentUpon>DetailView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FilterDetailView.xaml.cs">
+    <Compile Include="Views\FilterDetailView.xaml.cs">
       <DependentUpon>FilterDetailView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FilterView.xaml.cs">
+    <Compile Include="Views\FilterView.xaml.cs">
       <DependentUpon>FilterView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Gravatar.xaml.cs">
+    <Compile Include="Views\Gravatar.xaml.cs">
       <DependentUpon>Gravatar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OverviewWindowViewModel.cs" />
-    <Compile Include="ScrollToTopBehavior.cs" />
-    <Compile Include="ViewModelBase.cs" />
-    <Compile Include="ZoomInIcon.xaml.cs">
+    <Compile Include="ViewModels\OverviewWindowViewModel.cs" />
+    <Compile Include="Helpers\ScrollToTopBehavior.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\ZoomInIcon.xaml.cs">
       <DependentUpon>ZoomInIcon.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ZoomOutIcon.xaml.cs">
+    <Compile Include="Views\ZoomOutIcon.xaml.cs">
       <DependentUpon>ZoomOutIcon.xaml</DependentUpon>
     </Compile>
-    <Page Include="AboutView.xaml">
+    <Page Include="Views\AboutView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DetailView.xaml">
+    <Page Include="Views\DetailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FilterDetailView.xaml">
+    <Page Include="Views\FilterDetailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FilterView.xaml">
+    <Page Include="Views\FilterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Gravatar.xaml">
+    <Page Include="Views\Gravatar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="OverviewWindow.xaml">
+    <Page Include="Views\OverviewWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="OverviewWindow.xaml.cs">
+    <Compile Include="Views\OverviewWindow.xaml.cs">
       <DependentUpon>OverviewWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ZoomInIcon.xaml">
+    <Page Include="Views\ZoomInIcon.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ZoomOutIcon.xaml">
+    <Page Include="Views\ZoomOutIcon.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
