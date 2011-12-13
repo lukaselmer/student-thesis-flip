@@ -19,7 +19,6 @@ namespace ProjectFlip.Preparer
     {
         private static void Main()
         {
-            new PdfConverter();
             var container = new UnityContainer();
             ConfigureContainer(container);
             Parallel.Invoke(new ParallelOptions {MaxDegreeOfParallelism = 5}, Actions(container).ToArray());

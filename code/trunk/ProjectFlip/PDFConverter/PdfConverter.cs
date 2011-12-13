@@ -17,8 +17,6 @@ namespace ProjectFlip.Converter.Pdf
         public PdfConverter()
         {
             AcrobatLocation = Properties.Settings.Default["AcrobatLocation"] as string;
-            Console.WriteLine(AcrobatLocation);
-            Console.ReadLine();
         }
 
         #region IConverter Members
