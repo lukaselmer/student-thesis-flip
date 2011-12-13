@@ -5,6 +5,7 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProjectFlip.Services.Interfaces;
 using ProjectFlip.Test.Mock;
+using ProjectFlip.UserInterface.Surface.ViewModels;
 
 #endregion
 

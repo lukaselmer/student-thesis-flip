@@ -9,7 +9,7 @@ using System.Windows.Media;
 
 #endregion
 
-namespace ProjectFlip.UserInterface.Surface
+namespace ProjectFlip.UserInterface.Surface.Helpers
 {
     public static class ScrollToTopBehavior
     {

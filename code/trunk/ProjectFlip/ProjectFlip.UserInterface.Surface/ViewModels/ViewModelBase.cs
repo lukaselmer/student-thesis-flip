@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 #endregion
 
-namespace ProjectFlip.UserInterface.Surface
+namespace ProjectFlip.UserInterface.Surface.ViewModels
 {
     public abstract class ViewModelBase : INotifyPropertyChanged
     {

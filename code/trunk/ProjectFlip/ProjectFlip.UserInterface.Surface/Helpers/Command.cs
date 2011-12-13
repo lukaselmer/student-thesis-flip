@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 #endregion
 
-namespace ProjectFlip.UserInterface.Surface
+namespace ProjectFlip.UserInterface.Surface.Helpers
 {
     public class Command : ICommand
     {

@@ -10,7 +10,10 @@ namespace ProjectFlip.Test.Mock
     {
         #region Other
 
-        public object GetService(Type serviceType) { return null; }
+        public object GetService(Type serviceType)
+        {
+            return null;
+        }
 
         #endregion
     }

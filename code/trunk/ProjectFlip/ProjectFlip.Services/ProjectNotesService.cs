@@ -31,7 +31,7 @@ namespace ProjectFlip.Services
             _projectNotes =
                 new List<IProjectNote>(
                     _projectNotesLoader.Import().ConvertAll(
-                        line => new ProjectNote { Aggregator = aggregator, Line = line }));
+                        line => new ProjectNote {Aggregator = aggregator, Line = line}));
             _projectNotes.RemoveAll(pn => !File.Exists(pn.FilepathXps));
             _metadata = new Dictionary<IMetadataType, ICollection<IMetadata>>();
             Action<IMetadata> func = m =>

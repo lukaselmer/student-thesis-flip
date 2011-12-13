@@ -1,3 +1,9 @@
+#region
+
+using ProjectFlip.UserInterface.Surface.ViewModels;
+
+#endregion
+
 namespace ProjectFlip.UserInterface.Surface
 {
     /// <summary>

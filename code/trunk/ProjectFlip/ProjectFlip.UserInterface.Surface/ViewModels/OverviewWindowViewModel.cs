@@ -9,10 +9,11 @@ using System.Windows.Data;
 using System.Windows.Input;
 using ProjectFlip.Services;
 using ProjectFlip.Services.Interfaces;
+using ProjectFlip.UserInterface.Surface.Helpers;
 
 #endregion
 
-namespace ProjectFlip.UserInterface.Surface
+namespace ProjectFlip.UserInterface.Surface.ViewModels
 {
     public class OverviewWindowViewModel : ViewModelBase
     {
