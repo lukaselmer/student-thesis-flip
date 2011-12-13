@@ -44,7 +44,7 @@ namespace ProjectFlip.Services
         {
             set
             {
-                Debug.Assert(value.Count == 19);
+                if(value.Count != 19) throw new Exception("A line must contain exactly 19 elements");
 
                 Id = Convert.ToInt32(value[0]);
                 InitStringValues(value);

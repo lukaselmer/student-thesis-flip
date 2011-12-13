@@ -1,10 +1,10 @@
 ﻿#region
 
 using System;
-using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using ProjectFlip.Converter.Interfaces;
+using log4net;
 
 #endregion
 
@@ -13,6 +13,7 @@ namespace ProjectFlip.Converter.Pdf
     public class PdfConverter : IConverter
     {
         public static int SecondsToWait = 30;
+        private static readonly ILog Logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public PdfConverter()
         {
@@ -28,28 +29,36 @@ namespace ProjectFlip.Converter.Pdf
             if (!RequirementsOk(from, to)) return false;
 
             var args = "/N /T " + from + " \"Microsoft XPS Document Writer\" /t \"" + to + "\"";
-            Console.WriteLine(ExecCommand(AcrobatLocation, args)
-                ? "XPS generated successful" : "XPS could not be generated: Timeout!");
+            var successful = ExecCommand(AcrobatLocation, args);
+            if (successful) Logger.Debug("XPS generated successful");
+            else Logger.Error("XPS could not be generated: Timeout!");
             return true;
         }
 
         #endregion
 
+        /// <summary>
+        /// Checks if the requirements to convert a PFD to a XPS are ok.
+        /// </summary>
+        /// <param name="from">From path.</param>
+        /// <param name="to">To path.</param>
+        /// <returns>Wether the requirements are met or not</returns>
+        /// <remarks></remarks>
         private bool RequirementsOk(string from, string to)
         {
             if (!File.Exists(AcrobatLocation))
             {
-                Console.WriteLine("PDF Reader (AcroRd32.exe) not found.");
+                Logger.Error(string.Format("PDF Reader (AcroRd32.exe) not found at {0}.", AcrobatLocation));
                 return false;
             }
             if (!File.Exists(from))
             {
-                Console.WriteLine("Input PDF not found");
+                Logger.Error("Input PDF not found");
                 return false;
             }
             if (File.Exists(to))
             {
-                Console.WriteLine("Destination file already exists");
+                Logger.Error("Destination file already exists");
                 return false;
             }
             return true;
@@ -63,11 +72,15 @@ namespace ProjectFlip.Converter.Pdf
         /// <returns></returns>
         private bool ExecCommand(string exe, string args)
         {
-            Console.WriteLine("Executing '" + exe + " " + args);
+            Logger.Debug("Executing '" + exe + " " + args);
             var proc = new Process { StartInfo = { FileName = exe, Arguments = args }, EnableRaisingEvents = false };
             proc.Start();
             var res = proc.WaitForExit(SecondsToWait * 1000);
-            if (!res && !proc.HasExited) proc.Kill();
+            if (!res && !proc.HasExited)
+            {
+                proc.Kill();
+                Logger.Warn(string.Format("Killed Process {0}", proc.Id));
+            }
             return res;
         }
     }

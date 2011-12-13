@@ -10,6 +10,8 @@ using ProjectFlip.Services;
 using ProjectFlip.Services.Interfaces;
 using ProjectFlip.Services.Loader;
 using ProjectFlip.Services.Loader.Interfaces;
+using log4net;
+using log4net.Config;
 
 #endregion
 
@@ -17,11 +19,16 @@ namespace ProjectFlip.Preparer
 {
     internal static class Program
     {
+        private static readonly ILog Logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         private static void Main()
         {
+            BasicConfigurator.Configure();
+            Logger.Info("Preparing Project Notes...");
             var container = new UnityContainer();
             ConfigureContainer(container);
-            Parallel.Invoke(new ParallelOptions {MaxDegreeOfParallelism = 5}, Actions(container).ToArray());
+            Parallel.Invoke(new ParallelOptions { MaxDegreeOfParallelism = 5 }, Actions(container).ToArray());
+            Logger.Info("Preparation terminated.");
         }
 
         private static List<Action> Actions(IUnityContainer container)
@@ -47,14 +54,15 @@ namespace ProjectFlip.Preparer
 
         private static void Process(List<IProcessor> processors, IProjectNote projectNote)
         {
+            Logger.Info(string.Format("Processing Project Note {0}", projectNote.Id));
             try
             {
                 processors.ForEach(proc => proc.Process(projectNote));
+                Logger.Info(string.Format("Project Note {0} successfully processed", projectNote.Id));
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error processing PN: ");
-                Console.WriteLine(e);
+                Logger.Error("Error processing Project Note", e);
             }
         }
 
