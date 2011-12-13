@@ -16,14 +16,7 @@ namespace ProjectFlip.UserInterface.Surface.Views
             InitializeComponent();
         }
 
-        public object PersonName
-        {
-            set
-            {
-                if (value == null || !(value is string)) return;
-                GravatarName.Content = value;
-            }
-        }
+        public object PersonName { set { GravatarName.Content = value; } }
 
         public object Email
         {
