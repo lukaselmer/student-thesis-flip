@@ -40,6 +40,12 @@ namespace ProjectFlip.Services
 
         public string Url { get { return "http://www.zuehlke.com/uploads/tx_zepublications/" + Filename; } }
 
+
+        /// <summary>
+        /// Initializes the Project Note with an array of strings
+        /// </summary>
+        /// <value>The contents of the project note.</value>
+        /// <remarks></remarks>
         public IList<string> Line
         {
             set
@@ -54,6 +60,11 @@ namespace ProjectFlip.Services
             }
         }
 
+
+        /// <summary>
+        /// Preloads the XPS document of this project note.
+        /// </summary>
+        /// <remarks></remarks>
         public void Preload()
         {
             if (_document != null) return;
@@ -70,6 +81,10 @@ namespace ProjectFlip.Services
             }
         }
 
+        /// <summary>
+        /// Gets or sets the XPS document. The document will be loaded asynchronous if it is not cached yet.
+        /// </summary>
+        /// <remarks></remarks>
         public IDocumentPaginatorSource Document
         {
             get
@@ -86,8 +101,9 @@ namespace ProjectFlip.Services
         }
 
         /// <summary>
-        /// Gets or sets the image.
+        /// Gets the image.
         /// </summary>
+        /// <remarks></remarks>
         public BitmapImage Image
         {
             get
@@ -97,6 +113,7 @@ namespace ProjectFlip.Services
                 image.BeginInit();
                 image.StreamSource = File.OpenRead(FilepathImage);
                 image.EndInit();
+                image.Freeze();
                 return image;
             }
         }

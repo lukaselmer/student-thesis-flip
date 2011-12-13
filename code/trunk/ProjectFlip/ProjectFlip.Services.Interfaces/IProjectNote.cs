@@ -67,8 +67,7 @@ namespace ProjectFlip.Services.Interfaces
         // ReSharper restore UnusedMemberInSuper.Global
 
         /// <summary>
-        /// Sets the line.
-        /// The line contains the information about the metadata of a project note
+        /// Initializes the Project Note with an array of strings
         /// </summary>
         /// <value>
         /// The line.
@@ -88,7 +87,7 @@ namespace ProjectFlip.Services.Interfaces
         IDocumentPaginatorSource Document { get; }
 
         /// <summary>
-        /// Preloads this document.
+        /// Preloads the XPS document of this project note.
         /// </summary>
         void Preload();
     }
