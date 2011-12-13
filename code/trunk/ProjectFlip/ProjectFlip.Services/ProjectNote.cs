@@ -29,17 +29,35 @@ namespace ProjectFlip.Services
         public int Id { get; private set; }
         public string Title { get; private set; } // Audit einer IT-Infrastruktur und Organisation
         public string Text { get; private set; } // In einem externen Audit untersucht Zühlke die IT und die ...
-
+        
         public IDictionary<IMetadataType, ICollection<IMetadata>> Metadata { get; private set; }
-
         public DateTime Published { get; private set; }
+        
         public string Filename { get; private set; }
         public string FilepathPdf { get; private set; }
         public string FilepathXps { get; private set; }
         public string FilepathImage { get; private set; }
 
-        public string Url { get { return "http://www.zuehlke.com/uploads/tx_zepublications/" + Filename; } }
+        public string Url { get { return (Properties.Settings.Default["ProjectNotesUrl"] as string) + Filename; } }
 
+        /// <summary>
+        /// Gets or sets the XPS document. The document will be loaded asynchronous if it is not cached yet.
+        /// </summary>
+        /// <remarks></remarks>
+        public IDocumentPaginatorSource Document
+        {
+            get
+            {
+                Preload();
+                return _document;
+            }
+            private set
+            {
+                if (_timer != null) _timer.Stop();
+                _document = value;
+                Notify("Document");
+            }
+        }
 
         /// <summary>
         /// Initializes the Project Note with an array of strings
@@ -60,7 +78,6 @@ namespace ProjectFlip.Services
             }
         }
 
-
         /// <summary>
         /// Preloads the XPS document of this project note.
         /// </summary>
@@ -78,25 +95,6 @@ namespace ProjectFlip.Services
                 _timer = new DispatcherTimer(TimeSpan.FromMilliseconds(500), DispatcherPriority.Background,
                     (s, e) => LoadDocument(), dispatcher);
                 _timer.Start();
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the XPS document. The document will be loaded asynchronous if it is not cached yet.
-        /// </summary>
-        /// <remarks></remarks>
-        public IDocumentPaginatorSource Document
-        {
-            get
-            {
-                Preload();
-                return _document;
-            }
-            private set
-            {
-                if (_timer != null) _timer.Stop();
-                _document = value;
-                Notify("Document");
             }
         }
 
