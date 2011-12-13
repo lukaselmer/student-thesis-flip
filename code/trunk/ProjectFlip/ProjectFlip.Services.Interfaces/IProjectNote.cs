@@ -63,6 +63,7 @@ namespace ProjectFlip.Services.Interfaces
         /// Gets the URL.
         /// </summary>
         string Url { get; }
+
         // ReSharper restore ReturnTypeCanBeEnumerable.Global
         // ReSharper restore UnusedMemberInSuper.Global
 
@@ -79,6 +80,7 @@ namespace ProjectFlip.Services.Interfaces
         /// Gets the image.
         /// </summary>
         BitmapImage Image { get; }
+
         // ReSharper restore UnusedMember.Global
 
         /// <summary>
