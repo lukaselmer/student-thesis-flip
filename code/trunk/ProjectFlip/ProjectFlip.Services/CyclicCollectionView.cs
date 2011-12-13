@@ -12,14 +12,21 @@ using ProjectFlip.Services.Interfaces;
 
 namespace ProjectFlip.Services
 {
-    // ReSharper disable ClassWithVirtualMembersNeverInherited.Global
-    public class CyclicCollectionView<T> : NotifierModel, ICyclicCollectionView<T>
-        // ReSharper restore ClassWithVirtualMembersNeverInherited.Global
+    public sealed class CyclicCollectionView<T> : NotifierModel, ICyclicCollectionView<T>
     {
+        #region Declarations
+
         private int _currentIndex;
         private Predicate<T> _filter;
-
         private IList<T> _items;
+        private IList<T> OriginalItems { get; set; }
+
+        public event EventHandler CurrentChanged;
+        public event NotifyCollectionChangedEventHandler CollectionChanged;
+
+        #endregion
+
+        #region Constructor
 
         public CyclicCollectionView(IList<T> projectNotes)
         {
@@ -27,11 +34,9 @@ namespace ProjectFlip.Services
             CurrentIndex = 0;
         }
 
-        private IList<T> OriginalItems { get; set; }
+        #endregion
 
-        // ReSharper disable MemberCanBePrivate.Global
-
-        #region ICyclicCollectionView<T> Members
+        #region Properties
 
         public IList<T> Items // ReSharper restore MemberCanBePrivate.Global
         {
@@ -65,9 +70,7 @@ namespace ProjectFlip.Services
             }
         }
 
-        // ReSharper disable MemberCanBePrivate.Global
         public T this[int index] { get { return Count == 0 ? default(T) : Items[(index + Count)%Count]; } }
-        // ReSharper restore MemberCanBePrivate.Global
 
         public int Count { get { return Items.Count; } }
 
@@ -76,6 +79,10 @@ namespace ProjectFlip.Services
         public T Previous { get { return this[CurrentIndex - 1]; } }
 
         public T Next { get { return this[CurrentIndex + 1]; } }
+
+        #endregion
+
+        #region Other
 
         public IEnumerator<T> GetEnumerator()
         {
@@ -86,8 +93,6 @@ namespace ProjectFlip.Services
         {
             return GetEnumerator();
         }
-
-        public event NotifyCollectionChangedEventHandler CollectionChanged;
 
         public void Refresh()
         {
@@ -147,10 +152,6 @@ namespace ProjectFlip.Services
             OnCurrentChanged();
         }
 
-        public event EventHandler CurrentChanged;
-
-        #endregion
-
         private void UpdateIndex(T selectedItem)
         {
             CurrentIndex = 0;
@@ -166,10 +167,12 @@ namespace ProjectFlip.Services
         /// <summary>
         /// Raises the CurrentChanged event
         /// </summary>
-        protected virtual void OnCurrentChanged()
+        private void OnCurrentChanged()
         {
             if (CurrentChanged != null) CurrentChanged(this, EventArgs.Empty);
             Notify("Items");
         }
+
+        #endregion
     }
 }

@@ -13,9 +13,15 @@ namespace ProjectFlip.Services
 {
     public class ProjectNotesService : IProjectNotesService
     {
+        #region Declarations
+
         private readonly IDictionary<IMetadataType, ICollection<IMetadata>> _metadata;
         private readonly List<IProjectNote> _projectNotes;
         private readonly IProjectNotesLoader _projectNotesLoader;
+
+        #endregion
+
+        #region Constructor
 
         public ProjectNotesService(IProjectNotesLoader projectNotesLoader)
         {
@@ -25,7 +31,7 @@ namespace ProjectFlip.Services
             _projectNotes =
                 new List<IProjectNote>(
                     _projectNotesLoader.Import().ConvertAll(
-                        line => new ProjectNote {Aggregator = aggregator, Line = line}));
+                        line => new ProjectNote { Aggregator = aggregator, Line = line }));
             _projectNotes.RemoveAll(pn => !File.Exists(pn.FilepathXps));
             _metadata = new Dictionary<IMetadataType, ICollection<IMetadata>>();
             Action<IMetadata> func = m =>
@@ -37,7 +43,9 @@ namespace ProjectFlip.Services
             aggregator.SaveMapping();
         }
 
-        #region IProjectNotesService Members
+        #endregion
+
+        #region Properties
 
         public List<IProjectNote> ProjectNotes { get { return _projectNotes; } }
 

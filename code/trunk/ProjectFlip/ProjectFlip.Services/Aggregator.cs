@@ -13,6 +13,8 @@ namespace ProjectFlip.Services
 {
     public class Aggregator : IAggregator
     {
+        #region Declarations
+
         private const string Separator = "\t";
         private const string MappingFilePath = @"..\..\..\Resources\mapping.txt";
 
@@ -24,7 +26,9 @@ namespace ProjectFlip.Services
 
         private Dictionary<string, IMetadata> _mapping = new Dictionary<string, IMetadata>();
 
-        #region IAggregator Members
+        #endregion
+
+        #region Other
 
         public void LoadMapping()
         {
@@ -69,8 +73,6 @@ namespace ProjectFlip.Services
             return _mapping[metadata.Description];
         }
 
-        #endregion
-
         private Dictionary<IMetadata, List<string>> ReverseMapping()
         {
             var reverseMapping = new Dictionary<IMetadata, List<string>>();
@@ -90,5 +92,7 @@ namespace ProjectFlip.Services
                 lines.ForEach(line => handle.WriteLine(String.Join(Separator, line)));
             }
         }
+
+        #endregion
     }
 }

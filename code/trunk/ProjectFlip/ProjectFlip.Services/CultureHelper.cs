@@ -10,7 +10,7 @@ namespace ProjectFlip.Services
 {
     public class CultureHelper : ICultureHelper
     {
-        #region ICultureHelper Members
+        #region Other
 
         public void RegisterLanguage()
         {
@@ -19,8 +19,6 @@ namespace ProjectFlip.Services
 
             DoRegistration();
         }
-
-        #endregion
 
         private void DoRegistration()
         {
@@ -31,5 +29,7 @@ namespace ProjectFlip.Services
             cib.LoadDataFromRegionInfo(ri);
             cib.Register();
         }
+
+        #endregion
     }
 }
