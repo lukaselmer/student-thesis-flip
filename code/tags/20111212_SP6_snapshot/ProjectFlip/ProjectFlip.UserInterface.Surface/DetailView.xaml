@@ -1,0 +1,491 @@
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:s="http://schemas.microsoft.com/surface/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:ee="http://schemas.microsoft.com/expression/2010/effects" 
+             xmlns:ProjectFlip_UserInterface_Surface_Converters="clr-namespace:ProjectFlip.UserInterface.Surface.Converters" 
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+             xmlns:Documents="clr-namespace:System.Windows.Documents;assembly=PresentationUI"
+             xmlns:Surface="clr-namespace:ProjectFlip.UserInterface.Surface" x:Name="userControl" mc:Ignorable="d" x:Class="ProjectFlip.UserInterface.Surface.DetailView" RenderTransformOrigin="0.5,0.5">
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="MetadataTemplate">
+            <s:SurfaceButton Style="{DynamicResource FilterButtonStyle}" CommandParameter="{Binding}" Command="{Binding DataContext.AddFilterCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceWindow}}}" >
+                <TextBlock Style="{DynamicResource TextStyle}" Text="{Binding Description}" />
+            </s:SurfaceButton>
+        </DataTemplate>
+
+        <DataTemplate x:Key="MetadataListTemplate">
+            <StackPanel>
+                <Label Background="Transparent">
+                    <TextBlock Style="{DynamicResource TextStyle}" Text="{Binding Key.Name}" />
+                </Label>
+                <ItemsControl ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" ItemsSource="{Binding Value}" ItemsPanel="{DynamicResource MetadataListBoxTemplate}" ItemTemplate="{DynamicResource MetadataTemplate}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <Style x:Key="NavigateToLeftButtonStyle" TargetType="{x:Type s:SurfaceButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type s:SurfaceButton}">
+                        <Grid Width="80" Height="140">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="Common">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(LinearGradientBrush.StartPoint)" Storyboard.TargetName="regularPolygon">
+                                                <EasingPointKeyFrame KeyTime="0:0:0" Value="0.748,0.488"/>
+                                            </PointAnimationUsingKeyFrames>
+                                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(LinearGradientBrush.EndPoint)" Storyboard.TargetName="regularPolygon">
+                                                <EasingPointKeyFrame KeyTime="0:0:0" Value="0.722,0.547"/>
+                                            </PointAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[0].(GradientStop.Offset)" Storyboard.TargetName="regularPolygon">
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[1].(GradientStop.Offset)" Storyboard.TargetName="regularPolygon">
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0.591"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ed:RegularPolygon x:Name="regularPolygon" Fill="White" Height="50" InnerRadius="1" Margin="-0.25,45,-19.75,45" PointCount="3" Stretch="Fill" Width="100" RenderTransformOrigin="0.5,0.5" StrokeThickness="5">
+                                <ed:RegularPolygon.Stroke>
+                                    <LinearGradientBrush EndPoint="0.5,0.947" StartPoint="0.5,1.053">
+                                        <GradientStop Color="#FFC7C7C7" Offset="0.5"/>
+                                        <GradientStop Color="White" Offset="0.972"/>
+                                    </LinearGradientBrush>
+                                </ed:RegularPolygon.Stroke>
+                                <ed:RegularPolygon.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="-90"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </ed:RegularPolygon.RenderTransform>
+                            </ed:RegularPolygon>
+                            <ed:RegularPolygon x:Name="regularPolygon_Copy" Fill="Transparent" Height="64.5" InnerRadius="1" Margin="-17.25,0,-32.75,37" PointCount="3" Stretch="Fill" Width="Auto" RenderTransformOrigin="0.5,0.5" StrokeThickness="5" Stroke="Transparent" VerticalAlignment="Bottom">
+                                <ed:RegularPolygon.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="-90"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </ed:RegularPolygon.RenderTransform>
+                            </ed:RegularPolygon>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="NavigateToRightButtonStyle" TargetType="{x:Type s:SurfaceButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type s:SurfaceButton}">
+                        <Grid Width="80" Height="140" RenderTransformOrigin="0.5,0.5">
+                            <Grid.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                                    <SkewTransform AngleY="0" AngleX="0"/>
+                                    <RotateTransform Angle="0"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Grid.RenderTransform>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="Common">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(LinearGradientBrush.StartPoint)" Storyboard.TargetName="regularPolygon">
+                                                <EasingPointKeyFrame KeyTime="0:0:0" Value="0.748,0.488"/>
+                                            </PointAnimationUsingKeyFrames>
+                                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(LinearGradientBrush.EndPoint)" Storyboard.TargetName="regularPolygon">
+                                                <EasingPointKeyFrame KeyTime="0:0:0" Value="0.722,0.547"/>
+                                            </PointAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[0].(GradientStop.Offset)" Storyboard.TargetName="regularPolygon">
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[1].(GradientStop.Offset)" Storyboard.TargetName="regularPolygon">
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0.591"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ed:RegularPolygon x:Name="regularPolygon" Fill="White" Height="50" InnerRadius="1" Margin="-0.25,45,-19.75,45" PointCount="3" Stretch="Fill" Width="100" RenderTransformOrigin="0.5,0.5" StrokeThickness="5">
+                                <ed:RegularPolygon.Stroke>
+                                    <LinearGradientBrush EndPoint="0.41,0.71" StartPoint="0.166,0.167">
+                                        <GradientStop Color="#FFC7C7C7" Offset="0.491"/>
+                                        <GradientStop Color="White" Offset="0.574"/>
+                                    </LinearGradientBrush>
+                                </ed:RegularPolygon.Stroke>
+                                <ed:RegularPolygon.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="-90"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </ed:RegularPolygon.RenderTransform>
+                            </ed:RegularPolygon>
+                            <ed:RegularPolygon x:Name="regularPolygon_Copy" Fill="Transparent" Height="64.5" InnerRadius="1" Margin="-17.25,0,-32.75,37" PointCount="3" Stretch="Fill" Width="Auto" RenderTransformOrigin="0.5,0.5" StrokeThickness="5" Stroke="Transparent" VerticalAlignment="Bottom">
+                                <ed:RegularPolygon.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="-90"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </ed:RegularPolygon.RenderTransform>
+                            </ed:RegularPolygon>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ItemsPanelTemplate x:Key="MetadataListBoxTemplate">
+            <StackPanel Margin="0">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type s:SurfaceListBoxItem}">
+                        <Setter Property="Margin" Value="0" />
+                        <Setter Property="Padding" Value="0" />
+                        <Setter Property="Background" Value="Transparent" />
+                        
+                        <Setter Property="HorizontalContentAlignment" 
+                                Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type ItemsControl}}}" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type s:SurfaceListBoxItem}">
+                                    <Grid   x:Name="Grid" Background="Transparent" 	SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                        <Border x:Name="ButtonBody" BorderThickness="{TemplateBinding BorderThickness}"
+                                                Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        <ContentPresenter x:Name="Content" Margin="{TemplateBinding Padding}"
+                                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"                               					   
+        						                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+        						                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="True" />
+                                        <Trigger Property="IsPressed" Value="True" />
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+
+                </StackPanel.Resources>
+            </StackPanel>
+        </ItemsPanelTemplate>
+
+
+        <Style x:Key="SurfaceDocumentViewerStyle" BasedOn="{x:Null}" TargetType="{x:Type DocumentViewer}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DocumentViewer}">
+                        <!--PanningMode="VerticalOnly" -->
+                        <ScrollViewer PanningMode="VerticalOnly" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"
+                                      IsManipulationEnabled="True" x:Name="PART_ContentHost" CanContentScroll="True" Focusable="{TemplateBinding Focusable}" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Storyboard x:Key="MoveToNext">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="CurrentDocViewerContainer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="320"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="CurrentDocViewerContainer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="MoveToPrevious">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="CurrentDocViewerContainer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-319"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="CurrentDocViewerContainer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Style x:Key="ListBoxStyle" TargetType="{x:Type ListBox}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="None"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBox}">
+                        <Border x:Name="Bd" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Padding="0" Margin="0" SnapsToDevicePixels="true">
+                            <ScrollViewer Focusable="false" Padding="{TemplateBinding Padding}">
+                                <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </ScrollViewer>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+   
+        <Style x:Key="SurfaceListBoxItemStyleDelia" TargetType="{x:Type s:SurfaceListBoxItem}">
+        	<Setter Property="Background" 
+        		Value="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}"/>
+        	<Setter Property="Foreground" 
+        		Value="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemForegroundBrushKey}}"/>
+        	<Setter Property="BorderThickness" 
+        		Value="0"/>
+        	<Setter Property="HorizontalContentAlignment"
+        		Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type ItemsControl}}}" />
+        	<Setter Property="Template">
+        		<Setter.Value>
+        			<ControlTemplate TargetType="{x:Type s:SurfaceListBoxItem}">
+        				<ControlTemplate.Resources>
+        					<Storyboard x:Key="Press">
+        						<DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
+        							Storyboard.TargetName="PressOverlay"
+        							Storyboard.TargetProperty="(UIElement.Opacity)">
+        							<SplineDoubleKeyFrame KeyTime="00:00:00.1000000"
+        								Value="1" />
+        						</DoubleAnimationUsingKeyFrames>
+        					</Storyboard>
+        					<Storyboard x:Key="Release">
+        						<DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
+        							Storyboard.TargetName="PressOverlay"
+        							Storyboard.TargetProperty="(UIElement.Opacity)">
+        							<SplineDoubleKeyFrame KeyTime="00:00:00.2500000"
+        								Value="0" />
+        						</DoubleAnimationUsingKeyFrames>
+        					</Storyboard>
+        				</ControlTemplate.Resources>
+        				<Grid   x:Name="Grid"
+        					Background="Transparent"
+        					SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+        					<Border x:Name="ButtonBody"
+        						BorderThickness="{TemplateBinding BorderThickness}"
+        						Background="{TemplateBinding Background}"
+        						BorderBrush="{TemplateBinding BorderBrush}"
+        						SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+        					<Border x:Name="PressOverlay"    
+        						Background="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundPressedBrushKey}}"
+        						Opacity="0" 
+        						SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+        					<ContentPresenter x:Name="Content"										
+        						Margin="{TemplateBinding Padding}"
+        						HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"                               					   
+        						VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+        						SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+        				</Grid>
+        				<ControlTemplate.Triggers>
+        					<Trigger Property="IsSelected"		  
+        						Value="True">
+        						<Setter Property="Background" 
+        							TargetName="ButtonBody" 
+        							Value="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemSelectionBackgroundBrushKey}}"/>
+        						<Setter Property="Background" 
+        							TargetName="PressOverlay" 
+        							Value="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemSelectionBackgroundPressedBrushKey}}"/>
+        					</Trigger>
+        					<Trigger Property="IsPressed"
+        						Value="True">
+        						<Trigger.EnterActions>
+        							<BeginStoryboard Storyboard="{StaticResource Press}" />
+        						</Trigger.EnterActions>
+        						<Trigger.ExitActions>
+        							<BeginStoryboard Storyboard="{StaticResource Release}" />
+        						</Trigger.ExitActions>
+        						<Setter Property="Foreground"
+        							Value="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemForegroundPressedBrushKey}}"/>
+        					</Trigger>
+        					<MultiTrigger>
+        						<MultiTrigger.Conditions>
+        							<Condition Property="IsEnabled"
+        								Value="False" />
+        							<Condition Property="IsSelected"
+        								Value="True" />
+        						</MultiTrigger.Conditions>
+        						<Setter Property="Background"
+        							Value="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemSelectionBackgroundDisabledBrushKey}}"
+        							TargetName="ButtonBody"/>
+        						<Setter Property="Foreground"
+        							Value="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemForegroundDisabledBrushKey}}"/>
+        						<Setter Property="Opacity"
+        							TargetName="Content"
+        							Value="0.6"/>
+        					</MultiTrigger>
+        					<MultiTrigger>
+        						<MultiTrigger.Conditions>
+        							<Condition  Property="IsEnabled"
+        								Value="False" />
+        							<Condition Property="IsSelected"
+        								Value="False" />
+        						</MultiTrigger.Conditions>
+        						<Setter Property="Background"
+        							Value="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundDisabledBrushKey}}"
+        							TargetName="ButtonBody"/>
+        						<Setter Property="Foreground"
+        							Value="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemForegroundDisabledBrushKey}}"/>
+        						<Setter Property="Opacity"
+        							TargetName="Content"
+        							Value="0.33"/>
+        					</MultiTrigger>
+        				</ControlTemplate.Triggers>
+        			</ControlTemplate>
+        		</Setter.Value>
+        	</Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ToNextButton">
+            <BeginStoryboard Storyboard="{StaticResource MoveToNext}" />
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ToPreviousButton">
+            <BeginStoryboard Storyboard="{StaticResource MoveToPrevious}" />
+        </EventTrigger>
+    </UserControl.Triggers>
+    <UserControl.RenderTransform>
+        <TransformGroup>
+            <ScaleTransform/>
+            <SkewTransform/>
+            <RotateTransform/>
+            <TranslateTransform/>
+        </TransformGroup>
+    </UserControl.RenderTransform>
+
+    <Grid>
+        <VisualStateManager.CustomVisualStateManager>
+            <ei:ExtendedVisualStateManager/>
+        </VisualStateManager.CustomVisualStateManager>
+        <i:Interaction.Behaviors>
+            <ei:DataStateBehavior Binding="{Binding IsDetailViewVisible}" TrueState="Visible" FalseState="Collapsed" Value="true"/>
+        </i:Interaction.Behaviors>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisibilityStates">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition From="Collapsed" GeneratedDuration="0" To="Visible">
+                        <Storyboard>
+                            <DoubleAnimation Duration="0:0:0.5" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="userControl"/>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="userControl">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="userControl">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="userControl">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualTransition>
+                    <VisualTransition From="Visible" GeneratedDuration="0" To="Collapsed">
+                        <ei:ExtendedVisualStateManager.TransitionEffect>
+                            <ee:RippleTransitionEffect/>
+                        </ei:ExtendedVisualStateManager.TransitionEffect>
+                        <Storyboard>
+                            <DoubleAnimation Duration="0:0:0.5" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="userControl"/>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="userControl">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Collapsed}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="userControl">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="userControl">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualTransition>
+                    <VisualTransition GeneratedDuration="0" To="Collapsed">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="userControl">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualTransition>
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="Visible"/>
+                <VisualState x:Name="Collapsed">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="userControl">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="userControl">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <s:SurfaceButton Style="{DynamicResource DetailViewBackgroundButtonStyle}" Command="{Binding HideDetailsCommand}" Margin="1" >
+
+        </s:SurfaceButton>
+
+
+        <Grid x:Name="LayoutRoot">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="240" />
+                <ColumnDefinition Width="{Binding DocumentViewerWidth}" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <s:SurfaceButton Grid.Column="0" Style="{StaticResource NavigateToLeftButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" x:Name="ToPreviousButton" Command="{Binding NavigateToLeftCommand}" />
+
+            <Grid Grid.Column="1" VerticalAlignment="Stretch" Background="#E5FFFFFF">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Margin="20,0,20,10" VerticalAlignment="Center">
+                    <TextBlock Style="{DynamicResource TextStyle}" Text="Projektdaten" Foreground="#ff820a" FontStretch="Expanded" FontSize="24"/>
+                </Label>
+                <StackPanel Grid.Row="0" Margin="20" VerticalAlignment="Bottom" Orientation="Horizontal">
+                    <Rectangle Width="90" Margin="0,0,10,0" Height="2" Fill="#ff8204" />
+                    <Rectangle Width="90" Margin="10,0,0,0" Height="2" Fill="#ff8204" />
+                </StackPanel>
+                <s:SurfaceListBox Style="{DynamicResource SurfaceListBoxStyle}" ScrollViewer.PanningMode="VerticalOnly"  Margin="10,0,10,0" VerticalAlignment="Center" Grid.Row="1" ItemsSource="{Binding CurrentProjectNote.Metadata}" ItemTemplate="{DynamicResource MetadataListTemplate}" ItemsPanel="{DynamicResource MetadataListBoxTemplate}" />
+            </Grid>
+
+            <Border Grid.Column="2" Background="White"/>
+
+            <Border Grid.Column="2" Background="White" Name="CurrentDocViewerContainer" RenderTransformOrigin="0.5,0.5" SizeChanged="CurrentDocViewerContainerSizeChanged">
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Border.RenderTransform>
+
+                <DocumentViewer IsManipulationEnabled="True" Name="DocViewer" ScrollViewer.CanContentScroll="True"
+                                Document="{Binding CurrentProjectNote.Document}" Style="{DynamicResource SurfaceDocumentViewerStyle}">
+                </DocumentViewer>
+            </Border>
+
+            <s:SurfaceButton HorizontalAlignment="Left" Style="{DynamicResource NavigateToRightButtonStyle}" VerticalAlignment="Center" Grid.Column="3" x:Name="ToNextButton" Margin="0" Command="{Binding NavigateToRightCommand}" />
+
+        </Grid>
+    </Grid>
+</UserControl>
