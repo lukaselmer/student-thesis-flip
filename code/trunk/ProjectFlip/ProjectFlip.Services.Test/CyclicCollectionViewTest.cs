@@ -15,7 +15,7 @@ namespace ProjectFlip.Services.Test
     [TestClass]
     public class CyclicCollectionViewTest
     {
-        private readonly IList<string> _referenceList = new[] { "a", "b", "c", "d", "e" };
+        private readonly IList<string> _referenceList = new[] {"a", "b", "c", "d", "e"};
 
         #region Additional test attributes
 

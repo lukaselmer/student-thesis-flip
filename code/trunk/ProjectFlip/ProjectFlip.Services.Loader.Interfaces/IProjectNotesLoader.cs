@@ -17,11 +17,13 @@ namespace ProjectFlip.Services.Loader.Interfaces
         /// The filename.
         /// </value>
         string Filename { get; set; }
+
         /// <summary>
         /// Imports the elements from the metadata file
         /// </summary>
         /// <returns></returns>
         List<List<String>> Import();
+
         // ReSharper restore UnusedMemberInSuper.Global
     }
 }

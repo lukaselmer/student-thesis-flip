@@ -1,8 +1,11 @@
+#region
+
 using System;
-using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Media.Imaging;
+
+#endregion
 
 namespace ProjectFlip.UserInterface.Surface
 {

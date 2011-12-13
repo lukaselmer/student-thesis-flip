@@ -11,8 +11,11 @@ namespace ProjectFlip.Services.Interfaces
 {
     public interface IProjectNote
     {
+        // ReSharper does not analyze the xaml files correctly, 
+        // so it thinks that these attributes are never used.
         // ReSharper disable UnusedMemberInSuper.Global
         // ReSharper disable ReturnTypeCanBeEnumerable.Global
+        // ReSharper disable UnusedMember.Global
 
         /// <summary>
         /// Gets the id.
@@ -64,9 +67,6 @@ namespace ProjectFlip.Services.Interfaces
         /// </summary>
         string Url { get; }
 
-        // ReSharper restore ReturnTypeCanBeEnumerable.Global
-        // ReSharper restore UnusedMemberInSuper.Global
-
         /// <summary>
         /// Initializes the Project Note with an array of strings
         /// </summary>
@@ -75,13 +75,10 @@ namespace ProjectFlip.Services.Interfaces
         /// </value>
         IList<string> Line { set; }
 
-        // ReSharper disable UnusedMember.Global
         /// <summary>
         /// Gets the image.
         /// </summary>
         BitmapImage Image { get; }
-
-        // ReSharper restore UnusedMember.Global
 
         /// <summary>
         /// Gets or sets the document.

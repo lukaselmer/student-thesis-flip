@@ -4,7 +4,6 @@ using System.Windows;
 
 #endregion
 
-
 namespace ProjectFlip.UserInterface.Surface
 {
     /// <summary>
@@ -22,5 +21,4 @@ namespace ProjectFlip.UserInterface.Surface
             DocViewer.FitToWidth();
         }
     }
-
 }

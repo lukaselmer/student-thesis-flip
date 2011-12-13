@@ -8,7 +8,6 @@ namespace ProjectFlip.Preparer
 {
     internal interface IProcessor
     {
-
         /// <summary>
         /// Implements a step in the process of the preprocessing of the specified project note.
         /// </summary>

@@ -1,9 +1,10 @@
 ﻿#region
 
-using System;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 using ProjectFlip.Converter.Interfaces;
+using ProjectFlip.Converter.Pdf.Properties;
 using log4net;
 
 #endregion
@@ -13,11 +14,11 @@ namespace ProjectFlip.Converter.Pdf
     public class PdfConverter : IConverter
     {
         public static int SecondsToWait = 30;
-        private static readonly ILog Logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private static readonly ILog Logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         public PdfConverter()
         {
-            AcrobatLocation = Properties.Settings.Default["AcrobatLocation"] as string;
+            AcrobatLocation = Settings.Default["AcrobatLocation"] as string;
         }
 
         #region IConverter Members
@@ -73,9 +74,9 @@ namespace ProjectFlip.Converter.Pdf
         private bool ExecCommand(string exe, string args)
         {
             Logger.Debug("Executing '" + exe + " " + args);
-            var proc = new Process { StartInfo = { FileName = exe, Arguments = args }, EnableRaisingEvents = false };
+            var proc = new Process {StartInfo = {FileName = exe, Arguments = args}, EnableRaisingEvents = false};
             proc.Start();
-            var res = proc.WaitForExit(SecondsToWait * 1000);
+            var res = proc.WaitForExit(SecondsToWait*1000);
             if (!res && !proc.HasExited)
             {
                 proc.Kill();

@@ -13,7 +13,8 @@ using ProjectFlip.Services.Interfaces;
 namespace ProjectFlip.Services
 {
     // ReSharper disable ClassWithVirtualMembersNeverInherited.Global
-    public class CyclicCollectionView<T> : NotifierModel, ICyclicCollectionView<T> // ReSharper restore ClassWithVirtualMembersNeverInherited.Global
+    public class CyclicCollectionView<T> : NotifierModel, ICyclicCollectionView<T>
+        // ReSharper restore ClassWithVirtualMembersNeverInherited.Global
     {
         private int _currentIndex;
         private Predicate<T> _filter;
@@ -26,9 +27,13 @@ namespace ProjectFlip.Services
             CurrentIndex = 0;
         }
 
+        private IList<T> OriginalItems { get; set; }
+
         // ReSharper disable MemberCanBePrivate.Global
-        public IList<T> Items
-        // ReSharper restore MemberCanBePrivate.Global
+
+        #region ICyclicCollectionView<T> Members
+
+        public IList<T> Items // ReSharper restore MemberCanBePrivate.Global
         {
             get { return _items; }
             set
@@ -39,8 +44,7 @@ namespace ProjectFlip.Services
         }
 
         // ReSharper disable MemberCanBePrivate.Global
-        public int CurrentIndex
-        // ReSharper restore MemberCanBePrivate.Global
+        public int CurrentIndex // ReSharper restore MemberCanBePrivate.Global
         {
             get { return _currentIndex; }
             private set
@@ -49,8 +53,6 @@ namespace ProjectFlip.Services
                 Notify("CurrentIndex");
             }
         }
-
-        private IList<T> OriginalItems { get; set; }
 
         public Predicate<T> Filter
         {
@@ -64,7 +66,7 @@ namespace ProjectFlip.Services
         }
 
         // ReSharper disable MemberCanBePrivate.Global
-        public T this[int index] { get { return Count == 0 ? default(T) : Items[(index + Count) % Count]; } }
+        public T this[int index] { get { return Count == 0 ? default(T) : Items[(index + Count)%Count]; } }
         // ReSharper restore MemberCanBePrivate.Global
 
         public int Count { get { return Items.Count; } }
@@ -74,8 +76,6 @@ namespace ProjectFlip.Services
         public T Previous { get { return this[CurrentIndex - 1]; } }
 
         public T Next { get { return this[CurrentIndex + 1]; } }
-
-        #region IEnumerable<T> Members
 
         public IEnumerator<T> GetEnumerator()
         {
@@ -87,13 +87,7 @@ namespace ProjectFlip.Services
             return GetEnumerator();
         }
 
-        #endregion
-
-        #region INotifyCollectionChanged Members
-
         public event NotifyCollectionChangedEventHandler CollectionChanged;
-
-        #endregion
 
         public void Refresh()
         {
@@ -105,24 +99,12 @@ namespace ProjectFlip.Services
             OnCurrentChanged();
         }
 
-        private void UpdateIndex(T selectedItem)
-        {
-            CurrentIndex = 0;
-            if (Items.Contains(selectedItem)) CurrentIndex = Items.IndexOf(selectedItem);
-        }
-
-        private void OnCollectionChanged()
-        {
-            if (CollectionChanged != null) CollectionChanged(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
-            Notify("Count");
-        }
-
         public bool MoveCurrentTo(T o)
         {
             if (Count == 0) return false;
 
             // ReSharper disable CompareNonConstrainedGenericWithNull
-            if ((!typeof(T).IsValueType) && o == null)
+            if ((!typeof (T).IsValueType) && o == null)
             {
                 CurrentIndex = 0;
                 return true;
@@ -154,18 +136,32 @@ namespace ProjectFlip.Services
         public void MoveCurrentToNext()
         {
             if (Count == 0) return;
-            CurrentIndex = (CurrentIndex + 1) % Count;
+            CurrentIndex = (CurrentIndex + 1)%Count;
             OnCurrentChanged();
         }
 
         public void MoveCurrentToPrevious()
         {
             if (Count == 0) return;
-            CurrentIndex = (CurrentIndex - 1 + Count) % Count;
+            CurrentIndex = (CurrentIndex - 1 + Count)%Count;
             OnCurrentChanged();
         }
 
         public event EventHandler CurrentChanged;
+
+        #endregion
+
+        private void UpdateIndex(T selectedItem)
+        {
+            CurrentIndex = 0;
+            if (Items.Contains(selectedItem)) CurrentIndex = Items.IndexOf(selectedItem);
+        }
+
+        private void OnCollectionChanged()
+        {
+            if (CollectionChanged != null) CollectionChanged(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+            Notify("Count");
+        }
 
         /// <summary>
         /// Raises the CurrentChanged event

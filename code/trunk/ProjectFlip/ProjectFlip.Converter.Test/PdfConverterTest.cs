@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProjectFlip.Converter.Pdf;
+using ProjectFlip.Converter.Test.Properties;
 
 #endregion
 
@@ -58,8 +59,6 @@ namespace ProjectFlip.Converter.Test
 
         #endregion
 
-        private static readonly bool RunPdfConverterTests = (bool) Properties.Settings.Default["RunPdfConverterTests"];
-
         private const string PdfPath = @"..\..\..\Resources\Test\Pdf\test.pdf";
         private const string XpsPath = @"..\..\..\Resources\Test\Xps\test.xps";
         private const string ImagePath = @"..\..\..\Resources\Test\Images\test.bmp";
@@ -69,6 +68,7 @@ namespace ProjectFlip.Converter.Test
         private const string TempImagePath = @"..\..\..\Resources\Test\Images\temp.bmp";
 
         private const string InvalidPath = @"..\..\..\Resources\Test\thisFileShouldNotExist.bmp";
+        private static readonly bool RunPdfConverterTests = (bool) Settings.Default["RunPdfConverterTests"];
 
         /// <summary>
         ///A test for RequirementsNotOk -> Missing Adobe Reader

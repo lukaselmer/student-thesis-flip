@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.Practices.Unity;
 using ProjectFlip.Converter.Interfaces;
@@ -19,7 +20,7 @@ namespace ProjectFlip.Preparer
 {
     internal static class Program
     {
-        private static readonly ILog Logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private static readonly ILog Logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         private static void Main()
         {
@@ -27,7 +28,7 @@ namespace ProjectFlip.Preparer
             Logger.Info("Preparing Project Notes...");
             var container = new UnityContainer();
             ConfigureContainer(container);
-            Parallel.Invoke(new ParallelOptions { MaxDegreeOfParallelism = 5 }, Actions(container).ToArray());
+            Parallel.Invoke(new ParallelOptions {MaxDegreeOfParallelism = 5}, Actions(container).ToArray());
             Logger.Info("Preparation terminated.");
         }
 
