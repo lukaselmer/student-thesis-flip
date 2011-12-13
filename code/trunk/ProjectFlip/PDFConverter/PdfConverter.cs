@@ -1,6 +1,7 @@
 ﻿#region
 
 using System;
+using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using ProjectFlip.Converter.Interfaces;
@@ -15,7 +16,9 @@ namespace ProjectFlip.Converter.Pdf
 
         public PdfConverter()
         {
-            AcrobatLocation = @"C:\Program Files (x86)\Adobe\Reader 10.0\Reader\AcroRd32.exe";
+            AcrobatLocation = Properties.Settings.Default["AcrobatLocation"] as string;
+            Console.WriteLine(AcrobatLocation);
+            Console.ReadLine();
         }
 
         #region IConverter Members
@@ -63,9 +66,9 @@ namespace ProjectFlip.Converter.Pdf
         private bool ExecCommand(string exe, string args)
         {
             Console.WriteLine("Executing '" + exe + " " + args);
-            var proc = new Process {StartInfo = {FileName = exe, Arguments = args}, EnableRaisingEvents = false};
+            var proc = new Process { StartInfo = { FileName = exe, Arguments = args }, EnableRaisingEvents = false };
             proc.Start();
-            var res = proc.WaitForExit(SecondsToWait*1000);
+            var res = proc.WaitForExit(SecondsToWait * 1000);
             if (!res && !proc.HasExited) proc.Kill();
             return res;
         }
