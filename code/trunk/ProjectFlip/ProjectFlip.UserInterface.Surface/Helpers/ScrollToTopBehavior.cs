@@ -14,13 +14,8 @@ namespace ProjectFlip.UserInterface.Surface.Helpers
     public static class ScrollToTopBehavior
     {
         public static readonly DependencyProperty ScrollToTopProperty =
-            DependencyProperty.RegisterAttached("ScrollToTop", typeof (bool), typeof (ScrollToTopBehavior),
+            DependencyProperty.RegisterAttached("ScrollToTop", typeof(bool), typeof(ScrollToTopBehavior),
                 new UIPropertyMetadata(false, OnScrollToTopPropertyChanged));
-
-        public static bool GetScrollToTop(DependencyObject obj)
-        {
-            return (bool) obj.GetValue(ScrollToTopProperty);
-        }
 
         public static void SetScrollToTop(DependencyObject obj, bool value)
         {
@@ -30,16 +25,15 @@ namespace ProjectFlip.UserInterface.Surface.Helpers
         private static void OnScrollToTopPropertyChanged(DependencyObject dpo, DependencyPropertyChangedEventArgs e)
         {
             var itemsControl = dpo as ItemsControl;
-            if (itemsControl != null)
-            {
-                var dependencyPropertyDescriptor =
-                    DependencyPropertyDescriptor.FromProperty(ItemsControl.ItemsSourceProperty, typeof (ItemsControl));
-                if (dependencyPropertyDescriptor != null)
-                {
-                    if ((bool) e.NewValue) dependencyPropertyDescriptor.AddValueChanged(itemsControl, ItemsSourceChanged);
-                    else dependencyPropertyDescriptor.RemoveValueChanged(itemsControl, ItemsSourceChanged);
-                }
-            }
+            if (itemsControl == null) return;
+
+            var dependencyPropertyDescriptor =
+                DependencyPropertyDescriptor.FromProperty(ItemsControl.ItemsSourceProperty, typeof(ItemsControl));
+
+            if (dependencyPropertyDescriptor == null) return;
+
+            if ((bool)e.NewValue) dependencyPropertyDescriptor.AddValueChanged(itemsControl, ItemsSourceChanged);
+            else dependencyPropertyDescriptor.RemoveValueChanged(itemsControl, ItemsSourceChanged);
         }
 
         private static void ItemsSourceChanged(object sender, EventArgs e)
@@ -51,8 +45,7 @@ namespace ProjectFlip.UserInterface.Surface.Helpers
                                            var scrollViewer = GetVisualChild<ScrollViewer>(itemsControl);
                                            scrollViewer.ScrollToTop();
                                            if (itemsControl != null)
-                                               itemsControl.ItemContainerGenerator.ItemsChanged -=
-                                                   itemsChangedEventHandler;
+                                               itemsControl.ItemContainerGenerator.ItemsChanged -= itemsChangedEventHandler;
                                        };
 
             if (itemsControl != null) itemsControl.ItemContainerGenerator.ItemsChanged += itemsChangedEventHandler;
@@ -64,7 +57,7 @@ namespace ProjectFlip.UserInterface.Surface.Helpers
             var numVisuals = VisualTreeHelper.GetChildrenCount(parent);
             for (var i = 0; i < numVisuals; i++)
             {
-                var v = (Visual) VisualTreeHelper.GetChild(parent, i);
+                var v = (Visual)VisualTreeHelper.GetChild(parent, i);
                 child = v as T;
                 if (child == null) child = GetVisualChild<T>(v);
                 else break;
