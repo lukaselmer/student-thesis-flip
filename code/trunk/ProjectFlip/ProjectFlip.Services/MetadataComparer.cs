@@ -10,7 +10,7 @@ namespace ProjectFlip.Services
 {
     internal class MetadataComparer : IComparer<IMetadata>
     {
-        #region IComparer<IMetadata> Members
+        #region Other
 
         public int Compare(IMetadata x, IMetadata y)
         {

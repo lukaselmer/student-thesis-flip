@@ -9,7 +9,7 @@ namespace ProjectFlip.Preparer
 {
     public class CleanupProcessor : IProcessor
     {
-        #region IProcessor Members
+        #region Other
 
         public bool Process(IProjectNote projectNote)
         {

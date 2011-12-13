@@ -10,14 +10,26 @@ namespace ProjectFlip.Preparer
 {
     internal class ConverterProcessor : IProcessor
     {
+        #region Declarations
+
         private readonly IConverter _converter;
+
+        #endregion
+
+        #region Constructor
 
         public ConverterProcessor(IConverter converter)
         {
             _converter = converter;
         }
 
-        #region IProcessor Members
+        #endregion
+
+        #region Properties
+
+        #endregion
+
+        #region Other
 
         public bool Process(IProjectNote projectNote)
         {

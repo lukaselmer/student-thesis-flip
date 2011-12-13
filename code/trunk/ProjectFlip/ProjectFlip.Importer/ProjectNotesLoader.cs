@@ -12,16 +12,28 @@ namespace ProjectFlip.Services.Loader
 {
     public class ProjectNotesLoader : IProjectNotesLoader
     {
+        #region Declarations
+
         private List<List<string>> _lines;
+
+        #endregion
+
+        #region Constructor
 
         public ProjectNotesLoader()
         {
             Filename = @"..\..\..\Resources\metadata.txt";
         }
 
-        #region IProjectNotesLoader Members
+        #endregion
+
+        #region Properties
 
         public string Filename { get; set; }
+
+        #endregion
+
+        #region Other
 
         public List<List<String>> Import()
         {
@@ -30,8 +42,6 @@ namespace ProjectFlip.Services.Loader
             CleanFields();
             return Rows();
         }
-
-        #endregion
 
         private void CleanFields()
         {
@@ -64,5 +74,7 @@ namespace ProjectFlip.Services.Loader
                 }
             }
         }
+
+        #endregion
     }
 }

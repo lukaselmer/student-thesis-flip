@@ -11,6 +11,8 @@ namespace ProjectFlip.Services
 {
     internal static class SharepointStringDeserializer
     {
+        #region Other
+
         public static IEnumerable<IMetadata> Deserialize(string line, MetadataType type)
         {
             return ToStringList(line).Select(s => Metadata.Get(type, s)).Cast<IMetadata>().ToList();
@@ -23,5 +25,7 @@ namespace ProjectFlip.Services
                     new[] {"#;", ";#___", ";#__", ";#_ ", ";#", ";", ","}, StringSplitOptions.RemoveEmptyEntries).ToList
                     ().Select(s => s.Replace("_", "")).Select(s => s.Trim());
         }
+
+        #endregion
     }
 }

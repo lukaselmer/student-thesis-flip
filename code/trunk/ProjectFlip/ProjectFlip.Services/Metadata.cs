@@ -10,8 +10,14 @@ namespace ProjectFlip.Services
 {
     public class Metadata : IMetadata
     {
+        #region Declarations
+
         private static readonly IDictionary<IMetadataType, IDictionary<string, Metadata>> Metadatas =
-            new Dictionary<IMetadataType, IDictionary<string, Metadata>>(5);
+            new Dictionary<IMetadataType, IDictionary<string, Metadata>>();
+
+        #endregion
+
+        #region Constructor
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Metadata"/> class.
@@ -22,17 +28,21 @@ namespace ProjectFlip.Services
             Description = description;
         }
 
-        #region IMetadata Members
+        #endregion
+
+        #region Properties
 
         public IMetadataType Type { get; private set; }
         public string Description { get; private set; }
+
+        #endregion
+
+        #region Other
 
         public bool Match(IProjectNote projectNote)
         {
             return projectNote.Metadata.ContainsKey(Type) && projectNote.Metadata[Type].Contains(this);
         }
-
-        #endregion
 
         [MethodImpl(MethodImplOptions.Synchronized)]
         public static Metadata Get(IMetadataType type, string description)
@@ -41,5 +51,7 @@ namespace ProjectFlip.Services
             if (!Metadatas[type].ContainsKey(description)) Metadatas[type][description] = new Metadata(type, description);
             return Metadatas[type][description];
         }
+
+        #endregion
     }
 }
