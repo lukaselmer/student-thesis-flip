@@ -81,12 +81,13 @@
     <Compile Include="Views\FilterView.xaml.cs">
       <DependentUpon>FilterView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Gravatar.xaml.cs">
-      <DependentUpon>Gravatar.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\OverviewWindowViewModel.cs" />
     <Compile Include="Helpers\ScrollToTopBehavior.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="ViewModels\GravatarViewModel.xaml.cs" />
+    <Compile Include="Views\Gravatars.xaml.cs">
+      <DependentUpon>Gravatars.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ZoomInIcon.xaml.cs">
       <DependentUpon>ZoomInIcon.xaml</DependentUpon>
     </Compile>
@@ -109,7 +110,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Gravatar.xaml">
+    <Page Include="Views\Gravatars.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

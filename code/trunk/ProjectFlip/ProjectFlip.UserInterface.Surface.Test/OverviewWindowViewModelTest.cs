@@ -25,7 +25,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         public void OverviewWindowViewModelProjectNotesTest()
         {
             var projectNotesService = new ProjectNotesServiceMock(5);
-            var target = new OverviewWindowViewModel(projectNotesService);
+            var target = new OverviewWindowViewModel(projectNotesService, null);
             Assert.AreEqual(5, target.ProjectNotes.Count);
         }
 
@@ -36,7 +36,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         public void AddAndRemoveAndCallbackFilterTest()
         {
             var projectNotesService = new ProjectNotesServiceMock(5);
-            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            var target = new OverviewWindowViewModel_Accessor(projectNotesService, null);
             var filter = new MetadataMock(new MetadataTypeMock {Name = "Sector"}, "Oberkriterium");
 
             target.AddFilter(filter);
@@ -54,7 +54,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         public void AddAndRemoveAndCallbackFilterWithVisibleDetailsTest()
         {
             var projectNotesService = new ProjectNotesServiceMock(5);
-            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            var target = new OverviewWindowViewModel_Accessor(projectNotesService, null);
             var filter = new MetadataMock(new MetadataTypeMock {Name = "Sector"}, "Oberkriterium");
             target.IsDetailViewVisible = true;
             target.AddFilter(filter);
@@ -72,7 +72,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         public void OnShowFilterTest()
         {
             var projectNotesService = new ProjectNotesServiceMock(5);
-            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            var target = new OverviewWindowViewModel_Accessor(projectNotesService, null);
             Assert.IsFalse(target.IsFilterViewVisible);
             target.OnToggleFilter(new object());
             Assert.IsTrue(target.IsFilterViewVisible);
@@ -85,7 +85,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         public void TryToAddMoreThanThreeElementsToFilterTest()
         {
             var projectNotesService = new ProjectNotesServiceMock(5);
-            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            var target = new OverviewWindowViewModel_Accessor(projectNotesService, null);
             var filter1 = new MetadataMock(new MetadataTypeMock {Name = "Sector"}, "Kriterium 1");
             var filter2 = new MetadataMock(new MetadataTypeMock {Name = "Sector"}, "Kriterium 2");
             var filter3 = new MetadataMock(new MetadataTypeMock {Name = "Sector"}, "Kriterium 3");
@@ -110,7 +110,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         public void TryToAddElementTwiceToFilterTest()
         {
             var projectNotesService = new ProjectNotesServiceMock(5);
-            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            var target = new OverviewWindowViewModel_Accessor(projectNotesService, null);
             var filter = new MetadataMock(new MetadataTypeMock {Name = "Sector"}, "Oberkriterium");
 
             Assert.AreEqual(0, target.Filters.Cast<IMetadata>().Count());
@@ -127,7 +127,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         public void MoveToNextTest()
         {
             IProjectNotesService projectNotesService = new ProjectNotesServiceMock(2);
-            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            var target = new OverviewWindowViewModel_Accessor(projectNotesService, null);
             target.ProjectNotes.MoveCurrentToFirst();
             target.ProjectNotes.MoveCurrentToNext();
             Assert.AreEqual(target.CurrentProjectNote, projectNotesService.ProjectNotes.ElementAt(1));
@@ -142,7 +142,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         public void MoveToPreviousTest()
         {
             IProjectNotesService projectNotesService = new ProjectNotesServiceMock(2);
-            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            var target = new OverviewWindowViewModel_Accessor(projectNotesService, null);
             target.ProjectNotes.MoveCurrentToLast();
             target.ProjectNotes.MoveCurrentToPrevious();
             Assert.AreEqual(target.CurrentProjectNote, projectNotesService.ProjectNotes.ElementAt(0));
@@ -157,7 +157,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         public void OnShowDetailTest()
         {
             IProjectNotesService projectNotesService = new ProjectNotesServiceMock(2);
-            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            var target = new OverviewWindowViewModel_Accessor(projectNotesService, null);
             Assert.IsFalse(target.IsDetailViewVisible);
             target.ProjectNotes.MoveCurrentToFirst();
             Assert.AreEqual(projectNotesService.ProjectNotes.ElementAt(0), target.CurrentProjectNote);
@@ -175,7 +175,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         public void HideDetailsCommandTest()
         {
             IProjectNotesService projectNotesService = new ProjectNotesServiceMock(2);
-            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            var target = new OverviewWindowViewModel_Accessor(projectNotesService, null);
             target.HideDetailsCommand.Execute(null);
             Assert.IsFalse(target.IsDetailViewVisible);
         }
@@ -187,7 +187,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         public void NavigateToLeftRightCommandTest()
         {
             IProjectNotesService projectNotesService = new ProjectNotesServiceMock(3);
-            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            var target = new OverviewWindowViewModel_Accessor(projectNotesService, null);
             target.CurrentProjectNote = projectNotesService.ProjectNotes.ElementAt(0);
             Assert.AreEqual(target.CurrentProjectNote, projectNotesService.ProjectNotes.ElementAt(0));
             target.ProjectNotes.MoveCurrentToFirst();
@@ -218,7 +218,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
                                                {metadataTypeCustomer, new List<IMetadata> {metadataCustomer}}
                                            };
 
-            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            var target = new OverviewWindowViewModel_Accessor(projectNotesService, null);
             target.ShowSubcriteriaCommand.Execute(metadataTypeCustomer);
 
             var c = target.Maincriteria.Cast<IMetadataType>().ElementAt(0);
@@ -233,7 +233,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         public void OverviewWindowViewModelConstructorTest()
         {
             var projectNotesService = new ProjectNotesServiceMock(5);
-            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            var target = new OverviewWindowViewModel_Accessor(projectNotesService, null);
             Assert.AreEqual(false, target.ReadModeActive);
             Assert.AreEqual(target._normalModeWidth, target.DocumentViewerWidth);
             Assert.AreEqual(false, target.ZoomOutCommand.CanExecute(null));

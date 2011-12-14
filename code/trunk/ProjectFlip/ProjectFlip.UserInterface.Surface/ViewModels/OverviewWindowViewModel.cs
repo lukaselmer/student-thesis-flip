@@ -43,8 +43,9 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
         #region Constructor
 
 
-        public OverviewWindowViewModel(IProjectNotesService projectNotesService)
+        public OverviewWindowViewModel(IProjectNotesService projectNotesService, GravatarsViewModel gravatarsViewModel)
         {
+            GravatarsViewModel = gravatarsViewModel;
             ProjectNotes = new CyclicCollectionView<IProjectNote>(projectNotesService.ProjectNotes) { Filter = FilterCallback };
             ProjectNotes.CurrentChanged += UpdateCurrentProjectNote;
             Filters = new CollectionView(_filters);
@@ -62,6 +63,7 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
 
         #region Properties
 
+        public GravatarsViewModel GravatarsViewModel { get; private set; }
 
         public ICollectionView Maincriteria { get; private set; }
 

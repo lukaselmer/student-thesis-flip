@@ -7,6 +7,7 @@ using ProjectFlip.Services.Interfaces;
 using ProjectFlip.Services.Loader;
 using ProjectFlip.Services.Loader.Interfaces;
 using ProjectFlip.UserInterface.Surface;
+using ProjectFlip.UserInterface.Surface.ViewModels;
 using ProjectFlip.UserInterface.Surface.Views;
 
 #endregion
@@ -32,6 +33,7 @@ namespace ProjectFlip
         private static void ConfigureContainer(IUnityContainer container)
         {
             container.RegisterType<IProjectNotesService, ProjectNotesService>();
+            container.RegisterType<IGravatarService, GravatarService>();
             container.RegisterType<IProjectNotesLoader, ProjectNotesLoader>();
             container.RegisterType<ICultureHelper, CultureHelper>();
         }

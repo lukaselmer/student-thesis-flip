@@ -36,16 +36,7 @@
             </Border>
         </Border>
         <s:SurfaceButton Background="Transparent" Command="{Binding ToggleInfoCommand}"></s:SurfaceButton>
-        <s:ScatterView>
-            <s:ScatterViewItem>
-                <Surface:Gravatar Email="cheidt@hsr.ch" PersonName="Christina Heidt" />
-            </s:ScatterViewItem>
-            <s:ScatterViewItem>
-                <Surface:Gravatar Email="dtreichl@hsr.ch" PersonName="Delia Treichler" />
-            </s:ScatterViewItem>
-            <s:ScatterViewItem>
-                <Surface:Gravatar Email="lelmer@hsr.ch" PersonName="Lukas Elmer" />
-            </s:ScatterViewItem>
-        </s:ScatterView>
+
+        <Surface:Gravatars DataContext="{Binding GravatarsViewModel}" />
     </Grid>
 </UserControl>

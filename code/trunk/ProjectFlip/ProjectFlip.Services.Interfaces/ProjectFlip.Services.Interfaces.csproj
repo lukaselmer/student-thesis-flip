@@ -47,8 +47,10 @@
     <Compile Include="IAggregator.cs" />
     <Compile Include="ICultureHelper.cs" />
     <Compile Include="ICyclicCollectionView.cs" />
+    <Compile Include="IGravatarService.cs" />
     <Compile Include="IMetadata.cs" />
     <Compile Include="IMetadataType.cs" />
+    <Compile Include="IPerson.cs" />
     <Compile Include="IProjectNote.cs" />
     <Compile Include="IProjectNotesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

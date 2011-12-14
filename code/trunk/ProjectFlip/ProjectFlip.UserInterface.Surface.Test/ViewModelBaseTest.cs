@@ -55,7 +55,7 @@ namespace ProjectFlip.UserInterface.Surface.Test
         public void NotifyTest()
         {
             IProjectNotesService projectNotesService = new ProjectNotesServiceMock(4);
-            var target = new OverviewWindowViewModel_Accessor(projectNotesService);
+            var target = new OverviewWindowViewModel_Accessor(projectNotesService, null);
 
             var success = false;
             target.add_PropertyChanged((sender, e) => success = true);
