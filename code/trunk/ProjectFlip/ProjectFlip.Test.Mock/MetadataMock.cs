@@ -6,6 +6,10 @@ using ProjectFlip.Services.Interfaces;
 
 namespace ProjectFlip.Test.Mock
 {
+    /// <summary>
+    /// The metadata mock.
+    /// </summary>
+    /// <remarks></remarks>
     public class MetadataMock : IMetadata
     {
         #region Constructor

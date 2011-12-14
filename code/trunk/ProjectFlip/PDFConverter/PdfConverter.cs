@@ -20,12 +20,19 @@ namespace ProjectFlip.Converter.Pdf
         /// </summary>
         public static int SecondsToWait = 30;
 
+        /// <summary>
+        /// The logger.
+        /// </summary>
         private static readonly ILog Logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         #endregion
 
         #region Constructor
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:System.Object"/> class.
+        /// </summary>
+        /// <remarks></remarks>
         public PdfConverter()
         {
             AcrobatLocation = Settings.Default["AcrobatLocation"] as string;
@@ -35,6 +42,12 @@ namespace ProjectFlip.Converter.Pdf
 
         #region Properties
 
+        /// <summary>
+        /// Gets or sets the location of the Adobe Acrobat Reader (Version X)
+        /// Example path: C:\Program Files (x86)\Adobe\Reader 10.0\Reader\AcroRd32.exe
+        /// </summary>
+        /// <value>The acrobat location.</value>
+        /// <remarks></remarks>
         public string AcrobatLocation { get; set; }
 
         #endregion

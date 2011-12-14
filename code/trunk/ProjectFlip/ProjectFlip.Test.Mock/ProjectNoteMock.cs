@@ -10,6 +10,10 @@ using ProjectFlip.Services.Interfaces;
 
 namespace ProjectFlip.Test.Mock
 {
+    /// <summary>
+    /// The ProjectNote mock
+    /// </summary>
+    /// <remarks></remarks>
     public class ProjectNoteMock : IProjectNote
     {
         #region Declarations

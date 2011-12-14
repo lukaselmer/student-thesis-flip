@@ -6,6 +6,10 @@ using ProjectFlip.Services.Interfaces;
 
 namespace ProjectFlip.Test.Mock
 {
+    /// <summary>
+    /// The aggregator mock.
+    /// </summary>
+    /// <remarks></remarks>
     public class AggregatorMock : IAggregator
     {
         #region Other

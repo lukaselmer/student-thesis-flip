@@ -6,6 +6,10 @@ using System;
 
 namespace ProjectFlip.Test.Mock
 {
+    /// <summary>
+    /// The ServiceProvider mock
+    /// </summary>
+    /// <remarks></remarks>
     public class ServiceProviderMock : IServiceProvider
     {
         #region Other
