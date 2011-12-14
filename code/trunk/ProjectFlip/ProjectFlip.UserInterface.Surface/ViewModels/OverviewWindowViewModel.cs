@@ -251,6 +251,10 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
 
         #region Other
 
+        /// <summary>
+        /// Initializes the commands.
+        /// </summary>
+        /// <remarks></remarks>
         private void InitCommands()
         {
             ShowDetailsCommand = new Command(OnShowDetail);
@@ -271,41 +275,77 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
             ToggleInfoCommand = new Command(o => IsInfoViewVisible = !IsInfoViewVisible);
         }
 
+        /// <summary>
+        /// Called when navigated to the right in the detail view.
+        /// </summary>
+        /// <param name="obj">The obj.</param>
+        /// <remarks></remarks>
         private void OnNavigateToRight(object obj)
         {
             ProjectNotes.MoveCurrentToNext();
             PreloadSideProjectNotes();
         }
 
+        /// <summary>
+        /// Called when navigated to the left in the detail view.
+        /// </summary>
+        /// <param name="obj">The obj.</param>
+        /// <remarks></remarks>
         private void OnNavigateToLeft(object obj)
         {
             ProjectNotes.MoveCurrentToPrevious();
             PreloadSideProjectNotes();
         }
 
+        /// <summary>
+        /// Preloads the project notes on the left and on the right side of the current
+        /// project note.
+        /// </summary>
+        /// <remarks></remarks>
         private void PreloadSideProjectNotes()
         {
             ProjectNotes.Next.Preload();
             ProjectNotes.Previous.Preload();
         }
 
+        /// <summary>
+        /// Called when the detail view is hidden.
+        /// </summary>
+        /// <param name="o">The o.</param>
+        /// <remarks></remarks>
         private void OnHideDetail(object o)
         {
             IsDetailViewVisible = false;
             IsReadModeActive = false;
         }
 
+        /// <summary>
+        /// Toogles the read mode.
+        /// </summary>
+        /// <param name="o">The o.</param>
+        /// <remarks></remarks>
         private void ToogleReadMode(object o)
         {
             IsReadModeActive = !IsReadModeActive;
         }
 
+        /// <summary>
+        /// Updates the current project note.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="eventArgs">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        /// <remarks></remarks>
         private void UpdateCurrentProjectNote(object sender, EventArgs eventArgs)
         {
             CurrentProjectNote = ProjectNotes.CurrentItem;
             if (CurrentProjectNote != null) CurrentProjectNote.Preload();
         }
 
+        /// <summary>
+        /// Called when the detail view is shown.
+        /// </summary>
+        /// <param name="obj">The obj.</param>
+        /// <remarks></remarks>
         private void OnShowDetail(object obj)
         {
             if (obj != null)
@@ -318,12 +358,22 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
             IsDetailViewVisible = CurrentProjectNote != null;
         }
 
+        /// <summary>
+        /// Called when subcriteria are shown.
+        /// </summary>
+        /// <param name="maincriteria">The maincriteria.</param>
+        /// <remarks></remarks>
         private void OnShowSubcriteria(object maincriteria)
         {
             Maincriteria.MoveCurrentTo(maincriteria);
             SetSubCriteria();
         }
 
+        /// <summary>
+        /// Sets the sub criteria to a valid position. The criteria are dependent of the
+        /// current maincreterium.
+        /// </summary>
+        /// <remarks></remarks>
         private void SetSubCriteria()
         {
             ICollection<IMetadata> value;
@@ -331,11 +381,21 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
             Subcriteria = new CollectionView(value);
         }
 
+        /// <summary>
+        /// Shows / hides the filter view.
+        /// </summary>
+        /// <param name="o">The o.</param>
+        /// <remarks></remarks>
         private void OnToggleFilter(object o)
         {
             IsFilterViewVisible = !IsFilterViewVisible;
         }
 
+        /// <summary>
+        /// Removes the filter criterium.
+        /// </summary>
+        /// <param name="filter">The filter criterium.</param>
+        /// <remarks></remarks>
         private void RemoveFilter(object filter)
         {
             _filters.Remove((IMetadata)filter);
@@ -344,6 +404,11 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
             IsFilterViewVisible = IsReadModeActive = IsDetailViewVisible = false;
         }
 
+        /// <summary>
+        /// Adds the filter criterium.
+        /// </summary>
+        /// <param name="filter">The filter criterium.</param>
+        /// <remarks></remarks>
         private void AddFilter(object filter)
         {
             if (_filters.Contains(filter) || _filters.Count == 3)
@@ -359,6 +424,12 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
             IsReadModeActive = false;
         }
 
+        /// <summary>
+        /// This method is called when a filter changes on the ProjectNotes.
+        /// </summary>
+        /// <param name="projectNoteObj">The project note obj.</param>
+        /// <returns></returns>
+        /// <remarks></remarks>
         private bool FilterCallback(object projectNoteObj)
         {
             if (_filters.Count == 0) return true;
