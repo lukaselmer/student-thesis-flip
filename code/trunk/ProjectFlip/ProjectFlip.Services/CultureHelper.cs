@@ -8,10 +8,19 @@ using ProjectFlip.Services.Interfaces;
 
 namespace ProjectFlip.Services
 {
+    /// <summary>
+    /// Registers the language "und". This is used to read the XPS files.
+    /// </summary>
+    /// <remarks></remarks>
     public class CultureHelper : ICultureHelper
     {
         #region Other
 
+        /// <summary>
+        /// Registers the language "und" if it is not registered yet.
+        /// Necessary because XPS documents use the language "und" which causes an exception when it's not registered.
+        /// </summary>
+        /// <remarks></remarks>
         public void RegisterLanguage()
         {
             var cultures = new List<CultureInfo>(CultureInfo.GetCultures(CultureTypes.AllCultures));
@@ -20,6 +29,10 @@ namespace ProjectFlip.Services
             DoRegistration();
         }
 
+        /// <summary>
+        /// Does the registration.
+        /// </summary>
+        /// <remarks></remarks>
         private void DoRegistration()
         {
             var cib = new CultureAndRegionInfoBuilder("und", CultureAndRegionModifiers.None);

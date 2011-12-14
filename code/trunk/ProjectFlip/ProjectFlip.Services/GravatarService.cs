@@ -6,10 +6,19 @@ using ProjectFlip.Services.Interfaces;
 
 namespace ProjectFlip.Services
 {
+    /// <summary>
+    /// The gravatar service returns the people who were
+    /// involved in the project.
+    /// </summary>
+    /// <remarks></remarks>
     public class GravatarService : IGravatarService
     {
         #region Constructor
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:System.Object"/> class.
+        /// </summary>
+        /// <remarks></remarks>
         public GravatarService()
         {
             Persons = new List<IPerson>
@@ -23,7 +32,12 @@ namespace ProjectFlip.Services
 
         #region Properties
 
-        public IList<IPerson> Persons { get; set; }
+        /// <summary>
+        /// Gets the persons.
+        /// </summary>
+        /// <value>The persons.</value>
+        /// <remarks></remarks>
+        public IList<IPerson> Persons { get; private set; }
 
         #endregion
     }

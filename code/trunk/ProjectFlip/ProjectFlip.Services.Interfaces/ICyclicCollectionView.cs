@@ -9,7 +9,7 @@ using System.Collections.Specialized;
 namespace ProjectFlip.Services.Interfaces
 {
     /// <summary>
-    /// The cyclic collection view interface.
+    /// The typesafe cyclic collection view interface.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <remarks></remarks>
@@ -77,9 +77,9 @@ namespace ProjectFlip.Services.Interfaces
         /// <summary>
         /// Moves the current to the specified item
         /// </summary>
-        /// <param name="o">The item.</param>
+        /// <param name="newCurrentItem">The item.</param>
         /// <returns></returns>
-        bool MoveCurrentTo(T o);
+        bool MoveCurrentTo(T newCurrentItem);
 
         /// <summary>
         /// Moves the current to the last item.

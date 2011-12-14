@@ -13,6 +13,11 @@ using ProjectFlip.Services.Interfaces;
 
 namespace ProjectFlip.Services
 {
+    /// <summary>
+    /// A implementation of the typesafe cyclic collection view.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <remarks></remarks>
     public sealed class CyclicCollectionView<T> : NotifierModel, ICyclicCollectionView<T>
     {
         #region Declarations
@@ -22,13 +27,27 @@ namespace ProjectFlip.Services
         private IList<T> _items;
         private IList<T> OriginalItems { get; set; }
 
+        /// <summary>
+        /// Occurs when the current position has changed.
+        /// </summary>
+        /// <remarks></remarks>
         public event EventHandler CurrentChanged;
+
+        /// <summary>
+        /// Occurs when the collection changes.
+        /// </summary>
+        /// <remarks></remarks>
         public event NotifyCollectionChangedEventHandler CollectionChanged;
 
         #endregion
 
         #region Constructor
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CyclicCollectionView&lt;T&gt;"/> class.
+        /// </summary>
+        /// <param name="projectNotes">The project notes.</param>
+        /// <remarks></remarks>
         public CyclicCollectionView(IList<T> projectNotes)
         {
             Items = OriginalItems = projectNotes;
@@ -39,7 +58,12 @@ namespace ProjectFlip.Services
 
         #region Properties
 
-        public IList<T> Items // ReSharper restore MemberCanBePrivate.Global
+        /// <summary>
+        /// Gets or sets the items of the collection.
+        /// </summary>
+        /// <value>The items.</value>
+        /// <remarks></remarks>
+        public IList<T> Items
         {
             get { return _items; }
             set
@@ -49,8 +73,11 @@ namespace ProjectFlip.Services
             }
         }
 
-        // ReSharper disable MemberCanBePrivate.Global
-        public int CurrentIndex // ReSharper restore MemberCanBePrivate.Global
+        /// <summary>
+        /// Gets the index of the current item.
+        /// </summary>
+        /// <remarks></remarks>
+        public int CurrentIndex
         {
             get { return _currentIndex; }
             private set
@@ -60,6 +87,11 @@ namespace ProjectFlip.Services
             }
         }
 
+        /// <summary>
+        /// Gets or sets the filter which is applied to each of the items.
+        /// </summary>
+        /// <value>The filter.</value>
+        /// <remarks></remarks>
         public Predicate<T> Filter
         {
             get { return _filter; }
@@ -71,31 +103,70 @@ namespace ProjectFlip.Services
             }
         }
 
+        /// <summary>
+        /// Gets the <see cref="T"/> at the specified index.
+        /// </summary>
+        /// <remarks></remarks>
         public T this[int index] { get { return Count == 0 ? default(T) : Items[(index + Count) % Count]; } }
 
+        /// <summary>
+        /// Gets the count of the remaining items which have not been filtered away.
+        /// </summary>
+        /// <remarks></remarks>
         public int Count { get { return Items.Count; } }
+
+        /// <summary>
+        /// Gets the count of the original items.
+        /// </summary>
+        /// <remarks></remarks>
         public int OriginalCount { get { return OriginalItems.Count; } }
 
+        /// <summary>
+        /// Gets the current item.
+        /// </summary>
+        /// <remarks></remarks>
         public T CurrentItem { get { return this[CurrentIndex]; } }
 
+        /// <summary>
+        /// Gets the previous item.
+        /// </summary>
+        /// <remarks></remarks>
         public T Previous { get { return this[CurrentIndex - 1]; } }
 
+        /// <summary>
+        /// Gets the next item.
+        /// </summary>
+        /// <remarks></remarks>
         public T Next { get { return this[CurrentIndex + 1]; } }
 
         #endregion
 
         #region Other
 
+        /// <summary>
+        /// Returns an enumerator that iterates through the collection.
+        /// </summary>
+        /// <returns>A <see cref="T:System.Collections.Generic.IEnumerator`1"></see> that can be used to iterate through the collection.</returns>
+        /// <remarks></remarks>
         public IEnumerator<T> GetEnumerator()
         {
             return Items.GetEnumerator();
         }
 
+        /// <summary>
+        /// Returns an enumerator that iterates through a collection.
+        /// </summary>
+        /// <returns>An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.</returns>
+        /// <remarks></remarks>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
 
+        /// <summary>
+        /// Refreshes this instance when a new filter has been applied.
+        /// </summary>
+        /// <remarks></remarks>
         public void Refresh()
         {
             if (_filter == null) return;
@@ -106,26 +177,36 @@ namespace ProjectFlip.Services
             OnCurrentChanged();
         }
 
-        public bool MoveCurrentTo(T o)
+        /// <summary>
+        /// Moves the current item to the <param name="newCurrentItem"></param>.
+        /// </summary>
+        /// <param name="newCurrentItem">The newCurrentItem.</param>
+        /// <returns></returns>
+        /// <remarks></remarks>
+        public bool MoveCurrentTo(T newCurrentItem)
         {
             if (Count == 0) return false;
 
             // ReSharper disable CompareNonConstrainedGenericWithNull
-            if ((!typeof(T).IsValueType) && o == null)
+            if ((!typeof(T).IsValueType) && newCurrentItem == null)
             {
                 CurrentIndex = 0;
                 return true;
             }
             // ReSharper restore CompareNonConstrainedGenericWithNull
 
-            if (!Items.Contains(o)) return false;
+            if (!Items.Contains(newCurrentItem)) return false;
 
-            CurrentIndex = Items.IndexOf(o);
+            CurrentIndex = Items.IndexOf(newCurrentItem);
 
-            Debug.Assert(Equals(CurrentItem, o));
+            Debug.Assert(Equals(CurrentItem, newCurrentItem));
             return true;
         }
 
+        /// <summary>
+        /// Moves the current item to the last item.
+        /// </summary>
+        /// <remarks></remarks>
         public void MoveCurrentToLast()
         {
             if (Count == 0) return;
@@ -133,6 +214,10 @@ namespace ProjectFlip.Services
             OnCurrentChanged();
         }
 
+        /// <summary>
+        /// Moves the current item to the first item.
+        /// </summary>
+        /// <remarks></remarks>
         public void MoveCurrentToFirst()
         {
             if (Count == 0) return;
@@ -140,6 +225,10 @@ namespace ProjectFlip.Services
             OnCurrentChanged();
         }
 
+        /// <summary>
+        /// Moves the current item to the next item.
+        /// </summary>
+        /// <remarks></remarks>
         public void MoveCurrentToNext()
         {
             if (Count == 0) return;
@@ -147,6 +236,10 @@ namespace ProjectFlip.Services
             OnCurrentChanged();
         }
 
+        /// <summary>
+        /// Moves the current item to the previous item.
+        /// </summary>
+        /// <remarks></remarks>
         public void MoveCurrentToPrevious()
         {
             if (Count == 0) return;
@@ -154,12 +247,21 @@ namespace ProjectFlip.Services
             OnCurrentChanged();
         }
 
+        /// <summary>
+        /// Sets the current index to a selected item.
+        /// </summary>
+        /// <param name="selectedItem">The selected item.</param>
+        /// <remarks></remarks>
         private void UpdateIndex(T selectedItem)
         {
             CurrentIndex = 0;
             if (Items.Contains(selectedItem)) CurrentIndex = Items.IndexOf(selectedItem);
         }
 
+        /// <summary>
+        /// Called when the collection has changed.
+        /// </summary>
+        /// <remarks></remarks>
         private void OnCollectionChanged()
         {
             if (CollectionChanged != null) CollectionChanged(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
@@ -167,7 +269,7 @@ namespace ProjectFlip.Services
         }
 
         /// <summary>
-        /// Raises the CurrentChanged event
+        /// Raises the CurrentChanged event.
         /// </summary>
         private void OnCurrentChanged()
         {
