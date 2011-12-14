@@ -106,7 +106,8 @@ namespace ProjectFlip.Services
         #region Other
 
         /// <summary>
-        /// Preloads the XPS document of this project note.
+        /// Preloads the XPS document of this project note. If the document is not loaded yet, it
+        /// is loaded asynchronous. This is important for the animations to perform nicely.
         /// </summary>
         /// <remarks></remarks>
         public void Preload()
