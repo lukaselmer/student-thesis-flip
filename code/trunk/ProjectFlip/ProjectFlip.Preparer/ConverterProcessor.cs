@@ -8,6 +8,10 @@ using ProjectFlip.Services.Interfaces;
 
 namespace ProjectFlip.Preparer
 {
+    /// <summary>
+    /// This is the processor for the PDF to XPS conversion.
+    /// </summary>
+    /// <remarks></remarks>
     internal class ConverterProcessor : IProcessor
     {
         #region Declarations
@@ -18,6 +22,11 @@ namespace ProjectFlip.Preparer
 
         #region Constructor
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConverterProcessor"/> class.
+        /// </summary>
+        /// <param name="converter">The converter.</param>
+        /// <remarks></remarks>
         public ConverterProcessor(IConverter converter)
         {
             _converter = converter;
@@ -31,6 +40,12 @@ namespace ProjectFlip.Preparer
 
         #region Other
 
+        /// <summary>
+        /// Converts a PDF project note to a XPS project note.
+        /// </summary>
+        /// <param name="projectNote">The project note.</param>
+        /// <returns></returns>
+        /// <remarks></remarks>
         public bool Process(IProjectNote projectNote)
         {
             if (File.Exists(projectNote.FilepathXps)) return false;
