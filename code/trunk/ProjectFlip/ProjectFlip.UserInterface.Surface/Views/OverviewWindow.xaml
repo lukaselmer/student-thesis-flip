@@ -32,6 +32,6 @@
 
         <Surface:DetailView Grid.Column="1" />
         <Surface:FilterDetailView Grid.Column="1" Visibility="{Binding IsFilterViewVisible, Converter={Converters:BoolToVisibilityConverter}}"/>
-        <Surface:AboutView Grid.Column="0" Grid.ColumnSpan="2" Visibility="{Binding InfoViewVisible, Converter={Converters:BoolToVisibilityConverter}}" />
+        <Surface:AboutView Grid.Column="0" Grid.ColumnSpan="2" Visibility="{Binding IsInfoViewVisible, Converter={Converters:BoolToVisibilityConverter}}" />
     </Grid>
 </s:SurfaceWindow>

@@ -12,6 +12,11 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
 
         #region Constructor
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GravatarsViewModel"/> class.
+        /// </summary>
+        /// <param name="gravatarService">The gravatar service.</param>
+        /// <remarks></remarks>
         public GravatarsViewModel(IGravatarService gravatarService)
         {
             Persons = gravatarService.Persons;
@@ -21,6 +26,10 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
 
         #region Properties
 
+        /// <summary>
+        /// Gets the persons.
+        /// </summary>
+        /// <remarks></remarks>
         public IList<IPerson> Persons { get; private set; }
 
         #endregion

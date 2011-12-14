@@ -26,30 +26,49 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
 
         #region Declarations
 
-        private readonly List<IMetadata> _filters = new List<IMetadata>();
+        /// <summary>
+        /// This is the width of the project note in the detail view.
+        /// </summary>
         private readonly GridLength _normalModeWidth = new GridLength(2.75, GridUnitType.Star);
+
+        /// <summary>
+        /// This is the width of the project note in the zoomed view.
+        /// </summary>
         private readonly GridLength _readModeWidth = new GridLength(10, GridUnitType.Star);
-        private IProjectNote _currentProjectNote;
+
+        /// <summary>
+        /// This is the current width of the project note
+        /// </summary>
         private GridLength _documentViewerWidth;
+
+        private readonly List<IMetadata> _filters = new List<IMetadata>();
+        private IProjectNote _currentProjectNote;
         private ICollectionView _filtersCollectionView;
         private bool _isDetailViewVisible;
         private bool _isFilterViewVisible;
         private bool _isInfoViewVisible;
-        private bool _readModeActive;
+        private bool _isReadModeActive;
         private ICollectionView _subcriteria;
 
         #endregion
 
         #region Constructor
 
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OverviewWindowViewModel"/> class.
+        /// </summary>
+        /// <param name="projectNotesService">The project notes service.</param>
+        /// <param name="gravatarsViewModel">The gravatars view model.</param>
+        /// <remarks></remarks>
         public OverviewWindowViewModel(IProjectNotesService projectNotesService, GravatarsViewModel gravatarsViewModel)
         {
             GravatarsViewModel = gravatarsViewModel;
             ProjectNotes = new CyclicCollectionView<IProjectNote>(projectNotesService.ProjectNotes) { Filter = FilterCallback };
             ProjectNotes.CurrentChanged += UpdateCurrentProjectNote;
-            Filters = new CollectionView(_filters);
+
             Criteria = projectNotesService.Metadata;
+
+            Filters = new CollectionView(_filters);
             Maincriteria = new CollectionView(Criteria.Keys);
             Maincriteria.MoveCurrentToFirst();
             SetSubCriteria();
@@ -63,13 +82,33 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
 
         #region Properties
 
+        /// <summary>
+        /// Gets the gravatars view model.
+        /// </summary>
+        /// <remarks></remarks>
         public GravatarsViewModel GravatarsViewModel { get; private set; }
 
+        /// <summary>
+        /// Gets the maincriteria. E.g. "Technology", "Sector", "Customer"
+        /// </summary>
+        /// <remarks></remarks>
         public ICollectionView Maincriteria { get; private set; }
 
+        /// <summary>
+        /// Gets or sets the criteria. E.g. "C++", "Energy", "Credit Suisse"
+        /// </summary>
+        /// <value>The criteria.</value>
+        /// <remarks></remarks>
         public IDictionary<IMetadataType, ICollection<IMetadata>> Criteria { get; set; }
 
+        /// <summary>
+        /// Gets the project notes. They are used for the binding.
+        /// </summary>
+        /// <remarks></remarks>
         public ICyclicCollectionView<IProjectNote> ProjectNotes { get; private set; }
+
+        #region Commands
+
         public ICommand ShowSubcriteriaCommand { get; private set; }
         public ICommand ShowDetailsCommand { get; private set; }
         public ICommand HideDetailsCommand { get; private set; }
@@ -82,29 +121,48 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
         public Command ZoomInCommand { get; private set; }
         public ICommand ToggleInfoCommand { get; private set; }
 
-        public bool ReadModeActive
+        #endregion
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the read mode is active. When it is
+        /// active, the document will be zoomed in so the user can read easier.
+        /// </summary>
+        /// <value><c>true</c> if read mode is active; otherwise, <c>false</c>.</value>
+        /// <remarks></remarks>
+        public bool IsReadModeActive
         {
-            get { return _readModeActive; }
+            get { return _isReadModeActive; }
             set
             {
-                _readModeActive = value;
-                Notify("ReadModeActive");
-                DocumentViewerWidth = ReadModeActive ? _readModeWidth : _normalModeWidth;
+                _isReadModeActive = value;
+                Notify("IsReadModeActive");
+                DocumentViewerWidth = IsReadModeActive ? _readModeWidth : _normalModeWidth;
                 if (ZoomInCommand != null) ZoomInCommand.RaiseCanExecuteChanged();
                 if (ZoomOutCommand != null) ZoomOutCommand.RaiseCanExecuteChanged();
             }
         }
 
-        public bool InfoViewVisible
+        /// <summary>
+        /// Gets or sets a value indicating whether the info view is visible. In the info
+        /// view, a short abstract of the project is shown with the team members who
+        /// implemented it.
+        /// </summary>
+        /// <value><c>true</c> if thi info view is visible; otherwise, <c>false</c>.</value>
+        /// <remarks></remarks>
+        public bool IsInfoViewVisible
         {
             get { return _isInfoViewVisible; }
             set
             {
                 _isInfoViewVisible = value;
-                Notify("InfoViewVisible");
+                Notify("IsInfoViewVisible");
             }
         }
 
+        /// <summary>
+        /// Gets the width of the document viewer. Used for zooming / read mode.
+        /// </summary>
+        /// <remarks></remarks>
         public GridLength DocumentViewerWidth
         {
             get { return _documentViewerWidth; }
@@ -115,6 +173,10 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets the subcriteria.
+        /// </summary>
+        /// <remarks></remarks>
         public ICollectionView Subcriteria
         {
             get { return _subcriteria; }
@@ -125,6 +187,10 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets the current project note.
+        /// </summary>
+        /// <remarks></remarks>
         public IProjectNote CurrentProjectNote
         {
             get { return _currentProjectNote; }
@@ -136,6 +202,10 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
         }
 
 
+        /// <summary>
+        /// Gets the filters.
+        /// </summary>
+        /// <remarks></remarks>
         public ICollectionView Filters
         {
             get { return _filtersCollectionView; }
@@ -147,6 +217,11 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is detail view visible.
+        /// </summary>
+        /// <value><c>true</c> if this instance is detail view visible; otherwise, <c>false</c>.</value>
+        /// <remarks></remarks>
         public bool IsDetailViewVisible
         {
             get { return _isDetailViewVisible; }
@@ -157,6 +232,11 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is filter view visible.
+        /// </summary>
+        /// <value><c>true</c> if this instance is filter view visible; otherwise, <c>false</c>.</value>
+        /// <remarks></remarks>
         public bool IsFilterViewVisible
         {
             get { return _isFilterViewVisible; }
@@ -185,10 +265,10 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
             RemoveFilterCommand = new Command(RemoveFilter);
             AddFilterCommand = new Command(AddFilter);
 
-            ZoomInCommand = new Command(ToogleReadMode, o => !ReadModeActive);
-            ZoomOutCommand = new Command(ToogleReadMode, o => ReadModeActive);
+            ZoomInCommand = new Command(ToogleReadMode, o => !IsReadModeActive);
+            ZoomOutCommand = new Command(ToogleReadMode, o => IsReadModeActive);
 
-            ToggleInfoCommand = new Command(o => InfoViewVisible = !InfoViewVisible);
+            ToggleInfoCommand = new Command(o => IsInfoViewVisible = !IsInfoViewVisible);
         }
 
         private void OnNavigateToRight(object obj)
@@ -212,12 +292,12 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
         private void OnHideDetail(object o)
         {
             IsDetailViewVisible = false;
-            ReadModeActive = false;
+            IsReadModeActive = false;
         }
 
         private void ToogleReadMode(object o)
         {
-            ReadModeActive = !ReadModeActive;
+            IsReadModeActive = !IsReadModeActive;
         }
 
         private void UpdateCurrentProjectNote(object sender, EventArgs eventArgs)
@@ -261,7 +341,7 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
             _filters.Remove((IMetadata)filter);
             Filters.Refresh();
             ProjectNotes.Refresh();
-            IsFilterViewVisible = ReadModeActive = IsDetailViewVisible = false;
+            IsFilterViewVisible = IsReadModeActive = IsDetailViewVisible = false;
         }
 
         private void AddFilter(object filter)
@@ -276,7 +356,7 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
             ProjectNotes.Refresh();
             IsDetailViewVisible = IsFilterViewVisible = false;
 
-            ReadModeActive = false;
+            IsReadModeActive = false;
         }
 
         private bool FilterCallback(object projectNoteObj)

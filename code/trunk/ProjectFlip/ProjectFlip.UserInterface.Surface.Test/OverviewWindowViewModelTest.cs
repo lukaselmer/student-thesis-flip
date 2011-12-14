@@ -234,17 +234,17 @@ namespace ProjectFlip.UserInterface.Surface.Test
         {
             var projectNotesService = new ProjectNotesServiceMock(5);
             var target = new OverviewWindowViewModel_Accessor(projectNotesService, null);
-            Assert.AreEqual(false, target.ReadModeActive);
+            Assert.AreEqual(false, target.IsReadModeActive);
             Assert.AreEqual(target._normalModeWidth, target.DocumentViewerWidth);
             Assert.AreEqual(false, target.ZoomOutCommand.CanExecute(null));
             Assert.AreEqual(true, target.ZoomInCommand.CanExecute(null));
             target.ZoomInCommand.Execute(null);
-            Assert.AreEqual(true, target.ReadModeActive);
+            Assert.AreEqual(true, target.IsReadModeActive);
             Assert.AreEqual(target._readModeWidth, target.DocumentViewerWidth);
             Assert.AreEqual(false, target.ZoomInCommand.CanExecute(null));
             Assert.AreEqual(true, target.ZoomOutCommand.CanExecute(null));
             target.ZoomOutCommand.Execute(null);
-            Assert.AreEqual(false, target.ReadModeActive);
+            Assert.AreEqual(false, target.IsReadModeActive);
             Assert.AreEqual(target._normalModeWidth, target.DocumentViewerWidth);
             Assert.AreEqual(true, target.ZoomInCommand.CanExecute(null));
             Assert.AreEqual(false, target.ZoomOutCommand.CanExecute(null));
