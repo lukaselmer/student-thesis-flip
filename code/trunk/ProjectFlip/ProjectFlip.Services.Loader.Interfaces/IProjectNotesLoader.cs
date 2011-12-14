@@ -7,11 +7,15 @@ using System.Collections.Generic;
 
 namespace ProjectFlip.Services.Loader.Interfaces
 {
+    /// <summary>
+    /// Loads the project notes.
+    /// </summary>
+    /// <remarks></remarks>
     public interface IProjectNotesLoader
     {
         // ReSharper disable UnusedMemberInSuper.Global
         /// <summary>
-        /// Gets or sets the filename of the metadata file, which is used to import the project notes
+        /// Gets or sets the filename of the metadata file, which is used to import the project notes.
         /// </summary>
         /// <value>
         /// The filename.
@@ -19,7 +23,7 @@ namespace ProjectFlip.Services.Loader.Interfaces
         string Filename { get; set; }
 
         /// <summary>
-        /// Imports the elements from the metadata file
+        /// Imports the elements from the metadata file.
         /// </summary>
         /// <returns></returns>
         List<List<String>> Import();
