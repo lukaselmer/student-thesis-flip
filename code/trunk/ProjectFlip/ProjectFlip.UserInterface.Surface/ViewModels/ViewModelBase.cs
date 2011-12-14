@@ -6,6 +6,10 @@ using System.ComponentModel;
 
 namespace ProjectFlip.UserInterface.Surface.ViewModels
 {
+    /// <summary>
+    /// The view model base.
+    /// </summary>
+    /// <remarks></remarks>
     public abstract class ViewModelBase : INotifyPropertyChanged
     {
         #region Declarations

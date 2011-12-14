@@ -7,6 +7,10 @@ using ProjectFlip.Services.Interfaces;
 
 namespace ProjectFlip.UserInterface.Surface.ViewModels
 {
+    /// <summary>
+    /// The gravatars view model provides the GUI with persons.
+    /// </summary>
+    /// <remarks></remarks>
     public class GravatarsViewModel : ViewModelBase
     {
 

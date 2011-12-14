@@ -15,6 +15,10 @@ using ProjectFlip.UserInterface.Surface.Helpers;
 
 namespace ProjectFlip.UserInterface.Surface.ViewModels
 {
+    /// <summary>
+    /// The overview view model is the main view model.
+    /// </summary>
+    /// <remarks></remarks>
     public class OverviewWindowViewModel : ViewModelBase
     {
         // Resharper is not able to analize the xaml file correctly, therefore
