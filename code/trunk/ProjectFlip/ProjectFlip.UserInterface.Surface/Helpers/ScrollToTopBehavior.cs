@@ -11,6 +11,17 @@ using System.Windows.Media;
 
 namespace ProjectFlip.UserInterface.Surface.Helpers
 {
+    /// <summary>
+    /// The ScrollToTopBehavior is a behaviour which is used for the scrollable lists. When the user scrolls down
+    /// and then changes the items (e.g. by adding a filter criteria), this class is responsible that the list
+    /// scrolls to top.
+    /// </summary>
+    /// <remarks>
+    /// This class was inspired by http://stackoverflow.com/questions/4793030/wpf-reset-listbox-scroll-position-when-itemssource-changes
+    /// It could potentially lead to memory leaks if the itemsChangedEventHandler does not unregister itself when
+    /// closing the window. However, this is not that important in this project because no scrollbars are created
+    /// dynamically and no additional windows will be created.
+    /// </remarks>
     public static class ScrollToTopBehavior
     {
         public static readonly DependencyProperty ScrollToTopProperty =
@@ -22,6 +33,12 @@ namespace ProjectFlip.UserInterface.Surface.Helpers
             obj.SetValue(ScrollToTopProperty, value);
         }
 
+        /// <summary>
+        /// Called when scroll to top property is changed.
+        /// </summary>
+        /// <param name="dpo">The dpo.</param>
+        /// <param name="e">The <see cref="System.Windows.DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
+        /// <remarks></remarks>
         private static void OnScrollToTopPropertyChanged(DependencyObject dpo, DependencyPropertyChangedEventArgs e)
         {
             var itemsControl = dpo as ItemsControl;
@@ -54,6 +71,7 @@ namespace ProjectFlip.UserInterface.Surface.Helpers
         private static T GetVisualChild<T>(DependencyObject parent) where T : Visual
         {
             var child = default(T);
+
             var numVisuals = VisualTreeHelper.GetChildrenCount(parent);
             for (var i = 0; i < numVisuals; i++)
             {
