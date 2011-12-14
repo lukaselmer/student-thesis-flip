@@ -1,5 +1,11 @@
 namespace ProjectFlip.Services.Interfaces
 {
+    /// <summary>
+    /// The interface for the aggregator. The aggregator aggregates multiple
+    /// metadatas and so maps metadata to some new metadata. This could be
+    /// JavaBeans mapped to Java.
+    /// </summary>
+    /// <remarks></remarks>
     public interface IAggregator
     {
         /// <summary>

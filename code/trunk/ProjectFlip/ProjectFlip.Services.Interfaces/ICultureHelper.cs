@@ -1,5 +1,9 @@
 namespace ProjectFlip.Services.Interfaces
 {
+    /// <summary>
+    /// Interface to register the language "und".
+    /// </summary>
+    /// <remarks></remarks>
     public interface ICultureHelper
     {
         /// <summary>

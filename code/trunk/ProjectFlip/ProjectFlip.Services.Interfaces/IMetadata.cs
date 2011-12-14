@@ -1,5 +1,10 @@
 ﻿namespace ProjectFlip.Services.Interfaces
 {
+    /// <summary>
+    /// The Metadata object is a addition to a project note.
+    /// This could be something like "Java", "Credit Suisse" or "Energy Sector"
+    /// </summary>
+    /// <remarks></remarks>
     public interface IMetadata
     {
         /// <summary>

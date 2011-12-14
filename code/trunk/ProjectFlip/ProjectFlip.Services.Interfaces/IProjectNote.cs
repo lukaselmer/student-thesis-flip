@@ -9,6 +9,14 @@ using System.Windows.Media.Imaging;
 
 namespace ProjectFlip.Services.Interfaces
 {
+    /// <summary>
+    /// Interface for a project note. A project note is a project reference
+    /// for realized projects. For example, if a successful project has been
+    /// finished whith the customer "Credit Suisse", programmed in "Java", the
+    /// project note will show some more details. It is always availible as
+    /// an A4 PDF paper print.
+    /// </summary>
+    /// <remarks></remarks>
     public interface IProjectNote
     {
         // ReSharper does not analyze the xaml files correctly, 

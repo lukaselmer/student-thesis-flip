@@ -6,6 +6,11 @@ using System.Collections.Generic;
 
 namespace ProjectFlip.Services.Interfaces
 {
+    /// <summary>
+    /// The project note service is responsible for loading the project notes
+    /// and the according metadata.
+    /// </summary>
+    /// <remarks></remarks>
     public interface IProjectNotesService
     {
         /// <summary>

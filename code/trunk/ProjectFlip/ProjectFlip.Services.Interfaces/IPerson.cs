@@ -1,5 +1,9 @@
 namespace ProjectFlip.Services.Interfaces
 {
+    /// <summary>
+    /// Interface for a person.
+    /// </summary>
+    /// <remarks></remarks>
     public interface IPerson
     {
         /// <summary>

@@ -8,6 +8,11 @@ using System.Collections.Specialized;
 
 namespace ProjectFlip.Services.Interfaces
 {
+    /// <summary>
+    /// The cyclic collection view interface.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <remarks></remarks>
     public interface ICyclicCollectionView<T> : IEnumerable<T>, INotifyCollectionChanged
     {
         /// <summary>
