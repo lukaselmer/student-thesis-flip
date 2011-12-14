@@ -17,32 +17,102 @@ using ProjectFlip.Services.Properties;
 
 namespace ProjectFlip.Services
 {
+    /// <summary>
+    /// The project note. A project note is a project reference
+    /// for realized projects. For example, if a successful project has been
+    /// finished whith the customer "Credit Suisse", programmed in "Java", the
+    /// project note will show some more details. It is always availible as
+    /// an A4 PDF paper print.
+    /// </summary>
+    /// <remarks></remarks>
     public class ProjectNote : NotifierModel, IProjectNote
     {
         #region Declarations
 
+        /// <summary>
+        /// Location where to find the resources (PDF, XPS, image)
+        /// </summary>
         public static string FilepathFolder = @"..\..\..\Resources";
+
+        /// <summary>
+        /// The document (cache).
+        /// </summary>
         private IDocumentPaginatorSource _document;
+
+        /// <summary>
+        /// The dispatcher timer is used to load the document.
+        /// </summary>
         private DispatcherTimer _timer;
 
         #endregion
 
         #region Properties
 
+        /// <summary>
+        /// Sets the aggregator.
+        /// </summary>
+        /// <value>The aggregator.</value>
+        /// <remarks></remarks>
         public IAggregator Aggregator { private get; set; }
 
+        /// <summary>
+        /// Gets the id.
+        /// </summary>
+        /// <remarks></remarks>
         public int Id { get; private set; }
-        public string Title { get; private set; } // Audit einer IT-Infrastruktur und Organisation
-        public string Text { get; private set; } // In einem externen Audit untersucht Zühlke die IT und die ...
 
+        /// <summary>
+        /// Gets the title.
+        /// </summary>
+        /// <remarks></remarks>
+        public string Title { get; private set; } // E.g.: Audit einer IT-Infrastruktur und Organisation
+
+        /// <summary>
+        /// Gets the text (short description).
+        /// </summary>
+        /// <remarks></remarks>
+        public string Text { get; private set; } // E.g.: In einem externen Audit untersucht Zühlke die IT und die ...
+
+        /// <summary>
+        /// Gets the metadata.
+        /// </summary>
+        /// <remarks></remarks>
         public IDictionary<IMetadataType, ICollection<IMetadata>> Metadata { get; private set; }
+
+        /// <summary>
+        /// Gets the date of the publication.
+        /// </summary>
+        /// <remarks></remarks>
         public DateTime Published { get; private set; }
 
+        /// <summary>
+        /// Gets the filename.
+        /// </summary>
+        /// <remarks></remarks>
         public string Filename { get; private set; }
+
+        /// <summary>
+        /// Gets the filepath of the PDF document.
+        /// </summary>
+        /// <remarks></remarks>
         public string FilepathPdf { get; private set; }
+
+        /// <summary>
+        /// Gets the filepath of the XPS document.
+        /// </summary>
+        /// <remarks></remarks>
         public string FilepathXps { get; private set; }
+
+        /// <summary>
+        /// Gets the filepath of the image.
+        /// </summary>
+        /// <remarks></remarks>
         public string FilepathImage { get; private set; }
 
+        /// <summary>
+        /// Gets the URL from where to download the project note.
+        /// </summary>
+        /// <remarks></remarks>
         public string Url { get { return (Settings.Default["ProjectNotesUrl"] as string) + Filename; } }
 
         /// <summary>
@@ -126,12 +196,21 @@ namespace ProjectFlip.Services
             }
         }
 
+        /// <summary>
+        /// Loads the document from the file system.
+        /// </summary>
+        /// <remarks></remarks>
         private void LoadDocument()
         {
             var doc = new XpsDocument(FilepathXps, FileAccess.Read);
             Document = doc.GetFixedDocumentSequence();
         }
 
+        /// <summary>
+        /// Initializes the metadata.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <remarks></remarks>
         private void InitMetadata(IList<string> value)
         {
             Metadata = new Dictionary<IMetadataType, ICollection<IMetadata>>();
@@ -144,6 +223,13 @@ namespace ProjectFlip.Services
             AddToMetadata("Tools", value[9]);
         }
 
+        /// <summary>
+        /// Adds a metadata line to the metadata. A line can consist of multiple metadata, for
+        /// exaple "Java", "JavaBeans", "Eclipse"
+        /// </summary>
+        /// <param name="metadataType">Type of the metadata.</param>
+        /// <param name="line">The line.</param>
+        /// <remarks></remarks>
         private void AddToMetadata(string metadataType, string line)
         {
             var metadataList = SharepointStringDeserializer.Deserialize(line, MetadataType.Get(metadataType));
@@ -156,12 +242,22 @@ namespace ProjectFlip.Services
                                    });
         }
 
+        /// <summary>
+        /// Inits the string values title and text.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <remarks></remarks>
         private void InitStringValues(IList<string> value)
         {
             Title = value[1];
             Text = value[2];
         }
 
+        /// <summary>
+        /// Inits the file path values for PDF, XPS and image.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <remarks></remarks>
         private void InitFileValues(IList<string> value)
         {
             Filename = value[13];

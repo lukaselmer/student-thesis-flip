@@ -11,10 +11,18 @@ using ProjectFlip.Services.Loader.Interfaces;
 
 namespace ProjectFlip.Services
 {
+    /// <summary>
+    /// The project note service is responsible for loading the project notes
+    /// and the according metadata.
+    /// </summary>
+    /// <remarks></remarks>
     public class ProjectNotesService : IProjectNotesService
     {
         #region Declarations
 
+        /// <summary>
+        /// The metadata of all project notes.
+        /// </summary>
         private readonly IDictionary<IMetadataType, ICollection<IMetadata>> _metadata;
         private readonly List<IProjectNote> _projectNotes;
         private readonly IProjectNotesLoader _projectNotesLoader;
