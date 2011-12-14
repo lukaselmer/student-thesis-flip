@@ -1,13 +1,10 @@
 ﻿using System.Collections.Generic;
-using ProjectFlip.Services;
 using ProjectFlip.UserInterface.Surface.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using ProjectFlip.Services.Interfaces;
 
 namespace ProjectFlip.UserInterface.Surface.Test
 {
-
 
     /// <summary>
     ///This is a test class for GravatarsViewModelTest and is intended
@@ -22,8 +19,8 @@ namespace ProjectFlip.UserInterface.Surface.Test
         [TestMethod]
         public void GravatarsViewModelConstructorTest()
         {
-            IGravatarService gravatarService = new GravatarServiceMock();
-            GravatarsViewModel target = new GravatarsViewModel(gravatarService);
+            var gravatarService = new GravatarServiceMock();
+            var target = new GravatarsViewModel(gravatarService);
             Assert.AreEqual(1, target.Persons.Count);
             var person = target.Persons[0];
             Assert.AreEqual("Peter Muster", person.Name);
