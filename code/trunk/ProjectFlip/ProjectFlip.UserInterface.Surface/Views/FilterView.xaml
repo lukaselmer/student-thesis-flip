@@ -60,27 +60,6 @@
             </Setter>
         </Style>
 
-        <DataTemplate x:Key="FilterCriteriaTemplate">
-            <s:SurfaceButton Style="{DynamicResource AddedFilterButtonStyle}" Margin="5,0,5,0" CommandParameter="{Binding}" 
-                             Command="{Binding DataContext.RemoveFilterCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceListBox}}}" >
-                <TextBlock Margin="14,3,13,3" Style="{DynamicResource TextStyle}" Text="{Binding Description}" />
-            </s:SurfaceButton>
-        </DataTemplate>
-        
-        <Style x:Key="SlotButtonStyle" TargetType="{x:Type s:SurfaceButton}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type s:SurfaceButton}">
-                        <Rectangle Margin="0,9,0,9" Height="80" Fill="#f9f9f9" RadiusX="10" RadiusY="10" Width="200">
-                            <Rectangle.Effect>
-                                <DropShadowEffect Direction="135" Opacity="0.25" BlurRadius="3" ShadowDepth="3"/>
-                            </Rectangle.Effect>
-                        </Rectangle>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
         <Style x:Key="AddedFilterButtonStyle" TargetType="{x:Type s:SurfaceButton}">
             <Setter Property="Height" Value="100"/>
             <Setter Property="Width" Value="220"/>
@@ -223,6 +202,26 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <DataTemplate x:Key="FilterCriteriaTemplate">
+            <s:SurfaceButton Style="{StaticResource AddedFilterButtonStyle}" Margin="5,0,5,0" CommandParameter="{Binding}" 
+                             Command="{Binding DataContext.RemoveFilterCommand, RelativeSource={RelativeSource AncestorType={x:Type s:SurfaceListBox}}}" >
+                <TextBlock Margin="14,3,13,3" Style="{DynamicResource TextStyle}" Text="{Binding Description}" />
+            </s:SurfaceButton>
+        </DataTemplate>
+
+        <Style x:Key="SlotButtonStyle" TargetType="{x:Type s:SurfaceButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type s:SurfaceButton}">
+                        <Rectangle Margin="0,9,0,9" Height="80" Fill="#f9f9f9" RadiusX="10" RadiusY="10" Width="200">
+                            <Rectangle.Effect>
+                                <DropShadowEffect Direction="135" Opacity="0.25" BlurRadius="3" ShadowDepth="3"/>
+                            </Rectangle.Effect>
+                        </Rectangle>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
         <Style x:Key="ButtonStyle" TargetType="s:SurfaceButton">
             <Setter Property="Template">
@@ -299,66 +298,67 @@
 
     </UserControl.Resources>
 
+
     <Grid VerticalAlignment="Stretch">
-    <Grid Margin="0" VerticalAlignment="Center">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="90"/>
-            <RowDefinition Height="320"/>
-            <RowDefinition Height="80"/>
-        </Grid.RowDefinitions>
-        <StackPanel Margin="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <Label Margin="20,0,0,0">
-                <TextBlock HorizontalAlignment="Left" x:Name="textBlock"  Style="{DynamicResource TextStyle}" Text="{Binding ProjectNotes.Count, NotifyOnTargetUpdated=True}"  FontSize="18" RenderTransformOrigin="0.5,0.5">
-                    <TextBlock.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </TextBlock.RenderTransform>
-                    <TextBlock.Triggers>
-<EventTrigger RoutedEvent="Binding.TargetUpdated">
-<BeginStoryboard Storyboard="{StaticResource onChanged}"/>
-</EventTrigger>
-</TextBlock.Triggers>
-                </TextBlock>
+        <Grid Margin="0" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="320"/>
+                <RowDefinition Height="80"/>
+            </Grid.RowDefinitions>
+            <StackPanel Margin="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Label Margin="20,0,0,0">
+                    <TextBlock HorizontalAlignment="Left" x:Name="textBlock"  Style="{DynamicResource TextStyle}" Text="{Binding ProjectNotes.Count, NotifyOnTargetUpdated=True}"  FontSize="18" RenderTransformOrigin="0.5,0.5">
+                        <TextBlock.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </TextBlock.RenderTransform>
+                        <TextBlock.Triggers>
+                        <EventTrigger RoutedEvent="Binding.TargetUpdated">
+                            <BeginStoryboard Storyboard="{StaticResource onChanged}"/>
+                        </EventTrigger>
+                        </TextBlock.Triggers>
+                    </TextBlock>
+                </Label>
+                <Label>
+                    <TextBlock  Style="{DynamicResource TextStyle}" Text="von"  FontSize="18"/>
+                </Label>
+                <Label>
+                    <TextBlock  Style="{DynamicResource TextStyle}" Text="{Binding ProjectNotes.OriginalCount}"  FontSize="18"/>
+                </Label>
+                <Label>
+                    <TextBlock  Style="{DynamicResource TextStyle}" Text="Projekten"  FontSize="18"/>
+                </Label>
+            </StackPanel>
+            <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Rectangle Width="90" Margin="0,0,10,0"  Height="2" Fill="#ff8204" />
+                <Rectangle Width="90" Margin="10,0,0,0" Height="2" Fill="#ff8204" />
+            </StackPanel>
+            <Label Margin="20,18,0,20" Grid.Row="1" VerticalAlignment="Center">
+                <TextBlock  Style="{DynamicResource TextStyle}" Text="Auswahlkriterien" Foreground="#ff820a" FontStretch="Expanded" FontSize="24" />
             </Label>
-            <Label>
-                <TextBlock  Style="{DynamicResource TextStyle}" Text="von"  FontSize="18"/>
-            </Label>
-            <Label>
-                <TextBlock  Style="{DynamicResource TextStyle}" Text="{Binding ProjectNotes.OriginalCount}"  FontSize="18"/>
-            </Label>
-            <Label>
-                <TextBlock  Style="{DynamicResource TextStyle}" Text="Projekten"  FontSize="18"/>
-            </Label>
-        </StackPanel>
-        <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Rectangle Width="90" Margin="0,0,10,0"  Height="2" Fill="#ff8204" />
-            <Rectangle Width="90" Margin="10,0,0,0" Height="2" Fill="#ff8204" />
-        </StackPanel>
-        <Label Margin="20,18,0,20" Grid.Row="1" VerticalAlignment="Center">
-            <TextBlock  Style="{DynamicResource TextStyle}" Text="Auswahlkriterien" Foreground="#ff820a" FontStretch="Expanded" FontSize="24" />
-        </Label>
-        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Rectangle Width="90" Margin="0,0,10,0"  Height="2" Fill="#ff8204" />
-            <Rectangle Width="90" Margin="10,0,0,0" Height="2" Fill="#ff8204" />
-        </StackPanel>
-        <StackPanel Margin="0,10,0,10" Background="White" Grid.Row="2">
-            <s:SurfaceButton Style="{StaticResource SlotButtonStyle}" Command="{Binding ToggleFilterCommand}"/>
-            <s:SurfaceButton Style="{StaticResource SlotButtonStyle}" Command="{Binding ToggleFilterCommand}"/>
-            <s:SurfaceButton Style="{StaticResource SlotButtonStyle}" Command="{Binding ToggleFilterCommand}"/>
-        </StackPanel>
-        <s:SurfaceListBox Margin="0,10,0,10" Background="Transparent" MinHeight="10" VerticalContentAlignment="Bottom" VerticalAlignment="Top" HorizontalContentAlignment="Center" Foreground="Transparent" Grid.Row="2" ItemsSource="{Binding Filters}" 
+            <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Rectangle Width="90" Margin="0,0,10,0"  Height="2" Fill="#ff8204" />
+                <Rectangle Width="90" Margin="10,0,0,0" Height="2" Fill="#ff8204" />
+            </StackPanel>
+            <StackPanel Margin="0,10,0,10" Background="White" Grid.Row="2">
+                <s:SurfaceButton Style="{StaticResource SlotButtonStyle}" Command="{Binding ToggleFilterCommand}"/>
+                <s:SurfaceButton Style="{StaticResource SlotButtonStyle}" Command="{Binding ToggleFilterCommand}"/>
+                <s:SurfaceButton Style="{StaticResource SlotButtonStyle}" Command="{Binding ToggleFilterCommand}"/>
+            </StackPanel>
+            <s:SurfaceListBox Margin="0,10,0,10" Background="Transparent" MinHeight="10" VerticalContentAlignment="Bottom" VerticalAlignment="Top" HorizontalContentAlignment="Center" Foreground="Transparent" Grid.Row="2" ItemsSource="{Binding Filters}" 
                           ItemTemplate="{DynamicResource FilterCriteriaTemplate}" ItemsPanel="{DynamicResource ItemPanelTemplate}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                           ScrollViewer.VerticalScrollBarVisibility="Disabled">
-        </s:SurfaceListBox>
-        <s:SurfaceButton Style="{StaticResource ButtonStyle}" Grid.Row="3" VerticalAlignment="Top" Command="{Binding ToggleFilterCommand}" Width="200" Margin="0" >
-            <TextBlock Margin="3" Style="{DynamicResource TextStyle}" Foreground="White" Text="Kriterien hinzufügen" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" TextAlignment="Center" />
-        </s:SurfaceButton>
-    </Grid>
-        <s:SurfaceButton Command="{Binding ToggleInfoCommand}" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20" Height="50" Width="50" Style="{DynamicResource AboutButtonStyle}"></s:SurfaceButton>
+            </s:SurfaceListBox>
+            <s:SurfaceButton Style="{StaticResource ButtonStyle}" Grid.Row="3" VerticalAlignment="Top" Command="{Binding ToggleFilterCommand}" Width="200" Margin="0" >
+                <TextBlock Margin="3" Style="{DynamicResource TextStyle}" Foreground="White" Text="Kriterien hinzufügen" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" TextAlignment="Center" />
+            </s:SurfaceButton>
+        </Grid>
+        <s:SurfaceButton Command="{Binding ToggleInfoCommand}" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20" Height="50" Width="50" Style="{StaticResource AboutButtonStyle}"></s:SurfaceButton>
     </Grid>
 </UserControl>
