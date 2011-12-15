@@ -18,7 +18,7 @@ namespace ProjectFlip.Converter.Pdf
         /// <summary>
         /// The seconds to wait until the acrobat reader process is forced to quit.
         /// </summary>
-        public static int SecondsToWait = 30;
+        public static int SecondsToWait = (int) Settings.Default["SecondsToWait"];
 
         /// <summary>
         /// The logger.

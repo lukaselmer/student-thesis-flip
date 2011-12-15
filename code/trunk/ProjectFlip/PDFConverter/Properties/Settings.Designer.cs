@@ -34,5 +34,17 @@ namespace ProjectFlip.Converter.Pdf.Properties {
                 this["AcrobatLocation"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("30")]
+        public int SecondsToWait {
+            get {
+                return ((int)(this["SecondsToWait"]));
+            }
+            set {
+                this["SecondsToWait"] = value;
+            }
+        }
     }
 }
