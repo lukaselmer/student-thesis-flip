@@ -1,0 +1,5 @@
+D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.PdfConverter.Interfaces\bin\Debug\ProjectFlip.Converter.Interfaces.dll
+D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.PdfConverter.Interfaces\bin\Debug\ProjectFlip.Converter.Interfaces.pdb
+D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.PdfConverter.Interfaces\obj\Debug\ResolveAssemblyReference.cache
+D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.PdfConverter.Interfaces\obj\Debug\ProjectFlip.Converter.Interfaces.dll
+D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\ProjectFlip.PdfConverter.Interfaces\obj\Debug\ProjectFlip.Converter.Interfaces.pdb

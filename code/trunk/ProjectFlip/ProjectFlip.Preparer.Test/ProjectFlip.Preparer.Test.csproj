@@ -67,17 +67,9 @@
     <Shadow Include="Test References\ProjectFlip.Preparer.accessor" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PDFConverter\ProjectFlip.Converter.Pdf.csproj">
-      <Project>{2C982C06-FFDC-4B54-A05E-26FC606FF552}</Project>
-      <Name>ProjectFlip.Converter.Pdf</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ProjectFlip.Importer\ProjectFlip.Services.Loader.csproj">
       <Project>{761B0F94-E5E6-43EF-8F1B-475AFBDE6BE0}</Project>
       <Name>ProjectFlip.Services.Loader</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ProjectFlip.PdfConverter.Interfaces\ProjectFlip.Converter.Interfaces.csproj">
-      <Project>{C7ED502D-A83D-49A9-B0A5-1532EE193887}</Project>
-      <Name>ProjectFlip.Converter.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\ProjectFlip.Preparer\ProjectFlip.Preparer.csproj">
       <Project>{13D14388-0E29-4911-816E-CEF9FFFEE4C7}</Project>

@@ -1,0 +1,9 @@
+D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\PDFConverter\bin\Debug\ProjectFlip.Converter.Pdf.pdb
+D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\PDFConverter\bin\Debug\ProjectFlip.Converter.Interfaces.dll
+D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\PDFConverter\bin\Debug\ProjectFlip.Converter.Interfaces.pdb
+D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\PDFConverter\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\PDFConverter\obj\x86\Debug\ProjectFlip.Converter.Pdf.pdb
+D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\PDFConverter\bin\Debug\ProjectFlip.Converter.Pdf.dll
+D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\PDFConverter\obj\x86\Debug\ProjectFlip.Converter.Pdf.dll
+D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\PDFConverter\bin\Debug\ProjectFlip.Converter.Pdf.dll.config
+D:\flip_svn.elmermx.ch\code\trunk\ProjectFlip\PDFConverter\bin\Debug\log4net.dll

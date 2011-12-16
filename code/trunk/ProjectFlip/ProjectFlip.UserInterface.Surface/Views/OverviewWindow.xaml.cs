@@ -18,7 +18,6 @@ namespace ProjectFlip.UserInterface.Surface.Views
         {
             InitializeComponent();
             DataContext = viewModel;
-            //AddHandler(FrameworkElement.MouseDownEvent, (s,e) => {});
         }
     }
 }
