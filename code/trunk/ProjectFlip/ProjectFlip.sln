@@ -46,8 +46,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.Services.Test",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Loader", "Loader", "{F2CD5B00-EABC-4592-979C-0BF06E7D9E0E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Diagrams", "Diagrams", "{A75BE8EF-B6C8-487D-B002-53A25E5D75CF}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.Converter.Pdf", "ProjectFlip.Converter.Pdf\ProjectFlip.Converter.Pdf.csproj", "{2C982C06-FFDC-4B54-A05E-26FC606FF552}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlip.Converter.Interfaces", "ProjectFlip.Converter.Interfaces\ProjectFlip.Converter.Interfaces.csproj", "{C7ED502D-A83D-49A9-B0A5-1532EE193887}"
