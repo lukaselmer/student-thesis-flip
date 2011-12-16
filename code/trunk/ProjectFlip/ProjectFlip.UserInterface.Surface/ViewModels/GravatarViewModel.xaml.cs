@@ -1,8 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using System.Text;
-using System.Windows.Media.Imaging;
+using System.ComponentModel;
+using System.Windows.Data;
 using ProjectFlip.Services.Interfaces;
 
 namespace ProjectFlip.UserInterface.Surface.ViewModels
@@ -23,7 +20,7 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
         /// <remarks></remarks>
         public GravatarsViewModel(IGravatarService gravatarService)
         {
-            Persons = gravatarService.Persons;
+            Persons = new CollectionView(gravatarService.Persons);
         }
 
         #endregion
@@ -34,7 +31,7 @@ namespace ProjectFlip.UserInterface.Surface.ViewModels
         /// Gets the persons.
         /// </summary>
         /// <remarks></remarks>
-        public IList<IPerson> Persons { get; private set; }
+        public ICollectionView Persons { get; private set; }
 
         #endregion
 

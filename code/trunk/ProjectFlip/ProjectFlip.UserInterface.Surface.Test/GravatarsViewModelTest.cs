@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using ProjectFlip.UserInterface.Surface.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProjectFlip.Services.Interfaces;
@@ -21,16 +23,15 @@ namespace ProjectFlip.UserInterface.Surface.Test
         {
             var gravatarService = new GravatarServiceMock();
             var target = new GravatarsViewModel(gravatarService);
-            Assert.AreEqual(1, target.Persons.Count);
-            var person = target.Persons[0];
-            Assert.AreEqual("Peter Muster", person.Name);
-            Assert.AreEqual("peter@muster.com", person.Email);
-            Assert.AreEqual("http://example.com", person.ImageUrl);
+            IList<object> list = new[] { target.Persons.GetEnumerator() };
+            Assert.AreEqual(2, list.Count);
+            Assert.AreSame(gravatarService.Persons[0], list[0] as PersonMock);
+            Assert.AreSame(gravatarService.Persons[1], list[1] as PersonMock);
         }
 
         private class GravatarServiceMock : IGravatarService
         {
-            public IList<IPerson> Persons { get { return new List<IPerson> { new PersonMock() }; } }
+            public IList<IPerson> Persons { get { return new List<IPerson> { new PersonMock(), new PersonMock() }; } }
         }
 
         private class PersonMock : IPerson
