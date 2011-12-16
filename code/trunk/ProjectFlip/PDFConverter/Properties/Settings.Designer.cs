@@ -38,12 +38,12 @@ namespace ProjectFlip.Converter.Pdf.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("30")]
-        public int SecondsToWait {
+        public int SecondsToWaitForAdobeReaderExit {
             get {
-                return ((int)(this["SecondsToWait"]));
+                return ((int)(this["SecondsToWaitForAdobeReaderExit"]));
             }
             set {
-                this["SecondsToWait"] = value;
+                this["SecondsToWaitForAdobeReaderExit"] = value;
             }
         }
     }

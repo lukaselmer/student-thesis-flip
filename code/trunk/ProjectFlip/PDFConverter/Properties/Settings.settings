@@ -5,7 +5,7 @@
     <Setting Name="AcrobatLocation" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\Program Files (x86)\Adobe\Reader 10.0\Reader\AcroRd32.exe</Value>
     </Setting>
-    <Setting Name="SecondsToWait" Type="System.Int32" Scope="User">
+    <Setting Name="SecondsToWaitForAdobeReaderExit" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">30</Value>
     </Setting>
   </Settings>

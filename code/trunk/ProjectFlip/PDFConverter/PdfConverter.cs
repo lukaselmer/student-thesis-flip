@@ -18,7 +18,7 @@ namespace ProjectFlip.Converter.Pdf
         /// <summary>
         /// The seconds to wait until the acrobat reader process is forced to quit.
         /// </summary>
-        public static int SecondsToWait = (int) Settings.Default["SecondsToWait"];
+        public static int SecondsToWaitForAdobeReaderExit = (int) Settings.Default["SecondsToWaitForAdobeReaderExit"];
 
         /// <summary>
         /// The logger.
@@ -110,7 +110,7 @@ namespace ProjectFlip.Converter.Pdf
             Logger.Debug("Executing '" + exe + " " + args);
             var proc = new Process {StartInfo = {FileName = exe, Arguments = args}, EnableRaisingEvents = false};
             proc.Start();
-            var res = proc.WaitForExit(SecondsToWait*1000);
+            var res = proc.WaitForExit(SecondsToWaitForAdobeReaderExit*1000);
             if (!res && !proc.HasExited)
             {
                 proc.Kill();

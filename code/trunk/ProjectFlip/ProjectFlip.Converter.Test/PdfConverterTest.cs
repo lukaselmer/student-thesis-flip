@@ -128,7 +128,7 @@ namespace ProjectFlip.Converter.Test
             if (!RunPdfConverterTests) return;
             // ReSharper disable CSharpWarnings::CS0162
             // ReSharper disable HeuristicUnreachableCode
-            PdfConverter.SecondsToWait = 15;
+            PdfConverter.SecondsToWaitForAdobeReaderExit = 15;
             var target = new PdfConverter();
             var expected = target.Convert(PdfPath, TempXpsPath);
             Assert.AreEqual(true, expected);
