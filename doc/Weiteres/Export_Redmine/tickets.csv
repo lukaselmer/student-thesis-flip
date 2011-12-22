@@ -1,0 +1,277 @@
+#;Projekt;Tracker;Übergeordnete Aufgabe;Status;Priorität;Thema;Autor;Zugewiesen an;Aktualisiert;Kategorie;Zielversion;Beginn;Abgabedatum;Geschätzter Aufwand;Aufgewendete Zeit;% erledigt;Angelegt;Beschreibung
+641;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Allgemeine Korrekturen, kleine Anpassungen;Lukas Elmer;"";20.12.2011 13:04;"";SP7;18.12.2011;23.12.2011;19,0;16,5;100;18.12.2011 15:16;""
+640;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Codereview 2 durchgeführt, dokumentiert, implementiert;Lukas Elmer;Lukas Elmer;16.12.2011 15:58;"";SP7;16.12.2011;16.12.2011;4,0;4,0;100;16.12.2011 11:06;""
+639;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Einleitung Technischer Bericht geschrieben;Christina Heidt;Christina Heidt;20.12.2011 11:36;"";SP7;15.12.2011;23.12.2011;3,0;2,0;100;15.12.2011 16:57;""
+638;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Codereview Verbesserungen implementiert;Lukas Elmer;Lukas Elmer;20.12.2011 11:11;"";SP7;24.12.2011;26.12.2011;4,0;15,0;100;13.12.2011 13:55;""
+637;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;SVN Tag SP6 erstellt;Lukas Elmer;Lukas Elmer;13.12.2011 13:47;"";SP6;12.12.2011;12.12.2011;0,5;0,5;100;13.12.2011 13:43;""
+636;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;"Dokument ""Realisierung & Test"" geschrieben";Lukas Elmer;"";20.12.2011 11:11;"";SP7;13.12.2011;13.12.2011;3,0;5,0;100;13.12.2011 13:05;""
+635;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Usability Tests durchgeführt und protokolliert;Lukas Elmer;Christina Heidt;20.12.2011 11:11;"";SP7;13.12.2011;13.12.2011;4,0;3,5;100;13.12.2011 13:02;""
+634;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;"SE Dok: ""Entwurf"" geschrieben";Lukas Elmer;Lukas Elmer;20.12.2011 13:03;"";SP7;13.12.2011;19.12.2011;16,0;10,0;100;13.12.2011 12:55;""
+633;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Code dokumentiert;Christina Heidt;"";20.12.2011 10:18;"";SP7;12.12.2011;19.12.2011;5,0;2,0;100;12.12.2011 12:19;""
+632;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Weiterentwicklung dokumentiert;Delia Treichler;"";20.12.2011 13:03;"";SP7;12.12.2011;19.12.2011;8,0;5,25;100;12.12.2011 09:45;""
+631;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Dokumente zusammenfügen, PDF generieren;Lukas Elmer;"";20.12.2011 11:36;"";SP7;12.12.2011;23.12.2011;10,0;14,5;100;11.12.2011 16:59;""
+630;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Abstract geschrieben;Lukas Elmer;"";19.12.2011 16:25;"";SP7;20.12.2011;20.12.2011;3,0;1,5;100;09.12.2011 13:50;""
+629;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Info View / Easteregg;Lukas Elmer;Lukas Elmer;13.12.2011 13:47;User Story;SP6;08.12.2011;12.12.2011;4,0;8,0;100;08.12.2011 17:40;""
+628;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Codereview durchgeführt;Delia Treichler;"";13.12.2011 13:47;"";SP6;09.12.2011;12.12.2011;3,0;3,0;100;07.12.2011 07:58;""
+623;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Verbesserungen aus Usability Test gemacht;Christina Heidt;"";13.12.2011 13:47;"";SP6;05.12.2011;12.12.2011;8,0;19,0;100;05.12.2011 14:57;""
+622;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Dokumente vervollständigt / diverse kleine Anpassungen;Christina Heidt;"";13.12.2011 13:47;"";SP6;05.12.2011;12.12.2011;4,0;4,0;100;05.12.2011 10:25;""
+621;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Refactoring;Lukas Elmer;Lukas Elmer;13.12.2011 13:47;"";SP6;29.11.2011;12.12.2011;5,0;9,0;100;01.12.2011 10:19;""
+620;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Betriebskonzept / Installationsanleitung erarbeitet;Delia Treichler;Lukas Elmer;14.12.2011 10:06;"";SP6;28.11.2011;12.12.2011;4,0;1,5;100;28.11.2011 19:57;siehe flip_svn.elmermx.ch\doc\03_Technischer_Bericht_Teil_2\02_Anforderungen\Reinigung & Design Entscheid.txt
+619;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Funktionale Anforderungen dokumentiert;Delia Treichler;"";14.12.2011 10:06;"";SP6;28.11.2011;12.12.2011;2,0;1,25;100;28.11.2011 19:51;Übersicht über User Stories in Anforderungen Dokument
+618;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Anforderungen und Domain Modell Dokumente korrigiert;Christina Heidt;Christina Heidt;20.12.2011 13:57;"";SP5;28.11.2011;28.11.2011;3,0;3,5;100;28.11.2011 16:04;""
+617;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;3-D Darstellung der PNs dokumentiert;Christina Heidt;Lukas Elmer;13.12.2011 17:15;"";SP6;28.11.2011;12.12.2011;4,0;5,5;100;28.11.2011 16:01;""
+616;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Animation Filter -> Übersicht ;Christina Heidt;"";13.12.2011 13:47;User Story;SP6;28.11.2011;12.12.2011;8,0;10,0;100;28.11.2011 15:59;eine Animation sehen, wenn die Ansicht geschlossen und der Filter gesetzt wird, damit ich sehe, dass und wo der Filter nun gesetzt ist. (Filter highlighten, nach dem setzen des Kriteriums, gemäss Protokoll)
+615;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Anzahl PN bei Übersicht angezeigt;Christina Heidt;"";13.12.2011 13:47;User Story;SP6;28.11.2011;12.12.2011;4,0;5,5;100;28.11.2011 15:58;die Anzahl PN in der Übersicht sehen, damit ich weiss, wie gross die Liste ist.
+614;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Lesemodus PN anzeigen;Delia Treichler;"";20.12.2011 13:57;User Story;SP6;29.11.2011;13.12.2011;4,0;9,25;100;28.11.2011 14:38;""
+613;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;"Dokument ""Realisierung & Test"" geschrieben";Delia Treichler;"";13.12.2011 13:47;"";SP6;28.11.2011;12.12.2011;3,0;3,0;100;25.11.2011 09:42;""
+612;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;"SE Dok: ""Entwurf"" geschrieben";Delia Treichler;"";13.12.2011 13:47;"";SP6;28.11.2011;12.12.2011;6,0;7,5;100;25.11.2011 09:38;""
+608;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Schöne Darstellung des Filters;Delia Treichler;"";20.12.2011 13:57;User Story;SP5;14.11.2011;28.11.2011;8,0;10,5;100;14.11.2011 14:11;den Filter schön darstellen, damit mir die Applikation besser gefällt und die Bedienung mehr Spass macht.
+607;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;"Animation für Navigation ""Detailansicht -> Detailansicht""";Delia Treichler;Lukas Elmer;28.11.2011 21:25;User Story;SP5;14.11.2011;28.11.2011;8,0;19,75;100;14.11.2011 14:11;eine Animation sehen, wenn ich durch die PNs navigiere, damit es für mich besser ersichtlich ist, dass die Project Note gewechselt hat.
+606;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Schöne Darstellung der Tags;Delia Treichler;"";20.12.2011 13:57;User Story;SP5;14.11.2011;28.11.2011;8,0;7,5;100;14.11.2011 14:10;die zu einer PN zugehörigen Begriffe schön darstellen, damit mir die Applikation besser gefällt und die Bedienung mehr Spass macht.
+605;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Lesemodus PN anzeigen;Delia Treichler;"";20.12.2011 13:57;User Story;SP5;14.11.2011;28.11.2011;4,0;12,0;100;14.11.2011 14:10;eine PN vergrössern können und einen abgedunkelten Hintergrund sehen, damit ich sie besser lesen kann.
+604;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Scrollerkennung in Übersicht dargestellt;Delia Treichler;Lukas Elmer;28.11.2011 15:00;User Story;SP5;14.11.2011;21.11.2011;4,0;29,0;100;14.11.2011 14:10;an der Darstellung der Liste erkennen können, dass durch die PN gescrollt werden kann.
+603;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Animierte Navigation ???Detail -> Übersicht???;Delia Treichler;"";20.12.2011 13:57;User Story;SP5;14.11.2011;28.11.2011;16,0;6,25;100;14.11.2011 14:09;in der Detailansicht erkennen können (z.B. durch Animation), damit ich den Weg von der Detailansicht zur Übersicht finde.
+602;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Filtern nach mehreren Kriterien;Delia Treichler;"";20.12.2011 13:57;User Story;SP5;14.11.2011;28.11.2011;8,0;9,0;100;14.11.2011 14:08;nach mehreren bestimmten Kriterien filtern, um eine begrenzte Auswahl zu erhalten.
+601;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Filter in Detailansicht setzen;Delia Treichler;Delia Treichler;20.12.2011 13:57;User Story;SP5;14.11.2011;28.11.2011;4,0;3,5;100;14.11.2011 14:08;einen Filter in der Detailansicht setzen, damit ich dazu nicht zuerst zur Übersicht wechseln muss.
+600;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Meeting, 25.11.11;Delia Treichler;"";28.11.2011 02:18;"";SP5;25.11.2011;25.11.2011;4,5;9,0;100;13.11.2011 12:50;"15:00-16:30
+HSR 6.112
+Anwesend: Christian Moser (Markus Stolze ist verhindert)
+Sprint-Ende"
+597;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;"Navigation ""Detailansicht -> Detailansicht""";Delia Treichler;Delia Treichler;09.11.2011 16:41;"";SP4;07.11.2011;08.11.2011;2,0;3,5;100;08.11.2011 08:19;""
+596;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Layout definiert;Christina Heidt;Christina Heidt;20.12.2011 13:57;"";SP4;06.11.2011;14.11.2011;16,0;22,25;100;06.11.2011 19:51;""
+594;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Padding / Margin in Übersicht-Buttons entfernen;Lukas Elmer;Lukas Elmer;04.11.2011 14:07;"";SP4;04.11.2011;04.11.2011;3,0;3,0;100;04.11.2011 14:07;""
+593;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Refactoring;Lukas Elmer;Lukas Elmer;11.11.2011 15:55;"";SP4;31.10.2011;14.11.2011;6,0;8,5;100;02.11.2011 09:26;""
+592;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;NF Anforderungen dokumentiert;Lukas Elmer;"";01.11.2011 17:52;"";SP3;17.10.2011;31.10.2011;4,0;2,5;100;01.11.2011 17:52;""
+591;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Aggregierte Tags anpassbar;Lukas Elmer;"";15.11.2011 08:43;User Story;SP4;31.10.2011;14.11.2011;8,0;7,5;100;01.11.2011 17:06;Als Surface Admin möchte ich die Zuordnungen der Tags bearbeiten können, damit ich neue Tags in eine Oberkategorie aggregieren kann und damit ich die aggregierten Elemente ändern kann.
+590;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Tags aggregieren;Delia Treichler;"";15.11.2011 08:43;User Story;SP4;31.10.2011;14.11.2011;8,0;10,0;100;31.10.2011 18:41;bei den Tags statt vielen spezifischen Tags eine kleinere Auswahl von aggregierten Tags sehen, um die Übersicht zu behalten und nicht zu viele Elemente auf dem Bildschirm zu sehen. (Bsp: Java ME, Java EE, Java Beans -> wird aggregiert zu Java)
+589;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Filter in Übersicht entfernen;Delia Treichler;"";15.11.2011 09:07;User Story;SP4;31.10.2011;14.11.2011;8,0;4,25;100;31.10.2011 18:41;einen Filter in der Übersicht entfernen, damit mir mehr PN angezeigt werden.
+588;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Filterkriterium auswählen;Delia Treichler;"";15.11.2011 09:07;User Story;SP4;31.10.2011;14.11.2011;16,0;11,5;100;31.10.2011 18:40;das Filterkriterium aus einer nach Kategorien gruppierten Liste auswählen können, damit ich den gesuchten Begriff einfach finden kann.
+587;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Filter in Übersicht setzen;Delia Treichler;"";15.11.2011 09:07;User Story;SP4;31.10.2011;14.11.2011;8,0;10,5;100;31.10.2011 18:39;einen Filter in der Übersicht setzen, damit die angezeigten PN eingeschränkt werden.
+586;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Tags zu PN angezeigt;Delia Treichler;"";15.11.2011 09:07;User Story;SP4;31.10.2011;14.11.2011;16,0;8,0;100;31.10.2011 18:39;zu einer PN zusätzliche Begriffe anzeigen, damit ich die PN einem bestimmten Gebiet zuordnen kann.
+585;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;PivotViewer untersucht und dokumentiert;Delia Treichler;"";20.12.2011 13:57;"";SP4;31.10.2011;14.11.2011;2,0;3,5;100;31.10.2011 17:17;"dokumentieren, warum nicht einfach PivotViewer übernommen
+
+Hallo zusammen,
+
+hier sende ich euch noch einen Link zu einem Beispiel von einem solchen Silverlight Pivot-Control.
+Vielleicht bringt es euch noch auf ein paar interessante Ideen, da sie damit ein ähnliches Problem lösen.
+
+http://netflixpivot.cloudapp.net
+
+Gruss und bis am Freitag
+Christian"
+584;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Meeting, 04.11.11;Delia Treichler;"";07.11.2011 11:36;"";SP4;04.11.2011;04.11.2011;6,0;9,0;100;31.10.2011 16:53;"Codereview mit Christian, 15.00 Uhr
+- Test-Dokumentation
+- Overlay
+- Controller für Erstellung der Ansichten
+- Filter: Wo setzen können, wo entfernen können, wird zur Übersicht gewechselt oder ist dies ev. nicht gewünscht?"
+583;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;SVN Tag SP3 erstellen;Lukas Elmer;Lukas Elmer;01.11.2011 17:51;"";SP3;31.10.2011;31.10.2011;0,25;0,25;100;31.10.2011 00:05;""
+582;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;"Navigation ""Detailansicht -> Detailansicht""";Delia Treichler;Delia Treichler;31.10.2011 17:14;User Story;SP3;17.10.2011;31.10.2011;8,0;5,75;100;28.10.2011 14:16;bei der Detailansicht einer PN zur nächsten oder vorherigen PN wechseln, damit ich alle PN nacheinander anschauen kann.
+580;Project Flip 2.0 Zühlke;Feature;Feature #574: Übersicht für PN;Closed;Normal;PN hineinladen stabiler / fehlertoleranter gestaltet;Lukas Elmer;Lukas Elmer;31.10.2011 17:16;"";SP3;24.10.2011;31.10.2011;8,0;7,25;100;24.10.2011 09:50;Bsp.: Bei fehlerhaftem PDF oder XPS wird die Datei nochmals gelöscht und heruntergeladen
+579;Project Flip 2.0 Zühlke;Feature;Feature #574: Übersicht für PN;Closed;Normal;UnitTests für Prototypen geschrieben;Lukas Elmer;"";01.11.2011 17:42;"";SP3;17.10.2011;31.10.2011;8,0;9,5;100;24.10.2011 09:41;""
+578;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Darstellung der verkleinerten PN mit Bild;Lukas Elmer;Lukas Elmer;31.10.2011 17:16;User Story;SP3;17.10.2011;31.10.2011;16,0;0;100;24.10.2011 09:32;die PN mithilfe eines Bildes unterscheiden, wenn sie verkleinert sind, um einfacher eine Auswahl zu treffen.
+577;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Navigation ???Detail -> Übersicht???;Lukas Elmer;Delia Treichler;31.10.2011 17:14;User Story;SP3;17.10.2011;31.10.2011;8,0;6,25;100;24.10.2011 09:32;von der Detailansicht zur Übersicht navigieren, damit ich mir einen Überblick über die aktuelle Detailansicht verschaffen kann.
+576;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Navigation ???Übersicht -> Detail???;Lukas Elmer;"";31.10.2011 17:14;User Story;SP3;17.10.2011;31.10.2011;8,0;6,5;100;24.10.2011 09:31;von der Übersicht über alle PN in eine Einzelansicht wechseln, damit ich die einzelnen PN lesen kann und genauere Infos erhalte.
+575;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Detailansicht PN;Lukas Elmer;Delia Treichler;31.10.2011 17:14;User Story;SP3;17.10.2011;31.10.2011;16,0;10,5;100;24.10.2011 09:30;eine Detailansicht der PN sehen, damit ich die einzelnen PN lesen kann und genauere Infos erhalte.
+574;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Übersicht für PN;Lukas Elmer;Christina Heidt;31.10.2011 17:16;User Story;SP3;17.10.2011;31.10.2011;24,0;0;100;24.10.2011 09:30;die PN in einer Übersicht anzeigen lassen, damit ich mir einen Überblick über die verschiedenen PN verschaffen kann.
+573;Project Flip 2.0 Zühlke;Feature;Feature #574: Übersicht für PN;Closed;Normal;Anzeige der PNs in Übersicht;Christina Heidt;Christina Heidt;31.10.2011 17:16;"";SP3;17.10.2011;31.10.2011;8,0;7,75;100;24.10.2011 09:23;""
+572;Project Flip 2.0 Zühlke;Feature;Feature #578: Darstellung der verkleinerten PN mit Bild;Closed;Normal;Bilder aus XPS extrahiert;Lukas Elmer;Lukas Elmer;31.10.2011 17:16;"";SP3;17.10.2011;31.10.2011;16,0;8,5;100;24.10.2011 08:30;""
+571;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Projektplan und User Stories angepasst;Lukas Elmer;Lukas Elmer;24.10.2011 14:24;"";SP3;17.10.2011;23.10.2011;4,0;6,0;100;19.10.2011 08:54;Gemäss Meeting, 17.10.2011, siehe Protokoll.
+570;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Sprint 7 vorgeplant;Lukas Elmer;Lukas Elmer;16.10.2011 23:40;"";SP2;03.10.2011;17.10.2011;2,0;2,0;100;16.10.2011 23:40;""
+569;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Diskussion Accessability dokumentiert;Lukas Elmer;"";31.10.2011 08:43;"";SP3;17.10.2011;31.10.2011;2,0;1,25;100;16.10.2011 23:13;""
+568;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Design Constraints dokumentiert;Lukas Elmer;"";31.10.2011 08:43;"";SP3;17.10.2011;31.10.2011;3,0;0,75;100;16.10.2011 23:12;""
+567;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;NF Anforderungen dokumentiert;Lukas Elmer;"";15.11.2011 09:47;"";SP4;01.11.2011;04.11.2011;1,5;2,0;100;16.10.2011 23:11;""
+566;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Guidelines gelesen / überflogen / dokumentiert;Lukas Elmer;"";24.10.2011 14:23;"";SP3;18.10.2011;24.10.2011;4,0;8,0;100;14.10.2011 15:01;""
+564;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Usability Tests durchgeführt und protokolliert;Lukas Elmer;Christina Heidt;13.12.2011 13:47;"";SP6;02.12.2011;12.12.2011;12,0;8,75;100;10.10.2011 11:17;"* Genaue Tests tbd
+
+Zeit:	Montag, 5. Dezember 2011 11:30-12:00.
+Ort:	6.112"
+563;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Guidelines gelesen / überflogen / dokumentiert;Lukas Elmer;"";14.10.2011 15:02;"";SP2;03.10.2011;17.10.2011;2,0;2,0;100;10.10.2011 09:36;* Welche Guidelines können wir einhalten
+562;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Video und Wiki Seite erstellt;Lukas Elmer;"";20.12.2011 11:11;"";SP7;12.12.2011;23.12.2011;8,0;14,0;100;10.10.2011 09:11;"* Video ist gedreht
+* Auf Wiki Seite kommt das Abstract
+"
+561;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Tools sind beschrieben;Lukas Elmer;"";20.12.2011 11:36;"";SP7;12.12.2011;23.12.2011;1,0;1,0;100;10.10.2011 09:09;""
+559;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Tests dokumentiert;Lukas Elmer;Lukas Elmer;13.12.2011 13:47;"";SP6;28.11.2011;12.12.2011;3,0;0,5;100;10.10.2011 08:51;""
+558;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Tests dokumentiert;Lukas Elmer;"";20.12.2011 13:57;"";SP5;14.11.2011;28.11.2011;3,0;3,0;100;10.10.2011 08:51;""
+557;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Tests dokumentiert;Lukas Elmer;Delia Treichler;20.12.2011 13:57;"";SP4;31.10.2011;14.11.2011;3,0;2,5;100;10.10.2011 08:51;""
+556;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Tests dokumentiert;Lukas Elmer;"";01.11.2011 17:42;"";SP3;17.10.2011;31.10.2011;6,0;3,0;100;10.10.2011 08:50;""
+554;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Codereview dokumentiert;Lukas Elmer;Lukas Elmer;20.12.2011 11:11;"";SP7;12.12.2011;23.12.2011;4,0;1,0;100;10.10.2011 08:48;"* Codingstandards
+* Architektur
+* VS Code Doku
+* GUI Guidelines, Accessibility"
+552;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Installationsanleitung geschrieben;Lukas Elmer;"";20.12.2011 11:11;"";SP7;12.12.2011;23.12.2011;2,0;1,0;100;10.10.2011 08:46;""
+551;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Aufgabenstellung unterschrieben;Lukas Elmer;"";13.12.2011 13:47;"";SP6;28.11.2011;12.12.2011;1,0;0,75;100;10.10.2011 08:45;""
+550;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Lizenzvereinbarung unterschrieben;Lukas Elmer;"";13.12.2011 13:47;"";SP6;28.11.2011;12.12.2011;4,0;2,0;100;10.10.2011 08:45;""
+549;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Erklärung eigenständige Arbeit unterschrieben;Lukas Elmer;"";13.12.2011 13:47;"";SP6;28.11.2011;12.12.2011;1,0;1,0;100;10.10.2011 08:44;""
+548;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Extended Management Summary geschrieben;Lukas Elmer;"";20.12.2011 11:11;"";SP7;12.12.2011;23.12.2011;14,0;10,5;100;10.10.2011 08:43;""
+547;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Management Summary geschrieben;Lukas Elmer;"";13.12.2011 16:19;"";SP7;12.12.2011;23.12.2011;0,0;0;100;10.10.2011 08:40;""
+546;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Abstract geschrieben;Lukas Elmer;"";13.12.2011 13:47;"";SP6;12.12.2011;12.12.2011;9,5;9,75;100;10.10.2011 08:40;""
+545;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Persönlicher Bericht geschrieben;Delia Treichler;"";20.12.2011 11:11;"";SP7;12.12.2011;23.12.2011;12,0;11,5;100;10.10.2011 08:33;""
+544;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;CD gebrannt und abgegeben;Lukas Elmer;"";20.12.2011 11:11;"";SP7;12.12.2011;23.12.2011;3,0;3,0;100;10.10.2011 08:32;""
+543;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Creative Workshop dokumentiert;Christina Heidt;"";20.12.2011 13:56;"";SP2;03.10.2011;17.10.2011;6,0;15,0;100;07.10.2011 15:50;""
+520;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Risikomanagement nachgeführt;Delia Treichler;Delia Treichler;20.12.2011 10:18;"";SP7;12.12.2011;23.12.2011;1,0;0,5;100;30.09.2011 14:18;""
+519;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Planung Sprint;Delia Treichler;Delia Treichler;03.10.2011 08:32;"";SP1;30.09.2011;30.09.2011;10,0;10,0;100;30.09.2011 13:44;Projektplan nachführen
+518;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Risikomanagement nachgeführt;Delia Treichler;Lukas Elmer;13.12.2011 13:47;"";SP6;28.11.2011;12.12.2011;1,0;0,5;100;30.09.2011 13:43;""
+517;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Sprint 7 geplant;Delia Treichler;"";13.12.2011 13:47;"";SP6;09.12.2011;12.12.2011;4,0;0,5;100;30.09.2011 13:40;Projektplan nachführen
+515;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Domain Model erstellt;Lukas Elmer;Lukas Elmer;20.12.2011 13:56;"";SP3;17.10.2011;31.10.2011;4,0;4,75;100;30.09.2011 11:41;Welche Objekte gibt es? (XML File analysieren, einzelne Felder aufsplitten, bsp. Technologien)
+514;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;User Stories priorisiert;Lukas Elmer;Lukas Elmer;19.10.2011 08:54;"";SP2;03.10.2011;17.10.2011;9,0;4,5;100;30.09.2011 11:28;"Vorschlag + von Kunde absegnen lassen, evt. kleinere Anpassungen bez. Priorität
+Must, Should, Could"
+513;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Scrum Poker durchgeführt;Lukas Elmer;Lukas Elmer;20.12.2011 13:56;"";SP2;03.10.2011;17.10.2011;3,0;3,0;100;30.09.2011 11:26;""
+512;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;User Stories definiert;Lukas Elmer;Lukas Elmer;20.12.2011 13:56;"";SP2;03.10.2011;17.10.2011;6,0;6,0;100;30.09.2011 11:26;""
+511;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Papierprototyp getestet und ausgewertet;Lukas Elmer;Christina Heidt;20.12.2011 13:56;"";SP2;03.10.2011;17.10.2011;8,0;20,0;100;30.09.2011 11:22;"Papierprototyp mit externen 2-3 Personen testen
+* In Richtung Personas!"
+510;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Papierprototyp erstellt;Lukas Elmer;Delia Treichler;20.12.2011 13:56;"";SP2;03.10.2011;17.10.2011;8,0;15,5;100;30.09.2011 11:20;""
+509;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Creative Workshop durchgeführt;Lukas Elmer;"";07.10.2011 17:36;"";SP2;03.10.2011;07.10.2011;12,0;12,0;100;30.09.2011 11:19;"Finden einer passenden Darstellung + Navigation + Look and feel
+* Spider View
+* Cover Flow
+* List View
+* ...
+
+Gruppenarbeit! (10.00-12.00 + 13.00-15.00)"
+508;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Szenarien erstellt;Lukas Elmer;Lukas Elmer;20.12.2011 13:56;"";SP2;03.10.2011;17.10.2011;12,0;6,5;100;30.09.2011 11:13;"Persona 1: Ulrich Umsetzer: i.o.
+Ist-Szenario-1: Könnte Project Notes mit seinem Smartphone abfotografieren?
+Soll-Szenario-1: Email Adresse eingeben? Businesskarte oder ähnliches abfotografieren? Würde aber danach über eine Nachbearbeitung laufen. Von Applikation an Empfang senden und Empfang verarbeitet diese Information. ??? Definition von User Story.
+
+Anmerkung Christian & Marco: Problem bei Email Adresse angeben. Die Eingabe dauert zu lange, wenn Person abgeholt wird.
+Andere Möglichkeit: Dame vom Emfpang sucht in der Zeit die Project Notes heraus, welche von dem Mitarbeiter ausgeschaut wurden. Personen müssen sich ja auf Liste eintragen. Dame kann Person eine getaggtes Objekt mitgeben mit welchem er identifiziert werden (Problem, dass sich erst alle anmelden wenn alle Personen da sind). Kombinierte Dienstleistungen. Physischer Akt hinzufügen (Neugier wecken).
+
+
+Persona 2: Erik Entscheider: i.o. Ausdrucksmöglichkeit gut als Idee. Für Gesprächsweiterführung.
+
+
+Persona 3: Leute, die sich Zühlke als Arbeitgeber vorstellen könnten (Bewerber) und daher auch an der Firma interessiert sind. Diese kommen (hoffentlich) genug früh. Finden von spannenden Themen für das Bewerbungsgespräch. Sicher auflisten in Doku."
+507;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Personas erstellt;Lukas Elmer;Lukas Elmer;20.12.2011 13:56;"";SP2;03.10.2011;17.10.2011;3,0;2,0;100;30.09.2011 11:12;""
+506;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Vision erstellt;Lukas Elmer;Lukas Elmer;20.12.2011 13:56;"";SP2;03.10.2011;17.10.2011;2,0;2,0;100;30.09.2011 11:11;""
+496;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Einarbeitung Scrum;Delia Treichler;"";03.10.2011 12:47;"";SP1;26.09.2011;30.09.2011;8,0;6,0;100;27.09.2011 14:49;""
+494;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Brainstorming, Interview analysieren;Lukas Elmer;"";27.09.2011 09:45;"";SP1;26.09.2011;26.09.2011;7,5;7,5;100;27.09.2011 09:42;Mit Christian besprechen, Brainstroming, Ideen für Wow-Effekt(e), ...
+492;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Studium Technologie;Delia Treichler;"";03.10.2011 08:31;"";SP1;19.09.2011;03.10.2011;4,0;4,5;100;27.09.2011 09:33;""
+491;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Sitzungsprotokolle;Delia Treichler;Delia Treichler;27.09.2011 09:50;"";SP1;26.09.2011;30.09.2011;1,0;1,0;100;26.09.2011 21:27;Protokoll nachbearbeiten, Email schicken
+490;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Flip 1.0 analysieren und dokumentieren;Delia Treichler;Lukas Elmer;03.10.2011 12:51;"";SP1;26.09.2011;03.10.2011;4,0;3,25;100;26.09.2011 13:07;"Funktionen und Darstellung von Flip 1.0?
+Dokumentieren, damit Fehler nicht nochmals geschehen. Ev. können diese Ideen uns weiterhelfen.
+
+Video?"
+489;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Projektmanagement;Delia Treichler;Delia Treichler;03.10.2011 08:29;"";SP1;19.09.2011;03.10.2011;4,0;6,5;100;23.09.2011 11:33;""
+488;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Risikomanagement nachgeführt;Lukas Elmer;Delia Treichler;28.11.2011 19:10;"";SP5;14.11.2011;28.11.2011;1,0;1,0;100;23.09.2011 11:22;""
+487;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Risikomanagement nachgeführt;Lukas Elmer;Lukas Elmer;14.11.2011 16:23;"";SP4;31.10.2011;14.11.2011;1,0;0,5;100;23.09.2011 11:22;""
+486;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Risikomanagement nachgeführt;Lukas Elmer;Delia Treichler;31.10.2011 17:15;"";SP3;17.10.2011;31.10.2011;1,0;0,75;100;23.09.2011 11:22;""
+485;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Risikomanagement nachgeführt;Lukas Elmer;Delia Treichler;17.10.2011 11:18;"";SP2;03.10.2011;17.10.2011;1,0;2,5;100;23.09.2011 11:21;""
+484;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Risiko Management;Christina Heidt;Delia Treichler;03.10.2011 17:04;"";SP1;19.09.2011;03.10.2011;5,0;1,0;100;23.09.2011 08:53;""
+482;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;XPS auf Surface darstellen;Lukas Elmer;Christina Heidt;27.09.2011 09:44;"";SP1;21.09.2011;30.09.2011;3,0;7,0;100;21.09.2011 17:05;http://fyeomans.com/2010/05/04/displaying-an-xps-document-on-the-microsoft-surface/
+481;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Interviews erstellen & organisieren;Lukas Elmer;Delia Treichler;20.12.2011 13:56;"";SP1;21.09.2011;30.09.2011;2,0;1,0;100;21.09.2011 17:03;"Mail an Christian
+Fragen erstellen
+
++Aus Kickoff-Meeting, 19.09.2011+
+Wichtige Informationen erhalten wir von indirekten Benutzern (was sind Project Notes, was ist der Inhalt)
+Interview Termine mit Marketing, Christan an einem Nachmittag. Nebenbei Ausschau halten für Kunden.
+Was macht ein Kunde jetzt vor den Project Notes?
+Am besten Kunde, den Zühlke kennt, den wir 10 min fragen könnten. Kunden fragen, welche Project Notes sie in letzter Zeit angeschaut haben. Videokamera installieren und schauen, was Kunden machen.
+
+wenn keine reale Beobachtung möglich: Zühkle befragt Kunden, ob nach Project Notes umgesehen.
+
+______________________________________________________________________________________
+Gesendet: 	Freitag, 23. September 2011 10:32
+An: 	
+Treichler Delia (dtreichl@hsr.ch)
+Cc: 	
+Elmer Lukas (lelmer@hsr.ch); Heidt Christina (cheidt@hsr.ch)
+Hallo zusammen,
+
+ich habe einmal mit ein paar Leuten gesprochen und ich denke, dass die Idee mit der Web-Cam von Markus etwas problematisch sein könnte, wegen der Privatsphäre der Kunden.
+
+Ich hätte jedoch eine andere Idee. Bei uns am Eingang gibt es einen Empfang. Dort arbeitet jeweils eine Person des Empfangsteams. Sie wären eigentlich perfekte Interviewpartner für euch, da sie täglich die Kunden dabei sehen, wie sie in der Eingangshalle warten und sich Projectnotes anschauen.
+
+Sie wären auch jeden Tag im Haus und daher wäre es sicher einfach einen Termin zu vereinbaren.
+
+Es sind zwar nicht die Kunden selbst, was nicht Ideal ist, aber sie können euch sicher einige interessante Details verraten.
+
+Was haltet ihr von der Idee?
+
+Gruss und en schöne Tag
+Christian"
+480;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Interviews durchführen;Lukas Elmer;"";03.10.2011 08:26;"";SP1;26.09.2011;26.09.2011;9,0;3,0;100;21.09.2011 16:37;"15:00
+Zühlke, Schlieren"
+479;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Administrative Arbeiten;Delia Treichler;"";03.10.2011 08:41;"";SP1;19.09.2011;03.10.2011;2,0;2,0;100;20.09.2011 09:30;Redmine einrichten etc
+475;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Meeting, 19.12.11;Delia Treichler;"";19.12.2011 17:21;"";SP7;19.12.2011;19.12.2011;3,0;4,75;100;20.09.2011 09:25;"13:10-13:55
+HSR 6.111
+Anwesend: Herr Stolze
+Wochenreview"
+474;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Meeting, 12.12.11;Delia Treichler;"";13.12.2011 12:48;"";SP6;12.12.2011;12.12.2011;3,0;4,75;100;20.09.2011 09:24;"13:10-13:55
+HSR 6.111
+Anwesend: Herr Stolze
+Wochenreview"
+473;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Meeting, 09.12.11;Delia Treichler;"";12.12.2011 09:10;"";SP6;09.12.2011;09.12.2011;6,0;5,5;100;20.09.2011 09:20;"1500-1700
+Sp6, Schlieren
+Anwesend: Christian, Markus
+Demo der Software, Sprint 6
+
+Zeit:	Freitag, 9. Dezember 2011 15:00-17:00.
+Ort:	Schlieren - Zühlke Tower"
+472;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Meeting, 28.11.11;Delia Treichler;"";28.11.2011 21:23;"";SP5;28.11.2011;28.11.2011;3,0;5,25;100;20.09.2011 09:18;"13:10-13:55
+HSR 6.111
+Anwesend: Herr Stolze
+Wochenreview
+"
+471;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Meeting, 05.12.11;Delia Treichler;"";09.12.2011 08:10;"";SP6;05.12.2011;05.12.2011;6,0;6,25;100;20.09.2011 09:17;"13:10-13:55
+HSR 6.112
+Anwesend: Herr Stolze
+Wochenreview"
+470;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Meeting, 11.11.11;Delia Treichler;"";11.11.2011 15:52;"";SP4;11.11.2011;11.11.2011;6,0;6,5;100;20.09.2011 09:13;"11.11.11, 13:00-15:00
+HSR
+Anwesend: Markus, Christian, (Marco)
+SP4, Demonstration der Must User Stories,
+Markus Stolze von 13:00-14:00"
+469;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Meeting, 07.11.11;Delia Treichler;"";09.11.2011 16:42;"";SP4;07.11.2011;07.11.2011;3,0;3,25;100;20.09.2011 09:11;"13:10-13:55
+HSR 6.111
+Anwesend: Herr Stolze
+Wochenreview"
+468;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Meeting, 24.10.11;Delia Treichler;"";24.10.2011 18:50;"";SP3;24.10.2011;24.10.2011;3,0;3,25;100;20.09.2011 09:08;Wochenmeeting mit Markus
+467;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Meeting, 17.10.11;Delia Treichler;"";19.10.2011 08:50;"";SP2;17.10.2011;17.10.2011;6,0;7,5;100;20.09.2011 09:07;"17.10. 1500-1700
+Sp2, Zühlke
+Anwesend: Christian, Marco, Markus
+Vision und Persona Ergänzungen, User Stories"
+466;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Meeting, 03.10.11;Delia Treichler;"";03.10.2011 17:00;"";SP1;03.10.2011;03.10.2011;12,0;13,5;100;20.09.2011 09:00;"Zeit noch nicht bekannt
+Sp1, Zühlke, Schlieren
+Anwesend: Christian, evt. Kunde(n) für Interview(s)
+Projektplanung Review, Architekturprototyp Review, Kundenanalyse / Benutzeranalyse vor Ort (wenn möglich mit Interviews?)
+(Christian und Marco ab 16.00 nicht mehr verfügbar)
+
+Agenda:
+Projektplan Sprint 2 besprechen"
+465;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Entwicklungsumgebung installieren/einrichten;Delia Treichler;"";25.09.2011 13:44;"";SP1;19.09.2011;20.09.2011;6,0;6,0;100;20.09.2011 08:46;PCs im Studienarbeitszimmer einrichten
+464;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Dokumenterstellung;Christina Heidt;Christina Heidt;23.09.2011 11:20;"";SP1;19.09.2011;23.09.2011;4,0;6,0;100;20.09.2011 08:43;""
+463;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Meeting, 26.09.11;Lukas Elmer;"";27.09.2011 09:36;"";SP1;26.09.2011;26.09.2011;3,0;6,0;100;04.09.2011 21:07;"10:10-10:55, HSR 6.111
+Anwesend: Herr Stolze
+Wochenreview, Bewertungskriterien"
+462;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Sprint 6 geplant;Lukas Elmer;"";28.11.2011 20:02;"";SP5;25.11.2011;25.11.2011;6,0;1,0;100;31.08.2011 21:18;Projektplan nachführen
+460;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Kickoff Meeting;Lukas Elmer;"";23.09.2011 10:21;"";SP0;31.08.2011;31.08.2011;7,5;7,5;100;31.08.2011 20:11;""
+459;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Sprint 5 geplant;Lukas Elmer;"";14.11.2011 14:17;"";SP4;11.11.2011;11.11.2011;6,0;0,5;100;31.08.2011 19:30;Projektplan nachführen
+458;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Sprint 4 geplant;Lukas Elmer;"";31.10.2011 16:49;"";SP3;31.10.2011;31.10.2011;6,0;3,5;100;31.08.2011 19:30;Projektplan nachführen
+457;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Sprint 3 geplant;Lukas Elmer;"";19.10.2011 08:55;"";SP2;14.10.2011;17.10.2011;6,0;4,5;100;31.08.2011 19:29;Projektplan nachführen
+456;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Planung Sprint 1;Lukas Elmer;Lukas Elmer;30.09.2011 14:35;"";SP1;19.09.2011;19.09.2011;6,5;6,5;100;31.08.2011 19:29;""
+455;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Planung Sprint;Lukas Elmer;Lukas Elmer;23.09.2011 10:19;"";SP0;31.08.2011;31.08.2011;2,5;2,5;100;31.08.2011 19:29;""
+454;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Architekurprototyp;Lukas Elmer;"";03.10.2011 12:49;"";SP1;19.09.2011;03.10.2011;20,0;15,25;100;31.08.2011 18:18;"* Vom SharePoint XML über die Project Notes (PDF) zum Surface
+** einfach
+** kein fancy Design
+** Bsp. Liste aller Project Notes auf Surface
+* Über alle Layers und Tiers
+"
+453;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Szenarien;Lukas Elmer;Christina Heidt;03.10.2011 08:23;"";SP1;23.09.2011;30.09.2011;1,0;1,0;100;31.08.2011 18:15;""
+452;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Personas;Lukas Elmer;Christina Heidt;30.09.2011 14:54;"";SP1;23.09.2011;30.09.2011;2,0;2,5;100;31.08.2011 18:15;""
+450;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Vision;Lukas Elmer;Christina Heidt;30.09.2011 14:53;"";SP1;19.09.2011;03.10.2011;3,0;4,0;100;31.08.2011 18:12;""
+449;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;PDF zu XPS konvertieren;Lukas Elmer;Lukas Elmer;25.09.2011 14:45;"";SP1;23.09.2011;23.09.2011;8,0;7,0;100;31.08.2011 18:11;Wie kann automatisch ein PDF zu einem XPS konvertiert werden?
+448;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Meeting, 14.11.11;Lukas Elmer;"";14.11.2011 14:02;"";SP4;14.11.2011;14.11.2011;6,0;3,0;100;31.08.2011 17:58;"13:10-13:55
+HSR 6.111
+Anwesend: Herr Stolze
+Wochenreview"
+447;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Meeting, 31.10.11;Lukas Elmer;"";31.10.2011 16:47;"";SP3;31.10.2011;31.10.2011;6,0;7,5;100;31.08.2011 17:56;"15:00-17:00
+HSR
+SP3, Codereview mit Christian, Demonstration der Must User Stories
+Anwesend: Markus, Christian, (Marco)
+Markus Stolze von 15:00-16:00"
+446;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Meeting, 10.10.11;Lukas Elmer;"";10.10.2011 17:49;"";SP2;10.10.2011;10.10.2011;6,0;6,0;100;31.08.2011 17:55;"13:10-13:55
+HSR 6.111
+Anwesend: Herr Stolze
+Wochenreview"
+445;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;Meeting, 19.09.11;Lukas Elmer;"";23.09.2011 10:08;"";SP1;19.09.2011;19.09.2011;6,0;6,0;100;31.08.2011 17:55;"13.00-15.00
+Kickoff, HSR 6.111
+Anwesend: Herr Stolze, Christian wenn möglich / falls gewünscht"
+444;Project Flip 2.0 Zühlke;Feature;"";Closed;Normal;WPF Einführung;Lukas Elmer;"";23.09.2011 10:22;"";SP0;07.09.2011;07.09.2011;9,0;9,0;100;31.08.2011 17:52;""
