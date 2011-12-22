@@ -1,0 +1,34 @@
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\Project Flip 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\bin\Debug\Resources\icon.png
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\Project Flip 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\bin\Debug\ProjectFlipXPSPrototype.xml
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\Project Flip 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\bin\Debug\SurfaceDarstellung.exe
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\Project Flip 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\bin\Debug\SurfaceDarstellung.pdb
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\Project Flip 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\Project Flip 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceWindow1.baml
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\Project Flip 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\App.baml
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\Project Flip 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceWindow1.g.cs
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\Project Flip 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\App.g.cs
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\Project Flip 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceDarstellung_Content.g.cs
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\Project Flip 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceDarstellung_MarkupCompile.cache
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\Project Flip 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceDarstellung.g.resources
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\Project Flip 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceDarstellung.Properties.Resources.resources
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\Project Flip 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\Project Flip 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\Project Flip 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceDarstellung.exe
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\Project Flip 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceDarstellung.pdb
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceDarstellung.exe
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceDarstellung.pdb
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\bin\Debug\Resources\icon.png
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\bin\Debug\ProjectFlipXPSPrototype.xml
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\bin\Debug\SurfaceDarstellung.exe
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\bin\Debug\SurfaceDarstellung.pdb
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\ResolveAssemblyReference.cache
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\App.baml
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\App.g.cs
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceDarstellung_Content.g.cs
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceDarstellung_MarkupCompile.cache
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceDarstellung.g.resources
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceDarstellung.Properties.Resources.resources
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\GenerateResource.read.1.tlog
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\GenerateResource.write.1.tlog
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceWindow1.baml
+D:\Flip Project 2.0\preparation\ProjectFlipXPSPrototype\SurfaceDarstellung\obj\Debug\SurfaceWindow1.g.cs

@@ -1,0 +1,17 @@
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\SurfaceDarstellung\SurfaceDarstellung\bin\Debug\Resources\icon.png
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\SurfaceDarstellung\SurfaceDarstellung\bin\Debug\SurfaceDarstellung.xml
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\SurfaceDarstellung\SurfaceDarstellung\bin\Debug\SurfaceDarstellung.exe
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\SurfaceDarstellung\SurfaceDarstellung\bin\Debug\SurfaceDarstellung.pdb
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\SurfaceDarstellung\SurfaceDarstellung\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\SurfaceDarstellung\SurfaceDarstellung\obj\Debug\SurfaceWindow1.baml
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\SurfaceDarstellung\SurfaceDarstellung\obj\Debug\App.baml
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\SurfaceDarstellung\SurfaceDarstellung\obj\Debug\SurfaceWindow1.g.cs
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\SurfaceDarstellung\SurfaceDarstellung\obj\Debug\App.g.cs
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\SurfaceDarstellung\SurfaceDarstellung\obj\Debug\SurfaceDarstellung_Content.g.cs
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\SurfaceDarstellung\SurfaceDarstellung\obj\Debug\SurfaceDarstellung_MarkupCompile.cache
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\SurfaceDarstellung\SurfaceDarstellung\obj\Debug\SurfaceDarstellung.g.resources
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\SurfaceDarstellung\SurfaceDarstellung\obj\Debug\SurfaceDarstellung.Properties.Resources.resources
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\SurfaceDarstellung\SurfaceDarstellung\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\SurfaceDarstellung\SurfaceDarstellung\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\SurfaceDarstellung\SurfaceDarstellung\obj\Debug\SurfaceDarstellung.exe
+C:\Users\Christina\HSR\5. Semester\Studienarbeitarbeit\SurfaceDarstellung\SurfaceDarstellung\obj\Debug\SurfaceDarstellung.pdb
