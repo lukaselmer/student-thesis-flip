@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ProjectFlip.Services.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ProjectNotesUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.zuehlke.com/uploads/tx_zepublications/</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

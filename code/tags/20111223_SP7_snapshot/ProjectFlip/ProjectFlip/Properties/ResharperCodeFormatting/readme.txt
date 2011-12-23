@@ -1,0 +1,1 @@
+copy UserSettings to %USERPROFILE%\Application Data\JetBrains\ReSharper\v6.0\vs10.0
