@@ -23,7 +23,9 @@ namespace ProjectFlip.UserInterface.Surface.Test
         {
             var gravatarService = new GravatarServiceMock();
             var target = new GravatarsViewModel(gravatarService);
-            IList<object> list = new[] { target.Persons.GetEnumerator() };
+            var personEnumerator = target.Persons.GetEnumerator();
+            IList<object> list = new List<object>();
+            while (personEnumerator.MoveNext()) list.Add(personEnumerator.Current);
             Assert.AreEqual(2, list.Count);
             Assert.AreSame(gravatarService.Persons[0], list[0] as PersonMock);
             Assert.AreSame(gravatarService.Persons[1], list[1] as PersonMock);
@@ -31,7 +33,8 @@ namespace ProjectFlip.UserInterface.Surface.Test
 
         private class GravatarServiceMock : IGravatarService
         {
-            public IList<IPerson> Persons { get { return new List<IPerson> { new PersonMock(), new PersonMock() }; } }
+            private readonly IList<IPerson> _persons = new List<IPerson> { new PersonMock(), new PersonMock() };
+            public IList<IPerson> Persons { get { return _persons; } }
         }
 
         private class PersonMock : IPerson
