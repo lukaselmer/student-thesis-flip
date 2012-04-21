@@ -4,17 +4,27 @@
              xmlns:s="clr-namespace:Microsoft.Surface.Presentation.Controls;assembly=Microsoft.Surface.Presentation"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d">
+             mc:Ignorable="d"
+             d:DesignHeight="200" d:DesignWidth="200">
 
     <UserControl.Resources>
         <DataTemplate x:Key="GravatarStyle">
-            <StackPanel>
+            <StackPanel Background="White">
+                <StackPanel.Effect>
+                    <DropShadowEffect BlurRadius="15" />
+                </StackPanel.Effect>
                 <Image Name="GravatarImage" Width="150" Height="150" Source="{Binding ImageUrl}"/>
                 <Label Name="GravatarName" FontSize="18" FontFamily="AA Zuehlke" Content="{Binding Name}"/>
             </StackPanel>
         </DataTemplate>
     </UserControl.Resources>
 
-    <s:ScatterView ItemsSource="{Binding Persons}" ItemTemplate="{StaticResource GravatarStyle}" />
+    <s:ScatterView ItemsSource="{Binding Persons}" ItemTemplate="{StaticResource GravatarStyle}">
+        <s:ScatterView.ItemContainerStyle>
+            <Style TargetType="{x:Type s:ScatterViewItem}">
+                <Setter Property="CanScale" Value="False"/>
+            </Style>
+        </s:ScatterView.ItemContainerStyle>
+    </s:ScatterView>
 
 </UserControl>

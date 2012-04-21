@@ -359,6 +359,6 @@
                 <TextBlock Margin="3" Style="{DynamicResource TextStyle}" Foreground="White" Text="Kriterien hinzufügen" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" TextAlignment="Center" />
             </s:SurfaceButton>
         </Grid>
-        <s:SurfaceButton Command="{Binding ToggleInfoCommand}" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20" Height="50" Width="50" Style="{StaticResource AboutButtonStyle}"></s:SurfaceButton>
+        <s:SurfaceButton Command="{Binding ToggleInfoCommand}" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20 60" Height="50" Width="50" Style="{StaticResource AboutButtonStyle}"></s:SurfaceButton>
     </Grid>
 </UserControl>
