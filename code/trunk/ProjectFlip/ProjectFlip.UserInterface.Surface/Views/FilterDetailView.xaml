@@ -95,15 +95,17 @@
     <Grid>
         <s:SurfaceButton Style="{DynamicResource BackgroundButtonStyle}" Command="{Binding ToggleFilterCommand}" />
 
-        <Grid>
+        <Grid Margin="0 50">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="240" />
                 <ColumnDefinition Width="1120"/>
             </Grid.ColumnDefinitions>
-            <s:SurfaceListBox x:Name="MaincriteriaListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="0" ItemsSource="{Binding Maincriteria}" 
-                              ItemTemplate="{DynamicResource FilterMainCriteriaTemplate}" ItemsPanel="{DynamicResource MaincriteriaItemPanelTemplate}" />
-            <s:SurfaceListBox Style="{DynamicResource SurfaceListBoxStyle}" BorderBrush="#d5d5d5" BorderThickness="10" Height="{Binding ActualHeight, ElementName=MaincriteriaListBox}" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Subcriteria}" 
+            <s:SurfaceListBox x:Name="MaincriteriaListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Right" Grid.Column="0" ItemsSource="{Binding Maincriteria}" 
+                              ItemTemplate="{DynamicResource FilterMainCriteriaTemplate}" ItemsPanel="{DynamicResource MaincriteriaItemPanelTemplate}" Background="#d5d5d5" />
+            <!-- VerticalAlignment="Center" -->
+            <s:SurfaceListBox Style="{DynamicResource SurfaceListBoxStyle}" BorderBrush="#d5d5d5" BorderThickness="10" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Subcriteria}" 
                               ItemTemplate="{StaticResource FilterSubCriteriaTemplate}" Background="White" ItemsPanel="{DynamicResource SubcriteriaItemPanelTemplate}" />
+            <!--  Height="{Binding ActualHeight, ElementName=MaincriteriaListBox}" -->
         </Grid>
     </Grid>
 </UserControl>
