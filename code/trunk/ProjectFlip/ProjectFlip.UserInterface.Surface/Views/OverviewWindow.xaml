@@ -9,7 +9,9 @@
                  x:Class="ProjectFlip.UserInterface.Surface.Views.OverviewWindow" 
                  mc:Ignorable="d" 
                  Title="Project Flip 2.0"
-                 Background="White">
+                 Background="White"
+                 WindowState="Maximized"
+                 WindowStyle="None">
 
     <s:SurfaceWindow.Resources>
         <ResourceDictionary>
